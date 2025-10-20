@@ -1,6 +1,6 @@
 {
   "name": "checking-tool-rcl",
-  "version": "0.9.27",
+  "version": "0.9.28-beta",
   "main": "dist",
   "source": "dist/index.js",
   "repository": "https://github.com/unfoldingWord-box/checking-tool-rcl.git",
@@ -8,12 +8,15 @@
   "license": "MIT",
   "scripts": {
     "start": "styleguidist server",
+    "build": "webpack --config webpack.config.js",
+    "build:dev": "webpack --config webpack.dev.js",
     "build:sg": "styleguidist build",
+    "watch": "webpack --config webpack.dev.js --watch",
     "test": "jest",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "prepublishOnly": "rm -rf ./dist && babel ./src --out-dir ./dist -s inline",
+    "prepublishOnly": "rm -rf ./dist && npm run build",
     "postpublish": "git tag v$npm_package_version && git push origin v$npm_package_version"
   },
   "files": [
@@ -43,7 +46,8 @@
     "style-loader": "^3.3.4",
     "tc-source-content-updater": "1.4.24",
     "tsv-groupdata-parser": "1.1.0",
-    "webpack": "^5.76.0"
+    "webpack": "^5.76.0",
+    "webpack-cli": "^5.0.0"
   },
   "dependencies": {
     "@material-ui/core": "^4.10.2",
