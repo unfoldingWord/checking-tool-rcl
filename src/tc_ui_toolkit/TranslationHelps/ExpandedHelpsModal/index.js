@@ -65,7 +65,7 @@ const ExpandedHelpsModal = ({
       className="dialog-content"
       dir={direction}
     >
-      <div dangerouslySetInnerHTML={{ __html: marked.parse(article) }} />
+      <div dangerouslySetInnerHTML={{ __html: marked.parse(article || "") }} />
     </DialogContent>
     <DialogActions disableSpacing className="dialog-actions">
       <button className="btn-prime" onClick={onHide}>

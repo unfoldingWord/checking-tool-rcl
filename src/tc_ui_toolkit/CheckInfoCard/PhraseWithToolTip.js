@@ -67,12 +67,12 @@ function PhraseWithToolTip({
           </span>
         </span>
         <span ref={toolTippedPhraseEl} style={{ color: '#fff' }}
-          dangerouslySetInnerHTML={{ __html: marked.parse(postReference) }}/>
+          dangerouslySetInnerHTML={{ __html: marked.parse(postReference || "") }}/>
       </div>
     );
   } else {
     return (
-      <div ref={phraseEl} style={{ color: '#fff' }} dangerouslySetInnerHTML={{ __html: marked.parse(phrase) }}/>
+      <div ref={phraseEl} style={{ color: '#fff' }} dangerouslySetInnerHTML={{ __html: marked.parse(phrase || "") }}/>
     );
   }
 }
