@@ -1,6 +1,6 @@
 {
   "name": "tc-checking-tool-rcl",
-  "version": "0.9.37",
+  "version": "0.9.38",
   "main": "dist",
   "source": "dist/index.js",
   "repository": "https://github.com/unfoldingWord-box/checking-tool-rcl.git",

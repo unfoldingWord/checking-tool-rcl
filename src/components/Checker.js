@@ -1242,7 +1242,7 @@ const Checker = ({
               showSeeMoreButton={false}
               title={groupTitle}
             />
-            {false && <VerseCheck
+            <VerseCheck
               alignedGLText={alignedGLText}
               bookDetails={bookDetails}
               bookmarkEnabled={bookmarkEnabled}
@@ -1291,10 +1291,10 @@ const Checker = ({
               unfilteredVerseText={unfilteredVerseText}
               validateSelections={validateSelections}
               verseText={verseText}
-            />}
+            />
           </div>
         </div>
-        {false && showDocument && <TranslationHelps
+        {showDocument && <TranslationHelps
           modalArticle={article}
           article={article}
           expandedHelpsButtonHoverText={'Click to show expanded help pane'}
