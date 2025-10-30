@@ -1242,7 +1242,7 @@ const Checker = ({
               showSeeMoreButton={false}
               title={groupTitle}
             />
-            <VerseCheck
+            {<VerseCheck
               alignedGLText={alignedGLText}
               bookDetails={bookDetails}
               bookmarkEnabled={bookmarkEnabled}
@@ -1292,9 +1292,10 @@ const Checker = ({
               validateSelections={validateSelections}
               verseText={verseText}
             />
+            }
           </div>
         </div>
-        {false && showDocument && <TranslationHelps
+        {showDocument && <TranslationHelps
           modalArticle={article}
           article={article}
           expandedHelpsButtonHoverText={'Click to show expanded help pane'}
@@ -1305,7 +1306,7 @@ const Checker = ({
           sidebarToggle={toggleHelps}
           isShowHelpsSidebar={showHelps}
         />}
-        { false && popoverProps?.popoverVisibility &&
+        {popoverProps?.popoverVisibility &&
           <PopoverContainer {...popoverProps} />
         }
       </div>
