@@ -108,7 +108,7 @@ export function getNote(occurrenceNote, linkRenderer = null) {
 
     // render markdown
     const CustomRenderer = buildRenderer(linkRenderer);
-    let convertedNote = marked(occurrenceNote, { renderer: CustomRenderer });
+    let convertedNote = marked.parse(occurrenceNote, { renderer: CustomRenderer });
 
     if (convertedNote) { // if not empty use
       occurrenceNote = convertedNote;

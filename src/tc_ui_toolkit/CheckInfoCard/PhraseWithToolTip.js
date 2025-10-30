@@ -67,7 +67,7 @@ function PhraseWithToolTip({
           </span>
         </span>
         <span ref={toolTippedPhraseEl} style={{ color: '#fff' }}
-          dangerouslySetInnerHTML={{ __html: marked(postReference) }}/>
+          dangerouslySetInnerHTML={{ __html: marked.parse(postReference) }}/>
       </div>
     );
   } else {
