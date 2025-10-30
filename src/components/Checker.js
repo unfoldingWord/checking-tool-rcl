@@ -1232,7 +1232,7 @@ const Checker = ({
               />
             </div>
           }
-          {false && <div>
+          <div>
             <CheckInfoCard
               getScriptureFromReference={_getScriptureFromReference}
               onLinkClick={() => false}
@@ -1242,7 +1242,7 @@ const Checker = ({
               showSeeMoreButton={false}
               title={groupTitle}
             />
-            <VerseCheck
+            {false && <VerseCheck
               alignedGLText={alignedGLText}
               bookDetails={bookDetails}
               bookmarkEnabled={bookmarkEnabled}
@@ -1291,8 +1291,8 @@ const Checker = ({
               unfilteredVerseText={unfilteredVerseText}
               validateSelections={validateSelections}
               verseText={verseText}
-            />
-          </div>}
+            />}
+          </div>
         </div>
         {false && showDocument && <TranslationHelps
           modalArticle={article}
