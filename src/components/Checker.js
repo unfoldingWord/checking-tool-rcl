@@ -1294,7 +1294,7 @@ const Checker = ({
             />
           </div>
         </div>
-        {showDocument && <TranslationHelps
+        {false && showDocument && <TranslationHelps
           modalArticle={article}
           article={article}
           expandedHelpsButtonHoverText={'Click to show expanded help pane'}
