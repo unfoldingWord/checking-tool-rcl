@@ -1,4 +1,4 @@
-import marked from 'marked';
+import {marked} from 'marked';
 import { getResourceDirByType } from './tHelpsHelpers';
 import { VerseObjectUtils } from 'word-aligner'
 import { verseHelpers } from 'word-aligner-lib'

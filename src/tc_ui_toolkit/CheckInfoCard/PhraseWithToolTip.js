@@ -1,6 +1,6 @@
 /* eslint-disable no-return-assign */
 import React, { useEffect, useRef } from 'react';
-import marked from 'marked';
+import {marked} from 'marked';
 import { getOffset } from './helpers';
 
 /**

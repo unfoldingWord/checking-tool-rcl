@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import marked from 'marked';
+import {marked} from 'marked';
 
 const THelpsMarkDown = ({ article }) => (
   <div className="helps-article">
