@@ -1232,7 +1232,7 @@ const Checker = ({
               />
             </div>
           }
-          <div>
+          {false && <div>
             <CheckInfoCard
               getScriptureFromReference={_getScriptureFromReference}
               onLinkClick={() => false}
@@ -1292,9 +1292,9 @@ const Checker = ({
               validateSelections={validateSelections}
               verseText={verseText}
             />
-          </div>
+          </div>}
         </div>
-        {showDocument && <TranslationHelps
+        {false && showDocument && <TranslationHelps
           modalArticle={article}
           article={article}
           expandedHelpsButtonHoverText={'Click to show expanded help pane'}
@@ -1305,7 +1305,7 @@ const Checker = ({
           sidebarToggle={toggleHelps}
           isShowHelpsSidebar={showHelps}
         />}
-        { popoverProps?.popoverVisibility &&
+        { false && popoverProps?.popoverVisibility &&
           <PopoverContainer {...popoverProps} />
         }
       </div>
