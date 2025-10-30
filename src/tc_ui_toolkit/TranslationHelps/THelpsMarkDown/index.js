@@ -35,7 +35,7 @@ const THelpsMarkDown = ({ article }) => (
     }}>
     </style>
     <div id="helpsbody" className="remarkableStyling helpsBody">
-      <div dangerouslySetInnerHTML={{ __html: marked.parse(article) }} />
+      <div dangerouslySetInnerHTML={{ __html: marked.parse(article || "") }} />
     </div>
   </div>
 );
