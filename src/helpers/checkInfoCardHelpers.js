@@ -107,8 +107,8 @@ export function getNote(occurrenceNote, linkRenderer = null) {
     occurrenceNote = occurrenceNote.replace(/\[\[(([^\][])*)]]/, '[$1]($1)');
 
     // render markdown
-    const CustomRenderer = buildRenderer(linkRenderer);
-    let convertedNote = marked.parse(occurrenceNote, { renderer: CustomRenderer });
+    // const CustomRenderer = buildRenderer(linkRenderer);
+    let convertedNote = marked.parse(occurrenceNote);
 
     if (convertedNote) { // if not empty use
       occurrenceNote = convertedNote;
