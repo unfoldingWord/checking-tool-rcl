@@ -1242,7 +1242,7 @@ const Checker = ({
               showSeeMoreButton={false}
               title={groupTitle}
             />
-            {false && <VerseCheck
+            <VerseCheck
               alignedGLText={alignedGLText}
               bookDetails={bookDetails}
               bookmarkEnabled={bookmarkEnabled}
@@ -1292,7 +1292,6 @@ const Checker = ({
               validateSelections={validateSelections}
               verseText={verseText}
             />
-            }
           </div>
         </div>
         {showDocument && <TranslationHelps

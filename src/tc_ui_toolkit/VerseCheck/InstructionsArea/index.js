@@ -22,7 +22,7 @@ function getSelectionString(invalidated, translate) {
             1
           </strong>
         </span>
-        <ReactTooltip />
+        <ReactTooltip id="selections-instructions-area-tooltip"/>
       </div>
     );
   }

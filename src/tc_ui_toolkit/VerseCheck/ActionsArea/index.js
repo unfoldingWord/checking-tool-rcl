@@ -71,7 +71,14 @@ const ChangeModeArea = ({
   toggleBookmark,
   changeMode,
 }) => {
-  const selectText = translate('select');
+  return <div style={{backgroundColor: "#FFCC00"}}>
+    <h1>ChangeModeArea</h1>
+    <div>translate {typeof translate}</div>
+    <div>bookmarkEnabled {typeof bookmarkEnabled}</div>
+    <div>toggleBookmark {typeof toggleBookmark}</div>
+    <div>changeMode {typeof changeMode}</div>
+  </div>
+  /* const selectText = translate('select');
   const editVerseText = translate('edit_verse');
   const commentText = translate('comment');
   return (
@@ -139,7 +146,7 @@ const ChangeModeArea = ({
         }
       </div>
     </div>
-  );
+  );*/
 };
 
 const ConfirmEditVerseArea = ({
@@ -148,6 +155,13 @@ const ConfirmEditVerseArea = ({
   cancelEditVerse,
   saveEditVerse,
 }) => {
+  return <div style={{backgroundColor: "#FFCC00"}}>
+    <h1>ConfirmEditVerseArea</h1>
+    <div>translate {typeof translate}</div>
+    <div>tags {typeof tags}</div>
+    <div>cancelEditVerse {typeof cancelEditVerse}</div>
+    <div>saveEditVerse {typeof saveEditVerse}</div>
+  </div>
   const cancelText = translate('cancel');
   const saveText = translate('save');
   return (
@@ -191,6 +205,13 @@ const ConfirmCommentArea = ({
   cancelComment,
   saveComment,
 }) => {
+  return <div style={{backgroundColor: "#FFCC00"}}>
+    <h1>ConfirmCommentArea</h1>
+    <div>translate {typeof translate}</div>
+    <div>isCommentChanged {typeof isCommentChanged}</div>
+    <div>cancelComment {typeof cancelComment}</div>
+    <div>saveComment {typeof saveComment}</div>
+  </div>
   const cancelText = translate('cancel');
   const saveText = translate('save');
   return (
@@ -239,6 +260,18 @@ const ConfirmSelectionArea = ({
   clearSelection,
   saveSelection,
 }) => {
+  /*return <div style={{backgroundColor: "#FFCC00"}}>
+    <h1>ConfirmSelectionArea</h1>
+    <div>classes {typeof classes}</div>
+    <div>localNothingToSelect {typeof localNothingToSelect}</div>
+    <div>newSelections {typeof newSelections}</div>
+    <div>nothingToSelect {typeof nothingToSelect}</div>
+    <div>selections {typeof selections}</div>
+    <div>toggleNothingToSelect {typeof toggleNothingToSelect}</div>
+    <div>cancelSelection {typeof cancelSelection}</div>
+    <div>clearSelection {typeof clearSelection}</div>
+    <div>saveSelection {typeof saveSelection}</div>
+  </div>*/
   const cancelText = translate('cancel');
   const clearSelectionText = translate('clear_selection');
   const saveText = translate('save');
@@ -278,7 +311,7 @@ const ConfirmSelectionArea = ({
           style={{ verticalAlign: 'super', fontSize: '0.8em' }}
         >
           <InfoIcon classes={{ root: classes.icon }}/>
-          <ReactTooltip/>
+          <ReactTooltip id="selections-actions-area-tooltip"/>
         </div>
       </div>
       <div style={{ whiteSpace: 'nowrap' }}>
@@ -367,6 +400,7 @@ const ActionsArea = ({
     bookMark: disableBookMark,
 
   } = (disables || {})
+  console.log("mode", mode || "NO MODE")
   switch (mode) {
   case 'edit':
     return (
@@ -386,7 +420,7 @@ const ActionsArea = ({
         saveComment={saveComment}
       />
     );
-  case 'select':
+case 'select':
     return (
       <ConfirmSelectionArea
         classes={classes}
@@ -401,7 +435,8 @@ const ActionsArea = ({
         saveSelection={saveSelection}
       />
     );
-  case 'default':
+
+    case 'default':
     return (
       <ChangeModeArea
         translate={translate}
@@ -410,7 +445,7 @@ const ActionsArea = ({
         changeMode={changeMode}
       />
     );
-  default:
+default:
     return (
       <ChangeModeArea
         translate={translate}
