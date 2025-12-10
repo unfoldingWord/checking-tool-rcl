@@ -75,6 +75,7 @@ import TranslationHelps from '../tc_ui_toolkit/TranslationHelps'
 import * as tHelpsHelpers from '../helpers/tHelpsHelpers'
 import VerseCheck from '../tc_ui_toolkit/VerseCheck'
 import { getScriptureFromReference } from '../helpers/checkInfoCardHelpers'
+import { TRANSLATION_NOTES, TRANSLATION_WORDS } from '../common/constants'
 
 const localStyles = {
   containerDiv:{
@@ -98,8 +99,8 @@ const localStyles = {
   },
 };
 
-export const translationWords = 'translationWords'
-export const translationNotes = 'translationNotes'
+export const translationWords = TRANSLATION_WORDS
+export const translationNotes = TRANSLATION_NOTES
 const maximumSelections = 10
 
 console.log('Checker.js - startup')
