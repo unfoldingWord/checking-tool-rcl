@@ -1,18 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import {
   withStyles,
-  createMuiTheme,
   ThemeProvider as MuiThemeProvider,
-} from '@material-ui/core/styles';
-import List from '@material-ui/core/List';
-import RootRef from '@material-ui/core/RootRef';
+} from '@mui/styles';
+import {createTheme} from '@mui/material/styles';
+import List from '@mui/material/List';
 import memoize from 'memoize-one';
 import MenuItem from './MenuItem';
 import MenuGroup from './MenuGroup';
 import EmptyItem from './EmptyItem';
 
-const theme = createMuiTheme({
+const theme = createTheme({
   typography: {
     fontFamily: [
       '"Noto Sans"',
@@ -351,8 +351,8 @@ class Menu extends React.Component {
 
     return (
       <MuiThemeProvider theme={theme}>
-        <RootRef rootRef={this.menuRef}>
           <List
+            ref={this.menuRef}
             component="nav"
             subheader={header}
             className={classes.root}
@@ -361,7 +361,7 @@ class Menu extends React.Component {
             }}
           >
             {entries.map((group, index) => (
-              <RootRef key={index} rootRef={this.handleGroupRef(group)}>
+              <div key={index} ref={this.handleGroupRef(group)}>
                 <React.Fragment>
                   <MenuGroup
                     selected={this.isGroupSelected(group)}
@@ -373,7 +373,7 @@ class Menu extends React.Component {
                   {this.isGroupOpen(group) ? (
                     <List component="div" disablePadding>
                       {group.children.map((item, index) => (
-                        <RootRef key={index} rootRef={this.handleItemRef(item)}>
+                        <div key={index} ref={this.handleItemRef(item)}>
                           <MenuItem
                             status={item}
                             selected={this.isItemSelected(item)}
@@ -384,17 +384,16 @@ class Menu extends React.Component {
                             targetLanguageFont={targetLanguageFont}
                             direction={item.direction}
                           />
-                        </RootRef>
+                        </div>
                       ))}
                     </List>
                   ) : null}
                 </React.Fragment>
-              </RootRef>
+              </div>
             ))}
             <EmptyItem key="empty" label={emptyNotice}
               enabled={entries.length === 0}/>
           </List>
-        </RootRef>
       </MuiThemeProvider>
     );
   }

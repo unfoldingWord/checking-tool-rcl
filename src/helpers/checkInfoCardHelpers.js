@@ -1,4 +1,4 @@
-import marked from 'marked';
+import {marked} from 'marked';
 import { getResourceDirByType } from './tHelpsHelpers';
 import { VerseObjectUtils } from 'word-aligner'
 import { verseHelpers } from 'word-aligner-lib'
@@ -107,8 +107,8 @@ export function getNote(occurrenceNote, linkRenderer = null) {
     occurrenceNote = occurrenceNote.replace(/\[\[(([^\][])*)]]/, '[$1]($1)');
 
     // render markdown
-    const CustomRenderer = buildRenderer(linkRenderer);
-    let convertedNote = marked(occurrenceNote, { renderer: CustomRenderer });
+    // const CustomRenderer = buildRenderer(linkRenderer);
+    let convertedNote = marked.parse(occurrenceNote);
 
     if (convertedNote) { // if not empty use
       occurrenceNote = convertedNote;

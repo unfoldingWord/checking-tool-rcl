@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReactTooltip from 'react-tooltip';
+import { Tooltip } from '@mui/material';
+
 // components
 import InstructionsAreaTextSelection, { SelectedText } from '../InstructionsAreaTextSelection';
 // css
@@ -10,19 +11,40 @@ function getSelectionString(invalidated, translate) {
   if (invalidated) {
     return (
       <div>
-        <span>{translate('selection_invalidated')}
-          <strong
-            data-tip={translate('invalidated_tooltip')}
-            data-place="top"
-            data-effect="float"
-            data-type="dark"
-            data-class="selection-tooltip"
-            data-delay-hide="100"
-            style={{ verticalAlign: 'super', fontSize: '0.8em' }}>
-            1
-          </strong>
+        <span>
+          {translate('selection_invalidated')}
+          <Tooltip
+            title={translate('invalidated_tooltip')}
+            placement="top"
+            arrow
+            slotProps={{
+              tooltip: {
+                sx: {
+                  backgroundColor: '#333',     // dark background
+                  color: '#fff',                // white text
+                  fontSize: '0.8em',
+                  borderRadius: '8px',
+                  p: 1,
+                  boxShadow: 3,
+                },
+              },
+              arrow: {
+                sx: { color: '#333' },
+              },
+            }}
+          >
+            <strong
+              style={{
+                verticalAlign: 'super',
+                fontSize: '0.8em',
+                marginLeft: 4,
+                cursor: 'help',
+              }}
+            >
+              1
+            </strong>
+          </Tooltip>
         </span>
-        <ReactTooltip />
       </div>
     );
   }
