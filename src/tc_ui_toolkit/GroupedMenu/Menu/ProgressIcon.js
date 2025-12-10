@@ -6,7 +6,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 const styles = () => ({
   root: { position: 'relative' },
   progress: {
-    postiion: 'absolute',
+    position: 'absolute',
     color: 'var(--completed-color)',
   },
   shadow: {
