@@ -7,6 +7,7 @@ import ThreeDotMenu from '../ThreeDotMenu';
 import { getFontClassName } from '../../common/fontUtils';
 import {
   getReferenceStr,
+  getReferenceStrFromTargetBible,
   getTitleStr,
   getTitleWithId,
   isLTR,
@@ -88,7 +89,7 @@ class DefaultArea extends React.Component {
     const bookName = book && book.name ? book.name : bookDetails.name;
     const languageName = targetLanguageDetails.name || null;
     const languageStr = getTitleWithId(languageName, languageCode);
-    const refStr = getReferenceStr(reference.chapter, reference.verse);
+    const refStr = getReferenceStrFromTargetBible(targetBible,reference.chapter, reference.verse);
     const title = getTitleStr(bookName, refStr);
     const isLTR_ = isLTR(direction);
     const style = { display: 'flex', flexDirection: 'column' };

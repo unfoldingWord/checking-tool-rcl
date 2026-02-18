@@ -264,8 +264,6 @@ export function findCheck(groupsData, contextId, defaultToFirst = false) {
 }
 
 export function findNextCheck(groupsData, contextId, defaultToFirst = false) {
-  console.log(groupsData)
-  console.log(contextId)
   let check = null
   let checkedBook = false;
   let matchFound = false
@@ -661,20 +659,17 @@ function compareByFirstUniqueWord(a, b) {
  * @return {string|null} returns null if error getting text
  */
 export function getAlignedGLText(alignedGlBible, contextId) {
-  console.log(contextId)
   if (contextId) {
     if (!alignedGlBible || !Object.keys(alignedGlBible).length) {
       return contextId.quote;
     }
 
     let verseObjects = verseHelpers.getBestVerseFromBook(alignedGlBible, contextId.reference.chapter, contextId.reference.verse)
-    console.log(verseObjects)
     if (verseObjects?.verseObjects) {
       verseObjects = verseObjects?.verseObjects
     }
     if (contextId ) {
       const alignedText = getAlignedText(verseObjects, contextId.quote, contextId.occurrence);
-      console.log(alignedText)
       if (alignedText) {
         return alignedText;
       }

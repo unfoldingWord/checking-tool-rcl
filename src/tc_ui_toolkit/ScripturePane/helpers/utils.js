@@ -1,5 +1,5 @@
 const defaultDirection = 'ltr';
-
+import { getRef } from "./verseHelpers";
 /**
  * Delays code execution for a number of ms given.
  * @param {number} ms
@@ -67,6 +67,23 @@ export function getReferenceStr(chapter, verse, direction = defaultDirection) {
   }
   return `${verse}:${chapter}`;
 }
+
+/**
+ * get reference arranged for language direction
+ * @param {object} targetBible
+ * @param {string} chapter
+ * @param {string|number} verse
+ * @param {boolean|string} direction
+ * @return {string}
+ */
+export function getReferenceStrFromTargetBible(targetBible,chapter, verse, direction = defaultDirection) {
+  let result = getRef(targetBible,chapter, verse)
+  if (isLTR(direction)) {
+    return `${result.chapter}:${result.verse}`;
+  }
+  return `${result.verse}:${result.chapter}`;
+}
+
 
 /**
  * get title arranged for language direction

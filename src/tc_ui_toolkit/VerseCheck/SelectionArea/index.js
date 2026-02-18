@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 // components
 import RenderSelectionTextComponent from '../RenderSelectionTextComponent';
 import ThreeDotMenu from '../ThreeDotMenu';
+import { getReferenceStrFromTargetBible } from '../../ScripturePane/helpers/utils';
 import MyLanguageModal from '../MyLanguageModal';
 import {
   getReferenceStr,
@@ -39,7 +40,7 @@ const SelectionArea = ({
   const bookName = book && book.name ? book.name : bookDetails.name;
   const languageName = targetLanguageDetails.name || null;
   const languageStr = getTitleWithId(languageName, languageCode);
-  const refStr = getReferenceStr(reference.chapter, reference.verse);
+  const refStr = getReferenceStrFromTargetBible(targetBible,reference.chapter, reference.verse);
   const title = getTitleStr(bookName, refStr);
   const isLTR_ = isLTR(direction);
   const style = { display: 'flex', flexDirection: 'column' };

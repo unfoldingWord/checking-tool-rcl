@@ -27,8 +27,8 @@ const styles = {
     'borderBottom': 'solid #ffffff4d 1px',
     'cursor': 'pointer',
     '&$selected': {
-      'backgroundColor': '#2196F3',
-      '&:hover': { backgroundColor: '#2196F3' },
+      'backgroundColor': 'var(--accent-color)',
+      '&:hover': { backgroundColor: 'var(--accent-color)' },
     },
   },
   selected: {},

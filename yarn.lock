@@ -10306,7 +10306,7 @@ __metadata:
     uw-tsv-parser: "npm:1.0.3"
     webpack: "npm:^5.76.0"
     word-aligner: "npm:1.0.3"
-    word-aligner-lib: "npm:1.0.0"
+    word-aligner-lib: "npm:1.0.1"
     wordmap-lexer: "npm:^0.3.6"
   peerDependencies:
     prop-types: ^15.x
@@ -11184,9 +11184,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"word-aligner-lib@npm:1.0.0":
-  version: 1.0.0
-  resolution: "word-aligner-lib@npm:1.0.0"
+"word-aligner-lib@npm:1.0.1":
+  version: 1.0.1
+  resolution: "word-aligner-lib@npm:1.0.1"
   dependencies:
     deep-equal: "npm:^2.0.5"
     file-loader: "npm:^6.2.0"
@@ -11198,7 +11198,7 @@ __metadata:
     wordmap-lexer: "npm:^0.3.6"
   peerDependencies:
     prop-types: ^15.x
-  checksum: 10c0/62f33ccba56211fae2667a5a9fee5e50a0f0d2c3c526dbde2b98cef24f4b062dba346c6aa0820375a4e178ca11ebadc8f51347c812cef478499d958e1136ba4f
+  checksum: 10c0/e7ca21d885728faa5ccdd72158a346c59b2b457f8ff7bb68894e2e5853b02b3de0e9c0c129d030180a536c5b304301665aef0cac05ccbbd76cd2d566d6c63c59
   languageName: node
   linkType: hard
 

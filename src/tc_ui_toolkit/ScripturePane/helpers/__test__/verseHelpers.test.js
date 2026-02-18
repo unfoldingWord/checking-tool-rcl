@@ -366,7 +366,6 @@ describe('verseHelpers.createVerseMarker', () => {
  */
 export const readUSFM = filePath => {
   const fullPath = path.join('./src/tc_ui_toolkit/ScripturePane/helpers/__test__/fixtures', filePath);
-  console.log(path.resolve(fullPath));
   return fs.readFileSync(fullPath, 'UTF-8').toString();
 };
 

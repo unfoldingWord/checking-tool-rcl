@@ -17,8 +17,8 @@ const useStyles = makeStyles({
     cursor: 'pointer',
     fontSize: '22px',
   },
-  sliderRoot: { color: '#19579E' },
-  sliderMark: { backgroundColor: '#19579E' },
+  sliderRoot: { color: 'var(--accent-color-dark)' },
+  sliderMark: { backgroundColor: 'var(--accent-color-dark)' },
   valueLabel: {
     'top': -14,
     'fontSize': '10px',
