@@ -79,3 +79,4 @@ Contributions to the checking-tool-rcl are welcome! Whether you're fixing bugs, 
 ## License
 
 This project is licensed under the terms specified in the LICENSE file in the repository.
+
