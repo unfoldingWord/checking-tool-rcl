@@ -21,8 +21,8 @@ const styles = {
     'borderBottom': 'solid #333333 1px',
     'backgroundColor': '#747474',
     '&$selected': {
-      'backgroundColor': '#2196F3',
-      '&:hover': { backgroundColor: '#2196F3' },
+      'backgroundColor': 'var(--accent-color)',
+      '&:hover': { backgroundColor: 'var(--accent-color)' },
     },
   },
   selected: {},
@@ -49,8 +49,8 @@ const styles = {
   selectedBadge: {
     backgroundColor: '#ffffff',
     border: 'solid 2px #747474',
-    borderColor: '#2196F3',
-    color: '#2196F3',
+    borderColor: 'var(--accent-color)',
+    color: 'var(--accent-color)',
     fontWeight: 'bold',
     fontSize: '75%',
     width: 18,

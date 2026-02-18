@@ -25,7 +25,7 @@ class ChapterView extends Component {
       element.scrollIntoView();
     }
   }
-
+  
   /**
    * Generates a key to use for verse ref's
    * @param chapter
@@ -58,8 +58,14 @@ class ChapterView extends Component {
 
     const { chapter, verse } = contextId.reference;
     const languageID = 'en';
-    const bookID = 'ult';
-    const bible = getBibleElement(bibles, languageID, bookID);
+    let key;
+    for (let [key2,value] of Object.entries(bibles)){
+      if(Object.keys(value).some(e => e ==='targetBible')){
+        key = key2
+        break
+      }
+    }
+    const bible = getBibleElement(bibles, key, 'targetBible');
     const verseNumbers = Object.keys(bible[chapter]);
     const { manifest: projectManifest } = projectDetailsReducer;
     const targetLanguageFont = projectManifest.projectFont || '';

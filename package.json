@@ -1,6 +1,6 @@
 {
   "name": "tc-checking-tool-rcl",
-  "version": "0.9.112",
+  "version": "0.9.127",
   "main": "dist",
   "source": "dist/index.js",
   "repository": "https://github.com/unfoldingWord-box/checking-tool-rcl.git",
@@ -72,7 +72,7 @@
     "usfm-js": "^2",
     "uw-tsv-parser": "1.0.3",
     "word-aligner": "1.0.3",
-    "word-aligner-lib": "1.0.0",
+    "word-aligner-lib": "1.0.1",
     "wordmap-lexer": "^0.3.6"
   },
   "resolutions": {
