@@ -10,7 +10,7 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import marked from 'marked';
+import {marked} from 'marked';
 import Paper from '@mui/material/Paper';
 import Draggable from 'react-draggable';
 
@@ -65,7 +65,7 @@ const ExpandedHelpsModal = ({
       className="dialog-content"
       dir={direction}
     >
-      <div dangerouslySetInnerHTML={{ __html: marked(article) }} />
+      <div dangerouslySetInnerHTML={{ __html: marked.parse(article || "") }} />
     </DialogContent>
     <DialogActions disableSpacing className="dialog-actions">
       <button className="btn-prime" onClick={onHide}>

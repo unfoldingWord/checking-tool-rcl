@@ -1,6 +1,6 @@
 /* eslint-disable no-return-assign */
 import React, { useEffect, useRef } from 'react';
-import marked from 'marked';
+import {marked} from 'marked';
 import { getOffset } from './helpers';
 
 /**
@@ -67,12 +67,12 @@ function PhraseWithToolTip({
           </span>
         </span>
         <span ref={toolTippedPhraseEl} style={{ color: '#fff' }}
-          dangerouslySetInnerHTML={{ __html: marked(postReference) }}/>
+          dangerouslySetInnerHTML={{ __html: marked.parse(postReference || "") }}/>
       </div>
     );
   } else {
     return (
-      <div ref={phraseEl} style={{ color: '#fff' }} dangerouslySetInnerHTML={{ __html: marked(phrase) }}/>
+      <div ref={phraseEl} style={{ color: '#fff' }} dangerouslySetInnerHTML={{ __html: marked.parse(phrase || "") }}/>
     );
   }
 }

@@ -40,7 +40,9 @@
  * - VerseCheck: Main checking interface for verses
  * - PopoverContainer: Displays contextual information
  */
+import { removeUsfmMarkers } from '../utils/usfmHelpers'
 import React, { useEffect, useMemo, useState } from 'react'
+import { validateSelectionsForAllChecks } from '../utils/selectionHelper'
 import PropTypes from 'prop-types'
 import _ from 'lodash'
 import GroupMenuComponent from './GroupMenuComponent'
@@ -48,7 +50,9 @@ import {
   groupDataHelpers,
   selectionsHelpers,
   UsfmFileConversionHelpers,
-  verseHelpers
+  verseHelpers,
+  AlignmentHelpers,
+  
 } from 'word-aligner-lib'
 import isEqual from 'deep-equal'
 import {
@@ -58,6 +62,7 @@ import {
   getAlignedGLText,
   getPhraseFromTw,
   getTitleFromIndex,
+  
   parseTwToIndex
 } from '../helpers/translationHelps/twArticleHelpers'
 import CheckInfoCard from '../tc_ui_toolkit/CheckInfoCard'
@@ -70,6 +75,7 @@ import TranslationHelps from '../tc_ui_toolkit/TranslationHelps'
 import * as tHelpsHelpers from '../helpers/tHelpsHelpers'
 import VerseCheck from '../tc_ui_toolkit/VerseCheck'
 import { getScriptureFromReference } from '../helpers/checkInfoCardHelpers'
+import { TRANSLATION_NOTES, TRANSLATION_WORDS } from '../common/constants'
 
 const localStyles = {
   containerDiv:{
@@ -93,8 +99,8 @@ const localStyles = {
   },
 };
 
-export const translationWords = 'translationWords'
-export const translationNotes = 'translationNotes'
+export const translationWords = TRANSLATION_WORDS
+export const translationNotes = TRANSLATION_NOTES
 const maximumSelections = 10
 
 console.log('Checker.js - startup')
@@ -297,9 +303,9 @@ const Checker = ({
         modified: false,
         isCommentChanged: false,
       }
-
+      console.log('debug',targetBible,flattenedGroupData)
       // validate all checks
-      selectionsHelpers.validateSelectionsForAllChecks(targetBible, flattenedGroupData, (check, invalidated) => {
+      validateSelectionsForAllChecks(targetBible, flattenedGroupData, (check, invalidated) => {
         if (check) {
           console.log(`${name}-saveEditVerse - check validation changed`, check)
           _saveCheckingData(check, { invalidated })
@@ -327,6 +333,7 @@ const Checker = ({
     const reference = contextId?.reference
     const verseText = verseHelpers.getVerseTextFromBible(targetBible, reference)
     const alignedGLText = getAlignedGLText(alignedGlBible, contextId);
+    console.log(alignedGLText)
     const groupTitle = getTitleFromIndex(groupsIndex_, contextId?.groupId)
     const groupPhrase =
       checkType === translationNotes
@@ -1194,7 +1201,7 @@ const Checker = ({
     ...localStyles.containerDiv,
     ...styleProps,
   }
-
+console.log(bibles)
   return (
     readyToDisplayChecker ?
       <div id='checker' style={_checkerStyles}>
@@ -1305,7 +1312,7 @@ const Checker = ({
           sidebarToggle={toggleHelps}
           isShowHelpsSidebar={showHelps}
         />}
-        { popoverProps?.popoverVisibility &&
+        {popoverProps?.popoverVisibility &&
           <PopoverContainer {...popoverProps} />
         }
       </div>
