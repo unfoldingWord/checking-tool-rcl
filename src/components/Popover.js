@@ -1,9 +1,9 @@
-
 import React, { useCallback } from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles } from '@mui/styles'
 import Popover from '@mui/material/Popover'
 import Divider from '@mui/material/Divider'
+import { Typography } from '@mui/material'
 import { CgClose } from 'react-icons/cg'
 import useWindowEvent from '../helpers/useWindowEvent'
 import IconButton from '@mui/material/IconButton'
@@ -23,51 +23,63 @@ const PopoverComponent = ({
   onClosePopover,
 }) => {
   const classes = useStyles();
+
   const onEscapeKeyPressed = useCallback((e) => {
     if (e.key === 'Escape' || e.keyCode === 27) {
       onClosePopover();
     }
-  },[onClosePopover]);
+  }, [onClosePopover]);
 
   useWindowEvent('keydown', onEscapeKeyPressed)
 
   return (
     <div>
       <Popover
-        classes={{paper: classes.popover}}
+        classes={{ paper: classes.popover }}
         open={popoverVisibility}
         anchorEl={positionCoord}
         anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
         transformOrigin={{ horizontal: 'left', vertical: 'top' }}
         onClose={onClosePopover}
       >
-        <div style={{
-          display: 'flex', alignItems:'top', padding: 0,
-        }}>
-          <span style={{
-            fontSize: '1.2em', fontWeight: 'bold', marginBottom: 10, marginTop: 0, paddingTop: 0,
-          }}>
+        <div style={{ display: 'flex', alignItems: 'flex-start' }}>
+          
+          <Typography
+            component="div"
+            sx={{
+              fontSize: '1.2em',
+              fontWeight: 'bold',
+              mb: 1,
+            }}
+          >
             {title}
-          </span>
+          </Typography>
+
           <IconButton
             key='lexicon-close-button'
             onClick={onClosePopover}
-            title={'Close Lexicon'}
-            aria-label={'Close Lexicon'}
-            style={{
-              paddingTop: '0px',
-              cursor: 'pointer',
-              alignItems: 'top',
-              marginLeft: 'auto', marginRight: 5,
+            title='Close Lexicon'
+            aria-label='Close Lexicon'
+            sx={{
+              pt: 0,
+              ml: 'auto',
+              mr: 0.5,
             }}
           >
             <CgClose id='lexicon-close-icon' color='black' />
           </IconButton>
+
         </div>
+
         <Divider />
-        <span style={{ padding: '10px 0 15px 0' }}>
+
+        <Typography
+          component="div"
+          sx={{ pt: 1, pb: 1.5 }}
+        >
           {bodyText}
-        </span>
+        </Typography>
+
       </Popover>
     </div>
   );

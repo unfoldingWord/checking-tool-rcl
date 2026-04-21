@@ -7,7 +7,7 @@ import FormControlLabel from '@mui/material/FormControlLabel'
 import InfoIcon from '@mui/icons-material/Info'
 import CheckBoxOutlineIcon from '@mui/icons-material/CheckBoxOutlineBlank'
 import CheckBoxIcon from '@mui/icons-material/CheckBox'
-import { Tooltip, IconButton } from '@mui/material'
+import { Tooltip, IconButton, Typography } from '@mui/material'
 // import { Tooltip as ReactTooltip } from 'react-tooltip'
 // components
 import Bookmark from '../../Bookmark'
@@ -325,9 +325,9 @@ const ConfirmSelectionArea = ({
         />
         <Tooltip
           title={
-            <span style={{ fontSize: '0.8em' }}>
+            <Typography sx={{ fontSize: '0.8em' }}>
               {translate('nothing_to_select_description')}
-            </span>
+            </Typography>
           }
           placement='top'
           arrow

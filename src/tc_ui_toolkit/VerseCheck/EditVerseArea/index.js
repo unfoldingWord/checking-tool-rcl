@@ -13,6 +13,7 @@ import { getFontClassName } from '../../common/fontUtils';
 
 import './EditVerseArea.styles.css';
 import { TfiPencil } from 'react-icons/tfi'
+import { Typography } from '@mui/material';
 
 const styles = {
   formControlLabelRoot: { height: 30 },
@@ -102,10 +103,11 @@ const EditVerseArea = ({
 
   return (
     <div className='edit-area'>
-      <div style={{ fontWeight: 'bold' }}>
+      <Typography 
+      fontWeight={'bold'}>
         <TfiPencil style={{ marginRight: '5px' }} />
         {translate('edit_verse')}
-      </div>
+      </Typography>
       <FormGroup style={{
         flex: 'auto', display: 'flex', flexDirection: 'column', marginBottom: '5px',
       }} controlId='formControlsTextarea'>
