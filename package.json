@@ -1,6 +1,6 @@
 {
   "name": "tc-checking-tool-rcl",
-  "version": "0.9.129",
+  "version": "0.9.133",
   "main": "dist",
   "source": "dist/index.js",
   "repository": "https://github.com/unfoldingWord-box/checking-tool-rcl.git",
@@ -47,7 +47,7 @@
     "tc-source-content-updater": "1.4.24",
     "tsv-groupdata-parser": "1.1.0",
     "webpack": "^5.76.0",
-    "webpack-cli": "^5.0.0"
+    "webpack-cli": "^7.0.2"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",

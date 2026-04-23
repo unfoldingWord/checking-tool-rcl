@@ -39,7 +39,6 @@ function ThreeDotMenu({
   const handleFontSizeChange = (fontSize) => {
     changePaneFontSize(index, fontSize);
   };
-  console.log(disableFontMenu)
   return (
     <>
       <ThreeDotIcon onClick={handleClick} style={{ margin: '0 0 0 10px' }}/>
