@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Badge from '@material-ui/core/Badge';
+import { withStyles } from '@mui/styles';
+import Badge from '@mui/material/Badge';
 import FunnelIcon from '../../icons/Funnel';
 
 const styles = () => ({
   badge: {
-    border: '2px solid #19579E',
+    border: '2px solid var(--accent-color-dark)',
     backgroundColor: '#933',
     color: '#ffffff',
     fontWeight: 'bold',
@@ -40,7 +40,7 @@ const MenuFilterIcon = ({
       invisible={count <= 0}
       classes={{ badge: classes.badge, root: rootClass }}
     >
-      <FunnelIcon style={{ color: open ? '#19579E' : '#ffffff' }} />
+      <FunnelIcon style={{ color: open ? 'var(--accent-color-dark)' : '#ffffff' }} />
     </Badge>
   );
 };

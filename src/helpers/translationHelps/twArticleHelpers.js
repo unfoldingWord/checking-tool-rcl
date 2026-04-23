@@ -670,7 +670,6 @@ export function getAlignedGLText(alignedGlBible, contextId) {
     }
     if (contextId ) {
       const alignedText = getAlignedText(verseObjects, contextId.quote, contextId.occurrence);
-
       if (alignedText) {
         return alignedText;
       }

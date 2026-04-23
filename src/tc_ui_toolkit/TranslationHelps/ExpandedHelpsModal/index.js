@@ -4,14 +4,14 @@
 */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import marked from 'marked';
-import Paper from '@material-ui/core/Paper';
+import { withStyles } from '@mui/styles';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import {marked} from 'marked';
+import Paper from '@mui/material/Paper';
 import Draggable from 'react-draggable';
 
 import './ExpandedHelpsModal.styles.css';
@@ -65,7 +65,7 @@ const ExpandedHelpsModal = ({
       className="dialog-content"
       dir={direction}
     >
-      <div dangerouslySetInnerHTML={{ __html: marked(article) }} />
+      <div dangerouslySetInnerHTML={{ __html: marked.parse(article || "") }} />
     </DialogContent>
     <DialogActions disableSpacing className="dialog-actions">
       <button className="btn-prime" onClick={onHide}>

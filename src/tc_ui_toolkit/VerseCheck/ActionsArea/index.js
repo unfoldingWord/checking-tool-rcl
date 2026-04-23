@@ -1,18 +1,19 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import isEqual from 'deep-equal';
-import Checkbox from '@material-ui/core/Checkbox';
-import { withStyles } from '@material-ui/core/styles';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import InfoIcon from '@material-ui/icons/Info';
-import CheckBoxOutlineIcon from '@material-ui/icons/CheckBoxOutlineBlank';
-import CheckBoxIcon from '@material-ui/icons/CheckBox';
-import ReactTooltip from 'react-tooltip';
+import React from 'react'
+import PropTypes from 'prop-types'
+import isEqual from 'deep-equal'
+import Checkbox from '@mui/material/Checkbox'
+import { withStyles } from '@mui/styles'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import InfoIcon from '@mui/icons-material/Info'
+import CheckBoxOutlineIcon from '@mui/icons-material/CheckBoxOutlineBlank'
+import CheckBoxIcon from '@mui/icons-material/CheckBox'
+import { Tooltip, IconButton, Typography } from '@mui/material'
+// import { Tooltip as ReactTooltip } from 'react-tooltip'
 // components
-import Bookmark from '../../Bookmark';
+import Bookmark from '../../Bookmark'
 // css
-import './ActionsArea.styles.css';
-import Hint from '../../Hint/Hint';
+import './ActionsArea.styles.css'
+import Hint from '../../Hint/Hint'
 import { FaCheck } from 'react-icons/fa'
 import { TfiComment, TfiPencil } from 'react-icons/tfi'
 import { LuEraser } from 'react-icons/lu'
@@ -25,8 +26,8 @@ const styles = {
     fontSize: 14,
   },
   checkBoxRoot: {
-    'padding': '12px 5px',
-    'color': 'var(--accent-color-dark)',
+    padding: '12px 5px',
+    color: 'var(--accent-color-dark)',
     '&$checked': { color: 'var(--accent-color-dark)' },
   },
   checked: {},
@@ -45,24 +46,32 @@ const styles = {
     whiteSpace: 'nowrap',
     paddingRight: '0px',
   },
-};
+}
 
-const hideBookmarks = false;
-const hideEdit = false;
-const hideComment = false;
+const hideBookmarks = false
+const hideEdit = false
+const hideComment = false
 
 const actionButtonStyleRM = {
   ...styles.actionButtons,
   marginRight: '5px',
-};
+}
 
-const isSelectionsSaveDisable = (localNothingToSelect, nothingToSelect, newSelections, selections) => {
-  if (newSelections.length > 0 || (newSelections.length === 0 && !isEqual(newSelections, selections))) {
-    return isEqual(newSelections, selections);
+const isSelectionsSaveDisable = (
+  localNothingToSelect,
+  nothingToSelect,
+  newSelections,
+  selections
+) => {
+  if (
+    newSelections.length > 0 ||
+    (newSelections.length === 0 && !isEqual(newSelections, selections))
+  ) {
+    return isEqual(newSelections, selections)
   }
 
-  return localNothingToSelect === nothingToSelect;
-};
+  return localNothingToSelect === nothingToSelect
+}
 
 /* eslint-disable react/prop-types */
 const ChangeModeArea = ({
@@ -71,6 +80,15 @@ const ChangeModeArea = ({
   toggleBookmark,
   changeMode,
 }) => {
+  // return (
+  //   <div style={{ backgroundColor: '#FFCC00' }}>
+  //     <h1>ChangeModeArea</h1>
+  //     <div>translate {typeof translate}</div>
+  //     <div>bookmarkEnabled {typeof bookmarkEnabled}</div>
+  //     <div>toggleBookmark {typeof toggleBookmark}</div>
+  //     <div>changeMode {typeof changeMode}</div>
+  //   </div>
+  // )
   const selectText = translate('select');
   const editVerseText = translate('edit_verse');
   const commentText = translate('comment');
@@ -140,7 +158,7 @@ const ChangeModeArea = ({
       </div>
     </div>
   );
-};
+}
 
 const ConfirmEditVerseArea = ({
   translate,
@@ -148,8 +166,17 @@ const ConfirmEditVerseArea = ({
   cancelEditVerse,
   saveEditVerse,
 }) => {
-  const cancelText = translate('cancel');
-  const saveText = translate('save');
+  // return (
+  //   <div style={{ backgroundColor: '#FFCC00' }}>
+  //     <h1>ConfirmEditVerseArea</h1>
+  //     <div>translate {typeof translate}</div>
+  //     <div>tags {typeof tags}</div>
+  //     <div>cancelEditVerse {typeof cancelEditVerse}</div>
+  //     <div>saveEditVerse {typeof saveEditVerse}</div>
+  //   </div>
+  // )
+  const cancelText = translate('cancel')
+  const saveText = translate('save')
   return (
     <div className='actions-area'>
       <Hint
@@ -159,10 +186,7 @@ const ConfirmEditVerseArea = ({
         enabled={!!cancelText}
         hintLength={14}
       >
-        <button
-          className='btn-second'
-          onClick={cancelEditVerse}
-        >
+        <button className='btn-second' onClick={cancelEditVerse}>
           {cancelText}
         </button>
       </Hint>
@@ -173,7 +197,8 @@ const ConfirmEditVerseArea = ({
         enabled={!!saveText}
         hintLength={14}
       >
-        <button className='btn-prime'
+        <button
+          className='btn-prime'
           disabled={!tags.length}
           onClick={saveEditVerse}
         >
@@ -182,8 +207,8 @@ const ConfirmEditVerseArea = ({
         </button>
       </Hint>
     </div>
-  );
-};
+  )
+}
 
 const ConfirmCommentArea = ({
   translate,
@@ -191,8 +216,17 @@ const ConfirmCommentArea = ({
   cancelComment,
   saveComment,
 }) => {
-  const cancelText = translate('cancel');
-  const saveText = translate('save');
+  // return (
+  //   <div style={{ backgroundColor: '#FFCC00' }}>
+  //     <h1>ConfirmCommentArea</h1>
+  //     <div>translate {typeof translate}</div>
+  //     <div>isCommentChanged {typeof isCommentChanged}</div>
+  //     <div>cancelComment {typeof cancelComment}</div>
+  //     <div>saveComment {typeof saveComment}</div>
+  //   </div>
+  // )
+  const cancelText = translate('cancel')
+  const saveText = translate('save')
   return (
     <div className='actions-area'>
       <Hint
@@ -202,9 +236,7 @@ const ConfirmCommentArea = ({
         enabled={!!cancelText}
         hintLength={14}
       >
-        <button className='btn-second'
-          onClick={cancelComment}
-        >
+        <button className='btn-second' onClick={cancelComment}>
           {cancelText}
         </button>
       </Hint>
@@ -215,17 +247,18 @@ const ConfirmCommentArea = ({
         enabled={!!saveText}
         hintLength={14}
       >
-        <button className='btn-prime'
+        <button
+          className='btn-prime'
           disabled={!isCommentChanged}
           onClick={saveComment}
         >
-          <FaCheck style={{ marginRight: '10px' }}/>
+          <FaCheck style={{ marginRight: '10px' }} />
           {saveText}
         </button>
       </Hint>
     </div>
-  );
-};
+  )
+}
 
 const ConfirmSelectionArea = ({
   classes,
@@ -239,16 +272,19 @@ const ConfirmSelectionArea = ({
   clearSelection,
   saveSelection,
 }) => {
-  const cancelText = translate('cancel');
-  const clearSelectionText = translate('clear_selection');
-  const saveText = translate('save');
-  return (
-    <div className='selection-actions-area'>
-      <div className='flex-row'>
-        <FormControlLabel
-          value="end"
-          control={
-            <Checkbox
+  /*return <div style={{backgroundColor: "#FFCC00"}}>
+    <h1>ConfirmSelectionArea</h1>
+    <div>classes {typeof classes}</div>
+    <div>localNothingToSelect {typeof localNothingToSelect}</div>
+    <div>newSelections {typeof newSelections}</div>
+    <div>nothingToSelect {typeof nothingToSelect}</div>
+    <div>selections {typeof selections}</div>
+    <div>toggleNothingToSelect {typeof toggleNothingToSelect}</div>
+    <div>cancelSelection {typeof cancelSelection}</div>
+    <div>clearSelection {typeof clearSelection}</div>
+    <div>saveSelection {typeof saveSelection}</div>
+  </div>
+  <Checkbox
               checked={localNothingToSelect}
               disabled={newSelections && newSelections.length > 0}
               color="primary"
@@ -260,26 +296,61 @@ const ConfirmSelectionArea = ({
               }}
               icon={<CheckBoxOutlineIcon style={{ fontSize: '24px' }}/>}
               checkedIcon={<CheckBoxIcon style={{ fontSize: '24px' }}/>}
+            />*/
+  // translate('no_selection_needed') ||
+  //translate('nothing_to_select_description')
+  const cancelText = translate('cancel')
+  const clearSelectionText = translate('clear_selection')
+  const saveText = translate('save')
+  return (
+    <div className='selection-actions-area'>
+      <div className='flex-row'>
+        <FormControlLabel
+          control={
+            <Checkbox
+              checked={localNothingToSelect}
+              disabled={newSelections && newSelections.length > 0}
+              color='primary'
+              onChange={event => toggleNothingToSelect(event.target.checked)}
+              value='nothingToSelect'
+              classes={{
+                root: classes.checkBoxRoot,
+                checked: classes.checked,
+              }}
+              icon={<CheckBoxOutlineIcon style={{ fontSize: '24px' }} />}
+              checkedIcon={<CheckBoxIcon style={{ fontSize: '24px' }} />}
             />
           }
           label={translate('no_selection_needed')}
-          classes={{
-            root: classes.formControl,
-            label: classes.label,
-          }}
         />
-        <div
-          data-tip={translate('nothing_to_select_description')}
-          data-place="top"
-          data-effect="float"
-          data-type="dark"
-          data-class="selection-tooltip"
-          data-delay-hide="100"
-          style={{ verticalAlign: 'super', fontSize: '0.8em' }}
+        <Tooltip
+          title={
+            <Typography sx={{ fontSize: '0.8em' }}>
+              {translate('nothing_to_select_description')}
+            </Typography>
+          }
+          placement='top'
+          arrow
+          slotProps={{
+            tooltip: {
+              sx: {
+                backgroundColor: '#333',
+                color: '#fff',
+                borderRadius: '6px',
+                padding: '6px 10px',
+                fontSize: '0.8em',
+              },
+            },
+            arrow: {
+              sx: { color: '#333' },
+            },
+          }}
+          enterDelay={100}
+          leaveDelay={100}
         >
-          <InfoIcon classes={{ root: classes.icon }}/>
-          <ReactTooltip/>
-        </div>
+
+            <InfoIcon sx={{ fontSize: 18, color: '#555' }} />
+        </Tooltip>
       </div>
       <div style={{ whiteSpace: 'nowrap' }}>
         <Hint
@@ -292,7 +363,9 @@ const ConfirmSelectionArea = ({
           <button
             className='btn-second'
             style={{
-              ...actionButtonStyleRM, marginLeft: '0px', alignSelf: 'flex-start',
+              ...actionButtonStyleRM,
+              marginLeft: '0px',
+              alignSelf: 'flex-start',
             }}
             onClick={cancelSelection}
           >
@@ -312,7 +385,7 @@ const ConfirmSelectionArea = ({
             disabled={newSelections.length > 0 ? false : true}
             onClick={clearSelection}
           >
-            <LuEraser style={{ marginRight: '10px' }}/>
+            <LuEraser style={{ marginRight: '10px' }} />
             {clearSelectionText}
           </button>
         </Hint>
@@ -326,17 +399,22 @@ const ConfirmSelectionArea = ({
           <button
             className='btn-prime'
             style={actionButtonStyleRM}
-            disabled={isSelectionsSaveDisable(localNothingToSelect, nothingToSelect, newSelections, selections)}
+            disabled={isSelectionsSaveDisable(
+              localNothingToSelect,
+              nothingToSelect,
+              newSelections,
+              selections
+            )}
             onClick={saveSelection}
           >
-            <FaCheck style={{ marginRight: '10px' }}/>
+            <FaCheck style={{ marginRight: '10px' }} />
             {saveText}
           </button>
         </Hint>
       </div>
     </div>
-  );
-};
+  )
+}
 /* eslint-enable react/prop-types */
 
 const ActionsArea = ({
@@ -362,65 +440,63 @@ const ActionsArea = ({
   saveComment,
   disables,
 }) => {
-
-  const {
-    bookMark: disableBookMark,
-
-  } = (disables || {})
+  const { bookMark: disableBookMark } = disables || {}
+  console.log('mode', mode || 'NO MODE')
   switch (mode) {
-  case 'edit':
-    return (
-      <ConfirmEditVerseArea
-        tags={tags}
-        translate={translate}
-        cancelEditVerse={cancelEditVerse}
-        saveEditVerse={saveEditVerse}
-      />
-    );
-  case 'comment':
-    return (
-      <ConfirmCommentArea
-        translate={translate}
-        isCommentChanged={isCommentChanged}
-        cancelComment={cancelComment}
-        saveComment={saveComment}
-      />
-    );
-  case 'select':
-    return (
-      <ConfirmSelectionArea
-        classes={classes}
-        translate={translate}
-        localNothingToSelect={localNothingToSelect}
-        newSelections={newSelections}
-        nothingToSelect={nothingToSelect}
-        selections={selections}
-        toggleNothingToSelect={toggleNothingToSelect}
-        cancelSelection={cancelSelection}
-        clearSelection={clearSelection}
-        saveSelection={saveSelection}
-      />
-    );
-  case 'default':
-    return (
-      <ChangeModeArea
-        translate={translate}
-        bookmarkEnabled={bookmarkEnabled}
-        toggleBookmark={toggleBookmark}
-        changeMode={changeMode}
-      />
-    );
-  default:
-    return (
-      <ChangeModeArea
-        translate={translate}
-        bookmarkEnabled={bookmarkEnabled}
-        toggleBookmark={toggleBookmark}
-        changeMode={changeMode}
-      />
-    );
+    case 'edit':
+      return (
+        <ConfirmEditVerseArea
+          tags={tags}
+          translate={translate}
+          cancelEditVerse={cancelEditVerse}
+          saveEditVerse={saveEditVerse}
+        />
+      )
+    case 'comment':
+      return (
+        <ConfirmCommentArea
+          translate={translate}
+          isCommentChanged={isCommentChanged}
+          cancelComment={cancelComment}
+          saveComment={saveComment}
+        />
+      )
+    case 'select':
+      return (
+        <ConfirmSelectionArea
+          classes={classes}
+          translate={translate}
+          localNothingToSelect={localNothingToSelect}
+          newSelections={newSelections}
+          nothingToSelect={nothingToSelect}
+          selections={selections}
+          toggleNothingToSelect={toggleNothingToSelect}
+          cancelSelection={cancelSelection}
+          clearSelection={clearSelection}
+          saveSelection={saveSelection}
+        />
+      )
+
+    case 'default':
+      return (
+        <ChangeModeArea
+          translate={translate}
+          bookmarkEnabled={bookmarkEnabled}
+          toggleBookmark={toggleBookmark}
+          changeMode={changeMode}
+        />
+      )
+    default:
+      return (
+        <ChangeModeArea
+          translate={translate}
+          bookmarkEnabled={bookmarkEnabled}
+          toggleBookmark={toggleBookmark}
+          changeMode={changeMode}
+        />
+      )
   }
-};
+}
 
 ActionsArea.propTypes = {
   tags: PropTypes.array.isRequired,
@@ -443,11 +519,11 @@ ActionsArea.propTypes = {
   saveEditVerse: PropTypes.func.isRequired,
   cancelComment: PropTypes.func.isRequired,
   saveComment: PropTypes.func.isRequired,
-  disables: PropTypes.object
-};
-
-ActionsArea.defaultProps = {
-  disables: { }
+  disables: PropTypes.object,
 }
 
-export default withStyles(styles)(ActionsArea);
+ActionsArea.defaultProps = {
+  disables: {},
+}
+
+export default withStyles(styles)(ActionsArea)

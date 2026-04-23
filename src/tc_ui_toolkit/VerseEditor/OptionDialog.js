@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import Toolbar from '@material-ui/core/Toolbar';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import Toolbar from '@mui/material/Toolbar';
 import { GrClose } from 'react-icons/gr'
 
 const OptionDialog = ({
@@ -36,7 +36,7 @@ const OptionDialog = ({
     <div style={{
       display: 'flex', justifyContent: 'space-between', width:'100%', marginLeft:20, marginRight:20,
     }}>
-      <span style={{ color: 'var(--reverse-color)' }}>{headerTitleText}</span>
+      <Typography component='span' sx={{ color: 'var(--reverse-color)' }}>{headerTitleText}</Typography>
       <GrClose
         onClick={handleClose}
         style={{

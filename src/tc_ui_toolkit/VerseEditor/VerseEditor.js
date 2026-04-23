@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import EditIcon from '@material-ui/icons/Edit';
+import EditIcon from '@mui/icons-material/Edit';
 import { isLTR } from '../ScripturePane/helpers/utils';
 import { getFontClassName } from '../common/fontUtils';
 // components
 import EditScreen from './EditScreen';
 import ReasonScreen from './ReasonScreen';
 import BaseDialog from './BaseDialog';
-
+import { Typography } from '@mui/material';
 import './VerseEditor.styles.css';
 import { LuUndo2 } from 'react-icons/lu'
 import { FaCheck } from 'react-icons/fa'
@@ -130,10 +130,10 @@ class VerseEditor extends React.Component {
     const isVerseChanged = this.isVerseChanged();
     const targetLanguageFontClassName = getFontClassName(targetLanguageFont);
     const title = (
-      <span className={targetLanguageFontClassName}>
+      <Typography component='span' className={targetLanguageFontClassName}>
         <EditIcon className='edit-icon' style={{ fontSize: '24px' }}/>
         {translate('edit_verse_title', { passage: verseTitle })}
-      </span>
+      </Typography>
     );
     const rows = 9 + (!targetLanguage ? 1 : 0); // make taller if no language label
     const headingStyle = { ...styles.editHeading };

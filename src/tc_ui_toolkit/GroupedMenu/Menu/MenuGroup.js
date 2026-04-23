@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import ExpandMore from '@material-ui/icons/ExpandMore';
-import ChevronRight from '@material-ui/icons/ChevronRight';
+import { withStyles } from '@mui/styles';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+import ChevronRight from '@mui/icons-material/ChevronRight';
 import ProgressIcon from './ProgressIcon';
 
 const styles = {
@@ -27,8 +27,8 @@ const styles = {
     'borderBottom': 'solid #ffffff4d 1px',
     'cursor': 'pointer',
     '&$selected': {
-      'backgroundColor': '#2196F3',
-      '&:hover': { backgroundColor: '#2196F3' },
+      'backgroundColor': 'var(--accent-color)',
+      '&:hover': { backgroundColor: 'var(--accent-color)' },
     },
   },
   selected: {},

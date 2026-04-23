@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import './CheckInfoCard.styles.css';
 import PhraseWithToolTip from './PhraseWithToolTip';
+import { Typography } from '@mui/material';
 
 
 const CheckInfoCard = ({
@@ -16,9 +17,9 @@ const CheckInfoCard = ({
 }) => (
   <div className="checkInfo">
     <div className="leftSide">
-      <div className="title">
+      <Typography component={'div'} fontWeight={'bold'} className="title">
         {title}
-      </div>
+      </Typography>
     </div>
     <div className="rightSide">
       <div className="phrase">

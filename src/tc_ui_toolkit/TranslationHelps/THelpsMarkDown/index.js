@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import marked from 'marked';
+import {marked} from 'marked';
 
 const THelpsMarkDown = ({ article }) => (
   <div className="helps-article">
@@ -35,7 +35,7 @@ const THelpsMarkDown = ({ article }) => (
     }}>
     </style>
     <div id="helpsbody" className="remarkableStyling helpsBody">
-      <div dangerouslySetInnerHTML={{ __html: marked(article) }} />
+      <div dangerouslySetInnerHTML={{ __html: marked.parse(article || "") }} />
     </div>
   </div>
 );

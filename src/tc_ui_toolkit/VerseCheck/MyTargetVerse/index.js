@@ -17,7 +17,7 @@ const MyTargetVerse = ({
     <Col md={12} sm={12} xs={12} lg={12} style={styles}>
       <div style={{ direction: dir }}>
         <b>{chapterVerse}</b>
-        <span className={targetLanguageFontClassName}>{verseText}</span>
+        <Typography component='span' className={targetLanguageFontClassName}>{verseText}</Typography>
       </div>
     </Col>
   );

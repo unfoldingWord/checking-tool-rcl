@@ -8,6 +8,7 @@ import DialogComponent from './DialogComponent';
 import IconIndicators from './IconIndicators';
 
 import './VerseCheck.styles.css';
+import { Typography } from '@mui/material';
 
 class VerseCheck extends Component {
   render() {
@@ -97,7 +98,7 @@ class VerseCheck extends Component {
         <div className='verse-check-flex'>
           <div className='verse-check-card'>
             <div className='title-bar'>
-              <span>{titleText}</span>
+              <Typography variant='h6' fontWeight={'bold'} component='span'>{titleText}</Typography>
               <IconIndicators
                 isVerseEdited={isVerseEdited}
                 selections={selections}

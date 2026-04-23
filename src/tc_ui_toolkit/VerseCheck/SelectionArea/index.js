@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 // components
 import RenderSelectionTextComponent from '../RenderSelectionTextComponent';
 import ThreeDotMenu from '../ThreeDotMenu';
+import { getReferenceStrFromTargetBible } from '../../ScripturePane/helpers/utils';
 import MyLanguageModal from '../MyLanguageModal';
 import {
   getReferenceStr,
@@ -12,6 +13,7 @@ import {
 } from '../../ScripturePane/helpers/utils';
 import { getFontClassName } from '../../common/fontUtils';
 import '../VerseCheck.styles.css';
+import { Typography } from '@mui/material';
 const NAMESPACE = 'CheckArea';
 
 const SelectionArea = ({
@@ -39,7 +41,7 @@ const SelectionArea = ({
   const bookName = book && book.name ? book.name : bookDetails.name;
   const languageName = targetLanguageDetails.name || null;
   const languageStr = getTitleWithId(languageName, languageCode);
-  const refStr = getReferenceStr(reference.chapter, reference.verse);
+  const refStr = getReferenceStrFromTargetBible(targetBible,reference.chapter, reference.verse);
   const title = getTitleStr(bookName, refStr);
   const isLTR_ = isLTR(direction);
   const style = { display: 'flex', flexDirection: 'column' };
@@ -75,12 +77,12 @@ const SelectionArea = ({
             />
         }
         <div className='pane' style={style}>
-          <span className={verseTitleClassName} style={lineHeightStyle}>
+          <Typography className={verseTitleClassName} sx={lineHeightStyle}>
             {languageStr}
-          </span>
-          <span className={verseSubtitleClassName} style={lineHeightStyle}>
+          </Typography>
+          <Typography className={verseSubtitleClassName} sx={lineHeightStyle}>
             {title}
-          </span>
+          </Typography>
         </div>
         {/* put icon here if LTR */}
         {

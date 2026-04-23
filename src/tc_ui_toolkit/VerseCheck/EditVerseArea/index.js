@@ -1,18 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@mui/styles';
 import {
   FormGroup, FormControl,
 } from 'react-bootstrap';
-import Checkbox from '@material-ui/core/Checkbox';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import CheckBoxIcon from '@material-ui/icons/CheckBox';
-import CheckBoxOutlineIcon from '@material-ui/icons/CheckBoxOutlineBlank';
+import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
+import CheckBoxOutlineIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import { moveCursorToEnd } from '../../VerseEditor/helpers/editHelpers';
 import { getFontClassName } from '../../common/fontUtils';
 
 import './EditVerseArea.styles.css';
 import { TfiPencil } from 'react-icons/tfi'
+import { Typography } from '@mui/material';
 
 const styles = {
   formControlLabelRoot: { height: 30 },
@@ -102,14 +103,15 @@ const EditVerseArea = ({
 
   return (
     <div className='edit-area'>
-      <div style={{ fontWeight: 'bold' }}>
+      <Typography 
+      fontWeight={'bold'}>
         <TfiPencil style={{ marginRight: '5px' }} />
         {translate('edit_verse')}
-      </div>
+      </Typography>
       <FormGroup style={{
         flex: 'auto', display: 'flex', flexDirection: 'column', marginBottom: '5px',
       }} controlId='formControlsTextarea'>
-        <div style={{ fontSize: targetLanguageFontSize }}> {/*apply desired font size multiplier before font class styling*/}
+        <div style={{ fontSize: targetLanguageFontSize,display:'flex' }}> {/*apply desired font size multiplier before font class styling*/}
           <FormControl
             autoFocus
             onFocus={moveCursorToEnd}

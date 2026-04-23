@@ -1,7 +1,8 @@
 /* eslint-disable no-return-assign */
 import React, { useEffect, useRef } from 'react';
-import marked from 'marked';
+import {marked} from 'marked';
 import { getOffset } from './helpers';
+import { Typography } from '@mui/material';
 
 /**
  * Attaches click listeners to links in the ref's text
@@ -47,32 +48,32 @@ function PhraseWithToolTip({
     const tooltipLabel = getScriptureFromReference(lang, id, book, chapter, verse);
     return (
       <div>
-        <span dangerouslySetInnerHTML={{ __html: preReference }}/>
-        <span onMouseEnter={() => {
+        <Typography component='span' dangerouslySetInnerHTML={{ __html: preReference }}/>
+        <Typography component='span' onMouseEnter={() => {
           const { top, left } = getOffset(scriptureRef);
           tooltipRef.style.top = `${top}px`;
           tooltipRef.style.left = `${left}px`;
           tooltipRef.style.width = `${scriptureRef.offsetWidth}px`;
           tooltipRef.style.height = `${scriptureRef.offsetHeight}px`;
-        }} style={{ position: 'relative' }}>
+        }} sx={{ position: 'relative' }}>
           <div ref={(ref) => tooltipRef = ref}
             aria-label={tooltipLabel}
             className="hint--top hint--medium"
             style={{ position: 'fixed' }}/>
-          <span style={{
+          <Typography component='span' sx={{
             whiteSpace: 'nowrap',
             textDecoration: 'underline',
           }} ref={(ref) => scriptureRef = ref}>
             {referenceText}
-          </span>
-        </span>
-        <span ref={toolTippedPhraseEl} style={{ color: '#fff' }}
-          dangerouslySetInnerHTML={{ __html: marked(postReference) }}/>
+          </Typography>
+        </Typography>
+        <Typography component='span'ref={toolTippedPhraseEl} style={{ color: '#fff' }}
+          dangerouslySetInnerHTML={{ __html: marked.parse(postReference || "") }}/>
       </div>
     );
   } else {
     return (
-      <div ref={phraseEl} style={{ color: '#fff' }} dangerouslySetInnerHTML={{ __html: marked(phrase) }}/>
+      <div ref={phraseEl} style={{ color: '#fff' }} dangerouslySetInnerHTML={{ __html: marked.parse(phrase || "") }}/>
     );
   }
 }

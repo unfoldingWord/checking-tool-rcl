@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import Toolbar from '@material-ui/core/Toolbar';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import Toolbar from '@mui/material/Toolbar';
 import { getTranslatedParts } from '../helpers/localizationHelpers';
 import { GrClose } from 'react-icons/gr'
-
+import { Typography } from '@mui/material';
 let DialogComponent = ({
   dialogModalVisibility, translate, handleSkip, handleClose,
 }) => {
@@ -29,7 +29,7 @@ let DialogComponent = ({
     <div style={{
       display: 'flex', justifyContent: 'space-between', width:'100%', marginLeft:20, marginRight:20,
     }}>
-      <span style={{ color: 'var(--reverse-color)' }}>{translate('attention')}</span>
+      <Typography component='span' sx={{ color: 'var(--reverse-color)' }}>{translate('attention')}</Typography>
       <GrClose
         onClick={handleClose}
         style={{
@@ -53,10 +53,10 @@ let DialogComponent = ({
         <br />
         <DialogContent>
           <p>
-            {select[0]} <span style={{ color: 'var(--accent-color)', fontWeight: 'bold' }}> {select[1]} </span> {select[2]}
+            {select[0]} <Typography component='span' sx={{ color: 'var(--accent-color)', fontWeight: 'bold' }}> {select[1]} </Typography> {select[2]}
           </p>
           <p>
-            {skip[0]} <span style={{ color: 'var(--accent-color)', fontWeight: 'bold' }}> {skip[1]} </span> {skip[2]}
+            {skip[0]} <Typography component='span' sx={{ color: 'var(--accent-color)', fontWeight: 'bold' }}> {skip[1]} </Typography> {skip[2]}
           </p>
         </DialogContent>
         <DialogActions disableSpacing={true}>
