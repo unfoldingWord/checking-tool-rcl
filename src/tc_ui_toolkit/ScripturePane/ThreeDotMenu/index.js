@@ -23,6 +23,7 @@ function ThreeDotMenu({
   clickToRemoveResourceLabel,
   addObjectPropertyToManifest,
   viewURL,
+  disableFontMenu
 }) {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -38,7 +39,6 @@ function ThreeDotMenu({
   const handleFontSizeChange = (fontSize) => {
     changePaneFontSize(index, fontSize);
   };
-
   return (
     <>
       <ThreeDotIcon onClick={handleClick} style={{ margin: '0 0 0 10px' }}/>
@@ -69,6 +69,7 @@ function ThreeDotMenu({
         <MenuItem disableOnClick divider>
           <FontSizeSlider value={fontSize} onChange={handleFontSizeChange}/>
         </MenuItem>
+        {!disableFontMenu && 
         <MenuItem
           disableOnClick
           title={selectFontLabel}
@@ -85,7 +86,7 @@ function ThreeDotMenu({
             addObjectPropertyToManifest={addObjectPropertyToManifest}
             complexScriptFonts={complexScriptFonts}
           />
-        </MenuItem>
+        </MenuItem>}
       </DropdownMenu>
     </>
   );
@@ -113,6 +114,8 @@ ThreeDotMenu.propTypes = {
   addObjectPropertyToManifest: PropTypes.func.isRequired,
   clickToRemoveResourceLabel: PropTypes.string.isRequired,
   viewURL: PropTypes.bool,
+  disableFontMenu: PropTypes.bool,
+
 };
 
 export default ThreeDotMenu;

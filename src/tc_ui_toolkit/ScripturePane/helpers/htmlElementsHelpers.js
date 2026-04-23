@@ -4,7 +4,7 @@ import WordLexiconDetails from '../../WordLexiconDetails';
 // helpers
 import * as lexiconHelpers from './lexiconHelpers';
 import { removeMarker } from './usfmHelpers';
-
+import { Typography } from '@mui/material';
 /**
  * on word click show lexicon
  * @param {Object} e - clicked element
@@ -20,7 +20,7 @@ export const onWordClick = (e, word, getLexiconData, showPopover, translate, isH
     const positionCoord = e.target;
     const fontSize = isHebrew ? '1.7em' : '1.2em';
     const PopoverTitle = (
-      <strong style={{ fontSize }}>{word.text}</strong>
+      <Typography component={'strong'} sx={{ fontSize }}>{word.text}</Typography>
     );
     const wordDetails = (
       <WordLexiconDetails lexiconData={lexiconData} wordObject={word} translate={translate}
@@ -30,25 +30,45 @@ export const onWordClick = (e, word, getLexiconData, showPopover, translate, isH
   }
 };
 
-export const createNonClickableSpan = (index, paddingSpanStyle, padding, isHighlightedWord, text, fontClass) => (
-  <span key={index.toString()}>
-    <span className={fontClass} style={paddingSpanStyle}>
+export const createNonClickableSpan = (
+  index,
+  paddingSpanStyle,
+  padding,
+  isHighlightedWord,
+  text,
+  fontClass
+) => (
+  <Typography key={index.toString()} component="span">
+    {/* Padding span */}
+    <Typography
+      component="span"
+      className={fontClass}
+      sx={paddingSpanStyle}
+    >
       {padding}
-    </span>
-    <span className={fontClass} style={{ backgroundColor: isHighlightedWord ? 'var(--highlight-color)' : '' }}>
+    </Typography>
+
+    {/* Text span */}
+    <Typography
+      component="span"
+      className={fontClass}
+      sx={{
+        backgroundColor: isHighlightedWord ? 'var(--highlight-color)' : 'transparent',
+      }}
+    >
       {removeMarker(text)}
-    </span>
-  </span>
+    </Typography>
+  </Typography>
 );
 
 export const createTextSpan = (index, text, fontClass) => (
-  <span key={index} className={fontClass}>
+  <Typography component="span" key={index} className={fontClass}>
     {removeMarker(text)}
-  </span>
+  </Typography>
 );
 
 export const createHighlightedSpan = (index, text, fontClass) => (
-  <span key={index} className={fontClass} style={{ backgroundColor: 'var(--highlight-color)' }}>
+  <Typography component="span" key={index} className={fontClass} style={{ backgroundColor: 'var(--highlight-color)' }}>
     {removeMarker(text)}
-  </span>
+  </Typography>
 );

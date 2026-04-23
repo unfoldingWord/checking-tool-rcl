@@ -4,6 +4,7 @@ import isEqual from 'deep-equal'
 import * as stringTokenizer from 'string-punctuation-tokenizer'
 import { VerseObjectUtils } from 'word-aligner'
 import { getVerses } from 'bible-reference-range'
+import { Typography } from '@mui/material'
 // helpers
 import * as highlightHelpers from './highlightHelpers'
 import {
@@ -78,7 +79,7 @@ export const verseString = (
   }
 
   let verseTextSpans = (
-    <span className={fontClass}>{textToHtml(newVerseText, showUsfm)}</span>
+    <Typography component="span" className={fontClass}>{textToHtml(newVerseText, showUsfm)}</Typography>
   )
 
   if (!showUsfm && selections && selections.length > 0) {
@@ -103,9 +104,9 @@ export const verseString = (
         }
       }
       verseTextSpans.push(
-        <span key={index} className={fontClass} style={spanStyle}>
+        <Typography key={index} className={fontClass} style={spanStyle}>
           {selection.text}
-        </span>
+        </Typography>
       )
     }
   }
@@ -146,9 +147,9 @@ export function verseArray(
   if (verseText.verseObjects && textIsEmptyInVerseObject(verseText, bibleId)) {
     // if empty verse string.
     verseSpan.push(
-      <span key={translate('pane.missing_verse_warning')}>
+      <Typography  key={translate('pane.missing_verse_warning')}>
         {translate('pane.missing_verse_warning')}
-      </span>
+      </Typography>
     )
   } else {
     const isHebrew = bibleId === 'uhb'
@@ -161,7 +162,6 @@ export function verseArray(
       const object = verseObjects[i]
       const index = i
       const nextWord = verseObjects[index + 1]
-
       if (object.type === 'html') {
         verseSpan.push(object.html)
       } else if (isWord(object)) {
@@ -235,12 +235,16 @@ export function verseArray(
               }
               style={{ cursor: 'pointer' }}
             >
-              <span className={fontClass} style={paddingSpanStyle}>
+              <Typography
+                component='span'
+                className={fontClass}
+                sx={paddingSpanStyle}
+              >
                 {padding}
-              </span>
-              <span className={fontClass} style={spanStyle}>
+              </Typography>
+              <Typography component='span' className={fontClass} sx={spanStyle}>
                 {removeMarker(text)}
-              </span>
+              </Typography>
             </span>
           )
         } else {
@@ -266,7 +270,6 @@ export function verseArray(
           fontClass,
           verseWordCounts
         )
-
         for (
           let j = 0, nLen = nestedMilestone.wordSpans.length;
           j < nLen;
@@ -301,21 +304,31 @@ export function verseArray(
           highlightHelpers.addSpace(verseSpan)
         }
         wordSpacing = punctuationWordSpacing(object) // spacing before words
+        const isHighlighted = highlightHelpers.isPunctuationHighlighted(
+          previousWord,
+          nextWord,
+          contextId,
+          verseObjects,
+          index,
+          verseWordCounts
+        )
 
-        if (
-          highlightHelpers.isPunctuationHighlighted(
-            previousWord,
-            nextWord,
-            contextId,
-            verseObjects,
-            index,
-            verseWordCounts
-          )
-        ) {
-          verseSpan.push(createHighlightedSpan(index, text, fontClass))
-        } else {
-          verseSpan.push(createTextSpan(index, text, fontClass))
-        }
+        // Use MUI Typography instead of span
+        verseSpan.push(
+          <Typography
+            key={index}
+            component='span'
+            className={fontClass}
+            sx={{
+              backgroundColor: isHighlighted
+                ? 'var(--highlight-color)'
+                : 'transparent',
+              display: 'inline',
+            }}
+          >
+            {removeMarker(text)}
+          </Typography>
+        )
 
         if (trailingSpace) {
           // add the trailing space after the text span
@@ -411,21 +424,20 @@ export function getRef(bible, chapter, verse) {
   }
   if (isVerseSpan(verse)) {
     const { lowV, highV } = getVerseSpanRange(verse)
-    let curL = lowV;
-    let curH = highV;
-    for(let e of keys_verse){
-      if(isVerseSpan(e)){
+    let curL = lowV
+    let curH = highV
+    for (let e of keys_verse) {
+      if (isVerseSpan(e)) {
         const { low, high } = getVerseSpanRange(e)
-        if(low <= lowV && curL <= lowV){
+        if (low <= lowV && curL <= lowV) {
           curL = low
         }
-        if(high>= highV && curH >= highV){
+        if (high >= highV && curH >= highV) {
           curH = high
         }
       }
     }
-    return { chapter: chapter, verse: `${curL}-${curH}`}
-
+    return { chapter: chapter, verse: `${curL}-${curH}` }
   } else {
     for (let e of keys_verse) {
       if (isVerseSpan(e)) {

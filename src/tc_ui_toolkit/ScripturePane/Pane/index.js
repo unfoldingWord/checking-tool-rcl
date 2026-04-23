@@ -1,12 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 // import ContainerDimensions from 'react-container-dimensions';
-import {
-  getTitleWithId, getTranslation, isLTR
-} from '../helpers/utils'
+import { getTitleWithId, getTranslation, isLTR } from '../helpers/utils'
 import Verse from '../Verse'
 import ThreeDotMenu from '../ThreeDotMenu'
 import './Pane.styles.css'
+import { Typography } from '@mui/material'
 // constants
 const PANECHAR = 9
 
@@ -19,32 +18,53 @@ const PANECHAR = 9
  * @param {string} fullTitle
  * @return {*}
  */
-function getTitleContainerContent(isLTR, headingText, localizedDescription, fontClass, fullTitle) {
+function getTitleContainerContent(
+  isLTR,
+  headingText,
+  localizedDescription,
+  fontClass,
+  fullTitle
+) {
   const styles = { textAlign: isLTR ? 'left' : 'right' }
-  const paneTitleClassName = fontClass ? `pane-title-text ${fontClass}` : 'pane-title-text'
-  const headingClassName = fullTitle || headingText.length > 21 ? `${paneTitleClassName} hint--bottom hint--medium` : paneTitleClassName
-  const paneSubtitleClassName = fontClass ? `pane-subtitle-text hint--bottom hint--medium ${fontClass}` : `pane-subtitle-text hint--bottom hint--medium`
+  const paneTitleClassName = fontClass
+    ? `pane-title-text ${fontClass}`
+    : 'pane-title-text'
+  const headingClassName =
+    fullTitle || headingText.length > 21
+      ? `${paneTitleClassName} hint--bottom hint--medium`
+      : paneTitleClassName
+  const paneSubtitleClassName = fontClass
+    ? `pane-subtitle-text hint--bottom hint--medium ${fontClass}`
+    : `pane-subtitle-text hint--bottom hint--medium`
 
-  const width = 250; // Hack to remove react-container-dimensions
+  const width = 250 // Hack to remove react-container-dimensions
 
   return (
-    <div className="pane-title-container-content" style={styles}>
-      <span
-        style={{ lineHeight: 1, padding: fontClass.includes('Awami') ? '0px 0px 6px' : '0px' }}
+    <div className='pane-title-container-content' style={styles}>
+      <Typography
+        sx={{
+          lineHeight: 1,
+          padding: fontClass.includes('Awami') ? '0px 0px 6px' : '0px',
+        }}
         className={headingClassName}
-        aria-label={fullTitle || headingText}>
-        {headingText.length > 21 ? headingText.slice(0, 21) + '...' : headingText}
-      </span>
-      <span
+        aria-label={fullTitle || headingText}
+      >
+        {headingText.length > 21
+          ? headingText.slice(0, 21) + '...'
+          : headingText}
+      </Typography>
+      <Typography
         className={paneSubtitleClassName}
-        style={{ lineHeight: fontClass && fontClass.includes('Awami') ? 1 : 2, textAlign: isLTR ? 'left' : 'right' }}
-        aria-label={fullTitle || localizedDescription}>
-              {
-                localizedDescription.length > width / PANECHAR ?
-                  localizedDescription.slice(0, Math.round(width / PANECHAR)) + '...' :
-                  localizedDescription
-              }
-            </span>
+        style={{
+          lineHeight: fontClass && fontClass.includes('Awami') ? 1 : 2,
+          textAlign: isLTR ? 'left' : 'right',
+        }}
+        aria-label={fullTitle || localizedDescription}
+      >
+        {localizedDescription.length > width / PANECHAR
+          ? localizedDescription.slice(0, Math.round(width / PANECHAR)) + '...'
+          : localizedDescription}
+      </Typography>
     </div>
   )
 }
@@ -60,114 +80,144 @@ function getTitleContainerContent(isLTR, headingText, localizedDescription, font
  * @return {*}
  */
 function TitleContainer({
-                          font,
-                          index,
-                          isLTR,
-                          fontSize,
-                          isHebrew,
-                          fontClass,
-                          removePane,
-                          headingText,
-                          isTargetBible,
-                          selectFontLabel,
-                          changePaneFontSize,
-                          changePaneFontType,
-                          complexScriptFonts,
-                          removeResourceLabel,
-                          localizedDescription,
-                          clickToRemoveResourceLabel,
-                          addObjectPropertyToManifest,
-                          fullTitle,
-                          viewURL
-                        }) {
+  font,
+  index,
+  isLTR,
+  fontSize,
+  isHebrew,
+  fontClass,
+  removePane,
+  headingText,
+  isTargetBible,
+  selectFontLabel,
+  changePaneFontSize,
+  changePaneFontType,
+  complexScriptFonts,
+  removeResourceLabel,
+  localizedDescription,
+  clickToRemoveResourceLabel,
+  addObjectPropertyToManifest,
+  fullTitle,
+  viewURL,
+  disableFontMenu,
+}) {
   if (isLTR) {
-    return <>
-      {getTitleContainerContent(isLTR, headingText, localizedDescription, fontClass, fullTitle)}
-      <ThreeDotMenu
-        font={font}
-        index={index}
-        isHebrew={isHebrew}
-        fontSize={fontSize}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'left'
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'left'
-        }}
-        removePane={removePane}
-        isTargetBible={isTargetBible}
-        selectFontLabel={selectFontLabel}
-        complexScriptFonts={complexScriptFonts}
-        changePaneFontSize={changePaneFontSize}
-        changePaneFontType={changePaneFontType}
-        removeResourceLabel={removeResourceLabel}
-        clickToRemoveResourceLabel={clickToRemoveResourceLabel}
-        addObjectPropertyToManifest={addObjectPropertyToManifest}
-        viewURL={viewURL}
-      />
-    </>
-  } else { // arrange rtl
-    return <>
-      <ThreeDotMenu
-        font={font}
-        index={index}
-        fontSize={fontSize}
-        isHebrew={isHebrew}
-        removePane={removePane}
-        isTargetBible={isTargetBible}
-        selectFontLabel={selectFontLabel}
-        changePaneFontSize={changePaneFontSize}
-        changePaneFontType={changePaneFontType}
-        complexScriptFonts={complexScriptFonts}
-        removeResourceLabel={removeResourceLabel}
-        clickToRemoveResourceLabel={clickToRemoveResourceLabel}
-        addObjectPropertyToManifest={addObjectPropertyToManifest}
-        viewURL={viewURL}
-      />
-      {getTitleContainerContent(isLTR, headingText, localizedDescription, fontClass, fullTitle)}
-    </>
+    return (
+      <>
+        {getTitleContainerContent(
+          isLTR,
+          headingText,
+          localizedDescription,
+          fontClass,
+          fullTitle
+        )}
+        <ThreeDotMenu
+          font={font}
+          index={index}
+          isHebrew={isHebrew}
+          fontSize={fontSize}
+          anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'left',
+          }}
+          transformOrigin={{
+            vertical: 'top',
+            horizontal: 'left',
+          }}
+          removePane={removePane}
+          isTargetBible={isTargetBible}
+          selectFontLabel={selectFontLabel}
+          complexScriptFonts={complexScriptFonts}
+          changePaneFontSize={changePaneFontSize}
+          changePaneFontType={changePaneFontType}
+          removeResourceLabel={removeResourceLabel}
+          clickToRemoveResourceLabel={clickToRemoveResourceLabel}
+          addObjectPropertyToManifest={addObjectPropertyToManifest}
+          viewURL={viewURL}
+          disableFontMenu={disableFontMenu}
+        />
+      </>
+    )
+  } else {
+    // arrange rtl
+    return (
+      <>
+        <ThreeDotMenu
+          font={font}
+          index={index}
+          fontSize={fontSize}
+          isHebrew={isHebrew}
+          removePane={removePane}
+          isTargetBible={isTargetBible}
+          selectFontLabel={selectFontLabel}
+          changePaneFontSize={changePaneFontSize}
+          changePaneFontType={changePaneFontType}
+          complexScriptFonts={complexScriptFonts}
+          removeResourceLabel={removeResourceLabel}
+          clickToRemoveResourceLabel={clickToRemoveResourceLabel}
+          addObjectPropertyToManifest={addObjectPropertyToManifest}
+          viewURL={viewURL}
+          disableFontMenu={disableFontMenu}
+        />
+        {getTitleContainerContent(
+          isLTR,
+          headingText,
+          localizedDescription,
+          fontClass,
+          fullTitle
+        )}
+      </>
+    )
   }
 }
 
 const Pane = ({
-                font,
-                index,
-                verse,
-                chapter,
-                bibleId,
-                fontSize,
-                fontClass,
-                direction,
-                translate,
-                removePane,
-                description,
-                languageName,
-                verseElements,
-                isTargetBible,
-                selectFontLabel,
-                changePaneFontSize,
-                changePaneFontType,
-                complexScriptFonts,
-                removeResourceLabel,
-                clickToRemoveResourceLabel,
-                addObjectPropertyToManifest,
-                fullTitle,
-                preRelease
-              }) => {
+  font,
+  index,
+  verse,
+  chapter,
+  bibleId,
+  fontSize,
+  fontClass,
+  direction,
+  translate,
+  removePane,
+  description,
+  languageName,
+  verseElements,
+  isTargetBible,
+  selectFontLabel,
+  changePaneFontSize,
+  changePaneFontType,
+  complexScriptFonts,
+  removeResourceLabel,
+  clickToRemoveResourceLabel,
+  addObjectPropertyToManifest,
+  fullTitle,
+  preRelease,
+  disableFontMenu
+}) => {
   const isLTR_ = isLTR(direction)
   const viewURL = bibleId === 'viewURL'
-  const headingText = (bibleId !== 'targetBible') && !viewURL ?
-    getTitleWithId(languageName, bibleId, undefined, preRelease)
-    : (languageName || '')
-  const localizedDescription = getTranslation(translate, `pane.${description}`, description)
+  const headingText =
+    bibleId !== 'targetBible' && !viewURL
+      ? getTitleWithId(languageName, bibleId, undefined, preRelease)
+      : languageName || ''
+  const localizedDescription = getTranslation(
+    translate,
+    `pane.${description}`,
+    description
+  )
   const verseContainerStyle = fontSize ? { fontSize: `${fontSize}%` } : {}
-  const isHebrew = (bibleId === 'uhb')
+  const isHebrew = bibleId === 'uhb'
 
   return (
-    <div className="pane-container">
-      <div className={isLTR_ ? 'pane-title-container-rtl' : 'pane-title-container-ltr'}>
+    <div className='pane-container'>
+      <div
+        className={
+          isLTR_ ? 'pane-title-container-rtl' : 'pane-title-container-ltr'
+        }
+      >
         <TitleContainer
           font={font}
           index={index}
@@ -188,10 +238,15 @@ const Pane = ({
           addObjectPropertyToManifest={addObjectPropertyToManifest}
           fullTitle={fullTitle}
           viewURL={viewURL}
+          disableFontMenu={disableFontMenu}
         />
       </div>
-      <div className={isLTR_ ? 'verse-content-container-ltr' : 'verse-content-container-rtl'}
-           style={verseContainerStyle}>
+      <div
+        className={
+          isLTR_ ? 'verse-content-container-ltr' : 'verse-content-container-rtl'
+        }
+        style={verseContainerStyle}
+      >
         <Verse
           verse={verse}
           bibleId={bibleId}
@@ -231,10 +286,11 @@ Pane.propTypes = {
   verseElements: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.string,
-    PropTypes.array
+    PropTypes.array,
   ]).isRequired,
   preRelease: PropTypes.string,
-  viewURL: PropTypes.bool
+  viewURL: PropTypes.bool,
+  disableFontMenu: PropTypes.bool,
 }
 
 Pane.defaultProps = { verseElements: [] }

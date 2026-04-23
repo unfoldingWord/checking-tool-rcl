@@ -10,7 +10,7 @@ import memoize from 'memoize-one';
 import _ from 'lodash';
 import { getFontClassName } from '../../common/fontUtils';
 import { isLTR } from '../../ScripturePane/helpers/utils'
-
+import { Typography } from '@mui/material';
 /**
  * Utility to apply styles based on props
  */
@@ -297,7 +297,7 @@ class MenuItem extends React.Component {
                 primary: classes.text,
               }}
               style={style}
-              primary={<span className={fontClass} ref={this.textRef}>{title}</span>}
+              primary={<Typography component="span" className={fontClass} ref={this.textRef}>{title}</Typography>}
             />
           </Tooltip>
       </ListItem>

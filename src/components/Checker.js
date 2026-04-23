@@ -42,7 +42,10 @@
 import { removeUsfmMarkers } from '../utils/usfmHelpers'
 import React, { useEffect, useMemo, useState } from 'react'
 import { validateSelectionsForAllChecks } from '../utils/selectionHelper'
-import { getRef, getVerseDataFromBible } from '../tc_ui_toolkit/ScripturePane/helpers/verseHelpers'
+import {
+  getRef,
+  getVerseDataFromBible,
+} from '../tc_ui_toolkit/ScripturePane/helpers/verseHelpers'
 import PropTypes from 'prop-types'
 import _ from 'lodash'
 import GroupMenuComponent from './GroupMenuComponent'
@@ -128,6 +131,7 @@ const name = 'Checker'
  * @param {object} parameters.targetBible - The target Bible data for the working language.
  * @param {object} parameters.targetLanguageDetails - Metadata about the target language, including book and language-specific details.
  * @param {Function} parameters.translate - A function used for string translations in the UI.
+* @param {boolean} parameters.disableFontMenu - If true, the font menu will be disabled.
  */
 const Checker = ({
   alignedGlBible,
@@ -147,6 +151,7 @@ const Checker = ({
   targetBible: targetBible_,
   targetLanguageDetails,
   translate,
+  disableFontMenu= false
 }) => {
   // Main settings state - includes pane configuration, tool settings, and manifest data
   const [settings, _setSettings] = useState({
@@ -572,8 +577,12 @@ const Checker = ({
    */
   const saveEditVerse = () => {
     console.log(`${name}-saveEditVerse`)
-    const { chapter, verse } = getRef(targetBible,currentContextId.reference.chapter,currentContextId.reference.verse)
-    
+    const { chapter, verse } = getRef(
+      targetBible,
+      currentContextId.reference.chapter,
+      currentContextId.reference.verse
+    )
+
     const verseRef = currentContextId.verseSpan || verse // if in verse span, use it
     const before = targetBible[chapter][verseRef]
 
@@ -647,7 +656,11 @@ const Checker = ({
     const chapter = reference?.chapter
     const verse = reference?.verse
     if (chapter && verse) {
-      const verseData = getVerseDataFromBible(targetBible,chapter,verse).verseData
+      const verseData = getVerseDataFromBible(
+        targetBible,
+        chapter,
+        verse
+      ).verseData
       if (verseData) {
         unfilteredVerseText_ = verseData
         if (typeof verseData !== 'string') {
@@ -1279,6 +1292,7 @@ const Checker = ({
               showPopover={showPopover}
               onExpandedScripturePaneShow={null}
               translate={translate}
+              disableFontMenu={disableFontMenu}
             />
           </div>
         )}
@@ -1381,5 +1395,6 @@ Checker.propTypes = {
   targetBible: PropTypes.object.isRequired,
   targetLanguageDetails: PropTypes.object.isRequired,
   translate: PropTypes.func.isRequired,
+  disableFontMenu: PropTypes.bool,
 }
 export default Checker

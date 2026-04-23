@@ -3,7 +3,7 @@ import React from 'react';
 import isEqual from 'lodash/isEqual';
 import { isWord, punctuationWordSpacing } from './stringHelpers';
 import { removeMarker } from './usfmHelpers';
-
+import { Typography } from '@mui/material';
 /**
  * check if occurrence is correct match.  Corrects occurrence by adding word count from previous verse
  * @param {number|string} occurrence
@@ -175,7 +175,15 @@ export function getWordHighlightedDetails(contextId, previousWord, word, verseWo
   };
 }
 
-export function getWordsFromNestedMilestone(nestedWords, contextId, index, previousWord, wordSpacing, fontClass, verseWordCounts) {
+export function getWordsFromNestedMilestone(
+  nestedWords,
+  contextId,
+  index,
+  previousWord,
+  wordSpacing,
+  fontClass,
+  verseWordCounts
+) {
   // if its an array of an array thus get deep nested words array.
   if (Array.isArray(nestedWords[0])) {
     nestedWords = getDeepNestedWords(nestedWords);
@@ -185,15 +193,15 @@ export function getWordsFromNestedMilestone(nestedWords, contextId, index, previ
   let isBetweenHighlightedWord = false;
   let nestedPreviousWord = previousWord;
   let nestedWordSpacing = wordSpacing;
-  const wordSpans =[];
+  const wordSpans = [];
 
   for (let i = 0, len = nestedWords.length; i < len; i++) {
     const nestedWord = nestedWords[i];
     const nestedWordIndex = i;
     const wordsArray = nestedWords;
 
-    const nestedWordSpanIndex = `${index.toString()}_${nestedWordIndex.toString()}_${nestedWord.text}`;
-    const nestedNextWord = wordsArray[index + 1];
+    const nestedWordSpanIndex = `${index}_${nestedWordIndex}_${nestedWord.text}`;
+    const nestedNextWord = wordsArray[i + 1];
 
     if (isWord(nestedWord)) {
       let padding = nestedWordSpacing;
@@ -207,40 +215,54 @@ export function getWordsFromNestedMilestone(nestedWords, contextId, index, previ
         contextId,
         nestedPreviousWord,
         nestedWord,
-        verseWordCounts,
+        verseWordCounts
       );
+
       isHighlightedWord = highlightedDetails.isHighlightedWord;
       isBetweenHighlightedWord = highlightedDetails.isBetweenHighlightedWord;
       nestedPreviousWord = nestedWord;
-      const paddingSpanStyle = { backgroundColor: isBetweenHighlightedWord ? 'var(--highlight-color)' : 'transparent' };
+
+      const paddingSpanStyle = {
+        backgroundColor: isBetweenHighlightedWord ? 'var(--highlight-color)' : 'transparent',
+      };
 
       wordSpans.push(
-        <span key={nestedWordSpanIndex.toString()}>
-          <span style={paddingSpanStyle}>
+        <Typography key={nestedWordSpanIndex} component="span">
+          <Typography component="span" sx={paddingSpanStyle}>
             {padding}
-          </span>
-          <span className={fontClass} style={{ backgroundColor: isHighlightedWord ? 'var(--highlight-color)' : '' }}>
+          </Typography>
+          <Typography
+            component="span"
+            className={fontClass}
+            sx={{
+              backgroundColor: isHighlightedWord ? 'var(--highlight-color)' : 'transparent',
+            }}
+          >
             {removeMarker(nestedWord.text)}
-          </span>
-        </span>,
+          </Typography>
+        </Typography>
       );
     } else if (nestedWord.text) {
       nestedWordSpacing = punctuationWordSpacing(nestedWord); // spacing before words
       const text = removeMarker(nestedWord.text);
 
-      if (isPunctuationHighlighted(nestedPreviousWord, nestedNextWord, contextId, verseWordCounts)) {
-        wordSpans.push(
-          <span key={nestedWordSpanIndex} className={fontClass} style={{ backgroundColor: 'var(--highlight-color)' }}>
-            {text}
-          </span>,
-        );
-      } else {
-        wordSpans.push(
-          <span className={fontClass} key={nestedWordSpanIndex}>
-            {text}
-          </span>,
-        );
-      }
+      const isHighlighted = isPunctuationHighlighted(
+        nestedPreviousWord,
+        nestedNextWord,
+        contextId,
+        verseWordCounts
+      );
+
+      wordSpans.push(
+        <Typography
+          component="span"
+          className={fontClass}
+          key={nestedWordSpanIndex}
+          sx={{ backgroundColor: isHighlighted ? 'var(--highlight-color)' : 'transparent' }}
+        >
+          {text}
+        </Typography>
+      );
     }
   }
 
@@ -250,7 +272,6 @@ export function getWordsFromNestedMilestone(nestedWords, contextId, index, previ
     nestedWordSpacing,
   };
 }
-
 /**
  * Determines if the previous word is a punctuation that
  * doesnt need spacing after it.
@@ -331,8 +352,8 @@ let spaceCounter = 0;
  */
 export function addSpace(verseSpan, fontClass) {
   verseSpan.push(
-    <span key={'space_' +(++spaceCounter)} className={fontClass} style={{ backgroundColor: 'transparent' }}>
+    <Typography component="span" key={'space_' +(++spaceCounter)} className={fontClass} sx={{ backgroundColor: 'transparent' }}>
       {' '}
-    </span>,
+    </Typography>,
   );
 }

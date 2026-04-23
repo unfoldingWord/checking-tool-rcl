@@ -163,6 +163,7 @@ const App = () => {
           targetBible={targetBible}
           targetLanguageDetails={targetLanguageDetails}
           translate={translate}
+          disableFontMenu={true}
         />
       </div>
     </>
