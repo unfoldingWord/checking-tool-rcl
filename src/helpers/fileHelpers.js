@@ -27,7 +27,7 @@ export function readHelpsFolder(folderPath, filterBook = '') {
   const files = fs.readdirSync(folderPath)
   for (const file of files) {
     const filePath = path.join(folderPath, file)
-    const key = path.base(file)
+    const key = path.basename(file)
     const type = path.extname(file)
     if (type === '.json') {
       const data = readJsonFile(filePath)

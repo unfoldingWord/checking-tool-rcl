@@ -41,7 +41,23 @@ describe('LM Studio integration', () => {
     console.log('LM Studio response:', answer);
   });
 
-  test(`test tw selection`, async () => {
+  test(`read gl checking data`, () => {
+    const filePath = "/Users/blm0/translationCore/resources/en/translationHelps/translationWordsLinks/v89_unfoldingWord"
+    const outputFolder = path.join(__dirname, 'fixtures', 'checks', 'checkingData')
+    const langId = 'en';
+
+    // const books = ['1co', 'heb', '1th']
+    // const books = ['est', 'jon', 'rut']
+    const books = ['eph', '1co', 'heb']
+    for (const bookId of books) {
+      const bookChecks = readHelpsFolder(filePath, bookId)
+      expect(bookChecks)
+      const savePath = path.join(outputFolder, langId + '_' + bookId + ".json")
+      fs.outputJsonSync(savePath, bookChecks, { spaces: 2 });
+    }
+  });
+
+  test(`test AI tw selection`, async () => {
     console.log('testing')
     const verseContent = `Ahora, él será para ti un restaurador de vida y un sustentador de tu vejez, porque tu nuera que te ama, ella que es mejor para ti que siete hijos, lo ha parido".`
     const targetLangCode = `es-419`;
@@ -65,11 +81,11 @@ describe('LM Studio integration', () => {
 // only used for generating data for demo
 ////////////////////////////////
 
-const enTaFolder = '/Users/blm0/translationCore/resources/en/translationHelps/translationAcademy/v79_unfoldingWord'
-const enTwlFolder = '/Users/blm0/translationCore/resources/en/translationHelps/translationWordsLinks/v79_unfoldingWord'
-const enTwFolder = '/Users/blm0/translationCore/resources/en/translationHelps/translationWords/v79_unfoldingWord'
-const enUltFolder = '/Users/blm0/translationCore/resources/en/bibles/ult/v79_unfoldingWord'
-const enTnFolder = '/Users/blm0/translationCore/resources/en/translationHelps/translationNotes/v79_unfoldingWord'
+const enTaFolder = '/Users/blm0/translationCore/resources/en/translationHelps/translationAcademy/v89_unfoldingWord'
+const enTwlFolder = '/Users/blm0/translationCore/resources/en/translationHelps/translationWordsLinks/v89_unfoldingWord'
+const enTwFolder = '/Users/blm0/translationCore/resources/en/translationHelps/translationWords/v89_unfoldingWord'
+const enUltFolder = '/Users/blm0/translationCore/resources/en/bibles/ult/v89_unfoldingWord'
+const enTnFolder = '/Users/blm0/translationCore/resources/en/translationHelps/translationNotes/v89_unfoldingWord'
 
 describe.skip('read resources', () => {
   test(`read tA`, () => {
@@ -134,7 +150,8 @@ describe.skip('read resources', () => {
  */
 async function queryLmStudio(query, options = {}) {
   const {
-    baseUrl = 'http://localhost:1234',
+    // baseUrl = 'http://localhost:1234',
+    baseUrl = 'http://192.168.142.92:1234', // use local server
     model = 'local-model',
     temperature = 0.7,
     maxTokens = 2048,
