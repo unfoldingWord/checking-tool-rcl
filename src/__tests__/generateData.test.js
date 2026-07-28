@@ -52,8 +52,13 @@ describe('LM Studio integration', () => {
     const answer = await queryLmStudio(prompt);
     console.log('answer', answer)
     expect(answer).toBeTruthy();
+    const responses = answer.split('\n')
+    for (const response of responses) {
+      const [translation, confidence] = response.split(',')
+      console.log('translation', {translation, confidence});
+    }
     console.log('LM Studio response:', answer);
-  }, 20000);
+  }, 80000);
 });
 
 ////////////////////////////////
@@ -132,7 +137,8 @@ async function queryLmStudio(query, options = {}) {
     baseUrl = 'http://localhost:1234',
     model = 'local-model',
     temperature = 0.7,
-    maxTokens = 512,
+    maxTokens = 2048,
+    enable_thinking = false,
   } = options;
 
   const url = `${baseUrl}/v1/chat/completions`;
@@ -152,25 +158,56 @@ async function queryLmStudio(query, options = {}) {
         ],
         temperature,
         max_tokens: maxTokens,
+        stream: true,
+        chat_template_kwargs: { enable_thinking },
       }),
     });
   } catch (error) {
     throw new Error(`Failed to reach LM Studio server at ${url}: ${error.message}`);
   }
 
-  const ok = response.ok
-  if (!ok) {
+  if (!response.ok) {
     const errorText = await response.text();
     throw new Error(`LM Studio request failed (${response.status}): ${errorText}`);
   }
 
-  const data = await response.json();
+  // Read the SSE stream and accumulate the full response
+  const reader = response.body.pipeThrough(new TextDecoderStream()).getReader();
+  let replyText = '';
+  let buffer = '';
+
+  while (true) {
+    const { value, done } = await reader.read();
+    if (done) break;
+
+    buffer += value;
+    const lines = buffer.split('\n');
+    buffer = lines.pop() || ''; // keep incomplete last line in buffer
+
+    for (const line of lines) {
+      const trimmed = line.trim();
+      if (!trimmed || !trimmed.startsWith('data: ')) continue;
+
+      const dataStr = trimmed.slice(6);
+      if (dataStr === '[DONE]') break;
+
+      try {
+        const chunk = JSON.parse(dataStr);
+        const delta = chunk?.choices?.[0]?.delta?.content;
+        if (delta) {
+          replyText += delta;
+        }
+      } catch {
+        // ignore malformed chunks
+      }
+    }
+  }
+
   const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
   console.log(`Query took ${elapsed}s`);
-  const replyText = data?.choices?.[0]?.message?.content;
 
   if (!replyText) {
-    throw new Error(`Unexpected LM Studio response shape: ${JSON.stringify(data)}`);
+    throw new Error(`Unexpected LM Studio response shape: received empty content`);
   }
 
   return replyText;
@@ -212,14 +249,17 @@ ${phrase}
 6. Format each matched word as \`word:occurrenceNumber\`, using the word's exact form as it appears in the verse. If the match includes multiple words, join them with a single space, e.g. \`tu:1 vejez:1\`.
 7. If more than one plausible matching set of words exists, output each candidate as its own row, ordered from highest to lowest confidence.
 8. "confidence level" is an integer 0-100 reflecting certainty that the match is correct in context.
-9. If no reasonable match exists, output a single row with an empty "target phrase" and confidence level 0.
+9. If no reasonable match exists, output a single row with an empty "matched words" field and confidence level 0.
 10. Never translate, paraphrase, or alter word forms — only reference exact tokens from the target verse.
 11. Output ONLY the CSV data, with no header row. No commentary, no markdown fences, no extra text.
 
 ## Output Format
 
-"target phrase",confidence level
+"matched words","confidence level"
 
-Wrap "target phrase" in double quotes. If it contains a literal double quote character, escape it by doubling it (i.e. \`""\`), per standard CSV quoting rules. "confidence level" must be a plain integer with no quotes.`
+- "matched words" is the space-joined list of \`word:occurrence\` tokens from the TARGET VERSE (e.g. \`"tu:1 vejez:1"\`). Do NOT output the gateway language phrase here.
+- "confidence level" must be a plain integer with no quotes.
+- Wrap "matched words" in double quotes.
+`
   return prompt;
 }
