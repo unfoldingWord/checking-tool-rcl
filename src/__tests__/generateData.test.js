@@ -53,7 +53,7 @@ describe('LM Studio integration', () => {
     console.log('answer', answer)
     expect(answer).toBeTruthy();
     console.log('LM Studio response:', answer);
-  });
+  }, 20000);
 });
 
 ////////////////////////////////
@@ -136,6 +136,7 @@ async function queryLmStudio(query, options = {}) {
   } = options;
 
   const url = `${baseUrl}/v1/chat/completions`;
+  const startTime = Date.now();
 
   let response;
   try {
@@ -164,6 +165,8 @@ async function queryLmStudio(query, options = {}) {
   }
 
   const data = await response.json();
+  const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
+  console.log(`Query took ${elapsed}s`);
   const replyText = data?.choices?.[0]?.message?.content;
 
   if (!replyText) {
