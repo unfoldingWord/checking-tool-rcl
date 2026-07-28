@@ -181,9 +181,14 @@ describe.skip('read resources', () => {
  * @param {object} [options] - optional overrides
  * @param {string} [options.baseUrl='http://localhost:1234'] - base URL of the LM Studio server
  * @param {string} [options.model='local-model'] - model identifier as loaded in LM Studio
- * @param {number} [options.temperature=0.7] - sampling temperature
- * @param {number} [options.maxTokens=512] - max tokens to generate
+ * @param {number} [options.temperature=0.7] - sampling temperature (0.0-1.0)
+ * @param {number} [options.maxTokens=2048] - max tokens to generate in the response
+ * @param {boolean} [options.enable_thinking=false] - whether to enable thinking mode in chat template
  * @returns {Promise<string>} - the text of the model's reply
+ * @throws {Error} - if the server is unreachable or returns an error status
+ * @example
+ * const answer = await queryLmStudio('What is the capital of France?');
+ * console.log(answer); // "The capital of France is Paris."
  */
 async function queryLmStudio(query, options = {}) {
   const {
@@ -222,7 +227,8 @@ async function queryLmStudio(query, options = {}) {
 
   if (!response.ok) {
     const errorText = await response.text();
-    throw new Error(`LM Studio request failed (${response.status}): ${errorText}`);
+    const message = `AI request failed (${response.status}): ${errorText}`
+    throw new Error(message);
   }
 
   // Read the SSE stream and accumulate the full response
@@ -261,7 +267,9 @@ async function queryLmStudio(query, options = {}) {
   console.log(`Query took ${elapsed}s`);
 
   if (!replyText) {
-    throw new Error(`Unexpected LM Studio response shape: received empty content`);
+    const message = `Unexpected LM Studio response shape: received empty content`
+    console.log(message)
+    throw new Error(message);
   }
 
   return replyText;
