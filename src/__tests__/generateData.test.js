@@ -33,10 +33,24 @@ describe('read enGlBible data', () => {
   });
 })
 
-describe.skip('LM Studio integration', () => {
-  test(`query LM Studio with a text prompt`, async () => {
+describe('LM Studio integration', () => {
+  test.skip(`query LM Studio with a text prompt`, async () => {
     console.log('testing')
     const answer = await queryLmStudio('What is the capital of France?');
+    expect(answer).toBeTruthy();
+    console.log('LM Studio response:', answer);
+  });
+
+  test(`test tw selection`, async () => {
+    console.log('testing')
+    const verseContent = `Ahora, él será para ti un restaurador de vida y un sustentador de tu vejez, porque tu nuera que te ama, ella que es mejor para ti que siete hijos, lo ha parido".`
+    const targetLangCode = `es-419`;
+    const phrase = `your old age`
+    const phraseLangCode = `en`;
+    const prompt = buildVerseMatchPrompt(verseContent, targetLangCode, phrase, phraseLangCode)
+    console.log('prompt', prompt)
+    const answer = await queryLmStudio(prompt);
+    console.log('answer', answer)
     expect(answer).toBeTruthy();
     console.log('LM Studio response:', answer);
   });
@@ -159,3 +173,50 @@ async function queryLmStudio(query, options = {}) {
   return replyText;
 }
 
+/**
+ * Builds the AI prompt for matching a gateway language phrase to the
+ * best corresponding word(s) in a target-language verse, returning
+ * results as CSV rows of `"word:occurrence ..."`,confidence.
+ *
+ * @param {string} verseContent - the target-language verse text
+ * @param {string} targetLangCode - language code of the verse (e.g. 'es-419')
+ * @param {string} phrase - gateway language phrase to match (e.g. 'your old age')
+ * @param {string} phraseLangCode - language code of the phrase (e.g. 'en')
+ * @returns {string} - the fully populated prompt text
+ */
+export function buildVerseMatchPrompt(verseContent, targetLangCode, phrase, phraseLangCode) {
+  const prompt = `You are an expert in biblical linguistics and cross-language word alignment. Your task is to find the exact word(s) in a target-language Bible verse that best correspond to (translate) a phrase from a gateway language, and to identify each matched word by its occurrence index within the verse.
+
+## Input
+
+Target Verse (language: ${targetLangCode}), delimited by triple backticks:
+\`\`\`
+${verseContent}
+\`\`\`
+
+Gateway Language Phrase (language: ${phraseLangCode}), delimited by triple backticks:
+\`\`\`
+${phrase}
+\`\`\`
+
+## Instructions
+
+1. Treat everything between the triple backticks above as literal text, including any quotation marks, punctuation, or special characters it may contain.
+2. Tokenize the target verse into words in reading order, stripping surrounding punctuation (including any quotation marks) but preserving original spelling, accents, and casing of each word.
+3. For every word token, compute its "occurrence number": the count (starting at 1) of how many times that exact word form (case- and accent-sensitive) has appeared in the verse up to and including that position.
+4. Analyze the semantic meaning of the gateway language phrase.
+5. Identify the word(s) in the target verse that best correspond to that meaning. The match may be a single word or multiple words (not necessarily contiguous, but prefer the tightest/closest grouping when equally valid).
+6. Format each matched word as \`word:occurrenceNumber\`, using the word's exact form as it appears in the verse. If the match includes multiple words, join them with a single space, e.g. \`tu:1 vejez:1\`.
+7. If more than one plausible matching set of words exists, output each candidate as its own row, ordered from highest to lowest confidence.
+8. "confidence level" is an integer 0-100 reflecting certainty that the match is correct in context.
+9. If no reasonable match exists, output a single row with an empty "target phrase" and confidence level 0.
+10. Never translate, paraphrase, or alter word forms — only reference exact tokens from the target verse.
+11. Output ONLY the CSV data, with no header row. No commentary, no markdown fences, no extra text.
+
+## Output Format
+
+"target phrase",confidence level
+
+Wrap "target phrase" in double quotes. If it contains a literal double quote character, escape it by doubling it (i.e. \`""\`), per standard CSV quoting rules. "confidence level" must be a plain integer with no quotes.`
+  return prompt;
+}
