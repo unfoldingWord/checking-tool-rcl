@@ -1,7 +1,7 @@
 {
   "kt": {
     "groups": {
-      "adultery.json": [
+      "adultery": [
         {
           "comments": false,
           "reminders": false,
@@ -20,12 +20,12 @@
             "groupId": "adultery",
             "quote": "μοιχοὶ",
             "quoteString": "μοιχοὶ",
-            "glQuote": "",
+            "glQuote": "adulterers",
             "occurrence": 1
           }
         }
       ],
-      "altar.json": [
+      "altar": [
         {
           "comments": false,
           "reminders": false,
@@ -120,7 +120,7 @@
           }
         }
       ],
-      "amen.json": [
+      "amen": [
         {
           "comments": false,
           "reminders": false,
@@ -166,7 +166,7 @@
           }
         }
       ],
-      "angel.json": [
+      "angel": [
         {
           "comments": false,
           "reminders": false,
@@ -274,7 +274,7 @@
           }
         }
       ],
-      "apostle.json": [
+      "apostle": [
         {
           "comments": false,
           "reminders": false,
@@ -554,7 +554,7 @@
           }
         }
       ],
-      "appoint.json": [
+      "appoint": [
         {
           "comments": false,
           "reminders": false,
@@ -600,7 +600,7 @@
           }
         }
       ],
-      "authority.json": [
+      "authority": [
         {
           "comments": false,
           "reminders": false,
@@ -893,7 +893,7 @@
           }
         }
       ],
-      "baptize.json": [
+      "baptize": [
         {
           "comments": false,
           "reminders": false,
@@ -1115,7 +1115,7 @@
           }
         }
       ],
-      "believe.json": [
+      "believe": [
         {
           "comments": false,
           "reminders": false,
@@ -1580,7 +1580,7 @@
           }
         }
       ],
-      "beloved.json": [
+      "beloved": [
         {
           "comments": false,
           "reminders": false,
@@ -1670,7 +1670,7 @@
           }
         }
       ],
-      "blameless.json": [
+      "blameless": [
         {
           "comments": false,
           "reminders": false,
@@ -1716,7 +1716,7 @@
           }
         }
       ],
-      "bless.json": [
+      "bless": [
         {
           "comments": false,
           "reminders": false,
@@ -1837,7 +1837,7 @@
           }
         }
       ],
-      "bond.json": [
+      "bond": [
         {
           "comments": false,
           "reminders": false,
@@ -1905,7 +1905,7 @@
           }
         }
       ],
-      "call.json": [
+      "call": [
         {
           "comments": false,
           "reminders": false,
@@ -2334,7 +2334,7 @@
           }
         }
       ],
-      "christ.json": [
+      "christ": [
         {
           "comments": false,
           "reminders": false,
@@ -3870,7 +3870,7 @@
           }
         }
       ],
-      "church.json": [
+      "church": [
         {
           "comments": false,
           "reminders": false,
@@ -4383,7 +4383,7 @@
           }
         }
       ],
-      "circumcise.json": [
+      "circumcise": [
         {
           "comments": false,
           "reminders": false,
@@ -4535,7 +4535,7 @@
           }
         }
       ],
-      "condemn.json": [
+      "condemn": [
         {
           "comments": false,
           "reminders": false,
@@ -4559,7 +4559,7 @@
           }
         }
       ],
-      "conscience.json": [
+      "conscience": [
         {
           "comments": false,
           "reminders": false,
@@ -4773,7 +4773,7 @@
           }
         }
       ],
-      "covenant.json": [
+      "covenant": [
         {
           "comments": false,
           "reminders": false,
@@ -4797,7 +4797,7 @@
           }
         }
       ],
-      "cross.json": [
+      "cross": [
         {
           "comments": false,
           "reminders": false,
@@ -4856,7 +4856,7 @@
           }
         }
       ],
-      "crucify.json": [
+      "crucify": [
         {
           "comments": false,
           "reminders": false,
@@ -4958,7 +4958,7 @@
           }
         }
       ],
-      "curse.json": [
+      "curse": [
         {
           "comments": false,
           "reminders": false,
@@ -5004,7 +5004,7 @@
           }
         }
       ],
-      "dayofthelord.json": [
+      "dayofthelord": [
         {
           "comments": false,
           "reminders": false,
@@ -5076,7 +5076,7 @@
           }
         }
       ],
-      "demon.json": [
+      "demon": [
         {
           "comments": false,
           "reminders": false,
@@ -5175,7 +5175,7 @@
           }
         }
       ],
-      "elect.json": [
+      "elect": [
         {
           "comments": false,
           "reminders": false,
@@ -5243,7 +5243,7 @@
           }
         }
       ],
-      "evil.json": [
+      "evil": [
         {
           "comments": false,
           "reminders": false,
@@ -5364,7 +5364,7 @@
           }
         }
       ],
-      "exhort.json": [
+      "exhort": [
         {
           "comments": false,
           "reminders": false,
@@ -5454,7 +5454,7 @@
           }
         }
       ],
-      "faith.json": [
+      "faith": [
         {
           "comments": false,
           "reminders": false,
@@ -5646,7 +5646,7 @@
           }
         }
       ],
-      "faithful.json": [
+      "faithful": [
         {
           "comments": false,
           "reminders": false,
@@ -5758,7 +5758,7 @@
           }
         }
       ],
-      "falsegod.json": [
+      "falsegod": [
         {
           "comments": false,
           "reminders": false,
@@ -5976,7 +5976,7 @@
           }
         }
       ],
-      "fear.json": [
+      "fear": [
         {
           "comments": false,
           "reminders": false,
@@ -6000,7 +6000,7 @@
           }
         }
       ],
-      "fellowship.json": [
+      "fellowship": [
         {
           "comments": false,
           "reminders": false,
@@ -6068,7 +6068,7 @@
           }
         }
       ],
-      "foolish.json": [
+      "foolish": [
         {
           "comments": false,
           "reminders": false,
@@ -6312,7 +6312,7 @@
           }
         }
       ],
-      "gentile.json": [
+      "gentile": [
         {
           "comments": false,
           "reminders": false,
@@ -6358,7 +6358,7 @@
           }
         }
       ],
-      "glory.json": [
+      "glory": [
         {
           "comments": false,
           "reminders": false,
@@ -6677,7 +6677,7 @@
           }
         }
       ],
-      "god.json": [
+      "god": [
         {
           "comments": false,
           "reminders": false,
@@ -9304,7 +9304,7 @@
           }
         }
       ],
-      "godthefather.json": [
+      "godthefather": [
         {
           "comments": false,
           "reminders": false,
@@ -9394,7 +9394,7 @@
           }
         }
       ],
-      "good.json": [
+      "good": [
         {
           "comments": false,
           "reminders": false,
@@ -9528,7 +9528,7 @@
           }
         }
       ],
-      "goodnews.json": [
+      "goodnews": [
         {
           "comments": false,
           "reminders": false,
@@ -9856,7 +9856,7 @@
           }
         }
       ],
-      "grace.json": [
+      "grace": [
         {
           "comments": false,
           "reminders": false,
@@ -10021,7 +10021,7 @@
           }
         }
       ],
-      "guilt.json": [
+      "guilt": [
         {
           "comments": false,
           "reminders": false,
@@ -10045,7 +10045,7 @@
           }
         }
       ],
-      "heaven.json": [
+      "heaven": [
         {
           "comments": false,
           "reminders": false,
@@ -10219,7 +10219,7 @@
           }
         }
       ],
-      "holy.json": [
+      "holy": [
         {
           "comments": false,
           "reminders": false,
@@ -10309,7 +10309,7 @@
           }
         }
       ],
-      "holyspirit.json": [
+      "holyspirit": [
         {
           "comments": false,
           "reminders": false,
@@ -10890,7 +10890,7 @@
           }
         }
       ],
-      "honor.json": [
+      "honor": [
         {
           "comments": false,
           "reminders": false,
@@ -10958,7 +10958,7 @@
           }
         }
       ],
-      "hope.json": [
+      "hope": [
         {
           "comments": false,
           "reminders": false,
@@ -11092,7 +11092,7 @@
           }
         }
       ],
-      "inchrist.json": [
+      "inchrist": [
         {
           "comments": false,
           "reminders": false,
@@ -11812,7 +11812,7 @@
           }
         }
       ],
-      "inherit.json": [
+      "inherit": [
         {
           "comments": false,
           "reminders": false,
@@ -11902,7 +11902,7 @@
           }
         }
       ],
-      "israel.json": [
+      "israel": [
         {
           "comments": false,
           "reminders": false,
@@ -11935,7 +11935,7 @@
           }
         }
       ],
-      "jealous.json": [
+      "jealous": [
         {
           "comments": false,
           "reminders": false,
@@ -12003,7 +12003,7 @@
           }
         }
       ],
-      "jesus.json": [
+      "jesus": [
         {
           "comments": false,
           "reminders": false,
@@ -12599,7 +12599,7 @@
           }
         }
       ],
-      "jew.json": [
+      "jew": [
         {
           "comments": false,
           "reminders": false,
@@ -12795,7 +12795,7 @@
           }
         }
       ],
-      "judge.json": [
+      "judge": [
         {
           "comments": false,
           "reminders": false,
@@ -13324,7 +13324,7 @@
           }
         }
       ],
-      "justice.json": [
+      "justice": [
         {
           "comments": false,
           "reminders": false,
@@ -13370,7 +13370,7 @@
           }
         }
       ],
-      "kingdomofgod.json": [
+      "kingdomofgod": [
         {
           "comments": false,
           "reminders": false,
@@ -13535,7 +13535,7 @@
           }
         }
       ],
-      "lawofmoses.json": [
+      "lawofmoses": [
         {
           "comments": false,
           "reminders": false,
@@ -13744,7 +13744,7 @@
           }
         }
       ],
-      "lord.json": [
+      "lord": [
         {
           "comments": false,
           "reminders": false,
@@ -15396,7 +15396,7 @@
           }
         }
       ],
-      "lordssupper.json": [
+      "lordssupper": [
         {
           "comments": false,
           "reminders": false,
@@ -15429,7 +15429,7 @@
           }
         }
       ],
-      "love.json": [
+      "love": [
         {
           "comments": false,
           "reminders": false,
@@ -15880,7 +15880,7 @@
           }
         }
       ],
-      "mercy.json": [
+      "mercy": [
         {
           "comments": false,
           "reminders": false,
@@ -15904,7 +15904,7 @@
           }
         }
       ],
-      "minister.json": [
+      "minister": [
         {
           "comments": false,
           "reminders": false,
@@ -15972,7 +15972,7 @@
           }
         }
       ],
-      "miracle.json": [
+      "miracle": [
         {
           "comments": false,
           "reminders": false,
@@ -16040,7 +16040,7 @@
           }
         }
       ],
-      "passover.json": [
+      "passover": [
         {
           "comments": false,
           "reminders": false,
@@ -16073,7 +16073,7 @@
           }
         }
       ],
-      "pentecost.json": [
+      "pentecost": [
         {
           "comments": false,
           "reminders": false,
@@ -16106,7 +16106,7 @@
           }
         }
       ],
-      "perish.json": [
+      "perish": [
         {
           "comments": false,
           "reminders": false,
@@ -16262,7 +16262,7 @@
           }
         }
       ],
-      "pray.json": [
+      "pray": [
         {
           "comments": false,
           "reminders": false,
@@ -16471,7 +16471,7 @@
           }
         }
       ],
-      "predestine.json": [
+      "predestine": [
         {
           "comments": false,
           "reminders": false,
@@ -16495,7 +16495,7 @@
           }
         }
       ],
-      "prophet.json": [
+      "prophet": [
         {
           "comments": false,
           "reminders": false,
@@ -17002,7 +17002,7 @@
           }
         }
       ],
-      "psalm.json": [
+      "psalm": [
         {
           "comments": false,
           "reminders": false,
@@ -17026,7 +17026,7 @@
           }
         }
       ],
-      "reconcile.json": [
+      "reconcile": [
         {
           "comments": false,
           "reminders": false,
@@ -17050,7 +17050,7 @@
           }
         }
       ],
-      "redeem.json": [
+      "redeem": [
         {
           "comments": false,
           "reminders": false,
@@ -17074,7 +17074,7 @@
           }
         }
       ],
-      "resurrection.json": [
+      "resurrection": [
         {
           "comments": false,
           "reminders": false,
@@ -17164,7 +17164,7 @@
           }
         }
       ],
-      "righteous.json": [
+      "righteous": [
         {
           "comments": false,
           "reminders": false,
@@ -17285,7 +17285,7 @@
           }
         }
       ],
-      "saint.json": [
+      "saint": [
         {
           "comments": false,
           "reminders": false,
@@ -17437,7 +17437,7 @@
           }
         }
       ],
-      "sanctify.json": [
+      "sanctify": [
         {
           "comments": false,
           "reminders": false,
@@ -17549,7 +17549,7 @@
           }
         }
       ],
-      "satan.json": [
+      "satan": [
         {
           "comments": false,
           "reminders": false,
@@ -17613,7 +17613,7 @@
           }
         }
       ],
-      "save.json": [
+      "save": [
         {
           "comments": false,
           "reminders": false,
@@ -17813,7 +17813,7 @@
           }
         }
       ],
-      "scribe.json": [
+      "scribe": [
         {
           "comments": false,
           "reminders": false,
@@ -17837,7 +17837,7 @@
           }
         }
       ],
-      "sign.json": [
+      "sign": [
         {
           "comments": false,
           "reminders": false,
@@ -17883,7 +17883,7 @@
           }
         }
       ],
-      "sin.json": [
+      "sin": [
         {
           "comments": false,
           "reminders": false,
@@ -18185,7 +18185,7 @@
           }
         }
       ],
-      "sonofgod.json": [
+      "sonofgod": [
         {
           "comments": false,
           "reminders": false,
@@ -18240,7 +18240,7 @@
           }
         }
       ],
-      "soul.json": [
+      "soul": [
         {
           "comments": false,
           "reminders": false,
@@ -18273,7 +18273,7 @@
           }
         }
       ],
-      "spirit.json": [
+      "spirit": [
         {
           "comments": false,
           "reminders": false,
@@ -19088,7 +19088,7 @@
           }
         }
       ],
-      "temple.json": [
+      "temple": [
         {
           "comments": false,
           "reminders": false,
@@ -19244,7 +19244,7 @@
           }
         }
       ],
-      "tempt.json": [
+      "tempt": [
         {
           "comments": false,
           "reminders": false,
@@ -19334,7 +19334,7 @@
           }
         }
       ],
-      "test.json": [
+      "test": [
         {
           "comments": false,
           "reminders": false,
@@ -19446,7 +19446,7 @@
           }
         }
       ],
-      "testimony.json": [
+      "testimony": [
         {
           "comments": false,
           "reminders": false,
@@ -19492,7 +19492,7 @@
           }
         }
       ],
-      "thetwelve.json": [
+      "thetwelve": [
         {
           "comments": false,
           "reminders": false,
@@ -19525,7 +19525,7 @@
           }
         }
       ],
-      "trust.json": [
+      "trust": [
         {
           "comments": false,
           "reminders": false,
@@ -19549,7 +19549,7 @@
           }
         }
       ],
-      "willofgod.json": [
+      "willofgod": [
         {
           "comments": false,
           "reminders": false,
@@ -19582,7 +19582,7 @@
           }
         }
       ],
-      "wise.json": [
+      "wise": [
         {
           "comments": false,
           "reminders": false,
@@ -20249,7 +20249,7 @@
           }
         }
       ],
-      "woe.json": [
+      "woe": [
         {
           "comments": false,
           "reminders": false,
@@ -20273,7 +20273,7 @@
           }
         }
       ],
-      "wordofgod.json": [
+      "wordofgod": [
         {
           "comments": false,
           "reminders": false,
@@ -20354,7 +20354,7 @@
           }
         }
       ],
-      "world.json": [
+      "world": [
         {
           "comments": false,
           "reminders": false,
@@ -20926,7 +20926,7 @@
           }
         }
       ],
-      "worship.json": [
+      "worship": [
         {
           "comments": false,
           "reminders": false,
@@ -20950,7 +20950,7 @@
           }
         }
       ],
-      "zealous.json": [
+      "zealous": [
         {
           "comments": false,
           "reminders": false,
@@ -20976,7 +20976,7 @@
       ]
     }
   },
-  "manifest.json": {
+  "manifest": {
     "dublin_core": {
       "conformsto": "rc0.2",
       "contributor": [
@@ -21572,7 +21572,7 @@
   },
   "names": {
     "groups": {
-      "adam.json": [
+      "adam": [
         {
           "comments": false,
           "reminders": false,
@@ -21649,7 +21649,7 @@
           }
         }
       ],
-      "apollos.json": [
+      "apollos": [
         {
           "comments": false,
           "reminders": false,
@@ -21805,7 +21805,7 @@
           }
         }
       ],
-      "aquila.json": [
+      "aquila": [
         {
           "comments": false,
           "reminders": false,
@@ -21829,7 +21829,7 @@
           }
         }
       ],
-      "asia.json": [
+      "asia": [
         {
           "comments": false,
           "reminders": false,
@@ -21862,7 +21862,7 @@
           }
         }
       ],
-      "barnabas.json": [
+      "barnabas": [
         {
           "comments": false,
           "reminders": false,
@@ -21886,7 +21886,7 @@
           }
         }
       ],
-      "corinth.json": [
+      "corinth": [
         {
           "comments": false,
           "reminders": false,
@@ -21910,7 +21910,7 @@
           }
         }
       ],
-      "ephesus.json": [
+      "ephesus": [
         {
           "comments": false,
           "reminders": false,
@@ -21956,7 +21956,7 @@
           }
         }
       ],
-      "galatia.json": [
+      "galatia": [
         {
           "comments": false,
           "reminders": false,
@@ -21989,7 +21989,7 @@
           }
         }
       ],
-      "greek.json": [
+      "greek": [
         {
           "comments": false,
           "reminders": false,
@@ -22079,7 +22079,7 @@
           }
         }
       ],
-      "jamesbrotherofjesus.json": [
+      "jamesbrotherofjesus": [
         {
           "comments": false,
           "reminders": false,
@@ -22103,7 +22103,7 @@
           }
         }
       ],
-      "jerusalem.json": [
+      "jerusalem": [
         {
           "comments": false,
           "reminders": false,
@@ -22127,7 +22127,7 @@
           }
         }
       ],
-      "macedonia.json": [
+      "macedonia": [
         {
           "comments": false,
           "reminders": false,
@@ -22173,7 +22173,7 @@
           }
         }
       ],
-      "moses.json": [
+      "moses": [
         {
           "comments": false,
           "reminders": false,
@@ -22206,7 +22206,7 @@
           }
         }
       ],
-      "paul.json": [
+      "paul": [
         {
           "comments": false,
           "reminders": false,
@@ -22384,7 +22384,7 @@
           }
         }
       ],
-      "peter.json": [
+      "peter": [
         {
           "comments": false,
           "reminders": false,
@@ -22474,7 +22474,7 @@
           }
         }
       ],
-      "priscilla.json": [
+      "priscilla": [
         {
           "comments": false,
           "reminders": false,
@@ -22498,7 +22498,7 @@
           }
         }
       ],
-      "redsea.json": [
+      "redsea": [
         {
           "comments": false,
           "reminders": false,
@@ -22544,7 +22544,7 @@
           }
         }
       ],
-      "timothy.json": [
+      "timothy": [
         {
           "comments": false,
           "reminders": false,
@@ -22594,7 +22594,7 @@
   },
   "other": {
     "groups": {
-      "acknowledge.json": [
+      "acknowledge": [
         {
           "comments": false,
           "reminders": false,
@@ -22640,7 +22640,7 @@
           }
         }
       ],
-      "admonish.json": [
+      "admonish": [
         {
           "comments": false,
           "reminders": false,
@@ -22686,7 +22686,7 @@
           }
         }
       ],
-      "adversary.json": [
+      "adversary": [
         {
           "comments": false,
           "reminders": false,
@@ -22754,7 +22754,7 @@
           }
         }
       ],
-      "age.json": [
+      "age": [
         {
           "comments": false,
           "reminders": false,
@@ -23140,7 +23140,7 @@
           }
         }
       ],
-      "assembly.json": [
+      "assembly": [
         {
           "comments": false,
           "reminders": false,
@@ -23318,7 +23318,7 @@
           }
         }
       ],
-      "assign.json": [
+      "assign": [
         {
           "comments": false,
           "reminders": false,
@@ -23342,7 +23342,7 @@
           }
         }
       ],
-      "bear.json": [
+      "bear": [
         {
           "comments": false,
           "reminders": false,
@@ -23454,7 +23454,7 @@
           }
         }
       ],
-      "beast.json": [
+      "beast": [
         {
           "comments": false,
           "reminders": false,
@@ -23478,7 +23478,7 @@
           }
         }
       ],
-      "betray.json": [
+      "betray": [
         {
           "comments": false,
           "reminders": false,
@@ -23502,7 +23502,7 @@
           }
         }
       ],
-      "biblicaltimeday.json": [
+      "biblicaltimeday": [
         {
           "comments": false,
           "reminders": false,
@@ -23645,7 +23645,7 @@
           }
         }
       ],
-      "biblicaltimehour.json": [
+      "biblicaltimehour": [
         {
           "comments": false,
           "reminders": false,
@@ -23691,7 +23691,7 @@
           }
         }
       ],
-      "bread.json": [
+      "bread": [
         {
           "comments": false,
           "reminders": false,
@@ -23856,7 +23856,7 @@
           }
         }
       ],
-      "bury.json": [
+      "bury": [
         {
           "comments": false,
           "reminders": false,
@@ -23880,7 +23880,7 @@
           }
         }
       ],
-      "commit.json": [
+      "commit": [
         {
           "comments": false,
           "reminders": false,
@@ -23926,7 +23926,7 @@
           }
         }
       ],
-      "companion.json": [
+      "companion": [
         {
           "comments": false,
           "reminders": false,
@@ -23972,7 +23972,7 @@
           }
         }
       ],
-      "confirm.json": [
+      "confirm": [
         {
           "comments": false,
           "reminders": false,
@@ -24018,7 +24018,7 @@
           }
         }
       ],
-      "corrupt.json": [
+      "corrupt": [
         {
           "comments": false,
           "reminders": false,
@@ -24148,7 +24148,7 @@
           }
         }
       ],
-      "cow.json": [
+      "cow": [
         {
           "comments": false,
           "reminders": false,
@@ -24194,7 +24194,7 @@
           }
         }
       ],
-      "creation.json": [
+      "creation": [
         {
           "comments": false,
           "reminders": false,
@@ -24218,7 +24218,7 @@
           }
         }
       ],
-      "crown.json": [
+      "crown": [
         {
           "comments": false,
           "reminders": false,
@@ -24242,7 +24242,7 @@
           }
         }
       ],
-      "cry.json": [
+      "cry": [
         {
           "comments": false,
           "reminders": false,
@@ -24288,7 +24288,7 @@
           }
         }
       ],
-      "deceive.json": [
+      "deceive": [
         {
           "comments": false,
           "reminders": false,
@@ -24356,7 +24356,7 @@
           }
         }
       ],
-      "declare.json": [
+      "declare": [
         {
           "comments": false,
           "reminders": false,
@@ -24380,7 +24380,7 @@
           }
         }
       ],
-      "defile.json": [
+      "defile": [
         {
           "comments": false,
           "reminders": false,
@@ -24404,7 +24404,7 @@
           }
         }
       ],
-      "delight.json": [
+      "delight": [
         {
           "comments": false,
           "reminders": false,
@@ -24450,7 +24450,7 @@
           }
         }
       ],
-      "desert.json": [
+      "desert": [
         {
           "comments": false,
           "reminders": false,
@@ -24474,7 +24474,7 @@
           }
         }
       ],
-      "destroyer.json": [
+      "destroyer": [
         {
           "comments": false,
           "reminders": false,
@@ -24520,7 +24520,7 @@
           }
         }
       ],
-      "discernment.json": [
+      "discernment": [
         {
           "comments": false,
           "reminders": false,
@@ -24808,7 +24808,7 @@
           }
         }
       ],
-      "dishonor.json": [
+      "dishonor": [
         {
           "comments": false,
           "reminders": false,
@@ -24854,7 +24854,7 @@
           }
         }
       ],
-      "drunk.json": [
+      "drunk": [
         {
           "comments": false,
           "reminders": false,
@@ -24922,7 +24922,7 @@
           }
         }
       ],
-      "earth.json": [
+      "earth": [
         {
           "comments": false,
           "reminders": false,
@@ -25096,7 +25096,7 @@
           }
         }
       ],
-      "endure.json": [
+      "endure": [
         {
           "comments": false,
           "reminders": false,
@@ -25142,7 +25142,7 @@
           }
         }
       ],
-      "enslave.json": [
+      "enslave": [
         {
           "comments": false,
           "reminders": false,
@@ -25166,7 +25166,7 @@
           }
         }
       ],
-      "envy.json": [
+      "envy": [
         {
           "comments": false,
           "reminders": false,
@@ -25234,7 +25234,7 @@
           }
         }
       ],
-      "feast.json": [
+      "feast": [
         {
           "comments": false,
           "reminders": false,
@@ -25292,7 +25292,7 @@
           }
         }
       ],
-      "festival.json": [
+      "festival": [
         {
           "comments": false,
           "reminders": false,
@@ -25316,7 +25316,7 @@
           }
         }
       ],
-      "firstfruit.json": [
+      "firstfruit": [
         {
           "comments": false,
           "reminders": false,
@@ -25384,7 +25384,7 @@
           }
         }
       ],
-      "flock.json": [
+      "flock": [
         {
           "comments": false,
           "reminders": false,
@@ -25439,7 +25439,7 @@
           }
         }
       ],
-      "flute.json": [
+      "flute": [
         {
           "comments": false,
           "reminders": false,
@@ -25463,7 +25463,7 @@
           }
         }
       ],
-      "fornication.json": [
+      "fornication": [
         {
           "comments": false,
           "reminders": false,
@@ -25756,7 +25756,7 @@
           }
         }
       ],
-      "foundation.json": [
+      "foundation": [
         {
           "comments": false,
           "reminders": false,
@@ -25824,7 +25824,7 @@
           }
         }
       ],
-      "free.json": [
+      "free": [
         {
           "comments": false,
           "reminders": false,
@@ -26033,7 +26033,7 @@
           }
         }
       ],
-      "fruit.json": [
+      "fruit": [
         {
           "comments": false,
           "reminders": false,
@@ -26088,7 +26088,7 @@
           }
         }
       ],
-      "gold.json": [
+      "gold": [
         {
           "comments": false,
           "reminders": false,
@@ -26112,7 +26112,7 @@
           }
         }
       ],
-      "grain.json": [
+      "grain": [
         {
           "comments": false,
           "reminders": false,
@@ -26136,7 +26136,7 @@
           }
         }
       ],
-      "harp.json": [
+      "harp": [
         {
           "comments": false,
           "reminders": false,
@@ -26160,7 +26160,7 @@
           }
         }
       ],
-      "harvest.json": [
+      "harvest": [
         {
           "comments": false,
           "reminders": false,
@@ -26184,7 +26184,7 @@
           }
         }
       ],
-      "house.json": [
+      "house": [
         {
           "comments": false,
           "reminders": false,
@@ -26274,7 +26274,7 @@
           }
         }
       ],
-      "household.json": [
+      "household": [
         {
           "comments": false,
           "reminders": false,
@@ -26320,7 +26320,7 @@
           }
         }
       ],
-      "image.json": [
+      "image": [
         {
           "comments": false,
           "reminders": false,
@@ -26388,7 +26388,7 @@
           }
         }
       ],
-      "instruct.json": [
+      "instruct": [
         {
           "comments": false,
           "reminders": false,
@@ -26478,7 +26478,7 @@
           }
         }
       ],
-      "interpret.json": [
+      "interpret": [
         {
           "comments": false,
           "reminders": false,
@@ -26634,7 +26634,7 @@
           }
         }
       ],
-      "joy.json": [
+      "joy": [
         {
           "comments": false,
           "reminders": false,
@@ -26768,7 +26768,7 @@
           }
         }
       ],
-      "kiss.json": [
+      "kiss": [
         {
           "comments": false,
           "reminders": false,
@@ -26792,7 +26792,7 @@
           }
         }
       ],
-      "know.json": [
+      "know": [
         {
           "comments": false,
           "reminders": false,
@@ -28000,7 +28000,7 @@
           }
         }
       ],
-      "labor.json": [
+      "labor": [
         {
           "comments": false,
           "reminders": false,
@@ -28209,7 +28209,7 @@
           }
         }
       ],
-      "law.json": [
+      "law": [
         {
           "comments": false,
           "reminders": false,
@@ -28233,7 +28233,7 @@
           }
         }
       ],
-      "lawful.json": [
+      "lawful": [
         {
           "comments": false,
           "reminders": false,
@@ -28411,7 +28411,7 @@
           }
         }
       ],
-      "lust.json": [
+      "lust": [
         {
           "comments": false,
           "reminders": false,
@@ -28457,7 +28457,7 @@
           }
         }
       ],
-      "manager.json": [
+      "manager": [
         {
           "comments": false,
           "reminders": false,
@@ -28525,7 +28525,7 @@
           }
         }
       ],
-      "member.json": [
+      "member": [
         {
           "comments": false,
           "reminders": false,
@@ -28891,7 +28891,7 @@
           }
         }
       ],
-      "mighty.json": [
+      "mighty": [
         {
           "comments": false,
           "reminders": false,
@@ -28959,7 +28959,7 @@
           }
         }
       ],
-      "mind.json": [
+      "mind": [
         {
           "comments": false,
           "reminders": false,
@@ -29185,7 +29185,7 @@
           }
         }
       ],
-      "mourn.json": [
+      "mourn": [
         {
           "comments": false,
           "reminders": false,
@@ -29209,7 +29209,7 @@
           }
         }
       ],
-      "multiply.json": [
+      "multiply": [
         {
           "comments": false,
           "reminders": false,
@@ -29277,7 +29277,7 @@
           }
         }
       ],
-      "mystery.json": [
+      "mystery": [
         {
           "comments": false,
           "reminders": false,
@@ -29420,7 +29420,7 @@
           }
         }
       ],
-      "neighbor.json": [
+      "neighbor": [
         {
           "comments": false,
           "reminders": false,
@@ -29453,7 +29453,7 @@
           }
         }
       ],
-      "noble.json": [
+      "noble": [
         {
           "comments": false,
           "reminders": false,
@@ -29477,7 +29477,7 @@
           }
         }
       ],
-      "ordain.json": [
+      "ordain": [
         {
           "comments": false,
           "reminders": false,
@@ -29523,7 +29523,7 @@
           }
         }
       ],
-      "pagan.json": [
+      "pagan": [
         {
           "comments": false,
           "reminders": false,
@@ -29569,7 +29569,7 @@
           }
         }
       ],
-      "patient.json": [
+      "patient": [
         {
           "comments": false,
           "reminders": false,
@@ -29593,7 +29593,7 @@
           }
         }
       ],
-      "peace.json": [
+      "peace": [
         {
           "comments": false,
           "reminders": false,
@@ -29683,7 +29683,7 @@
           }
         }
       ],
-      "perfect.json": [
+      "perfect": [
         {
           "comments": false,
           "reminders": false,
@@ -29751,7 +29751,7 @@
           }
         }
       ],
-      "persecute.json": [
+      "persecute": [
         {
           "comments": false,
           "reminders": false,
@@ -29797,7 +29797,7 @@
           }
         }
       ],
-      "plow.json": [
+      "plow": [
         {
           "comments": false,
           "reminders": false,
@@ -29843,7 +29843,7 @@
           }
         }
       ],
-      "possess.json": [
+      "possess": [
         {
           "comments": false,
           "reminders": false,
@@ -29898,7 +29898,7 @@
           }
         }
       ],
-      "praise.json": [
+      "praise": [
         {
           "comments": false,
           "reminders": false,
@@ -30010,7 +30010,7 @@
           }
         }
       ],
-      "preach.json": [
+      "preach": [
         {
           "comments": false,
           "reminders": false,
@@ -30259,7 +30259,7 @@
           }
         }
       ],
-      "profit.json": [
+      "profit": [
         {
           "comments": false,
           "reminders": false,
@@ -30559,7 +30559,7 @@
           }
         }
       ],
-      "prosper.json": [
+      "prosper": [
         {
           "comments": false,
           "reminders": false,
@@ -30592,7 +30592,7 @@
           }
         }
       ],
-      "prostitute.json": [
+      "prostitute": [
         {
           "comments": false,
           "reminders": false,
@@ -30647,7 +30647,7 @@
           }
         }
       ],
-      "provoke.json": [
+      "provoke": [
         {
           "comments": false,
           "reminders": false,
@@ -30671,7 +30671,7 @@
           }
         }
       ],
-      "rebuke.json": [
+      "rebuke": [
         {
           "comments": false,
           "reminders": false,
@@ -30695,7 +30695,7 @@
           }
         }
       ],
-      "receive.json": [
+      "receive": [
         {
           "comments": false,
           "reminders": false,
@@ -30983,7 +30983,7 @@
           }
         }
       ],
-      "reign.json": [
+      "reign": [
         {
           "comments": false,
           "reminders": false,
@@ -31073,7 +31073,7 @@
           }
         }
       ],
-      "report.json": [
+      "report": [
         {
           "comments": false,
           "reminders": false,
@@ -31119,7 +31119,7 @@
           }
         }
       ],
-      "reward.json": [
+      "reward": [
         {
           "comments": false,
           "reminders": false,
@@ -31218,7 +31218,7 @@
           }
         }
       ],
-      "robe.json": [
+      "robe": [
         {
           "comments": false,
           "reminders": false,
@@ -31242,7 +31242,7 @@
           }
         }
       ],
-      "rod.json": [
+      "rod": [
         {
           "comments": false,
           "reminders": false,
@@ -31266,7 +31266,7 @@
           }
         }
       ],
-      "ruler.json": [
+      "ruler": [
         {
           "comments": false,
           "reminders": false,
@@ -31352,7 +31352,7 @@
           }
         }
       ],
-      "sacrifice.json": [
+      "sacrifice": [
         {
           "comments": false,
           "reminders": false,
@@ -31442,7 +31442,7 @@
           }
         }
       ],
-      "seal.json": [
+      "seal": [
         {
           "comments": false,
           "reminders": false,
@@ -31466,7 +31466,7 @@
           }
         }
       ],
-      "seed.json": [
+      "seed": [
         {
           "comments": false,
           "reminders": false,
@@ -31499,7 +31499,7 @@
           }
         }
       ],
-      "seek.json": [
+      "seek": [
         {
           "comments": false,
           "reminders": false,
@@ -31655,7 +31655,7 @@
           }
         }
       ],
-      "selfcontrol.json": [
+      "selfcontrol": [
         {
           "comments": false,
           "reminders": false,
@@ -31732,7 +31732,7 @@
           }
         }
       ],
-      "serpent.json": [
+      "serpent": [
         {
           "comments": false,
           "reminders": false,
@@ -31756,7 +31756,7 @@
           }
         }
       ],
-      "servant.json": [
+      "servant": [
         {
           "comments": false,
           "reminders": false,
@@ -31890,7 +31890,7 @@
           }
         }
       ],
-      "shame.json": [
+      "shame": [
         {
           "comments": false,
           "reminders": false,
@@ -32068,7 +32068,7 @@
           }
         }
       ],
-      "shepherd.json": [
+      "shepherd": [
         {
           "comments": false,
           "reminders": false,
@@ -32092,7 +32092,7 @@
           }
         }
       ],
-      "silver.json": [
+      "silver": [
         {
           "comments": false,
           "reminders": false,
@@ -32116,7 +32116,7 @@
           }
         }
       ],
-      "slander.json": [
+      "slander": [
         {
           "comments": false,
           "reminders": false,
@@ -32162,7 +32162,7 @@
           }
         }
       ],
-      "sow.json": [
+      "sow": [
         {
           "comments": false,
           "reminders": false,
@@ -32340,7 +32340,7 @@
           }
         }
       ],
-      "strife.json": [
+      "strife": [
         {
           "comments": false,
           "reminders": false,
@@ -32364,7 +32364,7 @@
           }
         }
       ],
-      "stumble.json": [
+      "stumble": [
         {
           "comments": false,
           "reminders": false,
@@ -32432,7 +32432,7 @@
           }
         }
       ],
-      "subject.json": [
+      "subject": [
         {
           "comments": false,
           "reminders": false,
@@ -32610,7 +32610,7 @@
           }
         }
       ],
-      "submit.json": [
+      "submit": [
         {
           "comments": false,
           "reminders": false,
@@ -32634,7 +32634,7 @@
           }
         }
       ],
-      "suffer.json": [
+      "suffer": [
         {
           "comments": false,
           "reminders": false,
@@ -32702,7 +32702,7 @@
           }
         }
       ],
-      "teacher.json": [
+      "teacher": [
         {
           "comments": false,
           "reminders": false,
@@ -32748,7 +32748,7 @@
           }
         }
       ],
-      "tenth.json": [
+      "tenth": [
         {
           "comments": false,
           "reminders": false,
@@ -32772,7 +32772,7 @@
           }
         }
       ],
-      "thief.json": [
+      "thief": [
         {
           "comments": false,
           "reminders": false,
@@ -32796,7 +32796,7 @@
           }
         }
       ],
-      "thresh.json": [
+      "thresh": [
         {
           "comments": false,
           "reminders": false,
@@ -32842,7 +32842,7 @@
           }
         }
       ],
-      "tongue.json": [
+      "tongue": [
         {
           "comments": false,
           "reminders": false,
@@ -33315,7 +33315,7 @@
           }
         }
       ],
-      "torment.json": [
+      "torment": [
         {
           "comments": false,
           "reminders": false,
@@ -33339,7 +33339,7 @@
           }
         }
       ],
-      "tremble.json": [
+      "tremble": [
         {
           "comments": false,
           "reminders": false,
@@ -33363,7 +33363,7 @@
           }
         }
       ],
-      "tribulation.json": [
+      "tribulation": [
         {
           "comments": false,
           "reminders": false,
@@ -33387,7 +33387,7 @@
           }
         }
       ],
-      "trumpet.json": [
+      "trumpet": [
         {
           "comments": false,
           "reminders": false,
@@ -33433,7 +33433,7 @@
           }
         }
       ],
-      "understand.json": [
+      "understand": [
         {
           "comments": false,
           "reminders": false,
@@ -33623,7 +33623,7 @@
           }
         }
       ],
-      "vain.json": [
+      "vain": [
         {
           "comments": false,
           "reminders": false,
@@ -33691,7 +33691,7 @@
           }
         }
       ],
-      "vineyard.json": [
+      "vineyard": [
         {
           "comments": false,
           "reminders": false,
@@ -33715,7 +33715,7 @@
           }
         }
       ],
-      "virgin.json": [
+      "virgin": [
         {
           "comments": false,
           "reminders": false,
@@ -33858,7 +33858,7 @@
           }
         }
       ],
-      "warrior.json": [
+      "warrior": [
         {
           "comments": false,
           "reminders": false,
@@ -33882,7 +33882,7 @@
           }
         }
       ],
-      "watch.json": [
+      "watch": [
         {
           "comments": false,
           "reminders": false,
@@ -33906,7 +33906,7 @@
           }
         }
       ],
-      "wheat.json": [
+      "wheat": [
         {
           "comments": false,
           "reminders": false,
@@ -33930,7 +33930,7 @@
           }
         }
       ],
-      "wrong.json": [
+      "wrong": [
         {
           "comments": false,
           "reminders": false,
@@ -33998,7 +33998,7 @@
           }
         }
       ],
-      "yeast.json": [
+      "yeast": [
         {
           "comments": false,
           "reminders": false,

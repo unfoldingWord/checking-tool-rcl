@@ -2,7 +2,7 @@
 import {describe, expect, test} from '@jest/globals'
 import path from "path";
 import fs from 'fs-extra';
-import { getPhraseFromTw, parseTwToIndex } from '../helpers/translationHelps/twArticleHelpers'
+import { getAlignedGLText, getPhraseFromTw, parseTwToIndex } from '../helpers/translationHelps/twArticleHelpers'
 import { readHelpsFolder } from '../helpers/fileHelpers'
 import { groupDataHelpers } from 'word-aligner-lib'
 
@@ -41,7 +41,44 @@ describe('LM Studio integration', () => {
     console.log('LM Studio response:', answer);
   });
 
-  test(`read gl checking data`, () => {
+  test(`add quotes to gl checking data`, () => {
+    const langId = 'en';
+    const bookId = '1co'
+    const folderPath = path.join(__dirname, 'fixtures', 'checks', 'checkingData')
+    const checkingDataPath = path.join(folderPath, langId + '_' + bookId + '.json')
+    const bibleData = fs.readJsonSync(checkingDataPath)
+    expect(bibleData).toBeTruthy()
+
+    const enUltFolder = '/Users/blm0/translationCore/resources/en/bibles/ult/v89_unfoldingWord'
+    const alignedGlBible = readHelpsFolder(enUltFolder)
+
+    const ktGroups = bibleData?.kt?.groups || [];
+    for (const key of Object.keys(ktGroups)) {
+      const group = ktGroups[key]
+      if (group?.length) {
+        for (const item of group) {
+          const contextId1 = item?.contextId
+          const glQuote = contextId1?.glQuote
+          const reference = contextId1?.reference;
+          const bookId = reference?.bookId;
+          if (!glQuote && contextId1.quoteString && bookId) {
+            const alignedGlBook = alignedGlBible[bookId]
+            // need quote
+            const glText = getAlignedGLText(alignedGlBook, contextId1)
+            console.log(glText);
+            if (glText) {
+              contextId1.glQuote = glText;
+            }
+          }
+        }
+
+        // update data
+        fs.outputJsonSync(checkingDataPath, bibleData, { spaces: 2 });
+      }
+    }
+  });
+
+  test.skip(`read gl checking data`, () => {
     const filePath = "/Users/blm0/translationCore/resources/en/translationHelps/translationWordsLinks/v89_unfoldingWord"
     const outputFolder = path.join(__dirname, 'fixtures', 'checks', 'checkingData')
     const langId = 'en';
@@ -57,7 +94,7 @@ describe('LM Studio integration', () => {
     }
   });
 
-  test(`test AI tw selection`, async () => {
+  test.skip(`test AI tw selection`, async () => {
     console.log('testing')
     const verseContent = `Ahora, él será para ti un restaurador de vida y un sustentador de tu vejez, porque tu nuera que te ama, ella que es mejor para ti que siete hijos, lo ha parido".`
     const targetLangCode = `es-419`;
