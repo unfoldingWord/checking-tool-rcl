@@ -43,7 +43,7 @@ describe('LM Studio integration', () => {
 
   test(`add quotes to gl checking data`, () => {
     const langId = 'en';
-    const bookId = '1co'
+    const bookId = 'heb'
     const folderPath = path.join(__dirname, 'fixtures', 'checks', 'checkingData')
     const checkingDataPath = path.join(folderPath, langId + '_' + bookId + '.json')
     const bibleData = fs.readJsonSync(checkingDataPath)

@@ -20,7 +20,7 @@
             "groupId": "adultery",
             "quote": "μοιχοὺς",
             "quoteString": "μοιχοὺς",
-            "glQuote": "",
+            "glQuote": "adulterers",
             "occurrence": 1
           }
         }
@@ -44,7 +44,7 @@
             "groupId": "altar",
             "quote": "θυσιαστηρίῳ",
             "quoteString": "θυσιαστηρίῳ",
-            "glQuote": "",
+            "glQuote": "altar",
             "occurrence": 1
           }
         },
@@ -66,7 +66,7 @@
             "groupId": "altar",
             "quote": "θυσιαστήριον",
             "quoteString": "θυσιαστήριον",
-            "glQuote": "",
+            "glQuote": "an altar",
             "occurrence": 1
           }
         }
@@ -90,7 +90,7 @@
             "groupId": "amen",
             "quote": "ἀμήν",
             "quoteString": "ἀμήν",
-            "glQuote": "",
+            "glQuote": "Amen",
             "occurrence": 1
           }
         }
@@ -123,7 +123,7 @@
               }
             ],
             "quoteString": "τῶν ἀγγέλων",
-            "glQuote": "",
+            "glQuote": "to the angels",
             "occurrence": 1
           }
         },
@@ -154,7 +154,7 @@
               }
             ],
             "quoteString": "τῶν ἀγγέλων",
-            "glQuote": "",
+            "glQuote": "of the angels",
             "occurrence": 1
           }
         },
@@ -176,7 +176,7 @@
             "groupId": "angel",
             "quote": "ἄγγελοι",
             "quoteString": "ἄγγελοι",
-            "glQuote": "",
+            "glQuote": "the angels",
             "occurrence": 1
           }
         },
@@ -198,7 +198,7 @@
             "groupId": "angel",
             "quote": "ἀγγέλους",
             "quoteString": "ἀγγέλους",
-            "glQuote": "",
+            "glQuote": "angels",
             "occurrence": 1
           }
         },
@@ -229,7 +229,7 @@
               }
             ],
             "quoteString": "τοὺς ἀγγέλους",
-            "glQuote": "",
+            "glQuote": "the angels",
             "occurrence": 2
           }
         },
@@ -260,7 +260,7 @@
               }
             ],
             "quoteString": "τῶν ἀγγέλων",
-            "glQuote": "",
+            "glQuote": "of the angels",
             "occurrence": 1
           }
         },
@@ -282,7 +282,7 @@
             "groupId": "angel",
             "quote": "ἀγγέλων",
             "quoteString": "ἀγγέλων",
-            "glQuote": "",
+            "glQuote": "angels",
             "occurrence": 1
           }
         },
@@ -304,7 +304,7 @@
             "groupId": "angel",
             "quote": "ἀγγέλοις",
             "quoteString": "ἀγγέλοις",
-            "glQuote": "",
+            "glQuote": "to angels",
             "occurrence": 1
           }
         },
@@ -326,7 +326,7 @@
             "groupId": "angel",
             "quote": "ἀγγέλους",
             "quoteString": "ἀγγέλους",
-            "glQuote": "",
+            "glQuote": "the angels",
             "occurrence": 1
           }
         },
@@ -348,7 +348,7 @@
             "groupId": "angel",
             "quote": "ἀγγέλους",
             "quoteString": "ἀγγέλους",
-            "glQuote": "",
+            "glQuote": "the angels",
             "occurrence": 1
           }
         },
@@ -370,7 +370,7 @@
             "groupId": "angel",
             "quote": "ἀγγέλων",
             "quoteString": "ἀγγέλων",
-            "glQuote": "",
+            "glQuote": "angels",
             "occurrence": 1
           }
         },
@@ -392,7 +392,7 @@
             "groupId": "angel",
             "quote": "ἀγγέλων",
             "quoteString": "ἀγγέλων",
-            "glQuote": "",
+            "glQuote": "of angels",
             "occurrence": 1
           }
         },
@@ -414,7 +414,7 @@
             "groupId": "angel",
             "quote": "ἀγγέλους",
             "quoteString": "ἀγγέλους",
-            "glQuote": "",
+            "glQuote": "angels",
             "occurrence": 1
           }
         }
@@ -438,7 +438,7 @@
             "groupId": "anoint",
             "quote": "ἔχρισέν",
             "quoteString": "ἔχρισέν",
-            "glQuote": "",
+            "glQuote": "has anointed",
             "occurrence": 1
           }
         }
@@ -462,7 +462,7 @@
             "groupId": "apostle",
             "quote": "ἀπόστολον",
             "quoteString": "ἀπόστολον",
-            "glQuote": "",
+            "glQuote": "apostle",
             "occurrence": 1
           }
         }
@@ -486,7 +486,7 @@
             "groupId": "appoint",
             "quote": "ἔθηκεν",
             "quoteString": "ἔθηκεν",
-            "glQuote": "",
+            "glQuote": "he appointed",
             "occurrence": 1
           }
         },
@@ -508,7 +508,7 @@
             "groupId": "appoint",
             "quote": "ποιήσαντι",
             "quoteString": "ποιήσαντι",
-            "glQuote": "",
+            "glQuote": "having appointed",
             "occurrence": 1
           }
         },
@@ -530,7 +530,7 @@
             "groupId": "appoint",
             "quote": "ὁρίζει",
             "quoteString": "ὁρίζει",
-            "glQuote": "",
+            "glQuote": "he & sets",
             "occurrence": 1
           }
         },
@@ -552,7 +552,7 @@
             "groupId": "appoint",
             "quote": "καθίσταται",
             "quoteString": "καθίσταται",
-            "glQuote": "",
+            "glQuote": "is appointed",
             "occurrence": 1
           }
         },
@@ -574,7 +574,7 @@
             "groupId": "appoint",
             "quote": "καθίστησιν",
             "quoteString": "καθίστησιν",
-            "glQuote": "",
+            "glQuote": "appoints",
             "occurrence": 1
           }
         },
@@ -596,7 +596,7 @@
             "groupId": "appoint",
             "quote": "καθίσταται",
             "quoteString": "καθίσταται",
-            "glQuote": "",
+            "glQuote": "is appointed",
             "occurrence": 1
           }
         }
@@ -620,7 +620,7 @@
             "groupId": "ark",
             "quote": "κιβωτὸν",
             "quoteString": "κιβωτὸν",
-            "glQuote": "",
+            "glQuote": "ark",
             "occurrence": 1
           }
         },
@@ -642,7 +642,7 @@
             "groupId": "ark",
             "quote": "κιβωτὸν",
             "quoteString": "κιβωτὸν",
-            "glQuote": "",
+            "glQuote": "an ark",
             "occurrence": 1
           }
         }
@@ -666,7 +666,7 @@
             "groupId": "atonementlid",
             "quote": "ἱλαστήριον",
             "quoteString": "ἱλαστήριον",
-            "glQuote": "",
+            "glQuote": "atonement lid",
             "occurrence": 1
           }
         }
@@ -690,7 +690,7 @@
             "groupId": "authority",
             "quote": "ἐξουσίαν",
             "quoteString": "ἐξουσίαν",
-            "glQuote": "",
+            "glQuote": "authority",
             "occurrence": 1
           }
         }
@@ -714,7 +714,7 @@
             "groupId": "believe",
             "quote": "ἀπιστίας",
             "quoteString": "ἀπιστίας",
-            "glQuote": "",
+            "glQuote": "of unbelief",
             "occurrence": 1
           }
         },
@@ -736,7 +736,7 @@
             "groupId": "believe",
             "quote": "ἀπιστίαν",
             "quoteString": "ἀπιστίαν",
-            "glQuote": "",
+            "glQuote": "unbelief",
             "occurrence": 1
           }
         },
@@ -758,7 +758,7 @@
             "groupId": "believe",
             "quote": "πιστεύσαντες",
             "quoteString": "πιστεύσαντες",
-            "glQuote": "",
+            "glQuote": "having believed",
             "occurrence": 1
           }
         },
@@ -780,7 +780,7 @@
             "groupId": "believe",
             "quote": "πιστεῦσαι",
             "quoteString": "πιστεῦσαι",
-            "glQuote": "",
+            "glQuote": "to believe",
             "occurrence": 1
           }
         }
@@ -804,7 +804,7 @@
             "groupId": "beloved",
             "quote": "ἀγαπητοί",
             "quoteString": "ἀγαπητοί",
-            "glQuote": "",
+            "glQuote": "beloved ones",
             "occurrence": 1
           }
         }
@@ -828,7 +828,7 @@
             "groupId": "birthright",
             "quote": "πρωτοτόκια",
             "quoteString": "πρωτοτόκια",
-            "glQuote": "",
+            "glQuote": "birthright",
             "occurrence": 1
           }
         }
@@ -852,7 +852,7 @@
             "groupId": "blameless",
             "quote": "ἄμεμπτος",
             "quoteString": "ἄμεμπτος",
-            "glQuote": "",
+            "glQuote": "faultless",
             "occurrence": 1
           }
         },
@@ -874,7 +874,7 @@
             "groupId": "blameless",
             "quote": "ἄμωμον",
             "quoteString": "ἄμωμον",
-            "glQuote": "",
+            "glQuote": "without blemish",
             "occurrence": 1
           }
         }
@@ -898,7 +898,7 @@
             "groupId": "bless",
             "quote": "εὐλογίας",
             "quoteString": "εὐλογίας",
-            "glQuote": "",
+            "glQuote": "a blessing",
             "occurrence": 1
           }
         },
@@ -933,7 +933,7 @@
               }
             ],
             "quoteString": "εὐλογῶν, εὐλογήσω",
-            "glQuote": "",
+            "glQuote": "I will & bless",
             "occurrence": 1
           }
         },
@@ -968,7 +968,7 @@
               }
             ],
             "quoteString": "εὐλογῶν, εὐλογήσω",
-            "glQuote": "",
+            "glQuote": "I will & bless",
             "occurrence": 1
           }
         },
@@ -990,7 +990,7 @@
             "groupId": "bless",
             "quote": "εὐλογήσας",
             "quoteString": "εὐλογήσας",
-            "glQuote": "",
+            "glQuote": "blessed",
             "occurrence": 1
           }
         },
@@ -1012,7 +1012,7 @@
             "groupId": "bless",
             "quote": "εὐλόγηκεν",
             "quoteString": "εὐλόγηκεν",
-            "glQuote": "",
+            "glQuote": "has blessed",
             "occurrence": 1
           }
         },
@@ -1034,7 +1034,7 @@
             "groupId": "bless",
             "quote": "εὐλογεῖται",
             "quoteString": "εὐλογεῖται",
-            "glQuote": "",
+            "glQuote": "is blessed",
             "occurrence": 1
           }
         },
@@ -1056,7 +1056,7 @@
             "groupId": "bless",
             "quote": "εὐλόγησεν",
             "quoteString": "εὐλόγησεν",
-            "glQuote": "",
+            "glQuote": "blessed",
             "occurrence": 1
           }
         },
@@ -1078,7 +1078,7 @@
             "groupId": "bless",
             "quote": "εὐλόγησεν",
             "quoteString": "εὐλόγησεν",
-            "glQuote": "",
+            "glQuote": "blessed",
             "occurrence": 1
           }
         },
@@ -1100,7 +1100,7 @@
             "groupId": "bless",
             "quote": "εὐλογίαν",
             "quoteString": "εὐλογίαν",
-            "glQuote": "",
+            "glQuote": "blessing",
             "occurrence": 1
           }
         }
@@ -1124,7 +1124,7 @@
             "groupId": "bond",
             "quote": "δεσμῶν",
             "quoteString": "δεσμῶν",
-            "glQuote": "",
+            "glQuote": "of chains",
             "occurrence": 1
           }
         },
@@ -1146,7 +1146,7 @@
             "groupId": "bond",
             "quote": "δεσμίων",
             "quoteString": "δεσμίων",
-            "glQuote": "",
+            "glQuote": "prisoners",
             "occurrence": 1
           }
         },
@@ -1168,7 +1168,7 @@
             "groupId": "bond",
             "quote": "συνδεδεμένοι",
             "quoteString": "συνδεδεμένοι",
-            "glQuote": "",
+            "glQuote": "having been bound with {them",
             "occurrence": 1
           }
         }
@@ -1192,7 +1192,7 @@
             "groupId": "call",
             "quote": "καλεῖν",
             "quoteString": "καλεῖν",
-            "glQuote": "",
+            "glQuote": "to call",
             "occurrence": 1
           }
         },
@@ -1214,7 +1214,7 @@
             "groupId": "call",
             "quote": "κλήσεως",
             "quoteString": "κλήσεως",
-            "glQuote": "",
+            "glQuote": "of a & calling",
             "occurrence": 1
           }
         },
@@ -1236,7 +1236,7 @@
             "groupId": "call",
             "quote": "καλεῖται",
             "quoteString": "καλεῖται",
-            "glQuote": "",
+            "glQuote": "is called",
             "occurrence": 1
           }
         },
@@ -1258,7 +1258,7 @@
             "groupId": "call",
             "quote": "καλούμενος",
             "quoteString": "καλούμενος",
-            "glQuote": "",
+            "glQuote": "being called",
             "occurrence": 1
           }
         },
@@ -1280,7 +1280,7 @@
             "groupId": "call",
             "quote": "λέγεται",
             "quoteString": "λέγεται",
-            "glQuote": "",
+            "glQuote": "is called",
             "occurrence": 1
           }
         },
@@ -1302,7 +1302,7 @@
             "groupId": "call",
             "quote": "λεγομένη",
             "quoteString": "λεγομένη",
-            "glQuote": "",
+            "glQuote": "is called",
             "occurrence": 1
           }
         },
@@ -1324,7 +1324,7 @@
             "groupId": "call",
             "quote": "κεκλημένοι",
             "quoteString": "κεκλημένοι",
-            "glQuote": "",
+            "glQuote": "called",
             "occurrence": 1
           }
         },
@@ -1346,7 +1346,7 @@
             "groupId": "call",
             "quote": "καλούμενος",
             "quoteString": "καλούμενος",
-            "glQuote": "",
+            "glQuote": "being called",
             "occurrence": 1
           }
         },
@@ -1368,7 +1368,7 @@
             "groupId": "call",
             "quote": "ἐπικαλεῖσθαι",
             "quoteString": "ἐπικαλεῖσθαι",
-            "glQuote": "",
+            "glQuote": "to be called",
             "occurrence": 1
           }
         },
@@ -1390,7 +1390,7 @@
             "groupId": "call",
             "quote": "λέγεσθαι",
             "quoteString": "λέγεσθαι",
-            "glQuote": "",
+            "glQuote": "to be called",
             "occurrence": 1
           }
         }
@@ -1414,7 +1414,7 @@
             "groupId": "christ",
             "quote": "Χριστὸς",
             "quoteString": "Χριστὸς",
-            "glQuote": "",
+            "glQuote": "Christ",
             "occurrence": 1
           }
         },
@@ -1445,7 +1445,7 @@
               }
             ],
             "quoteString": "τοῦ Χριστοῦ",
-            "glQuote": "",
+            "glQuote": "of Christ",
             "occurrence": 1
           }
         },
@@ -1476,7 +1476,7 @@
               }
             ],
             "quoteString": "ὁ Χριστὸς",
-            "glQuote": "",
+            "glQuote": "Christ",
             "occurrence": 1
           }
         },
@@ -1507,7 +1507,7 @@
               }
             ],
             "quoteString": "τοῦ Χριστοῦ",
-            "glQuote": "",
+            "glQuote": "of Christ",
             "occurrence": 1
           }
         },
@@ -1529,7 +1529,7 @@
             "groupId": "christ",
             "quote": "Χριστὸς",
             "quoteString": "Χριστὸς",
-            "glQuote": "",
+            "glQuote": "Christ",
             "occurrence": 1
           }
         },
@@ -1560,7 +1560,7 @@
               }
             ],
             "quoteString": "τοῦ Χριστοῦ",
-            "glQuote": "",
+            "glQuote": "of Christ",
             "occurrence": 1
           }
         },
@@ -1582,7 +1582,7 @@
             "groupId": "christ",
             "quote": "Χριστός",
             "quoteString": "Χριστός",
-            "glQuote": "",
+            "glQuote": "Christ",
             "occurrence": 1
           }
         },
@@ -1613,7 +1613,7 @@
               }
             ],
             "quoteString": "ὁ Χριστός",
-            "glQuote": "",
+            "glQuote": "Christ",
             "occurrence": 1
           }
         },
@@ -1635,7 +1635,7 @@
             "groupId": "christ",
             "quote": "Χριστοῦ",
             "quoteString": "Χριστοῦ",
-            "glQuote": "",
+            "glQuote": "Christ",
             "occurrence": 1
           }
         },
@@ -1666,7 +1666,7 @@
               }
             ],
             "quoteString": "τοῦ Χριστοῦ",
-            "glQuote": "",
+            "glQuote": "of the Christ",
             "occurrence": 1
           }
         },
@@ -1688,7 +1688,7 @@
             "groupId": "christ",
             "quote": "Χριστὸς",
             "quoteString": "Χριστὸς",
-            "glQuote": "",
+            "glQuote": "Christ",
             "occurrence": 1
           }
         },
@@ -1710,7 +1710,7 @@
             "groupId": "christ",
             "quote": "Χριστοῦ",
             "quoteString": "Χριστοῦ",
-            "glQuote": "",
+            "glQuote": "Christ",
             "occurrence": 1
           }
         }
@@ -1734,7 +1734,7 @@
             "groupId": "church",
             "quote": "ἐκκλησίᾳ",
             "quoteString": "ἐκκλησίᾳ",
-            "glQuote": "",
+            "glQuote": "to the church",
             "occurrence": 1
           }
         }
@@ -1758,7 +1758,7 @@
             "groupId": "compassion",
             "quote": "συνεπαθήσατε",
             "quoteString": "συνεπαθήσατε",
-            "glQuote": "",
+            "glQuote": "you & sympathized with",
             "occurrence": 1
           }
         }
@@ -1782,7 +1782,7 @@
             "groupId": "condemn",
             "quote": "κατέκρινεν",
             "quoteString": "κατέκρινεν",
-            "glQuote": "",
+            "glQuote": "he condemned",
             "occurrence": 1
           }
         }
@@ -1815,7 +1815,7 @@
               }
             ],
             "quoteString": "τῆς ὁμολογίας",
-            "glQuote": "",
+            "glQuote": "of & confession",
             "occurrence": 1
           }
         },
@@ -1846,7 +1846,7 @@
               }
             ],
             "quoteString": "τῆς ὁμολογίας",
-            "glQuote": "",
+            "glQuote": "to our confession",
             "occurrence": 1
           }
         },
@@ -1868,7 +1868,7 @@
             "groupId": "confess",
             "quote": "ὁμολογίαν",
             "quoteString": "ὁμολογίαν",
-            "glQuote": "",
+            "glQuote": "confession",
             "occurrence": 1
           }
         },
@@ -1890,7 +1890,7 @@
             "groupId": "confess",
             "quote": "ὁμολογήσαντες",
             "quoteString": "ὁμολογήσαντες",
-            "glQuote": "",
+            "glQuote": "having confessed",
             "occurrence": 1
           }
         },
@@ -1912,7 +1912,7 @@
             "groupId": "confess",
             "quote": "ὁμολογούντων",
             "quoteString": "ὁμολογούντων",
-            "glQuote": "",
+            "glQuote": "acknowledging",
             "occurrence": 1
           }
         }
@@ -1936,7 +1936,7 @@
             "groupId": "conscience",
             "quote": "συνείδησιν",
             "quoteString": "συνείδησιν",
-            "glQuote": "",
+            "glQuote": "the conscience",
             "occurrence": 1
           }
         },
@@ -1967,7 +1967,7 @@
               }
             ],
             "quoteString": "τὴν συνείδησιν",
-            "glQuote": "",
+            "glQuote": "conscience",
             "occurrence": 1
           }
         },
@@ -1989,7 +1989,7 @@
             "groupId": "conscience",
             "quote": "συνείδησιν",
             "quoteString": "συνείδησιν",
-            "glQuote": "",
+            "glQuote": "consciousness",
             "occurrence": 1
           }
         },
@@ -2011,7 +2011,7 @@
             "groupId": "conscience",
             "quote": "συνειδήσεως",
             "quoteString": "συνειδήσεως",
-            "glQuote": "",
+            "glQuote": "a & conscience",
             "occurrence": 1
           }
         },
@@ -2033,7 +2033,7 @@
             "groupId": "conscience",
             "quote": "συνείδησιν",
             "quoteString": "συνείδησιν",
-            "glQuote": "",
+            "glQuote": "a & conscience",
             "occurrence": 1
           }
         }
@@ -2057,7 +2057,7 @@
             "groupId": "covenant",
             "quote": "διαθήκης",
             "quoteString": "διαθήκης",
-            "glQuote": "",
+            "glQuote": "of a & covenant",
             "occurrence": 1
           }
         },
@@ -2079,7 +2079,7 @@
             "groupId": "covenant",
             "quote": "διαθήκης",
             "quoteString": "διαθήκης",
-            "glQuote": "",
+            "glQuote": "of a & covenant",
             "occurrence": 1
           }
         },
@@ -2101,7 +2101,7 @@
             "groupId": "covenant",
             "quote": "διαθήκην",
             "quoteString": "διαθήκην",
-            "glQuote": "",
+            "glQuote": "a & covenant",
             "occurrence": 1
           }
         },
@@ -2123,7 +2123,7 @@
             "groupId": "covenant",
             "quote": "διαθήκην",
             "quoteString": "διαθήκην",
-            "glQuote": "",
+            "glQuote": "covenant",
             "occurrence": 1
           }
         },
@@ -2154,7 +2154,7 @@
               }
             ],
             "quoteString": "τῇ διαθήκῃ",
-            "glQuote": "",
+            "glQuote": "covenant",
             "occurrence": 1
           }
         },
@@ -2176,7 +2176,7 @@
             "groupId": "covenant",
             "quote": "διαθήκη",
             "quoteString": "διαθήκη",
-            "glQuote": "",
+            "glQuote": "covenant",
             "occurrence": 1
           }
         },
@@ -2207,7 +2207,7 @@
               }
             ],
             "quoteString": "τῆς διαθήκης",
-            "glQuote": "",
+            "glQuote": "of the covenant",
             "occurrence": 1
           }
         },
@@ -2238,7 +2238,7 @@
               }
             ],
             "quoteString": "τῆς διαθήκης",
-            "glQuote": "",
+            "glQuote": "of the covenant",
             "occurrence": 2
           }
         },
@@ -2260,7 +2260,7 @@
             "groupId": "covenant",
             "quote": "διαθήκης",
             "quoteString": "διαθήκης",
-            "glQuote": "",
+            "glQuote": "of a & covenant",
             "occurrence": 1
           }
         },
@@ -2282,7 +2282,7 @@
             "groupId": "covenant",
             "quote": "διαθήκῃ",
             "quoteString": "διαθήκῃ",
-            "glQuote": "",
+            "glQuote": "covenant",
             "occurrence": 1
           }
         },
@@ -2304,7 +2304,7 @@
             "groupId": "covenant",
             "quote": "διαθήκη",
             "quoteString": "διαθήκη",
-            "glQuote": "",
+            "glQuote": "there is} a covenant",
             "occurrence": 1
           }
         },
@@ -2326,7 +2326,7 @@
             "groupId": "covenant",
             "quote": "διαθήκη",
             "quoteString": "διαθήκη",
-            "glQuote": "",
+            "glQuote": "a covenant",
             "occurrence": 1
           }
         },
@@ -2357,7 +2357,7 @@
               }
             ],
             "quoteString": "τῆς διαθήκης",
-            "glQuote": "",
+            "glQuote": "of the covenant",
             "occurrence": 1
           }
         },
@@ -2379,7 +2379,7 @@
             "groupId": "covenant",
             "quote": "διαθήκη",
             "quoteString": "διαθήκη",
-            "glQuote": "",
+            "glQuote": "covenant",
             "occurrence": 1
           }
         },
@@ -2410,7 +2410,7 @@
               }
             ],
             "quoteString": "τῆς διαθήκης",
-            "glQuote": "",
+            "glQuote": "of the covenant",
             "occurrence": 1
           }
         },
@@ -2432,7 +2432,7 @@
             "groupId": "covenant",
             "quote": "διαθήκης",
             "quoteString": "διαθήκης",
-            "glQuote": "",
+            "glQuote": "of a & covenant",
             "occurrence": 1
           }
         },
@@ -2454,7 +2454,7 @@
             "groupId": "covenant",
             "quote": "διαθήκης",
             "quoteString": "διαθήκης",
-            "glQuote": "",
+            "glQuote": "of the & covenant",
             "occurrence": 1
           }
         }
@@ -2478,7 +2478,7 @@
             "groupId": "cross",
             "quote": "σταυρὸν",
             "quoteString": "σταυρὸν",
-            "glQuote": "",
+            "glQuote": "a cross",
             "occurrence": 1
           }
         }
@@ -2502,7 +2502,7 @@
             "groupId": "crucify",
             "quote": "ἀνασταυροῦντας",
             "quoteString": "ἀνασταυροῦντας",
-            "glQuote": "",
+            "glQuote": "since} they are crucifying again",
             "occurrence": 1
           }
         }
@@ -2526,7 +2526,7 @@
             "groupId": "curse",
             "quote": "κατάρας",
             "quoteString": "κατάρας",
-            "glQuote": "",
+            "glQuote": "a curse",
             "occurrence": 1
           }
         }
@@ -2550,7 +2550,7 @@
             "groupId": "elect",
             "quote": "ἑλόμενος",
             "quoteString": "ἑλόμενος",
-            "glQuote": "",
+            "glQuote": "he chose",
             "occurrence": 1
           }
         }
@@ -2574,7 +2574,7 @@
             "groupId": "eternity",
             "quote": "αἰωνίου",
             "quoteString": "αἰωνίου",
-            "glQuote": "",
+            "glQuote": "eternal",
             "occurrence": 1
           }
         },
@@ -2596,7 +2596,7 @@
             "groupId": "eternity",
             "quote": "αἰωνίου",
             "quoteString": "αἰωνίου",
-            "glQuote": "",
+            "glQuote": "eternal",
             "occurrence": 1
           }
         },
@@ -2618,7 +2618,7 @@
             "groupId": "eternity",
             "quote": "αἰωνίαν",
             "quoteString": "αἰωνίαν",
-            "glQuote": "",
+            "glQuote": "eternal",
             "occurrence": 1
           }
         },
@@ -2640,7 +2640,7 @@
             "groupId": "eternity",
             "quote": "αἰωνίου",
             "quoteString": "αἰωνίου",
-            "glQuote": "",
+            "glQuote": "eternal",
             "occurrence": 1
           }
         },
@@ -2662,7 +2662,7 @@
             "groupId": "eternity",
             "quote": "αἰωνίου",
             "quoteString": "αἰωνίου",
-            "glQuote": "",
+            "glQuote": "eternal",
             "occurrence": 1
           }
         },
@@ -2684,7 +2684,7 @@
             "groupId": "eternity",
             "quote": "αἰωνίου",
             "quoteString": "αἰωνίου",
-            "glQuote": "",
+            "glQuote": "eternal",
             "occurrence": 1
           }
         }
@@ -2708,7 +2708,7 @@
             "groupId": "evil",
             "quote": "πονηρὰ",
             "quoteString": "πονηρὰ",
-            "glQuote": "",
+            "glQuote": "wicked",
             "occurrence": 1
           }
         },
@@ -2730,7 +2730,7 @@
             "groupId": "evil",
             "quote": "κακοῦ",
             "quoteString": "κακοῦ",
-            "glQuote": "",
+            "glQuote": "what is} evil",
             "occurrence": 1
           }
         },
@@ -2752,7 +2752,7 @@
             "groupId": "evil",
             "quote": "πονηρᾶς",
             "quoteString": "πονηρᾶς",
-            "glQuote": "",
+            "glQuote": "wicked",
             "occurrence": 1
           }
         }
@@ -2776,7 +2776,7 @@
             "groupId": "exhort",
             "quote": "παρακλήσεως",
             "quoteString": "παρακλήσεως",
-            "glQuote": "",
+            "glQuote": "exhortation",
             "occurrence": 1
           }
         },
@@ -2798,7 +2798,7 @@
             "groupId": "exhort",
             "quote": "παρακαλῶ",
             "quoteString": "παρακαλῶ",
-            "glQuote": "",
+            "glQuote": "I encourage {you",
             "occurrence": 1
           }
         },
@@ -2820,7 +2820,7 @@
             "groupId": "exhort",
             "quote": "παρακαλῶ",
             "quoteString": "παρακαλῶ",
-            "glQuote": "",
+            "glQuote": "I encourage",
             "occurrence": 1
           }
         },
@@ -2851,7 +2851,7 @@
               }
             ],
             "quoteString": "τῆς παρακλήσεως",
-            "glQuote": "",
+            "glQuote": "of exhortation",
             "occurrence": 1
           }
         }
@@ -2884,7 +2884,7 @@
               }
             ],
             "quoteString": "τῇ πίστει",
-            "glQuote": "",
+            "glQuote": "faith with",
             "occurrence": 1
           }
         },
@@ -2906,7 +2906,7 @@
             "groupId": "faith",
             "quote": "πίστεως",
             "quoteString": "πίστεως",
-            "glQuote": "",
+            "glQuote": "of faith",
             "occurrence": 1
           }
         },
@@ -2928,7 +2928,7 @@
             "groupId": "faith",
             "quote": "πίστεως",
             "quoteString": "πίστεως",
-            "glQuote": "",
+            "glQuote": "faith",
             "occurrence": 1
           }
         },
@@ -2950,7 +2950,7 @@
             "groupId": "faith",
             "quote": "πίστεως",
             "quoteString": "πίστεως",
-            "glQuote": "",
+            "glQuote": "of faith",
             "occurrence": 1
           }
         },
@@ -2972,7 +2972,7 @@
             "groupId": "faith",
             "quote": "πίστεως",
             "quoteString": "πίστεως",
-            "glQuote": "",
+            "glQuote": "faith",
             "occurrence": 1
           }
         },
@@ -2994,7 +2994,7 @@
             "groupId": "faith",
             "quote": "πίστεως",
             "quoteString": "πίστεως",
-            "glQuote": "",
+            "glQuote": "of faith",
             "occurrence": 1
           }
         },
@@ -3016,7 +3016,7 @@
             "groupId": "faith",
             "quote": "πίστις",
             "quoteString": "πίστις",
-            "glQuote": "",
+            "glQuote": "faith",
             "occurrence": 1
           }
         },
@@ -3038,7 +3038,7 @@
             "groupId": "faith",
             "quote": "πίστει",
             "quoteString": "πίστει",
-            "glQuote": "",
+            "glQuote": "By faith",
             "occurrence": 1
           }
         },
@@ -3060,7 +3060,7 @@
             "groupId": "faith",
             "quote": "πίστει",
             "quoteString": "πίστει",
-            "glQuote": "",
+            "glQuote": "By faith",
             "occurrence": 1
           }
         },
@@ -3082,7 +3082,7 @@
             "groupId": "faith",
             "quote": "πίστει",
             "quoteString": "πίστει",
-            "glQuote": "",
+            "glQuote": "By faith",
             "occurrence": 1
           }
         },
@@ -3104,7 +3104,7 @@
             "groupId": "faith",
             "quote": "πίστεως",
             "quoteString": "πίστεως",
-            "glQuote": "",
+            "glQuote": "faith",
             "occurrence": 1
           }
         },
@@ -3126,7 +3126,7 @@
             "groupId": "faith",
             "quote": "πίστει",
             "quoteString": "πίστει",
-            "glQuote": "",
+            "glQuote": "By faith",
             "occurrence": 1
           }
         },
@@ -3148,7 +3148,7 @@
             "groupId": "faith",
             "quote": "πίστιν",
             "quoteString": "πίστιν",
-            "glQuote": "",
+            "glQuote": "faith",
             "occurrence": 1
           }
         },
@@ -3170,7 +3170,7 @@
             "groupId": "faith",
             "quote": "πίστει",
             "quoteString": "πίστει",
-            "glQuote": "",
+            "glQuote": "By faith",
             "occurrence": 1
           }
         },
@@ -3192,7 +3192,7 @@
             "groupId": "faith",
             "quote": "πίστει",
             "quoteString": "πίστει",
-            "glQuote": "",
+            "glQuote": "By faith",
             "occurrence": 1
           }
         },
@@ -3214,7 +3214,7 @@
             "groupId": "faith",
             "quote": "πίστει",
             "quoteString": "πίστει",
-            "glQuote": "",
+            "glQuote": "By faith",
             "occurrence": 1
           }
         },
@@ -3236,7 +3236,7 @@
             "groupId": "faith",
             "quote": "πίστιν",
             "quoteString": "πίστιν",
-            "glQuote": "",
+            "glQuote": "their faith",
             "occurrence": 1
           }
         },
@@ -3258,7 +3258,7 @@
             "groupId": "faith",
             "quote": "πίστει",
             "quoteString": "πίστει",
-            "glQuote": "",
+            "glQuote": "By faith",
             "occurrence": 1
           }
         },
@@ -3280,7 +3280,7 @@
             "groupId": "faith",
             "quote": "πίστει",
             "quoteString": "πίστει",
-            "glQuote": "",
+            "glQuote": "By faith",
             "occurrence": 1
           }
         },
@@ -3302,7 +3302,7 @@
             "groupId": "faith",
             "quote": "πίστει",
             "quoteString": "πίστει",
-            "glQuote": "",
+            "glQuote": "By faith",
             "occurrence": 1
           }
         },
@@ -3324,7 +3324,7 @@
             "groupId": "faith",
             "quote": "πίστει",
             "quoteString": "πίστει",
-            "glQuote": "",
+            "glQuote": "By faith",
             "occurrence": 1
           }
         },
@@ -3346,7 +3346,7 @@
             "groupId": "faith",
             "quote": "πίστει",
             "quoteString": "πίστει",
-            "glQuote": "",
+            "glQuote": "By faith",
             "occurrence": 1
           }
         },
@@ -3368,7 +3368,7 @@
             "groupId": "faith",
             "quote": "πίστει",
             "quoteString": "πίστει",
-            "glQuote": "",
+            "glQuote": "By faith",
             "occurrence": 1
           }
         },
@@ -3390,7 +3390,7 @@
             "groupId": "faith",
             "quote": "πίστει",
             "quoteString": "πίστει",
-            "glQuote": "",
+            "glQuote": "By faith",
             "occurrence": 1
           }
         },
@@ -3412,7 +3412,7 @@
             "groupId": "faith",
             "quote": "πίστει",
             "quoteString": "πίστει",
-            "glQuote": "",
+            "glQuote": "By faith",
             "occurrence": 1
           }
         },
@@ -3434,7 +3434,7 @@
             "groupId": "faith",
             "quote": "πίστει",
             "quoteString": "πίστει",
-            "glQuote": "",
+            "glQuote": "By faith",
             "occurrence": 1
           }
         },
@@ -3456,7 +3456,7 @@
             "groupId": "faith",
             "quote": "πίστει",
             "quoteString": "πίστει",
-            "glQuote": "",
+            "glQuote": "By faith",
             "occurrence": 1
           }
         },
@@ -3478,7 +3478,7 @@
             "groupId": "faith",
             "quote": "πίστει",
             "quoteString": "πίστει",
-            "glQuote": "",
+            "glQuote": "By faith",
             "occurrence": 1
           }
         },
@@ -3500,7 +3500,7 @@
             "groupId": "faith",
             "quote": "πίστεως",
             "quoteString": "πίστεως",
-            "glQuote": "",
+            "glQuote": "faith",
             "occurrence": 1
           }
         },
@@ -3531,7 +3531,7 @@
               }
             ],
             "quoteString": "τῆς πίστεως",
-            "glQuote": "",
+            "glQuote": "of their faith",
             "occurrence": 1
           }
         },
@@ -3562,7 +3562,7 @@
               }
             ],
             "quoteString": "τῆς πίστεως",
-            "glQuote": "",
+            "glQuote": "of the faith",
             "occurrence": 1
           }
         },
@@ -3584,7 +3584,7 @@
             "groupId": "faith",
             "quote": "πίστιν",
             "quoteString": "πίστιν",
-            "glQuote": "",
+            "glQuote": "faith",
             "occurrence": 1
           }
         }
@@ -3608,7 +3608,7 @@
             "groupId": "faithful",
             "quote": "πιστὸς",
             "quoteString": "πιστὸς",
-            "glQuote": "",
+            "glQuote": "faithful",
             "occurrence": 1
           }
         },
@@ -3630,7 +3630,7 @@
             "groupId": "faithful",
             "quote": "πιστὸν",
             "quoteString": "πιστὸν",
-            "glQuote": "",
+            "glQuote": "faithful",
             "occurrence": 1
           }
         },
@@ -3652,7 +3652,7 @@
             "groupId": "faithful",
             "quote": "πιστὸς",
             "quoteString": "πιστὸς",
-            "glQuote": "",
+            "glQuote": "was} & faithful",
             "occurrence": 1
           }
         },
@@ -3674,7 +3674,7 @@
             "groupId": "faithful",
             "quote": "πιστὸς",
             "quoteString": "πιστὸς",
-            "glQuote": "",
+            "glQuote": "is} faithful",
             "occurrence": 1
           }
         },
@@ -3696,7 +3696,7 @@
             "groupId": "faithful",
             "quote": "πιστὸν",
             "quoteString": "πιστὸν",
-            "glQuote": "",
+            "glQuote": "to be} faithful",
             "occurrence": 1
           }
         }
@@ -3720,7 +3720,7 @@
             "groupId": "fear",
             "quote": "φόβῳ",
             "quoteString": "φόβῳ",
-            "glQuote": "",
+            "glQuote": "in fear",
             "occurrence": 1
           }
         },
@@ -3742,7 +3742,7 @@
             "groupId": "fear",
             "quote": "φοβηθῶμεν",
             "quoteString": "φοβηθῶμεν",
-            "glQuote": "",
+            "glQuote": "let us be afraid",
             "occurrence": 1
           }
         },
@@ -3764,7 +3764,7 @@
             "groupId": "fear",
             "quote": "φοβερὸν",
             "quoteString": "φοβερὸν",
-            "glQuote": "",
+            "glQuote": "It is} a fearful thing",
             "occurrence": 1
           }
         },
@@ -3786,7 +3786,7 @@
             "groupId": "fear",
             "quote": "ἐφοβήθησαν",
             "quoteString": "ἐφοβήθησαν",
-            "glQuote": "",
+            "glQuote": "they were & afraid",
             "occurrence": 1
           }
         },
@@ -3808,7 +3808,7 @@
             "groupId": "fear",
             "quote": "φοβηθεὶς",
             "quoteString": "φοβηθεὶς",
-            "glQuote": "",
+            "glQuote": "having feared",
             "occurrence": 1
           }
         },
@@ -3830,7 +3830,7 @@
             "groupId": "fear",
             "quote": "φοβερὸν",
             "quoteString": "φοβερὸν",
-            "glQuote": "",
+            "glQuote": "fearful",
             "occurrence": 1
           }
         },
@@ -3852,7 +3852,7 @@
             "groupId": "fear",
             "quote": "ἔκφοβός",
             "quoteString": "ἔκφοβός",
-            "glQuote": "",
+            "glQuote": "terrified",
             "occurrence": 1
           }
         },
@@ -3874,7 +3874,7 @@
             "groupId": "fear",
             "quote": "φοβηθήσομαι",
             "quoteString": "φοβηθήσομαι",
-            "glQuote": "",
+            "glQuote": "I will & become afraid",
             "occurrence": 1
           }
         }
@@ -3898,7 +3898,7 @@
             "groupId": "fellowship",
             "quote": "κοινωνίας",
             "quoteString": "κοινωνίας",
-            "glQuote": "",
+            "glQuote": "sharing",
             "occurrence": 1
           }
         }
@@ -3922,7 +3922,7 @@
             "groupId": "forgive",
             "quote": "ἄφεσις",
             "quoteString": "ἄφεσις",
-            "glQuote": "",
+            "glQuote": "forgiveness",
             "occurrence": 1
           }
         },
@@ -3944,7 +3944,7 @@
             "groupId": "forgive",
             "quote": "ἄφεσις",
             "quoteString": "ἄφεσις",
-            "glQuote": "",
+            "glQuote": "there is} forgiveness",
             "occurrence": 1
           }
         }
@@ -3977,7 +3977,7 @@
               }
             ],
             "quoteString": "τῆς δόξης",
-            "glQuote": "",
+            "glQuote": "of his glory",
             "occurrence": 1
           }
         },
@@ -3999,7 +3999,7 @@
             "groupId": "glory",
             "quote": "δόξῃ",
             "quoteString": "δόξῃ",
-            "glQuote": "",
+            "glQuote": "with glory",
             "occurrence": 1
           }
         },
@@ -4021,7 +4021,7 @@
             "groupId": "glory",
             "quote": "δόξῃ",
             "quoteString": "δόξῃ",
-            "glQuote": "",
+            "glQuote": "with glory",
             "occurrence": 1
           }
         },
@@ -4043,7 +4043,7 @@
             "groupId": "glory",
             "quote": "δόξαν",
             "quoteString": "δόξαν",
-            "glQuote": "",
+            "glQuote": "glory",
             "occurrence": 1
           }
         },
@@ -4065,7 +4065,7 @@
             "groupId": "glory",
             "quote": "δόξης",
             "quoteString": "δόξης",
-            "glQuote": "",
+            "glQuote": "glory",
             "occurrence": 1
           }
         },
@@ -4087,7 +4087,7 @@
             "groupId": "glory",
             "quote": "ἐδόξασεν",
             "quoteString": "ἐδόξασεν",
-            "glQuote": "",
+            "glQuote": "did & glorify",
             "occurrence": 1
           }
         },
@@ -4109,7 +4109,7 @@
             "groupId": "glory",
             "quote": "δόξης",
             "quoteString": "δόξης",
-            "glQuote": "",
+            "glQuote": "of glory",
             "occurrence": 1
           }
         },
@@ -4131,7 +4131,7 @@
             "groupId": "glory",
             "quote": "δόξα",
             "quoteString": "δόξα",
-            "glQuote": "",
+            "glQuote": "glory",
             "occurrence": 1
           }
         }
@@ -4164,7 +4164,7 @@
               }
             ],
             "quoteString": "ὁ Θεὸς",
-            "glQuote": "",
+            "glQuote": "God",
             "occurrence": 1
           }
         },
@@ -4186,7 +4186,7 @@
             "groupId": "god",
             "quote": "Θεοῦ",
             "quoteString": "Θεοῦ",
-            "glQuote": "",
+            "glQuote": "of God",
             "occurrence": 1
           }
         },
@@ -4217,7 +4217,7 @@
               }
             ],
             "quoteString": "ὁ Θεὸς",
-            "glQuote": "",
+            "glQuote": "God",
             "occurrence": 1
           }
         },
@@ -4248,7 +4248,7 @@
               }
             ],
             "quoteString": "ὁ Θεός",
-            "glQuote": "",
+            "glQuote": "God",
             "occurrence": 1
           }
         },
@@ -4279,7 +4279,7 @@
               }
             ],
             "quoteString": "ὁ Θεός",
-            "glQuote": "",
+            "glQuote": "God",
             "occurrence": 2
           }
         },
@@ -4310,7 +4310,7 @@
               }
             ],
             "quoteString": "τοῦ Θεοῦ",
-            "glQuote": "",
+            "glQuote": "God",
             "occurrence": 1
           }
         },
@@ -4332,7 +4332,7 @@
             "groupId": "god",
             "quote": "Θεοῦ",
             "quoteString": "Θεοῦ",
-            "glQuote": "",
+            "glQuote": "of God",
             "occurrence": 1
           }
         },
@@ -4363,7 +4363,7 @@
               }
             ],
             "quoteString": "ὁ Θεός",
-            "glQuote": "",
+            "glQuote": "God",
             "occurrence": 1
           }
         },
@@ -4394,7 +4394,7 @@
               }
             ],
             "quoteString": "τὸν Θεόν",
-            "glQuote": "",
+            "glQuote": "God",
             "occurrence": 1
           }
         },
@@ -4416,7 +4416,7 @@
             "groupId": "god",
             "quote": "Θεός",
             "quoteString": "Θεός",
-            "glQuote": "",
+            "glQuote": "God {is",
             "occurrence": 1
           }
         },
@@ -4438,7 +4438,7 @@
             "groupId": "god",
             "quote": "Θεοῦ",
             "quoteString": "Θεοῦ",
-            "glQuote": "",
+            "glQuote": "the & God",
             "occurrence": 1
           }
         },
@@ -4469,7 +4469,7 @@
               }
             ],
             "quoteString": "ὁ Θεὸς",
-            "glQuote": "",
+            "glQuote": "God",
             "occurrence": 1
           }
         },
@@ -4500,7 +4500,7 @@
               }
             ],
             "quoteString": "τοῦ Θεοῦ",
-            "glQuote": "",
+            "glQuote": "of God",
             "occurrence": 1
           }
         },
@@ -4531,7 +4531,7 @@
               }
             ],
             "quoteString": "ὁ Θεός",
-            "glQuote": "",
+            "glQuote": "God",
             "occurrence": 1
           }
         },
@@ -4562,7 +4562,7 @@
               }
             ],
             "quoteString": "τὸν Θεόν",
-            "glQuote": "",
+            "glQuote": "God",
             "occurrence": 1
           }
         },
@@ -4593,7 +4593,7 @@
               }
             ],
             "quoteString": "τοῦ Θεοῦ",
-            "glQuote": "",
+            "glQuote": "God",
             "occurrence": 1
           }
         },
@@ -4624,7 +4624,7 @@
               }
             ],
             "quoteString": "τοῦ Θεοῦ",
-            "glQuote": "",
+            "glQuote": "God",
             "occurrence": 1
           }
         },
@@ -4655,7 +4655,7 @@
               }
             ],
             "quoteString": "τοῦ Θεοῦ",
-            "glQuote": "",
+            "glQuote": "of God",
             "occurrence": 1
           }
         },
@@ -4677,7 +4677,7 @@
             "groupId": "god",
             "quote": "Θεόν",
             "quoteString": "Θεόν",
-            "glQuote": "",
+            "glQuote": "God",
             "occurrence": 1
           }
         },
@@ -4708,7 +4708,7 @@
               }
             ],
             "quoteString": "ὁ Θεός",
-            "glQuote": "",
+            "glQuote": "God",
             "occurrence": 1
           }
         },
@@ -4739,7 +4739,7 @@
               }
             ],
             "quoteString": "τοῦ Θεοῦ",
-            "glQuote": "",
+            "glQuote": "God",
             "occurrence": 1
           }
         },
@@ -4770,7 +4770,7 @@
               }
             ],
             "quoteString": "ὁ Θεὸς",
-            "glQuote": "",
+            "glQuote": "God",
             "occurrence": 1
           }
         },
@@ -4801,7 +4801,7 @@
               }
             ],
             "quoteString": "ὁ Θεός",
-            "glQuote": "",
+            "glQuote": "God",
             "occurrence": 1
           }
         },
@@ -4832,7 +4832,7 @@
               }
             ],
             "quoteString": "ὁ Θεὸς",
-            "glQuote": "",
+            "glQuote": "God",
             "occurrence": 1
           }
         },
@@ -4863,7 +4863,7 @@
               }
             ],
             "quoteString": "τὸν Θεόν",
-            "glQuote": "",
+            "glQuote": "God",
             "occurrence": 1
           }
         },
@@ -4894,7 +4894,7 @@
               }
             ],
             "quoteString": "τοῦ Θεοῦ",
-            "glQuote": "",
+            "glQuote": "of the & God",
             "occurrence": 1
           }
         },
@@ -4925,7 +4925,7 @@
               }
             ],
             "quoteString": "τῷ Θεῷ",
-            "glQuote": "",
+            "glQuote": "to God",
             "occurrence": 1
           }
         },
@@ -4956,7 +4956,7 @@
               }
             ],
             "quoteString": "τῷ Θεῷ",
-            "glQuote": "",
+            "glQuote": "God",
             "occurrence": 1
           }
         },
@@ -4978,7 +4978,7 @@
             "groupId": "god",
             "quote": "Θεόν",
             "quoteString": "Θεόν",
-            "glQuote": "",
+            "glQuote": "God",
             "occurrence": 1
           }
         },
@@ -5009,7 +5009,7 @@
               }
             ],
             "quoteString": "τῷ Θεῷ",
-            "glQuote": "",
+            "glQuote": "to God",
             "occurrence": 1
           }
         },
@@ -5031,7 +5031,7 @@
             "groupId": "god",
             "quote": "Θεῷ",
             "quoteString": "Θεῷ",
-            "glQuote": "",
+            "glQuote": "the & God",
             "occurrence": 2
           }
         },
@@ -5062,7 +5062,7 @@
               }
             ],
             "quoteString": "ὁ Θεός",
-            "glQuote": "",
+            "glQuote": "God",
             "occurrence": 1
           }
         },
@@ -5093,7 +5093,7 @@
               }
             ],
             "quoteString": "τοῦ Θεοῦ",
-            "glQuote": "",
+            "glQuote": "of God",
             "occurrence": 1
           }
         },
@@ -5124,7 +5124,7 @@
               }
             ],
             "quoteString": "ὁ Θεός",
-            "glQuote": "",
+            "glQuote": "God",
             "occurrence": 1
           }
         },
@@ -5155,7 +5155,7 @@
               }
             ],
             "quoteString": "τοῦ Θεοῦ",
-            "glQuote": "",
+            "glQuote": "of God",
             "occurrence": 1
           }
         },
@@ -5186,7 +5186,7 @@
               }
             ],
             "quoteString": "τοῦ Θεοῦ",
-            "glQuote": "",
+            "glQuote": "of God",
             "occurrence": 1
           }
         },
@@ -5208,7 +5208,7 @@
             "groupId": "god",
             "quote": "Θεοῦ",
             "quoteString": "Θεοῦ",
-            "glQuote": "",
+            "glQuote": "of the & God",
             "occurrence": 1
           }
         },
@@ -5239,7 +5239,7 @@
               }
             ],
             "quoteString": "τοῦ Θεοῦ",
-            "glQuote": "",
+            "glQuote": "of God",
             "occurrence": 1
           }
         },
@@ -5261,7 +5261,7 @@
             "groupId": "god",
             "quote": "Θεοῦ",
             "quoteString": "Θεοῦ",
-            "glQuote": "",
+            "glQuote": "of God",
             "occurrence": 1
           }
         },
@@ -5292,7 +5292,7 @@
               }
             ],
             "quoteString": "τῷ Θεῷ",
-            "glQuote": "",
+            "glQuote": "God",
             "occurrence": 1
           }
         },
@@ -5323,7 +5323,7 @@
               }
             ],
             "quoteString": "τοῦ Θεοῦ",
-            "glQuote": "",
+            "glQuote": "God",
             "occurrence": 1
           }
         },
@@ -5354,7 +5354,7 @@
               }
             ],
             "quoteString": "ὁ Θεός",
-            "glQuote": "",
+            "glQuote": "God",
             "occurrence": 1
           }
         },
@@ -5385,7 +5385,7 @@
               }
             ],
             "quoteString": "τῷ Θεῷ",
-            "glQuote": "",
+            "glQuote": "to God",
             "occurrence": 1
           }
         },
@@ -5416,7 +5416,7 @@
               }
             ],
             "quoteString": "τῷ Θεῷ",
-            "glQuote": "",
+            "glQuote": "to God",
             "occurrence": 1
           }
         },
@@ -5447,7 +5447,7 @@
               }
             ],
             "quoteString": "ὁ Θεός",
-            "glQuote": "",
+            "glQuote": "is} God",
             "occurrence": 1
           }
         },
@@ -5478,7 +5478,7 @@
               }
             ],
             "quoteString": "ὁ Θεὸς",
-            "glQuote": "",
+            "glQuote": "God",
             "occurrence": 1
           }
         },
@@ -5500,7 +5500,7 @@
             "groupId": "god",
             "quote": "Θεὸς",
             "quoteString": "Θεὸς",
-            "glQuote": "",
+            "glQuote": "God",
             "occurrence": 2
           }
         },
@@ -5531,7 +5531,7 @@
               }
             ],
             "quoteString": "ὁ Θεός",
-            "glQuote": "",
+            "glQuote": "God",
             "occurrence": 1
           }
         },
@@ -5562,7 +5562,7 @@
               }
             ],
             "quoteString": "τοῦ Θεοῦ",
-            "glQuote": "",
+            "glQuote": "of God",
             "occurrence": 1
           }
         },
@@ -5593,7 +5593,7 @@
               }
             ],
             "quoteString": "τοῦ Θεοῦ",
-            "glQuote": "",
+            "glQuote": "God",
             "occurrence": 1
           }
         },
@@ -5624,7 +5624,7 @@
               }
             ],
             "quoteString": "τοῦ Θεοῦ",
-            "glQuote": "",
+            "glQuote": "of God",
             "occurrence": 1
           }
         },
@@ -5655,7 +5655,7 @@
               }
             ],
             "quoteString": "ὁ Θεός",
-            "glQuote": "",
+            "glQuote": "God",
             "occurrence": 1
           }
         },
@@ -5686,7 +5686,7 @@
               }
             ],
             "quoteString": "τοῦ Θεοῦ",
-            "glQuote": "",
+            "glQuote": "of God",
             "occurrence": 1
           }
         },
@@ -5708,7 +5708,7 @@
             "groupId": "god",
             "quote": "Θεοῦ",
             "quoteString": "Θεοῦ",
-            "glQuote": "",
+            "glQuote": "of the & God",
             "occurrence": 1
           }
         },
@@ -5730,7 +5730,7 @@
             "groupId": "god",
             "quote": "Θεῷ",
             "quoteString": "Θεῷ",
-            "glQuote": "",
+            "glQuote": "to God",
             "occurrence": 1
           }
         },
@@ -5761,7 +5761,7 @@
               }
             ],
             "quoteString": "τῷ Θεῷ",
-            "glQuote": "",
+            "glQuote": "to God",
             "occurrence": 1
           }
         },
@@ -5792,7 +5792,7 @@
               }
             ],
             "quoteString": "ὁ Θεὸς",
-            "glQuote": "",
+            "glQuote": "God",
             "occurrence": 1
           }
         },
@@ -5823,7 +5823,7 @@
               }
             ],
             "quoteString": "ὁ Θεός",
-            "glQuote": "",
+            "glQuote": "God",
             "occurrence": 1
           }
         },
@@ -5854,7 +5854,7 @@
               }
             ],
             "quoteString": "τῷ Θεῷ",
-            "glQuote": "",
+            "glQuote": "to God",
             "occurrence": 1
           }
         },
@@ -5885,7 +5885,7 @@
               }
             ],
             "quoteString": "ὁ Θεός",
-            "glQuote": "",
+            "glQuote": "God",
             "occurrence": 1
           }
         },
@@ -5907,7 +5907,7 @@
             "groupId": "god",
             "quote": "Θεὸς",
             "quoteString": "Θεὸς",
-            "glQuote": "",
+            "glQuote": "God",
             "occurrence": 1
           }
         }
@@ -5931,7 +5931,7 @@
             "groupId": "godthefather",
             "quote": "Πατέρα",
             "quoteString": "Πατέρα",
-            "glQuote": "",
+            "glQuote": "a father",
             "occurrence": 1
           }
         },
@@ -5962,7 +5962,7 @@
               }
             ],
             "quoteString": "τῷ Πατρὶ",
-            "glQuote": "",
+            "glQuote": "to the Father",
             "occurrence": 1
           }
         }
@@ -5986,7 +5986,7 @@
             "groupId": "good",
             "quote": "καλοῦ",
             "quoteString": "καλοῦ",
-            "glQuote": "",
+            "glQuote": "what is} good",
             "occurrence": 1
           }
         },
@@ -6008,7 +6008,7 @@
             "groupId": "good",
             "quote": "καλὸν",
             "quoteString": "καλὸν",
-            "glQuote": "",
+            "glQuote": "good",
             "occurrence": 1
           }
         },
@@ -6042,7 +6042,7 @@
               }
             ],
             "quoteString": "τῶν & ἀγαθῶν",
-            "glQuote": "",
+            "glQuote": "of the good things",
             "occurrence": 1
           }
         },
@@ -6076,7 +6076,7 @@
               }
             ],
             "quoteString": "τῶν & ἀγαθῶν",
-            "glQuote": "",
+            "glQuote": "of the good things",
             "occurrence": 1
           }
         },
@@ -6098,7 +6098,7 @@
             "groupId": "good",
             "quote": "καλῶν",
             "quoteString": "καλῶν",
-            "glQuote": "",
+            "glQuote": "good",
             "occurrence": 1
           }
         },
@@ -6120,7 +6120,7 @@
             "groupId": "good",
             "quote": "δοκοῦν",
             "quoteString": "δοκοῦν",
-            "glQuote": "",
+            "glQuote": "seems {best",
             "occurrence": 1
           }
         },
@@ -6142,7 +6142,7 @@
             "groupId": "good",
             "quote": "καλὸν",
             "quoteString": "καλὸν",
-            "glQuote": "",
+            "glQuote": "it is} good {for",
             "occurrence": 1
           }
         },
@@ -6164,7 +6164,7 @@
             "groupId": "good",
             "quote": "εὐποιΐας",
             "quoteString": "εὐποιΐας",
-            "glQuote": "",
+            "glQuote": "doing of good",
             "occurrence": 1
           }
         },
@@ -6186,7 +6186,7 @@
             "groupId": "good",
             "quote": "καλὴν",
             "quoteString": "καλὴν",
-            "glQuote": "",
+            "glQuote": "good",
             "occurrence": 1
           }
         },
@@ -6208,7 +6208,7 @@
             "groupId": "good",
             "quote": "ἀγαθῷ",
             "quoteString": "ἀγαθῷ",
-            "glQuote": "",
+            "glQuote": "good",
             "occurrence": 1
           }
         }
@@ -6232,7 +6232,7 @@
             "groupId": "goodnews",
             "quote": "εὐηγγελισμένοι",
             "quoteString": "εὐηγγελισμένοι",
-            "glQuote": "",
+            "glQuote": "having good news proclaimed {to us",
             "occurrence": 1
           }
         },
@@ -6254,7 +6254,7 @@
             "groupId": "goodnews",
             "quote": "εὐαγγελισθέντες",
             "quoteString": "εὐαγγελισθέντες",
-            "glQuote": "",
+            "glQuote": "having had the good news proclaimed {to them",
             "occurrence": 1
           }
         }
@@ -6278,7 +6278,7 @@
             "groupId": "grace",
             "quote": "χάριτι",
             "quoteString": "χάριτι",
-            "glQuote": "",
+            "glQuote": "by the grace",
             "occurrence": 1
           }
         },
@@ -6309,7 +6309,7 @@
               }
             ],
             "quoteString": "τῆς χάριτος",
-            "glQuote": "",
+            "glQuote": "of grace",
             "occurrence": 1
           }
         },
@@ -6331,7 +6331,7 @@
             "groupId": "grace",
             "quote": "χάριν",
             "quoteString": "χάριν",
-            "glQuote": "",
+            "glQuote": "grace",
             "occurrence": 1
           }
         },
@@ -6362,7 +6362,7 @@
               }
             ],
             "quoteString": "τῆς χάριτος",
-            "glQuote": "",
+            "glQuote": "of grace",
             "occurrence": 1
           }
         },
@@ -6384,7 +6384,7 @@
             "groupId": "grace",
             "quote": "χάριτος",
             "quoteString": "χάριτος",
-            "glQuote": "",
+            "glQuote": "grace",
             "occurrence": 1
           }
         },
@@ -6406,7 +6406,7 @@
             "groupId": "grace",
             "quote": "χάριν",
             "quoteString": "χάριν",
-            "glQuote": "",
+            "glQuote": "gratitude",
             "occurrence": 1
           }
         },
@@ -6428,7 +6428,7 @@
             "groupId": "grace",
             "quote": "χάριτι",
             "quoteString": "χάριτι",
-            "glQuote": "",
+            "glQuote": "by grace",
             "occurrence": 1
           }
         },
@@ -6459,7 +6459,7 @@
               }
             ],
             "quoteString": "ἡ χάρις",
-            "glQuote": "",
+            "glQuote": "Grace",
             "occurrence": 1
           }
         }
@@ -6483,7 +6483,7 @@
             "groupId": "heaven",
             "quote": "οὐρανοί",
             "quoteString": "οὐρανοί",
-            "glQuote": "",
+            "glQuote": "heavens",
             "occurrence": 1
           }
         },
@@ -6505,7 +6505,7 @@
             "groupId": "heaven",
             "quote": "ἐπουρανίου",
             "quoteString": "ἐπουρανίου",
-            "glQuote": "",
+            "glQuote": "heavenly",
             "occurrence": 1
           }
         },
@@ -6527,7 +6527,7 @@
             "groupId": "heaven",
             "quote": "οὐρανούς",
             "quoteString": "οὐρανούς",
-            "glQuote": "",
+            "glQuote": "heavens",
             "occurrence": 1
           }
         },
@@ -6558,7 +6558,7 @@
               }
             ],
             "quoteString": "τῆς ἐπουρανίου",
-            "glQuote": "",
+            "glQuote": "heavenly",
             "occurrence": 1
           }
         },
@@ -6580,7 +6580,7 @@
             "groupId": "heaven",
             "quote": "οὐρανῶν",
             "quoteString": "οὐρανῶν",
-            "glQuote": "",
+            "glQuote": "heavens",
             "occurrence": 1
           }
         },
@@ -6602,7 +6602,7 @@
             "groupId": "heaven",
             "quote": "οὐρανοῖς",
             "quoteString": "οὐρανοῖς",
-            "glQuote": "",
+            "glQuote": "heavens",
             "occurrence": 1
           }
         },
@@ -6633,7 +6633,7 @@
               }
             ],
             "quoteString": "τῶν ἐπουρανίων",
-            "glQuote": "",
+            "glQuote": "of the heavenly things",
             "occurrence": 1
           }
         },
@@ -6655,7 +6655,7 @@
             "groupId": "heaven",
             "quote": "οὐρανοῖς",
             "quoteString": "οὐρανοῖς",
-            "glQuote": "",
+            "glQuote": "heavens",
             "occurrence": 1
           }
         },
@@ -6677,7 +6677,7 @@
             "groupId": "heaven",
             "quote": "ἐπουράνια",
             "quoteString": "ἐπουράνια",
-            "glQuote": "",
+            "glQuote": "heavenly things",
             "occurrence": 1
           }
         },
@@ -6708,7 +6708,7 @@
               }
             ],
             "quoteString": "τὸν οὐρανόν",
-            "glQuote": "",
+            "glQuote": "heaven",
             "occurrence": 1
           }
         },
@@ -6739,7 +6739,7 @@
               }
             ],
             "quoteString": "τοῦ οὐρανοῦ",
-            "glQuote": "",
+            "glQuote": "of the sky",
             "occurrence": 1
           }
         },
@@ -6761,7 +6761,7 @@
             "groupId": "heaven",
             "quote": "ἐπουρανίου",
             "quoteString": "ἐπουρανίου",
-            "glQuote": "",
+            "glQuote": "a heavenly one",
             "occurrence": 1
           }
         },
@@ -6783,7 +6783,7 @@
             "groupId": "heaven",
             "quote": "ἐπουρανίῳ",
             "quoteString": "ἐπουρανίῳ",
-            "glQuote": "",
+            "glQuote": "heavenly",
             "occurrence": 1
           }
         },
@@ -6805,7 +6805,7 @@
             "groupId": "heaven",
             "quote": "οὐρανοῖς",
             "quoteString": "οὐρανοῖς",
-            "glQuote": "",
+            "glQuote": "the heavens",
             "occurrence": 1
           }
         },
@@ -6827,7 +6827,7 @@
             "groupId": "heaven",
             "quote": "οὐρανῶν",
             "quoteString": "οὐρανῶν",
-            "glQuote": "",
+            "glQuote": "heaven",
             "occurrence": 1
           }
         },
@@ -6849,7 +6849,7 @@
             "groupId": "heaven",
             "quote": "οὐρανόν",
             "quoteString": "οὐρανόν",
-            "glQuote": "",
+            "glQuote": "heaven",
             "occurrence": 1
           }
         }
@@ -6873,7 +6873,7 @@
             "groupId": "highpriest",
             "quote": "ἀρχιερεὺς",
             "quoteString": "ἀρχιερεὺς",
-            "glQuote": "",
+            "glQuote": "a & high priest",
             "occurrence": 1
           }
         },
@@ -6895,7 +6895,7 @@
             "groupId": "highpriest",
             "quote": "ἀρχιερέα",
             "quoteString": "ἀρχιερέα",
-            "glQuote": "",
+            "glQuote": "high priest",
             "occurrence": 1
           }
         },
@@ -6917,7 +6917,7 @@
             "groupId": "highpriest",
             "quote": "ἀρχιερέα",
             "quoteString": "ἀρχιερέα",
-            "glQuote": "",
+            "glQuote": "a & high priest",
             "occurrence": 1
           }
         },
@@ -6939,7 +6939,7 @@
             "groupId": "highpriest",
             "quote": "ἀρχιερέα",
             "quoteString": "ἀρχιερέα",
-            "glQuote": "",
+            "glQuote": "a high priest",
             "occurrence": 1
           }
         },
@@ -6961,7 +6961,7 @@
             "groupId": "highpriest",
             "quote": "ἀρχιερεὺς",
             "quoteString": "ἀρχιερεὺς",
-            "glQuote": "",
+            "glQuote": "high priest",
             "occurrence": 1
           }
         },
@@ -6983,7 +6983,7 @@
             "groupId": "highpriest",
             "quote": "ἀρχιερέα",
             "quoteString": "ἀρχιερέα",
-            "glQuote": "",
+            "glQuote": "a high priest",
             "occurrence": 1
           }
         },
@@ -7005,7 +7005,7 @@
             "groupId": "highpriest",
             "quote": "ἀρχιερεὺς",
             "quoteString": "ἀρχιερεὺς",
-            "glQuote": "",
+            "glQuote": "as} high priest",
             "occurrence": 1
           }
         },
@@ -7027,7 +7027,7 @@
             "groupId": "highpriest",
             "quote": "ἀρχιερεὺς",
             "quoteString": "ἀρχιερεὺς",
-            "glQuote": "",
+            "glQuote": "a high priest",
             "occurrence": 1
           }
         },
@@ -7049,7 +7049,7 @@
             "groupId": "highpriest",
             "quote": "ἀρχιερεύς",
             "quoteString": "ἀρχιερεύς",
-            "glQuote": "",
+            "glQuote": "a high priest",
             "occurrence": 1
           }
         },
@@ -7071,7 +7071,7 @@
             "groupId": "highpriest",
             "quote": "ἀρχιερεῖς",
             "quoteString": "ἀρχιερεῖς",
-            "glQuote": "",
+            "glQuote": "high priests",
             "occurrence": 1
           }
         },
@@ -7093,7 +7093,7 @@
             "groupId": "highpriest",
             "quote": "ἀρχιερεῖς",
             "quoteString": "ἀρχιερεῖς",
-            "glQuote": "",
+            "glQuote": "as} high priests",
             "occurrence": 1
           }
         },
@@ -7115,7 +7115,7 @@
             "groupId": "highpriest",
             "quote": "ἀρχιερέα",
             "quoteString": "ἀρχιερέα",
-            "glQuote": "",
+            "glQuote": "a high priest",
             "occurrence": 1
           }
         },
@@ -7137,7 +7137,7 @@
             "groupId": "highpriest",
             "quote": "ἀρχιερεὺς",
             "quoteString": "ἀρχιερεὺς",
-            "glQuote": "",
+            "glQuote": "high priest",
             "occurrence": 1
           }
         },
@@ -7159,7 +7159,7 @@
             "groupId": "highpriest",
             "quote": "ἀρχιερεύς",
             "quoteString": "ἀρχιερεύς",
-            "glQuote": "",
+            "glQuote": "high priest",
             "occurrence": 1
           }
         },
@@ -7181,7 +7181,7 @@
             "groupId": "highpriest",
             "quote": "ἀρχιερεὺς",
             "quoteString": "ἀρχιερεὺς",
-            "glQuote": "",
+            "glQuote": "a high priest",
             "occurrence": 1
           }
         },
@@ -7203,7 +7203,7 @@
             "groupId": "highpriest",
             "quote": "ἀρχιερεὺς",
             "quoteString": "ἀρχιερεὺς",
-            "glQuote": "",
+            "glQuote": "high priest",
             "occurrence": 1
           }
         },
@@ -7225,7 +7225,7 @@
             "groupId": "highpriest",
             "quote": "ἀρχιερέως",
             "quoteString": "ἀρχιερέως",
-            "glQuote": "",
+            "glQuote": "high priest",
             "occurrence": 1
           }
         }
@@ -7249,7 +7249,7 @@
             "groupId": "holy",
             "quote": "ἅγιοι",
             "quoteString": "ἅγιοι",
-            "glQuote": "",
+            "glQuote": "holy",
             "occurrence": 1
           }
         },
@@ -7271,7 +7271,7 @@
             "groupId": "holy",
             "quote": "ὅσιος",
             "quoteString": "ὅσιος",
-            "glQuote": "",
+            "glQuote": "holy",
             "occurrence": 1
           }
         },
@@ -7302,7 +7302,7 @@
               }
             ],
             "quoteString": "τῶν ἁγίων",
-            "glQuote": "",
+            "glQuote": "of the holy {place",
             "occurrence": 1
           }
         },
@@ -7324,7 +7324,7 @@
             "groupId": "holy",
             "quote": "ἅγιον",
             "quoteString": "ἅγιον",
-            "glQuote": "",
+            "glQuote": "holy {place",
             "occurrence": 1
           }
         },
@@ -7346,7 +7346,7 @@
             "groupId": "holy",
             "quote": "Ἅγια",
             "quoteString": "Ἅγια",
-            "glQuote": "",
+            "glQuote": "Holy",
             "occurrence": 1
           }
         },
@@ -7368,7 +7368,7 @@
             "groupId": "holy",
             "quote": "Ἅγια",
             "quoteString": "Ἅγια",
-            "glQuote": "",
+            "glQuote": "the Holy",
             "occurrence": 1
           }
         },
@@ -7390,7 +7390,7 @@
             "groupId": "holy",
             "quote": "Ἁγίων",
             "quoteString": "Ἁγίων",
-            "glQuote": "",
+            "glQuote": "of Holies",
             "occurrence": 1
           }
         },
@@ -7421,7 +7421,7 @@
               }
             ],
             "quoteString": "τῶν ἁγίων",
-            "glQuote": "",
+            "glQuote": "of the holy {places",
             "occurrence": 1
           }
         },
@@ -7443,7 +7443,7 @@
             "groupId": "holy",
             "quote": "ἅγια",
             "quoteString": "ἅγια",
-            "glQuote": "",
+            "glQuote": "holy {places",
             "occurrence": 1
           }
         },
@@ -7465,7 +7465,7 @@
             "groupId": "holy",
             "quote": "ἅγια",
             "quoteString": "ἅγια",
-            "glQuote": "",
+            "glQuote": "holy {places",
             "occurrence": 1
           }
         },
@@ -7487,7 +7487,7 @@
             "groupId": "holy",
             "quote": "ἅγια",
             "quoteString": "ἅγια",
-            "glQuote": "",
+            "glQuote": "holy {places",
             "occurrence": 1
           }
         },
@@ -7509,7 +7509,7 @@
             "groupId": "holy",
             "quote": "ἁγίων",
             "quoteString": "ἁγίων",
-            "glQuote": "",
+            "glQuote": "holy {places",
             "occurrence": 1
           }
         },
@@ -7540,7 +7540,7 @@
               }
             ],
             "quoteString": "τῆς ἁγιότητος",
-            "glQuote": "",
+            "glQuote": "holiness",
             "occurrence": 1
           }
         },
@@ -7562,7 +7562,7 @@
             "groupId": "holy",
             "quote": "ἁγιασμόν",
             "quoteString": "ἁγιασμόν",
-            "glQuote": "",
+            "glQuote": "sanctification",
             "occurrence": 1
           }
         },
@@ -7584,7 +7584,7 @@
             "groupId": "holy",
             "quote": "ἅγια",
             "quoteString": "ἅγια",
-            "glQuote": "",
+            "glQuote": "holy {places",
             "occurrence": 1
           }
         }
@@ -7617,7 +7617,7 @@
               }
             ],
             "quoteString": "Πνεύματος Ἁγίου",
-            "glQuote": "",
+            "glQuote": "of the Holy Spirit",
             "occurrence": 1
           }
         },
@@ -7652,7 +7652,7 @@
               }
             ],
             "quoteString": "Πνεῦμα τὸ Ἅγιον",
-            "glQuote": "",
+            "glQuote": "Holy Spirit",
             "occurrence": 1
           }
         },
@@ -7683,7 +7683,7 @@
               }
             ],
             "quoteString": "Πνεύματος Ἁγίου",
-            "glQuote": "",
+            "glQuote": "of the Holy Spirit",
             "occurrence": 1
           }
         },
@@ -7718,7 +7718,7 @@
               }
             ],
             "quoteString": "Πνεύματος τοῦ Ἁγίου",
-            "glQuote": "",
+            "glQuote": "Holy Spirit",
             "occurrence": 1
           }
         },
@@ -7740,7 +7740,7 @@
             "groupId": "holyspirit",
             "quote": "Πνεύματος",
             "quoteString": "Πνεύματος",
-            "glQuote": "",
+            "glQuote": "the & Spirit",
             "occurrence": 1
           }
         },
@@ -7775,7 +7775,7 @@
               }
             ],
             "quoteString": "Πνεῦμα τὸ Ἅγιον",
-            "glQuote": "",
+            "glQuote": "Holy Spirit",
             "occurrence": 1
           }
         },
@@ -7797,7 +7797,7 @@
             "groupId": "holyspirit",
             "quote": "Πνεῦμα",
             "quoteString": "Πνεῦμα",
-            "glQuote": "",
+            "glQuote": "Spirit",
             "occurrence": 1
           }
         }
@@ -7821,7 +7821,7 @@
             "groupId": "honor",
             "quote": "τιμῇ",
             "quoteString": "τιμῇ",
-            "glQuote": "",
+            "glQuote": "honor",
             "occurrence": 1
           }
         },
@@ -7843,7 +7843,7 @@
             "groupId": "honor",
             "quote": "τιμῇ",
             "quoteString": "τιμῇ",
-            "glQuote": "",
+            "glQuote": "honor",
             "occurrence": 1
           }
         },
@@ -7865,7 +7865,7 @@
             "groupId": "honor",
             "quote": "τιμὴν",
             "quoteString": "τιμὴν",
-            "glQuote": "",
+            "glQuote": "honor",
             "occurrence": 1
           }
         },
@@ -7896,7 +7896,7 @@
               }
             ],
             "quoteString": "τὴν τιμήν",
-            "glQuote": "",
+            "glQuote": "this honor",
             "occurrence": 1
           }
         },
@@ -7918,7 +7918,7 @@
             "groupId": "honor",
             "quote": "τίμιος",
             "quoteString": "τίμιος",
-            "glQuote": "",
+            "glQuote": "must be} honorable",
             "occurrence": 1
           }
         }
@@ -7951,7 +7951,7 @@
               }
             ],
             "quoteString": "τῆς ἐλπίδος",
-            "glQuote": "",
+            "glQuote": "of our hope",
             "occurrence": 1
           }
         },
@@ -7982,7 +7982,7 @@
               }
             ],
             "quoteString": "τῆς ἐλπίδος",
-            "glQuote": "",
+            "glQuote": "of your hope",
             "occurrence": 1
           }
         },
@@ -8004,7 +8004,7 @@
             "groupId": "hope",
             "quote": "ἐλπίδος",
             "quoteString": "ἐλπίδος",
-            "glQuote": "",
+            "glQuote": "to} & hope",
             "occurrence": 1
           }
         },
@@ -8026,7 +8026,7 @@
             "groupId": "hope",
             "quote": "ἐλπίδος",
             "quoteString": "ἐλπίδος",
-            "glQuote": "",
+            "glQuote": "of a & hope",
             "occurrence": 1
           }
         },
@@ -8057,7 +8057,7 @@
               }
             ],
             "quoteString": "τῆς ἐλπίδος",
-            "glQuote": "",
+            "glQuote": "of our hope",
             "occurrence": 1
           }
         },
@@ -8079,7 +8079,7 @@
             "groupId": "hope",
             "quote": "ἐλπιζομένων",
             "quoteString": "ἐλπιζομένων",
-            "glQuote": "",
+            "glQuote": "of things being hoped {for",
             "occurrence": 1
           }
         }
@@ -8116,7 +8116,7 @@
               }
             ],
             "quoteString": "οἶκον τοῦ Θεοῦ",
-            "glQuote": "",
+            "glQuote": "house of God",
             "occurrence": 1
           }
         }
@@ -8140,7 +8140,7 @@
             "groupId": "inherit",
             "quote": "κεκληρονόμηκεν",
             "quoteString": "κεκληρονόμηκεν",
-            "glQuote": "",
+            "glQuote": "he has inherited",
             "occurrence": 1
           }
         },
@@ -8162,7 +8162,7 @@
             "groupId": "inherit",
             "quote": "κληρονομεῖν",
             "quoteString": "κληρονομεῖν",
-            "glQuote": "",
+            "glQuote": "to inherit",
             "occurrence": 1
           }
         },
@@ -8184,7 +8184,7 @@
             "groupId": "inherit",
             "quote": "κληρονομούντων",
             "quoteString": "κληρονομούντων",
-            "glQuote": "",
+            "glQuote": "inheriting",
             "occurrence": 1
           }
         },
@@ -8218,7 +8218,7 @@
               }
             ],
             "quoteString": "τῆς & κληρονομίας",
-            "glQuote": "",
+            "glQuote": "of the & inheritance",
             "occurrence": 1
           }
         },
@@ -8240,7 +8240,7 @@
             "groupId": "inherit",
             "quote": "κληρονομίαν",
             "quoteString": "κληρονομίαν",
-            "glQuote": "",
+            "glQuote": "an inheritance",
             "occurrence": 1
           }
         },
@@ -8262,7 +8262,7 @@
             "groupId": "inherit",
             "quote": "κληρονομῆσαι",
             "quoteString": "κληρονομῆσαι",
-            "glQuote": "",
+            "glQuote": "to inherit",
             "occurrence": 1
           }
         }
@@ -8295,7 +8295,7 @@
               }
             ],
             "quoteString": "ταῖς ἀδικίαις",
-            "glQuote": "",
+            "glQuote": "toward & unrighteousness",
             "occurrence": 1
           }
         }
@@ -8319,7 +8319,7 @@
             "groupId": "innocent",
             "quote": "ἄκακος",
             "quoteString": "ἄκακος",
-            "glQuote": "",
+            "glQuote": "innocent",
             "occurrence": 1
           }
         }
@@ -8356,7 +8356,7 @@
               }
             ],
             "quoteString": "εἰς τὸ ἐντυγχάνειν",
-            "glQuote": "",
+            "glQuote": "to intercede",
             "occurrence": 1
           }
         }
@@ -8380,7 +8380,7 @@
             "groupId": "israel",
             "quote": "Ἰσραὴλ",
             "quoteString": "Ἰσραὴλ",
-            "glQuote": "",
+            "glQuote": "of Israel",
             "occurrence": 1
           }
         },
@@ -8402,7 +8402,7 @@
             "groupId": "israel",
             "quote": "Ἰσραὴλ",
             "quoteString": "Ἰσραὴλ",
-            "glQuote": "",
+            "glQuote": "of Israel",
             "occurrence": 1
           }
         },
@@ -8424,7 +8424,7 @@
             "groupId": "israel",
             "quote": "Ἰσραὴλ",
             "quoteString": "Ἰσραὴλ",
-            "glQuote": "",
+            "glQuote": "of Israel",
             "occurrence": 1
           }
         }
@@ -8448,7 +8448,7 @@
             "groupId": "jesus",
             "quote": "Ἰησοῦν",
             "quoteString": "Ἰησοῦν",
-            "glQuote": "",
+            "glQuote": "Jesus",
             "occurrence": 1
           }
         },
@@ -8470,7 +8470,7 @@
             "groupId": "jesus",
             "quote": "Ἰησοῦν",
             "quoteString": "Ἰησοῦν",
-            "glQuote": "",
+            "glQuote": "Jesus",
             "occurrence": 1
           }
         },
@@ -8492,7 +8492,7 @@
             "groupId": "jesus",
             "quote": "Ἰησοῦν",
             "quoteString": "Ἰησοῦν",
-            "glQuote": "",
+            "glQuote": "Jesus",
             "occurrence": 1
           }
         },
@@ -8514,7 +8514,7 @@
             "groupId": "jesus",
             "quote": "Ἰησοῦς",
             "quoteString": "Ἰησοῦς",
-            "glQuote": "",
+            "glQuote": "Jesus",
             "occurrence": 1
           }
         },
@@ -8536,7 +8536,7 @@
             "groupId": "jesus",
             "quote": "Ἰησοῦς",
             "quoteString": "Ἰησοῦς",
-            "glQuote": "",
+            "glQuote": "Jesus",
             "occurrence": 1
           }
         },
@@ -8558,7 +8558,7 @@
             "groupId": "jesus",
             "quote": "Ἰησοῦ",
             "quoteString": "Ἰησοῦ",
-            "glQuote": "",
+            "glQuote": "of Jesus",
             "occurrence": 1
           }
         },
@@ -8580,7 +8580,7 @@
             "groupId": "jesus",
             "quote": "Ἰησοῦ",
             "quoteString": "Ἰησοῦ",
-            "glQuote": "",
+            "glQuote": "of Jesus",
             "occurrence": 1
           }
         },
@@ -8602,7 +8602,7 @@
             "groupId": "jesus",
             "quote": "Ἰησοῦν",
             "quoteString": "Ἰησοῦν",
-            "glQuote": "",
+            "glQuote": "Jesus",
             "occurrence": 1
           }
         },
@@ -8624,7 +8624,7 @@
             "groupId": "jesus",
             "quote": "Ἰησοῦ",
             "quoteString": "Ἰησοῦ",
-            "glQuote": "",
+            "glQuote": "to Jesus",
             "occurrence": 1
           }
         },
@@ -8646,7 +8646,7 @@
             "groupId": "jesus",
             "quote": "Ἰησοῦς",
             "quoteString": "Ἰησοῦς",
-            "glQuote": "",
+            "glQuote": "Jesus",
             "occurrence": 1
           }
         },
@@ -8668,7 +8668,7 @@
             "groupId": "jesus",
             "quote": "Ἰησοῦς",
             "quoteString": "Ἰησοῦς",
-            "glQuote": "",
+            "glQuote": "Jesus",
             "occurrence": 1
           }
         },
@@ -8690,7 +8690,7 @@
             "groupId": "jesus",
             "quote": "Ἰησοῦν",
             "quoteString": "Ἰησοῦν",
-            "glQuote": "",
+            "glQuote": "Jesus",
             "occurrence": 1
           }
         },
@@ -8712,7 +8712,7 @@
             "groupId": "jesus",
             "quote": "Ἰησοῦ",
             "quoteString": "Ἰησοῦ",
-            "glQuote": "",
+            "glQuote": "Jesus",
             "occurrence": 1
           }
         }
@@ -8736,7 +8736,7 @@
             "groupId": "judge",
             "quote": "κρίματος",
             "quoteString": "κρίματος",
-            "glQuote": "",
+            "glQuote": "judgment",
             "occurrence": 1
           }
         },
@@ -8758,7 +8758,7 @@
             "groupId": "judge",
             "quote": "κρίσις",
             "quoteString": "κρίσις",
-            "glQuote": "",
+            "glQuote": "the judgment",
             "occurrence": 1
           }
         },
@@ -8780,7 +8780,7 @@
             "groupId": "judge",
             "quote": "κρίσεως",
             "quoteString": "κρίσεως",
-            "glQuote": "",
+            "glQuote": "of judgment",
             "occurrence": 1
           }
         },
@@ -8802,7 +8802,7 @@
             "groupId": "judge",
             "quote": "κρινεῖ",
             "quoteString": "κρινεῖ",
-            "glQuote": "",
+            "glQuote": "will judge",
             "occurrence": 1
           }
         },
@@ -8824,7 +8824,7 @@
             "groupId": "judge",
             "quote": "κρινεῖ",
             "quoteString": "κρινεῖ",
-            "glQuote": "",
+            "glQuote": "will judge",
             "occurrence": 1
           }
         }
@@ -8848,7 +8848,7 @@
             "groupId": "justice",
             "quote": "ἔνδικον",
             "quoteString": "ἔνδικον",
-            "glQuote": "",
+            "glQuote": "just",
             "occurrence": 1
           }
         }
@@ -8881,7 +8881,7 @@
               }
             ],
             "quoteString": "τῆς βασιλείας",
-            "glQuote": "",
+            "glQuote": "of & kingdom",
             "occurrence": 1
           }
         },
@@ -8903,7 +8903,7 @@
             "groupId": "kingdomofgod",
             "quote": "βασιλείαν",
             "quoteString": "βασιλείαν",
-            "glQuote": "",
+            "glQuote": "an & kingdom",
             "occurrence": 1
           }
         }
@@ -8940,7 +8940,7 @@
               }
             ],
             "quoteString": "ἐσχάτου τῶν ἡμερῶν",
-            "glQuote": "",
+            "glQuote": "the last of & days",
             "occurrence": 1
           }
         }
@@ -8964,7 +8964,7 @@
             "groupId": "lawofmoses",
             "quote": "νόμον",
             "quoteString": "νόμον",
-            "glQuote": "",
+            "glQuote": "law",
             "occurrence": 1
           }
         },
@@ -8986,7 +8986,7 @@
             "groupId": "lawofmoses",
             "quote": "νόμος",
             "quoteString": "νόμος",
-            "glQuote": "",
+            "glQuote": "law",
             "occurrence": 1
           }
         },
@@ -9008,7 +9008,7 @@
             "groupId": "lawofmoses",
             "quote": "νόμος",
             "quoteString": "νόμος",
-            "glQuote": "",
+            "glQuote": "law",
             "occurrence": 1
           }
         },
@@ -9030,7 +9030,7 @@
             "groupId": "lawofmoses",
             "quote": "νόμον",
             "quoteString": "νόμον",
-            "glQuote": "",
+            "glQuote": "law",
             "occurrence": 1
           }
         },
@@ -9052,7 +9052,7 @@
             "groupId": "lawofmoses",
             "quote": "νόμον",
             "quoteString": "νόμον",
-            "glQuote": "",
+            "glQuote": "the law",
             "occurrence": 1
           }
         },
@@ -9087,7 +9087,7 @@
               }
             ],
             "quoteString": "νόμον ὑπὸ Μωϋσέως",
-            "glQuote": "",
+            "glQuote": "law by Moses",
             "occurrence": 1
           }
         },
@@ -9109,7 +9109,7 @@
             "groupId": "lawofmoses",
             "quote": "νόμον",
             "quoteString": "νόμον",
-            "glQuote": "",
+            "glQuote": "law",
             "occurrence": 1
           }
         },
@@ -9131,7 +9131,7 @@
             "groupId": "lawofmoses",
             "quote": "νόμος",
             "quoteString": "νόμος",
-            "glQuote": "",
+            "glQuote": "law",
             "occurrence": 1
           }
         },
@@ -9153,7 +9153,7 @@
             "groupId": "lawofmoses",
             "quote": "νόμον",
             "quoteString": "νόμον",
-            "glQuote": "",
+            "glQuote": "the law",
             "occurrence": 1
           }
         },
@@ -9184,7 +9184,7 @@
               }
             ],
             "quoteString": "νόμον Μωϋσέως",
-            "glQuote": "",
+            "glQuote": "the law of Moses",
             "occurrence": 1
           }
         }
@@ -9208,7 +9208,7 @@
             "groupId": "lord",
             "quote": "Κύριε",
             "quoteString": "Κύριε",
-            "glQuote": "",
+            "glQuote": "Lord",
             "occurrence": 1
           }
         },
@@ -9230,7 +9230,7 @@
             "groupId": "lord",
             "quote": "Κυρίου",
             "quoteString": "Κυρίου",
-            "glQuote": "",
+            "glQuote": "Lord",
             "occurrence": 1
           }
         },
@@ -9261,7 +9261,7 @@
               }
             ],
             "quoteString": "ὁ Κύριος",
-            "glQuote": "",
+            "glQuote": "Lord",
             "occurrence": 1
           }
         },
@@ -9283,7 +9283,7 @@
             "groupId": "lord",
             "quote": "Κύριος",
             "quoteString": "Κύριος",
-            "glQuote": "",
+            "glQuote": "The Lord",
             "occurrence": 1
           }
         },
@@ -9305,7 +9305,7 @@
             "groupId": "lord",
             "quote": "Κύριος",
             "quoteString": "Κύριος",
-            "glQuote": "",
+            "glQuote": "Lord",
             "occurrence": 1
           }
         },
@@ -9327,7 +9327,7 @@
             "groupId": "lord",
             "quote": "Κύριος",
             "quoteString": "Κύριος",
-            "glQuote": "",
+            "glQuote": "the Lord",
             "occurrence": 1
           }
         },
@@ -9349,7 +9349,7 @@
             "groupId": "lord",
             "quote": "Κύριος",
             "quoteString": "Κύριος",
-            "glQuote": "",
+            "glQuote": "the Lord",
             "occurrence": 1
           }
         },
@@ -9371,7 +9371,7 @@
             "groupId": "lord",
             "quote": "Κύριος",
             "quoteString": "Κύριος",
-            "glQuote": "",
+            "glQuote": "the Lord",
             "occurrence": 1
           }
         },
@@ -9393,7 +9393,7 @@
             "groupId": "lord",
             "quote": "Κύριον",
             "quoteString": "Κύριον",
-            "glQuote": "",
+            "glQuote": "Lord",
             "occurrence": 1
           }
         },
@@ -9415,7 +9415,7 @@
             "groupId": "lord",
             "quote": "Κύριος",
             "quoteString": "Κύριος",
-            "glQuote": "",
+            "glQuote": "the Lord",
             "occurrence": 1
           }
         },
@@ -9437,7 +9437,7 @@
             "groupId": "lord",
             "quote": "Κύριος",
             "quoteString": "Κύριος",
-            "glQuote": "",
+            "glQuote": "The Lord",
             "occurrence": 1
           }
         },
@@ -9459,7 +9459,7 @@
             "groupId": "lord",
             "quote": "Κυρίου",
             "quoteString": "Κυρίου",
-            "glQuote": "",
+            "glQuote": "of the Lord",
             "occurrence": 1
           }
         },
@@ -9481,7 +9481,7 @@
             "groupId": "lord",
             "quote": "Κύριος",
             "quoteString": "Κύριος",
-            "glQuote": "",
+            "glQuote": "the Lord",
             "occurrence": 1
           }
         },
@@ -9503,7 +9503,7 @@
             "groupId": "lord",
             "quote": "Κύριον",
             "quoteString": "Κύριον",
-            "glQuote": "",
+            "glQuote": "Lord",
             "occurrence": 1
           }
         },
@@ -9525,7 +9525,7 @@
             "groupId": "lord",
             "quote": "Κύριος",
             "quoteString": "Κύριος",
-            "glQuote": "",
+            "glQuote": "The Lord",
             "occurrence": 1
           }
         },
@@ -9556,7 +9556,7 @@
               }
             ],
             "quoteString": "τὸν Κύριον",
-            "glQuote": "",
+            "glQuote": "Lord",
             "occurrence": 1
           }
         }
@@ -9580,7 +9580,7 @@
             "groupId": "love",
             "quote": "ἠγάπησας",
             "quoteString": "ἠγάπησας",
-            "glQuote": "",
+            "glQuote": "You loved",
             "occurrence": 1
           }
         },
@@ -9602,7 +9602,7 @@
             "groupId": "love",
             "quote": "ἀγάπης",
             "quoteString": "ἀγάπης",
-            "glQuote": "",
+            "glQuote": "love",
             "occurrence": 1
           }
         },
@@ -9624,7 +9624,7 @@
             "groupId": "love",
             "quote": "ἀγάπης",
             "quoteString": "ἀγάπης",
-            "glQuote": "",
+            "glQuote": "love",
             "occurrence": 1
           }
         },
@@ -9646,7 +9646,7 @@
             "groupId": "love",
             "quote": "ἀγαπᾷ",
             "quoteString": "ἀγαπᾷ",
-            "glQuote": "",
+            "glQuote": "loves",
             "occurrence": 1
           }
         },
@@ -9677,7 +9677,7 @@
               }
             ],
             "quoteString": "ἡ φιλαδελφία",
-            "glQuote": "",
+            "glQuote": "brotherly love",
             "occurrence": 1
           }
         }
@@ -9710,7 +9710,7 @@
               }
             ],
             "quoteString": "τῆς Μεγαλωσύνης",
-            "glQuote": "",
+            "glQuote": "of the Majesty",
             "occurrence": 1
           }
         },
@@ -9741,7 +9741,7 @@
               }
             ],
             "quoteString": "τῆς Μεγαλωσύνης",
-            "glQuote": "",
+            "glQuote": "of the Majesty",
             "occurrence": 1
           }
         }
@@ -9765,7 +9765,7 @@
             "groupId": "manna",
             "quote": "μάννα",
             "quoteString": "μάννα",
-            "glQuote": "",
+            "glQuote": "manna",
             "occurrence": 1
           }
         }
@@ -9789,7 +9789,7 @@
             "groupId": "mercy",
             "quote": "ἐλεήμων",
             "quoteString": "ἐλεήμων",
-            "glQuote": "",
+            "glQuote": "merciful",
             "occurrence": 1
           }
         },
@@ -9811,7 +9811,7 @@
             "groupId": "mercy",
             "quote": "ἔλεος",
             "quoteString": "ἔλεος",
-            "glQuote": "",
+            "glQuote": "mercy",
             "occurrence": 1
           }
         },
@@ -9833,7 +9833,7 @@
             "groupId": "mercy",
             "quote": "ἵλεως",
             "quoteString": "ἵλεως",
-            "glQuote": "",
+            "glQuote": "merciful",
             "occurrence": 1
           }
         },
@@ -9855,7 +9855,7 @@
             "groupId": "mercy",
             "quote": "οἰκτιρμῶν",
             "quoteString": "οἰκτιρμῶν",
-            "glQuote": "",
+            "glQuote": "mercy",
             "occurrence": 1
           }
         }
@@ -9888,7 +9888,7 @@
               }
             ],
             "quoteString": "τοὺς λειτουργοὺς",
-            "glQuote": "",
+            "glQuote": "servants",
             "occurrence": 1
           }
         },
@@ -9910,7 +9910,7 @@
             "groupId": "minister",
             "quote": "λειτουργικὰ",
             "quoteString": "λειτουργικὰ",
-            "glQuote": "",
+            "glQuote": "ministering",
             "occurrence": 1
           }
         },
@@ -9932,7 +9932,7 @@
             "groupId": "minister",
             "quote": "διακονίαν",
             "quoteString": "διακονίαν",
-            "glQuote": "",
+            "glQuote": "service",
             "occurrence": 1
           }
         },
@@ -9954,7 +9954,7 @@
             "groupId": "minister",
             "quote": "διακονήσαντες",
             "quoteString": "διακονήσαντες",
-            "glQuote": "",
+            "glQuote": "having served",
             "occurrence": 1
           }
         },
@@ -9976,7 +9976,7 @@
             "groupId": "minister",
             "quote": "διακονοῦντες",
             "quoteString": "διακονοῦντες",
-            "glQuote": "",
+            "glQuote": "continuing to serve {them",
             "occurrence": 1
           }
         },
@@ -9998,7 +9998,7 @@
             "groupId": "minister",
             "quote": "λειτουργὸς",
             "quoteString": "λειτουργὸς",
-            "glQuote": "",
+            "glQuote": "a servant",
             "occurrence": 1
           }
         },
@@ -10020,7 +10020,7 @@
             "groupId": "minister",
             "quote": "λειτουργίας",
             "quoteString": "λειτουργίας",
-            "glQuote": "",
+            "glQuote": "a & ministry",
             "occurrence": 1
           }
         },
@@ -10051,7 +10051,7 @@
               }
             ],
             "quoteString": "τῆς λειτουργίας",
-            "glQuote": "",
+            "glQuote": "of the service",
             "occurrence": 1
           }
         },
@@ -10073,7 +10073,7 @@
             "groupId": "minister",
             "quote": "λειτουργῶν",
             "quoteString": "λειτουργῶν",
-            "glQuote": "",
+            "glQuote": "serving",
             "occurrence": 1
           }
         }
@@ -10097,7 +10097,7 @@
             "groupId": "miracle",
             "quote": "δυνάμεσιν",
             "quoteString": "δυνάμεσιν",
-            "glQuote": "",
+            "glQuote": "miracles",
             "occurrence": 1
           }
         }
@@ -10130,7 +10130,7 @@
               }
             ],
             "quoteString": "τοῦ Ὑψίστου",
-            "glQuote": "",
+            "glQuote": "Most High",
             "occurrence": 1
           }
         }
@@ -10154,7 +10154,7 @@
             "groupId": "passover",
             "quote": "Πάσχα",
             "quoteString": "Πάσχα",
-            "glQuote": "",
+            "glQuote": "Passover",
             "occurrence": 1
           }
         }
@@ -10195,7 +10195,7 @@
               }
             ],
             "quoteString": "τῷ λαῷ τοῦ Θεοῦ",
-            "glQuote": "",
+            "glQuote": "for the people of God",
             "occurrence": 1
           }
         },
@@ -10230,7 +10230,7 @@
               }
             ],
             "quoteString": "μοι εἰς λαόν",
-            "glQuote": "",
+            "glQuote": "to me as a people",
             "occurrence": 1
           }
         },
@@ -10261,7 +10261,7 @@
               }
             ],
             "quoteString": "τὸν λαὸν",
-            "glQuote": "",
+            "glQuote": "people",
             "occurrence": 1
           }
         },
@@ -10300,7 +10300,7 @@
               }
             ],
             "quoteString": "τῷ λαῷ τοῦ Θεοῦ",
-            "glQuote": "",
+            "glQuote": "with the people of God",
             "occurrence": 1
           }
         }
@@ -10324,7 +10324,7 @@
             "groupId": "perish",
             "quote": "ἀπολοῦνται",
             "quoteString": "ἀπολοῦνται",
-            "glQuote": "",
+            "glQuote": "They & will perish",
             "occurrence": 1
           }
         },
@@ -10346,7 +10346,7 @@
             "groupId": "perish",
             "quote": "συναπώλετο",
             "quoteString": "συναπώλετο",
-            "glQuote": "",
+            "glQuote": "did & perish together",
             "occurrence": 1
           }
         }
@@ -10370,7 +10370,7 @@
             "groupId": "pray",
             "quote": "δεήσεις",
             "quoteString": "δεήσεις",
-            "glQuote": "",
+            "glQuote": "prayers",
             "occurrence": 1
           }
         },
@@ -10392,7 +10392,7 @@
             "groupId": "pray",
             "quote": "προσεύχεσθε",
             "quoteString": "προσεύχεσθε",
-            "glQuote": "",
+            "glQuote": "Pray",
             "occurrence": 1
           }
         }
@@ -10416,7 +10416,7 @@
             "groupId": "priest",
             "quote": "ἱερεὺς",
             "quoteString": "ἱερεὺς",
-            "glQuote": "",
+            "glQuote": "a priest",
             "occurrence": 1
           }
         },
@@ -10438,7 +10438,7 @@
             "groupId": "priest",
             "quote": "ἱερεὺς",
             "quoteString": "ἱερεὺς",
-            "glQuote": "",
+            "glQuote": "priest",
             "occurrence": 1
           }
         },
@@ -10460,7 +10460,7 @@
             "groupId": "priest",
             "quote": "ἱερεὺς",
             "quoteString": "ἱερεὺς",
-            "glQuote": "",
+            "glQuote": "a priest",
             "occurrence": 1
           }
         },
@@ -10482,7 +10482,7 @@
             "groupId": "priest",
             "quote": "ἱερατείαν",
             "quoteString": "ἱερατείαν",
-            "glQuote": "",
+            "glQuote": "priesthood",
             "occurrence": 1
           }
         },
@@ -10504,7 +10504,7 @@
             "groupId": "priest",
             "quote": "ἱερωσύνης",
             "quoteString": "ἱερωσύνης",
-            "glQuote": "",
+            "glQuote": "priesthood",
             "occurrence": 1
           }
         },
@@ -10526,7 +10526,7 @@
             "groupId": "priest",
             "quote": "ἱερέα",
             "quoteString": "ἱερέα",
-            "glQuote": "",
+            "glQuote": "priest",
             "occurrence": 1
           }
         },
@@ -10548,7 +10548,7 @@
             "groupId": "priest",
             "quote": "ἱερωσύνης",
             "quoteString": "ἱερωσύνης",
-            "glQuote": "",
+            "glQuote": "priesthood",
             "occurrence": 1
           }
         },
@@ -10570,7 +10570,7 @@
             "groupId": "priest",
             "quote": "ἱερέων",
             "quoteString": "ἱερέων",
-            "glQuote": "",
+            "glQuote": "priests",
             "occurrence": 1
           }
         },
@@ -10592,7 +10592,7 @@
             "groupId": "priest",
             "quote": "ἱερεὺς",
             "quoteString": "ἱερεὺς",
-            "glQuote": "",
+            "glQuote": "priest",
             "occurrence": 1
           }
         },
@@ -10614,7 +10614,7 @@
             "groupId": "priest",
             "quote": "ἱερεὺς",
             "quoteString": "ἱερεὺς",
-            "glQuote": "",
+            "glQuote": "a priest",
             "occurrence": 1
           }
         },
@@ -10636,7 +10636,7 @@
             "groupId": "priest",
             "quote": "ἱερεῖς",
             "quoteString": "ἱερεῖς",
-            "glQuote": "",
+            "glQuote": "priests",
             "occurrence": 1
           }
         },
@@ -10658,7 +10658,7 @@
             "groupId": "priest",
             "quote": "ἱερεὺς",
             "quoteString": "ἱερεὺς",
-            "glQuote": "",
+            "glQuote": "a priest",
             "occurrence": 1
           }
         },
@@ -10680,7 +10680,7 @@
             "groupId": "priest",
             "quote": "ἱερεῖς",
             "quoteString": "ἱερεῖς",
-            "glQuote": "",
+            "glQuote": "priests",
             "occurrence": 1
           }
         },
@@ -10702,7 +10702,7 @@
             "groupId": "priest",
             "quote": "ἱερωσύνην",
             "quoteString": "ἱερωσύνην",
-            "glQuote": "",
+            "glQuote": "priesthood",
             "occurrence": 1
           }
         },
@@ -10724,7 +10724,7 @@
             "groupId": "priest",
             "quote": "ἱερεύς",
             "quoteString": "ἱερεύς",
-            "glQuote": "",
+            "glQuote": "a priest",
             "occurrence": 1
           }
         },
@@ -10746,7 +10746,7 @@
             "groupId": "priest",
             "quote": "ἱερεῖς",
             "quoteString": "ἱερεῖς",
-            "glQuote": "",
+            "glQuote": "priests",
             "occurrence": 1
           }
         },
@@ -10768,7 +10768,7 @@
             "groupId": "priest",
             "quote": "ἱερεὺς",
             "quoteString": "ἱερεὺς",
-            "glQuote": "",
+            "glQuote": "priest",
             "occurrence": 1
           }
         },
@@ -10790,7 +10790,7 @@
             "groupId": "priest",
             "quote": "ἱερέα",
             "quoteString": "ἱερέα",
-            "glQuote": "",
+            "glQuote": "a & priest",
             "occurrence": 1
           }
         }
@@ -10814,7 +10814,7 @@
             "groupId": "promise",
             "quote": "ἐπαγγελίας",
             "quoteString": "ἐπαγγελίας",
-            "glQuote": "",
+            "glQuote": "a promise",
             "occurrence": 1
           }
         },
@@ -10836,7 +10836,7 @@
             "groupId": "promise",
             "quote": "ἐπαγγελίας",
             "quoteString": "ἐπαγγελίας",
-            "glQuote": "",
+            "glQuote": "promises",
             "occurrence": 1
           }
         },
@@ -10858,7 +10858,7 @@
             "groupId": "promise",
             "quote": "ἐπαγγειλάμενος",
             "quoteString": "ἐπαγγειλάμενος",
-            "glQuote": "",
+            "glQuote": "having promised",
             "occurrence": 1
           }
         },
@@ -10880,7 +10880,7 @@
             "groupId": "promise",
             "quote": "ἐπαγγελίας",
             "quoteString": "ἐπαγγελίας",
-            "glQuote": "",
+            "glQuote": "promise",
             "occurrence": 1
           }
         },
@@ -10911,7 +10911,7 @@
               }
             ],
             "quoteString": "τῆς ἐπαγγελίας",
-            "glQuote": "",
+            "glQuote": "of the promise",
             "occurrence": 1
           }
         },
@@ -10933,7 +10933,7 @@
             "groupId": "promise",
             "quote": "ἐπαγγελίας",
             "quoteString": "ἐπαγγελίας",
-            "glQuote": "",
+            "glQuote": "promises",
             "occurrence": 1
           }
         },
@@ -10955,7 +10955,7 @@
             "groupId": "promise",
             "quote": "ἐπαγγελίαις",
             "quoteString": "ἐπαγγελίαις",
-            "glQuote": "",
+            "glQuote": "promises",
             "occurrence": 1
           }
         },
@@ -10977,7 +10977,7 @@
             "groupId": "promise",
             "quote": "ἐπαγγελίαν",
             "quoteString": "ἐπαγγελίαν",
-            "glQuote": "",
+            "glQuote": "promise",
             "occurrence": 1
           }
         },
@@ -10999,7 +10999,7 @@
             "groupId": "promise",
             "quote": "ἐπαγγειλάμενος",
             "quoteString": "ἐπαγγειλάμενος",
-            "glQuote": "",
+            "glQuote": "having promised",
             "occurrence": 1
           }
         },
@@ -11021,7 +11021,7 @@
             "groupId": "promise",
             "quote": "ἐπαγγελίαν",
             "quoteString": "ἐπαγγελίαν",
-            "glQuote": "",
+            "glQuote": "promise",
             "occurrence": 1
           }
         },
@@ -11052,7 +11052,7 @@
               }
             ],
             "quoteString": "τῆς ἐπαγγελίας",
-            "glQuote": "",
+            "glQuote": "of the promise",
             "occurrence": 1
           }
         },
@@ -11083,7 +11083,7 @@
               }
             ],
             "quoteString": "τῆς ἐπαγγελίας",
-            "glQuote": "",
+            "glQuote": "of the promise",
             "occurrence": 2
           }
         },
@@ -11105,7 +11105,7 @@
             "groupId": "promise",
             "quote": "ἐπαγγειλάμενον",
             "quoteString": "ἐπαγγειλάμενον",
-            "glQuote": "",
+            "glQuote": "having promised",
             "occurrence": 1
           }
         },
@@ -11127,7 +11127,7 @@
             "groupId": "promise",
             "quote": "ἐπαγγελίας",
             "quoteString": "ἐπαγγελίας",
-            "glQuote": "",
+            "glQuote": "promises",
             "occurrence": 1
           }
         },
@@ -11149,7 +11149,7 @@
             "groupId": "promise",
             "quote": "ἐπαγγελίας",
             "quoteString": "ἐπαγγελίας",
-            "glQuote": "",
+            "glQuote": "promises",
             "occurrence": 1
           }
         },
@@ -11171,7 +11171,7 @@
             "groupId": "promise",
             "quote": "ἐπαγγελιῶν",
             "quoteString": "ἐπαγγελιῶν",
-            "glQuote": "",
+            "glQuote": "promises",
             "occurrence": 1
           }
         },
@@ -11193,7 +11193,7 @@
             "groupId": "promise",
             "quote": "ἐπαγγελίαν",
             "quoteString": "ἐπαγγελίαν",
-            "glQuote": "",
+            "glQuote": "promise",
             "occurrence": 1
           }
         },
@@ -11215,7 +11215,7 @@
             "groupId": "promise",
             "quote": "ἐπήγγελται",
             "quoteString": "ἐπήγγελται",
-            "glQuote": "",
+            "glQuote": "he has promised",
             "occurrence": 1
           }
         }
@@ -11239,7 +11239,7 @@
             "groupId": "prophet",
             "quote": "προφήταις",
             "quoteString": "προφήταις",
-            "glQuote": "",
+            "glQuote": "prophets",
             "occurrence": 1
           }
         },
@@ -11261,7 +11261,7 @@
             "groupId": "prophet",
             "quote": "προφητῶν",
             "quoteString": "προφητῶν",
-            "glQuote": "",
+            "glQuote": "prophets",
             "occurrence": 1
           }
         }
@@ -11298,7 +11298,7 @@
               }
             ],
             "quoteString": "εἰς τὸ ἱλάσκεσθαι",
-            "glQuote": "",
+            "glQuote": "in order to make atonement {for",
             "occurrence": 1
           }
         }
@@ -11322,7 +11322,7 @@
             "groupId": "purify",
             "quote": "καθαρότητα",
             "quoteString": "καθαρότητα",
-            "glQuote": "",
+            "glQuote": "cleansing",
             "occurrence": 1
           }
         },
@@ -11344,7 +11344,7 @@
             "groupId": "purify",
             "quote": "καθαρῷ",
             "quoteString": "καθαρῷ",
-            "glQuote": "",
+            "glQuote": "pure",
             "occurrence": 1
           }
         }
@@ -11368,7 +11368,7 @@
             "groupId": "redeem",
             "quote": "λύτρωσιν",
             "quoteString": "λύτρωσιν",
-            "glQuote": "",
+            "glQuote": "redemption",
             "occurrence": 1
           }
         },
@@ -11390,7 +11390,7 @@
             "groupId": "redeem",
             "quote": "ἀπολύτρωσιν",
             "quoteString": "ἀπολύτρωσιν",
-            "glQuote": "",
+            "glQuote": "redemption",
             "occurrence": 1
           }
         },
@@ -11412,7 +11412,7 @@
             "groupId": "redeem",
             "quote": "ἀπολύτρωσιν",
             "quoteString": "ἀπολύτρωσιν",
-            "glQuote": "",
+            "glQuote": "release",
             "occurrence": 1
           }
         }
@@ -11436,7 +11436,7 @@
             "groupId": "repent",
             "quote": "μετανοίας",
             "quoteString": "μετανοίας",
-            "glQuote": "",
+            "glQuote": "of repentance",
             "occurrence": 1
           }
         },
@@ -11458,7 +11458,7 @@
             "groupId": "repent",
             "quote": "μετάνοιαν",
             "quoteString": "μετάνοιαν",
-            "glQuote": "",
+            "glQuote": "repentance",
             "occurrence": 1
           }
         },
@@ -11480,7 +11480,7 @@
             "groupId": "repent",
             "quote": "μεταμεληθήσεται",
             "quoteString": "μεταμεληθήσεται",
-            "glQuote": "",
+            "glQuote": "will & change his mind",
             "occurrence": 1
           }
         },
@@ -11502,7 +11502,7 @@
             "groupId": "repent",
             "quote": "μετανοίας",
             "quoteString": "μετανοίας",
-            "glQuote": "",
+            "glQuote": "for} repentance",
             "occurrence": 1
           }
         }
@@ -11526,7 +11526,7 @@
             "groupId": "resurrection",
             "quote": "ἀναστάσεώς",
             "quoteString": "ἀναστάσεώς",
-            "glQuote": "",
+            "glQuote": "resurrection",
             "occurrence": 1
           }
         },
@@ -11548,7 +11548,7 @@
             "groupId": "resurrection",
             "quote": "ἀναστάσεως",
             "quoteString": "ἀναστάσεως",
-            "glQuote": "",
+            "glQuote": "resurrection",
             "occurrence": 1
           }
         },
@@ -11570,7 +11570,7 @@
             "groupId": "resurrection",
             "quote": "ἀναστάσεως",
             "quoteString": "ἀναστάσεως",
-            "glQuote": "",
+            "glQuote": "a & resurrection",
             "occurrence": 2
           }
         }
@@ -11603,7 +11603,7 @@
               }
             ],
             "quoteString": "τῆς εὐθύτητος",
-            "glQuote": "",
+            "glQuote": "of righteousness",
             "occurrence": 1
           }
         },
@@ -11625,7 +11625,7 @@
             "groupId": "righteous",
             "quote": "δικαιοσύνην",
             "quoteString": "δικαιοσύνην",
-            "glQuote": "",
+            "glQuote": "righteousness",
             "occurrence": 1
           }
         },
@@ -11647,7 +11647,7 @@
             "groupId": "righteous",
             "quote": "δικαιοσύνης",
             "quoteString": "δικαιοσύνης",
-            "glQuote": "",
+            "glQuote": "of righteousness",
             "occurrence": 1
           }
         },
@@ -11669,7 +11669,7 @@
             "groupId": "righteous",
             "quote": "ἄδικος",
             "quoteString": "ἄδικος",
-            "glQuote": "",
+            "glQuote": "is} & unjust",
             "occurrence": 1
           }
         },
@@ -11691,7 +11691,7 @@
             "groupId": "righteous",
             "quote": "δικαιοσύνης",
             "quoteString": "δικαιοσύνης",
-            "glQuote": "",
+            "glQuote": "of righteousness",
             "occurrence": 1
           }
         },
@@ -11725,7 +11725,7 @@
               }
             ],
             "quoteString": "ὁ & δίκαιός",
-            "glQuote": "",
+            "glQuote": "righteous one",
             "occurrence": 1
           }
         },
@@ -11747,7 +11747,7 @@
             "groupId": "righteous",
             "quote": "δίκαιος",
             "quoteString": "δίκαιος",
-            "glQuote": "",
+            "glQuote": "righteous",
             "occurrence": 1
           }
         },
@@ -11781,7 +11781,7 @@
               }
             ],
             "quoteString": "τῆς & δικαιοσύνης",
-            "glQuote": "",
+            "glQuote": "of the righteousness",
             "occurrence": 1
           }
         },
@@ -11803,7 +11803,7 @@
             "groupId": "righteous",
             "quote": "δικαιοσύνην",
             "quoteString": "δικαιοσύνην",
-            "glQuote": "",
+            "glQuote": "justice",
             "occurrence": 1
           }
         },
@@ -11825,7 +11825,7 @@
             "groupId": "righteous",
             "quote": "δικαιοσύνης",
             "quoteString": "δικαιοσύνης",
-            "glQuote": "",
+            "glQuote": "of righteousness",
             "occurrence": 1
           }
         },
@@ -11847,7 +11847,7 @@
             "groupId": "righteous",
             "quote": "δικαίων",
             "quoteString": "δικαίων",
-            "glQuote": "",
+            "glQuote": "of the righteous ones",
             "occurrence": 1
           }
         }
@@ -11871,7 +11871,7 @@
             "groupId": "sabbath",
             "quote": "σαββατισμὸς",
             "quoteString": "σαββατισμὸς",
-            "glQuote": "",
+            "glQuote": "a Sabbath rest",
             "occurrence": 1
           }
         }
@@ -11895,7 +11895,7 @@
             "groupId": "saint",
             "quote": "ἁγίοις",
             "quoteString": "ἁγίοις",
-            "glQuote": "",
+            "glQuote": "saints",
             "occurrence": 1
           }
         },
@@ -11917,7 +11917,7 @@
             "groupId": "saint",
             "quote": "ἁγίους",
             "quoteString": "ἁγίους",
-            "glQuote": "",
+            "glQuote": "saints",
             "occurrence": 1
           }
         }
@@ -11941,7 +11941,7 @@
             "groupId": "sanctify",
             "quote": "ἁγιάζων",
             "quoteString": "ἁγιάζων",
-            "glQuote": "",
+            "glQuote": "sanctifying",
             "occurrence": 1
           }
         },
@@ -11963,7 +11963,7 @@
             "groupId": "sanctify",
             "quote": "ἁγιαζόμενοι",
             "quoteString": "ἁγιαζόμενοι",
-            "glQuote": "",
+            "glQuote": "being sanctified",
             "occurrence": 1
           }
         },
@@ -11985,7 +11985,7 @@
             "groupId": "sanctify",
             "quote": "ἁγιάζει",
             "quoteString": "ἁγιάζει",
-            "glQuote": "",
+            "glQuote": "sanctifies {them",
             "occurrence": 1
           }
         },
@@ -12016,7 +12016,7 @@
               }
             ],
             "quoteString": "ἡγιασμένοι ἐσμὲν",
-            "glQuote": "",
+            "glQuote": "we have been sanctified",
             "occurrence": 1
           }
         },
@@ -12038,7 +12038,7 @@
             "groupId": "sanctify",
             "quote": "ἁγιαζομένους",
             "quoteString": "ἁγιαζομένους",
-            "glQuote": "",
+            "glQuote": "being sanctified",
             "occurrence": 1
           }
         },
@@ -12060,7 +12060,7 @@
             "groupId": "sanctify",
             "quote": "ἡγιάσθη",
             "quoteString": "ἡγιάσθη",
-            "glQuote": "",
+            "glQuote": "he was sanctified",
             "occurrence": 1
           }
         },
@@ -12082,7 +12082,7 @@
             "groupId": "sanctify",
             "quote": "ἁγιάσῃ",
             "quoteString": "ἁγιάσῃ",
-            "glQuote": "",
+            "glQuote": "he might sanctify",
             "occurrence": 1
           }
         }
@@ -12106,7 +12106,7 @@
             "groupId": "satan",
             "quote": "διάβολον",
             "quoteString": "διάβολον",
-            "glQuote": "",
+            "glQuote": "devil",
             "occurrence": 1
           }
         }
@@ -12130,7 +12130,7 @@
             "groupId": "save",
             "quote": "σωτηρίαν",
             "quoteString": "σωτηρίαν",
-            "glQuote": "",
+            "glQuote": "salvation",
             "occurrence": 1
           }
         },
@@ -12152,7 +12152,7 @@
             "groupId": "save",
             "quote": "σωτηρίας",
             "quoteString": "σωτηρίας",
-            "glQuote": "",
+            "glQuote": "a salvation",
             "occurrence": 1
           }
         },
@@ -12183,7 +12183,7 @@
               }
             ],
             "quoteString": "τῆς σωτηρίας",
-            "glQuote": "",
+            "glQuote": "of & salvation",
             "occurrence": 1
           }
         },
@@ -12205,7 +12205,7 @@
             "groupId": "save",
             "quote": "σῴζειν",
             "quoteString": "σῴζειν",
-            "glQuote": "",
+            "glQuote": "to save",
             "occurrence": 1
           }
         },
@@ -12227,7 +12227,7 @@
             "groupId": "save",
             "quote": "σωτηρίας",
             "quoteString": "σωτηρίας",
-            "glQuote": "",
+            "glQuote": "of & salvation",
             "occurrence": 1
           }
         },
@@ -12249,7 +12249,7 @@
             "groupId": "save",
             "quote": "σωτηρίας",
             "quoteString": "σωτηρίας",
-            "glQuote": "",
+            "glQuote": "salvation",
             "occurrence": 1
           }
         },
@@ -12271,7 +12271,7 @@
             "groupId": "save",
             "quote": "σῴζειν",
             "quoteString": "σῴζειν",
-            "glQuote": "",
+            "glQuote": "to save",
             "occurrence": 1
           }
         },
@@ -12293,7 +12293,7 @@
             "groupId": "save",
             "quote": "σωτηρίαν",
             "quoteString": "σωτηρίαν",
-            "glQuote": "",
+            "glQuote": "salvation",
             "occurrence": 1
           }
         },
@@ -12315,7 +12315,7 @@
             "groupId": "save",
             "quote": "σωτηρίαν",
             "quoteString": "σωτηρίαν",
-            "glQuote": "",
+            "glQuote": "salvation",
             "occurrence": 1
           }
         }
@@ -12339,7 +12339,7 @@
             "groupId": "sign",
             "quote": "σημείοις",
             "quoteString": "σημείοις",
-            "glQuote": "",
+            "glQuote": "by signs",
             "occurrence": 1
           }
         }
@@ -12372,7 +12372,7 @@
               }
             ],
             "quoteString": "τῶν ἁμαρτιῶν",
-            "glQuote": "",
+            "glQuote": "for sins",
             "occurrence": 1
           }
         },
@@ -12394,7 +12394,7 @@
             "groupId": "sin",
             "quote": "ἁμαρτίας",
             "quoteString": "ἁμαρτίας",
-            "glQuote": "",
+            "glQuote": "sins",
             "occurrence": 1
           }
         },
@@ -12425,7 +12425,7 @@
               }
             ],
             "quoteString": "τῆς ἁμαρτίας",
-            "glQuote": "",
+            "glQuote": "of sin",
             "occurrence": 1
           }
         },
@@ -12447,7 +12447,7 @@
             "groupId": "sin",
             "quote": "ἁμαρτήσασιν",
             "quoteString": "ἁμαρτήσασιν",
-            "glQuote": "",
+            "glQuote": "having sinned",
             "occurrence": 1
           }
         },
@@ -12469,7 +12469,7 @@
             "groupId": "sin",
             "quote": "ἁμαρτίας",
             "quoteString": "ἁμαρτίας",
-            "glQuote": "",
+            "glQuote": "sin",
             "occurrence": 1
           }
         },
@@ -12491,7 +12491,7 @@
             "groupId": "sin",
             "quote": "ἁμαρτιῶν",
             "quoteString": "ἁμαρτιῶν",
-            "glQuote": "",
+            "glQuote": "sins",
             "occurrence": 1
           }
         },
@@ -12513,7 +12513,7 @@
             "groupId": "sin",
             "quote": "ἁμαρτιῶν",
             "quoteString": "ἁμαρτιῶν",
-            "glQuote": "",
+            "glQuote": "sins",
             "occurrence": 1
           }
         },
@@ -12535,7 +12535,7 @@
             "groupId": "sin",
             "quote": "ἁμαρτωλῶν",
             "quoteString": "ἁμαρτωλῶν",
-            "glQuote": "",
+            "glQuote": "sinners",
             "occurrence": 1
           }
         },
@@ -12557,7 +12557,7 @@
             "groupId": "sin",
             "quote": "ἁμαρτιῶν",
             "quoteString": "ἁμαρτιῶν",
-            "glQuote": "",
+            "glQuote": "sins",
             "occurrence": 1
           }
         },
@@ -12588,7 +12588,7 @@
               }
             ],
             "quoteString": "τῶν ἁμαρτιῶν",
-            "glQuote": "",
+            "glQuote": "sins",
             "occurrence": 1
           }
         },
@@ -12610,7 +12610,7 @@
             "groupId": "sin",
             "quote": "ἁμαρτίας",
             "quoteString": "ἁμαρτίας",
-            "glQuote": "",
+            "glQuote": "of sin",
             "occurrence": 1
           }
         },
@@ -12632,7 +12632,7 @@
             "groupId": "sin",
             "quote": "ἁμαρτίας",
             "quoteString": "ἁμαρτίας",
-            "glQuote": "",
+            "glQuote": "the sins",
             "occurrence": 1
           }
         },
@@ -12654,7 +12654,7 @@
             "groupId": "sin",
             "quote": "ἁμαρτίας",
             "quoteString": "ἁμαρτίας",
-            "glQuote": "",
+            "glQuote": "sin",
             "occurrence": 2
           }
         },
@@ -12676,7 +12676,7 @@
             "groupId": "sin",
             "quote": "ἁμαρτιῶν",
             "quoteString": "ἁμαρτιῶν",
-            "glQuote": "",
+            "glQuote": "of sins",
             "occurrence": 1
           }
         },
@@ -12698,7 +12698,7 @@
             "groupId": "sin",
             "quote": "ἁμαρτιῶν",
             "quoteString": "ἁμαρτιῶν",
-            "glQuote": "",
+            "glQuote": "of sins",
             "occurrence": 1
           }
         },
@@ -12720,7 +12720,7 @@
             "groupId": "sin",
             "quote": "ἁμαρτίας",
             "quoteString": "ἁμαρτίας",
-            "glQuote": "",
+            "glQuote": "sins",
             "occurrence": 1
           }
         },
@@ -12742,7 +12742,7 @@
             "groupId": "sin",
             "quote": "ἁμαρτίας",
             "quoteString": "ἁμαρτίας",
-            "glQuote": "",
+            "glQuote": "sin {offerings",
             "occurrence": 1
           }
         },
@@ -12773,7 +12773,7 @@
               }
             ],
             "quoteString": "περὶ ἁμαρτίας",
-            "glQuote": "",
+            "glQuote": "sin offerings",
             "occurrence": 1
           }
         },
@@ -12795,7 +12795,7 @@
             "groupId": "sin",
             "quote": "ἁμαρτίας",
             "quoteString": "ἁμαρτίας",
-            "glQuote": "",
+            "glQuote": "sins",
             "occurrence": 1
           }
         },
@@ -12817,7 +12817,7 @@
             "groupId": "sin",
             "quote": "ἁμαρτιῶν",
             "quoteString": "ἁμαρτιῶν",
-            "glQuote": "",
+            "glQuote": "sins",
             "occurrence": 1
           }
         },
@@ -12848,7 +12848,7 @@
               }
             ],
             "quoteString": "τῶν ἁμαρτιῶν",
-            "glQuote": "",
+            "glQuote": "sins",
             "occurrence": 1
           }
         },
@@ -12870,7 +12870,7 @@
             "groupId": "sin",
             "quote": "ἁμαρτίας",
             "quoteString": "ἁμαρτίας",
-            "glQuote": "",
+            "glQuote": "sin",
             "occurrence": 1
           }
         },
@@ -12892,7 +12892,7 @@
             "groupId": "sin",
             "quote": "ἁμαρτανόντων",
             "quoteString": "ἁμαρτανόντων",
-            "glQuote": "",
+            "glQuote": "keep on sinning",
             "occurrence": 1
           }
         },
@@ -12914,7 +12914,7 @@
             "groupId": "sin",
             "quote": "ἁμαρτιῶν",
             "quoteString": "ἁμαρτιῶν",
-            "glQuote": "",
+            "glQuote": "sins",
             "occurrence": 1
           }
         },
@@ -12936,7 +12936,7 @@
             "groupId": "sin",
             "quote": "ἁμαρτίας",
             "quoteString": "ἁμαρτίας",
-            "glQuote": "",
+            "glQuote": "of sin",
             "occurrence": 1
           }
         },
@@ -12958,7 +12958,7 @@
             "groupId": "sin",
             "quote": "ἁμαρτίαν",
             "quoteString": "ἁμαρτίαν",
-            "glQuote": "",
+            "glQuote": "sin",
             "occurrence": 1
           }
         },
@@ -12989,7 +12989,7 @@
               }
             ],
             "quoteString": "τῶν ἁμαρτωλῶν",
-            "glQuote": "",
+            "glQuote": "sinners",
             "occurrence": 1
           }
         },
@@ -13020,7 +13020,7 @@
               }
             ],
             "quoteString": "τὴν ἁμαρτίαν",
-            "glQuote": "",
+            "glQuote": "sin",
             "occurrence": 1
           }
         },
@@ -13042,7 +13042,7 @@
             "groupId": "sin",
             "quote": "ἁμαρτίας",
             "quoteString": "ἁμαρτίας",
-            "glQuote": "",
+            "glQuote": "sin",
             "occurrence": 1
           }
         }
@@ -13066,7 +13066,7 @@
             "groupId": "sonofgod",
             "quote": "Υἱῷ",
             "quoteString": "Υἱῷ",
-            "glQuote": "",
+            "glQuote": "a Son",
             "occurrence": 1
           }
         },
@@ -13088,7 +13088,7 @@
             "groupId": "sonofgod",
             "quote": "Υἱόν",
             "quoteString": "Υἱόν",
-            "glQuote": "",
+            "glQuote": "Son",
             "occurrence": 1
           }
         },
@@ -13110,7 +13110,7 @@
             "groupId": "sonofgod",
             "quote": "Υἱὸς",
             "quoteString": "Υἱὸς",
-            "glQuote": "",
+            "glQuote": "a Son",
             "occurrence": 1
           }
         },
@@ -13145,7 +13145,7 @@
               }
             ],
             "quoteString": "Υἱὸν τοῦ Θεοῦ",
-            "glQuote": "",
+            "glQuote": "Son of God",
             "occurrence": 1
           }
         },
@@ -13167,7 +13167,7 @@
             "groupId": "sonofgod",
             "quote": "Υἱός",
             "quoteString": "Υἱός",
-            "glQuote": "",
+            "glQuote": "Son",
             "occurrence": 1
           }
         },
@@ -13189,7 +13189,7 @@
             "groupId": "sonofgod",
             "quote": "υἱός",
             "quoteString": "υἱός",
-            "glQuote": "",
+            "glQuote": "a son",
             "occurrence": 1
           }
         },
@@ -13224,7 +13224,7 @@
               }
             ],
             "quoteString": "Υἱὸν τοῦ Θεοῦ",
-            "glQuote": "",
+            "glQuote": "Son of God",
             "occurrence": 1
           }
         },
@@ -13259,7 +13259,7 @@
               }
             ],
             "quoteString": "Υἱῷ τοῦ Θεοῦ",
-            "glQuote": "",
+            "glQuote": "Son of God",
             "occurrence": 1
           }
         },
@@ -13281,7 +13281,7 @@
             "groupId": "sonofgod",
             "quote": "Υἱόν",
             "quoteString": "Υἱόν",
-            "glQuote": "",
+            "glQuote": "appoints} a Son",
             "occurrence": 1
           }
         },
@@ -13316,7 +13316,7 @@
               }
             ],
             "quoteString": "Υἱὸν τοῦ Θεοῦ",
-            "glQuote": "",
+            "glQuote": "Son of God",
             "occurrence": 1
           }
         }
@@ -13349,7 +13349,7 @@
               }
             ],
             "quoteString": "υἱέ μου",
-            "glQuote": "",
+            "glQuote": "My son",
             "occurrence": 1
           }
         }
@@ -13373,7 +13373,7 @@
             "groupId": "soul",
             "quote": "ψυχῆς",
             "quoteString": "ψυχῆς",
-            "glQuote": "",
+            "glQuote": "of soul",
             "occurrence": 1
           }
         },
@@ -13404,7 +13404,7 @@
               }
             ],
             "quoteString": "τῆς ψυχῆς",
-            "glQuote": "",
+            "glQuote": "of the soul",
             "occurrence": 1
           }
         },
@@ -13435,7 +13435,7 @@
               }
             ],
             "quoteString": "ἡ ψυχή",
-            "glQuote": "",
+            "glQuote": "soul",
             "occurrence": 1
           }
         },
@@ -13457,7 +13457,7 @@
             "groupId": "soul",
             "quote": "ψυχῆς",
             "quoteString": "ψυχῆς",
-            "glQuote": "",
+            "glQuote": "of the soul",
             "occurrence": 1
           }
         },
@@ -13488,7 +13488,7 @@
               }
             ],
             "quoteString": "ταῖς ψυχαῖς",
-            "glQuote": "",
+            "glQuote": "in & souls",
             "occurrence": 1
           }
         },
@@ -13519,7 +13519,7 @@
               }
             ],
             "quoteString": "τῶν ψυχῶν",
-            "glQuote": "",
+            "glQuote": "souls",
             "occurrence": 1
           }
         }
@@ -13543,7 +13543,7 @@
             "groupId": "spirit",
             "quote": "πνεύματα",
             "quoteString": "πνεύματα",
-            "glQuote": "",
+            "glQuote": "spirits",
             "occurrence": 1
           }
         },
@@ -13565,7 +13565,7 @@
             "groupId": "spirit",
             "quote": "πνεύματα",
             "quoteString": "πνεύματα",
-            "glQuote": "",
+            "glQuote": "spirits",
             "occurrence": 1
           }
         },
@@ -13587,7 +13587,7 @@
             "groupId": "spirit",
             "quote": "πνεύματος",
             "quoteString": "πνεύματος",
-            "glQuote": "",
+            "glQuote": "spirit",
             "occurrence": 1
           }
         },
@@ -13618,7 +13618,7 @@
               }
             ],
             "quoteString": "τῶν πνευμάτων",
-            "glQuote": "",
+            "glQuote": "of the spirits",
             "occurrence": 1
           }
         },
@@ -13640,7 +13640,7 @@
             "groupId": "spirit",
             "quote": "πνεύμασι",
             "quoteString": "πνεύμασι",
-            "glQuote": "",
+            "glQuote": "to the spirits",
             "occurrence": 1
           }
         }
@@ -13664,7 +13664,7 @@
             "groupId": "stone",
             "quote": "ἐλιθάσθησαν",
             "quoteString": "ἐλιθάσθησαν",
-            "glQuote": "",
+            "glQuote": "They were stoned",
             "occurrence": 1
           }
         },
@@ -13686,7 +13686,7 @@
             "groupId": "stone",
             "quote": "λιθοβοληθήσεται",
             "quoteString": "λιθοβοληθήσεται",
-            "glQuote": "",
+            "glQuote": "it must be stoned",
             "occurrence": 1
           }
         }
@@ -13710,7 +13710,7 @@
             "groupId": "tabernacle",
             "quote": "σκηνῆς",
             "quoteString": "σκηνῆς",
-            "glQuote": "",
+            "glQuote": "tabernacle",
             "occurrence": 1
           }
         },
@@ -13732,7 +13732,7 @@
             "groupId": "tabernacle",
             "quote": "σκηνήν",
             "quoteString": "σκηνήν",
-            "glQuote": "",
+            "glQuote": "tabernacle",
             "occurrence": 1
           }
         },
@@ -13754,7 +13754,7 @@
             "groupId": "tabernacle",
             "quote": "σκηνὴ",
             "quoteString": "σκηνὴ",
-            "glQuote": "",
+            "glQuote": "a tabernacle",
             "occurrence": 1
           }
         },
@@ -13776,7 +13776,7 @@
             "groupId": "tabernacle",
             "quote": "σκηνὴ",
             "quoteString": "σκηνὴ",
-            "glQuote": "",
+            "glQuote": "was} a tent",
             "occurrence": 1
           }
         },
@@ -13798,7 +13798,7 @@
             "groupId": "tabernacle",
             "quote": "σκηνὴν",
             "quoteString": "σκηνὴν",
-            "glQuote": "",
+            "glQuote": "tabernacle",
             "occurrence": 1
           }
         },
@@ -13820,7 +13820,7 @@
             "groupId": "tabernacle",
             "quote": "σκηνῆς",
             "quoteString": "σκηνῆς",
-            "glQuote": "",
+            "glQuote": "tabernacle",
             "occurrence": 1
           }
         },
@@ -13842,7 +13842,7 @@
             "groupId": "tabernacle",
             "quote": "σκηνῆς",
             "quoteString": "σκηνῆς",
-            "glQuote": "",
+            "glQuote": "tabernacle",
             "occurrence": 1
           }
         },
@@ -13864,7 +13864,7 @@
             "groupId": "tabernacle",
             "quote": "σκηνὴν",
             "quoteString": "σκηνὴν",
-            "glQuote": "",
+            "glQuote": "tabernacle",
             "occurrence": 1
           }
         },
@@ -13895,7 +13895,7 @@
               }
             ],
             "quoteString": "τῇ σκηνῇ",
-            "glQuote": "",
+            "glQuote": "in the tabernacle",
             "occurrence": 1
           }
         }
@@ -13919,7 +13919,7 @@
             "groupId": "tempt",
             "quote": "πειρασθείς",
             "quoteString": "πειρασθείς",
-            "glQuote": "",
+            "glQuote": "having been tempted",
             "occurrence": 1
           }
         },
@@ -13941,7 +13941,7 @@
             "groupId": "tempt",
             "quote": "πειραζομένοις",
             "quoteString": "πειραζομένοις",
-            "glQuote": "",
+            "glQuote": "being tempted",
             "occurrence": 1
           }
         },
@@ -13963,7 +13963,7 @@
             "groupId": "tempt",
             "quote": "πεπειρασμένον",
             "quoteString": "πεπειρασμένον",
-            "glQuote": "",
+            "glQuote": "one having been tempted",
             "occurrence": 1
           }
         },
@@ -13985,7 +13985,7 @@
             "groupId": "tempt",
             "quote": "ἐπρίσθησαν",
             "quoteString": "ἐπρίσθησαν",
-            "glQuote": "",
+            "glQuote": "they were sawn in two",
             "occurrence": 1
           }
         }
@@ -14018,7 +14018,7 @@
               }
             ],
             "quoteString": "τοῦ πειρασμοῦ",
-            "glQuote": "",
+            "glQuote": "of testing",
             "occurrence": 1
           }
         },
@@ -14040,7 +14040,7 @@
             "groupId": "test",
             "quote": "ἐπείρασαν",
             "quoteString": "ἐπείρασαν",
-            "glQuote": "",
+            "glQuote": "tested {me",
             "occurrence": 1
           }
         },
@@ -14062,7 +14062,7 @@
             "groupId": "test",
             "quote": "δοκιμασίᾳ",
             "quoteString": "δοκιμασίᾳ",
-            "glQuote": "",
+            "glQuote": "examination",
             "occurrence": 1
           }
         },
@@ -14084,7 +14084,7 @@
             "groupId": "test",
             "quote": "πειραζόμενος",
             "quoteString": "πειραζόμενος",
-            "glQuote": "",
+            "glQuote": "being tested",
             "occurrence": 1
           }
         }
@@ -14108,7 +14108,7 @@
             "groupId": "testimony",
             "quote": "συνεπιμαρτυροῦντος",
             "quoteString": "συνεπιμαρτυροῦντος",
-            "glQuote": "",
+            "glQuote": "testifying together with {them",
             "occurrence": 1
           }
         },
@@ -14130,7 +14130,7 @@
             "groupId": "testimony",
             "quote": "διεμαρτύρατο",
             "quoteString": "διεμαρτύρατο",
-            "glQuote": "",
+            "glQuote": "testified",
             "occurrence": 1
           }
         },
@@ -14152,7 +14152,7 @@
             "groupId": "testimony",
             "quote": "μαρτύριον",
             "quoteString": "μαρτύριον",
-            "glQuote": "",
+            "glQuote": "a testimony",
             "occurrence": 1
           }
         },
@@ -14174,7 +14174,7 @@
             "groupId": "testimony",
             "quote": "μαρτυρούμενος",
             "quoteString": "μαρτυρούμενος",
-            "glQuote": "",
+            "glQuote": "he is testified about",
             "occurrence": 1
           }
         },
@@ -14196,7 +14196,7 @@
             "groupId": "testimony",
             "quote": "μαρτυρεῖται",
             "quoteString": "μαρτυρεῖται",
-            "glQuote": "",
+            "glQuote": "it is being testified",
             "occurrence": 1
           }
         },
@@ -14218,7 +14218,7 @@
             "groupId": "testimony",
             "quote": "μαρτυρεῖ",
             "quoteString": "μαρτυρεῖ",
-            "glQuote": "",
+            "glQuote": "testifies",
             "occurrence": 1
           }
         },
@@ -14240,7 +14240,7 @@
             "groupId": "testimony",
             "quote": "μάρτυσιν",
             "quoteString": "μάρτυσιν",
-            "glQuote": "",
+            "glQuote": "witnesses",
             "occurrence": 1
           }
         },
@@ -14262,7 +14262,7 @@
             "groupId": "testimony",
             "quote": "ἐμαρτυρήθη",
             "quoteString": "ἐμαρτυρήθη",
-            "glQuote": "",
+            "glQuote": "he was testified",
             "occurrence": 1
           }
         },
@@ -14284,7 +14284,7 @@
             "groupId": "testimony",
             "quote": "μαρτυροῦντος",
             "quoteString": "μαρτυροῦντος",
-            "glQuote": "",
+            "glQuote": "testifying",
             "occurrence": 1
           }
         },
@@ -14306,7 +14306,7 @@
             "groupId": "testimony",
             "quote": "μαρτυρηθέντες",
             "quoteString": "μαρτυρηθέντες",
-            "glQuote": "",
+            "glQuote": "having been commended",
             "occurrence": 1
           }
         },
@@ -14328,7 +14328,7 @@
             "groupId": "testimony",
             "quote": "μαρτύρων",
             "quoteString": "μαρτύρων",
-            "glQuote": "",
+            "glQuote": "of witnesses",
             "occurrence": 1
           }
         }
@@ -14352,7 +14352,7 @@
             "groupId": "transgression",
             "quote": "παράβασις",
             "quoteString": "παράβασις",
-            "glQuote": "",
+            "glQuote": "transgression",
             "occurrence": 1
           }
         },
@@ -14386,7 +14386,7 @@
               }
             ],
             "quoteString": "τῶν & παραβάσεων",
-            "glQuote": "",
+            "glQuote": "of the transgressions",
             "occurrence": 1
           }
         }
@@ -14410,7 +14410,7 @@
             "groupId": "trust",
             "quote": "πεποιθὼς",
             "quoteString": "πεποιθὼς",
-            "glQuote": "",
+            "glQuote": "confident",
             "occurrence": 1
           }
         }
@@ -14447,7 +14447,7 @@
               }
             ],
             "quoteString": "τὴν αὐτοῦ θέλησιν",
-            "glQuote": "",
+            "glQuote": "his will",
             "occurrence": 1
           }
         },
@@ -14482,7 +14482,7 @@
               }
             ],
             "quoteString": "τὸ θέλημά σου",
-            "glQuote": "",
+            "glQuote": "your will",
             "occurrence": 1
           }
         },
@@ -14517,7 +14517,7 @@
               }
             ],
             "quoteString": "τὸ θέλημά σου",
-            "glQuote": "",
+            "glQuote": "your will",
             "occurrence": 1
           }
         },
@@ -14552,7 +14552,7 @@
               }
             ],
             "quoteString": "θέλημα τοῦ Θεοῦ",
-            "glQuote": "",
+            "glQuote": "will of God",
             "occurrence": 1
           }
         },
@@ -14587,7 +14587,7 @@
               }
             ],
             "quoteString": "τὸ θέλημα αὐτοῦ",
-            "glQuote": "",
+            "glQuote": "his will",
             "occurrence": 1
           }
         }
@@ -14624,7 +14624,7 @@
               }
             ],
             "quoteString": "λόγος τοῦ Θεοῦ",
-            "glQuote": "",
+            "glQuote": "word of God",
             "occurrence": 1
           }
         },
@@ -14655,7 +14655,7 @@
               }
             ],
             "quoteString": "Θεοῦ ῥῆμα",
-            "glQuote": "",
+            "glQuote": "the & word of God",
             "occurrence": 1
           }
         },
@@ -14690,7 +14690,7 @@
               }
             ],
             "quoteString": "λόγον τοῦ Θεοῦ",
-            "glQuote": "",
+            "glQuote": "Word of God",
             "occurrence": 1
           }
         }
@@ -14714,7 +14714,7 @@
             "groupId": "world",
             "quote": "οἰκουμένην",
             "quoteString": "οἰκουμένην",
-            "glQuote": "",
+            "glQuote": "world",
             "occurrence": 1
           }
         },
@@ -14736,7 +14736,7 @@
             "groupId": "world",
             "quote": "οἰκουμένην",
             "quoteString": "οἰκουμένην",
-            "glQuote": "",
+            "glQuote": "world",
             "occurrence": 1
           }
         },
@@ -14758,7 +14758,7 @@
             "groupId": "world",
             "quote": "κόσμου",
             "quoteString": "κόσμου",
-            "glQuote": "",
+            "glQuote": "of the world",
             "occurrence": 1
           }
         },
@@ -14780,7 +14780,7 @@
             "groupId": "world",
             "quote": "κόσμου",
             "quoteString": "κόσμου",
-            "glQuote": "",
+            "glQuote": "of the world",
             "occurrence": 1
           }
         },
@@ -14802,7 +14802,7 @@
             "groupId": "world",
             "quote": "κόσμον",
             "quoteString": "κόσμον",
-            "glQuote": "",
+            "glQuote": "world",
             "occurrence": 1
           }
         },
@@ -14824,7 +14824,7 @@
             "groupId": "world",
             "quote": "κόσμον",
             "quoteString": "κόσμον",
-            "glQuote": "",
+            "glQuote": "world",
             "occurrence": 1
           }
         },
@@ -14846,7 +14846,7 @@
             "groupId": "world",
             "quote": "κόσμος",
             "quoteString": "κόσμος",
-            "glQuote": "",
+            "glQuote": "world",
             "occurrence": 1
           }
         }
@@ -14870,7 +14870,7 @@
             "groupId": "worship",
             "quote": "προσκυνησάτωσαν",
             "quoteString": "προσκυνησάτωσαν",
-            "glQuote": "",
+            "glQuote": "let & worship",
             "occurrence": 1
           }
         },
@@ -14892,7 +14892,7 @@
             "groupId": "worship",
             "quote": "λατρείας",
             "quoteString": "λατρείας",
-            "glQuote": "",
+            "glQuote": "for worship",
             "occurrence": 1
           }
         },
@@ -14914,7 +14914,7 @@
             "groupId": "worship",
             "quote": "προσεκύνησεν",
             "quoteString": "προσεκύνησεν",
-            "glQuote": "",
+            "glQuote": "worshiped",
             "occurrence": 1
           }
         }
@@ -14947,7 +14947,7 @@
               }
             ],
             "quoteString": "τῇ ὀργῇ",
-            "glQuote": "",
+            "glQuote": "wrath",
             "occurrence": 1
           }
         },
@@ -14978,7 +14978,7 @@
               }
             ],
             "quoteString": "τῇ ὀργῇ",
-            "glQuote": "",
+            "glQuote": "wrath",
             "occurrence": 1
           }
         }
@@ -15002,7 +15002,7 @@
             "groupId": "zealous",
             "quote": "ζῆλος",
             "quoteString": "ζῆλος",
-            "glQuote": "",
+            "glQuote": "of zeal",
             "occurrence": 1
           }
         }
@@ -15035,7 +15035,7 @@
               }
             ],
             "quoteString": "Σιὼν Ὄρει",
-            "glQuote": "",
+            "glQuote": "Mount Zion",
             "occurrence": 1
           }
         }
