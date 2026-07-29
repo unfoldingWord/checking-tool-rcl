@@ -7,6 +7,7 @@ import { readHelpsFolder, readTextFile } from '../helpers/fileHelpers'
 import { groupDataHelpers, usfmHelpers, verseHelpers } from 'word-aligner-lib'
 import { verseObjectsToString } from '../helpers/tsv-groupdata-parser/verseObjecsHelper'
 import { getVerseString } from '../helpers/tsv-groupdata-parser/verseHelpers'
+import Lexer from 'wordmap-lexer'
 
 jest.unmock('fs-extra');
 
@@ -93,8 +94,20 @@ describe('LM Studio integration', () => {
               const ref = `${reference?.chapter}:${reference?.verse}`
               const verseText = getVerseString(targetBookChapters, ref);
               expect(verseText).toBeTruthy()
-              const answer = await translatePhraseWithConfidence(verseText, targetLangCode, glQuote, langId)
-              expect(answer).toBeTruthy();
+              const tokenList = Lexer.tokenize(verseText);
+              const wordList = tokenList.map(token => (token.text))
+              const bestMatches = await translatePhraseWithConfidence(wordList, targetLangCode, glQuote, langId)
+              let bestAnswer = bestMatches[0]
+              for (let i = 1; i < bestMatches.length; i++) {
+                if (bestMatches[i]?.confidence > bestAnswer?.confidence) {
+                  bestAnswer = bestMatches[i];
+                }
+              }
+              if (bestAnswer?.confidence) {
+                check.selection = bestAnswer.selections
+                check.confidence = bestAnswer.confidence
+                fs.outputJsonSync(checkingDataPath, bibleData, { spaces: 2 });
+              }
             }
           }
         }
@@ -259,7 +272,9 @@ async function queryLmStudio(query, options = {}) {
       }),
     });
   } catch (error) {
-    throw new Error(`Failed to reach LM Studio server at ${url}: ${error.message}`);
+    const message1 = `Failed to reach LM Studio server at ${url}: ${error.message}`
+    console.error(message1);
+    throw new Error(message1);
   }
 
   if (!response.ok) {
@@ -345,7 +360,7 @@ ${phrase}
 3. For every word token, compute its "occurrence number": the count (starting at 1) of how many times that exact word form (case- and accent-sensitive) has appeared in the verse up to and including that position.
 4. Analyze the semantic meaning of the gateway language phrase.
 5. Identify the word(s) in the target verse that best correspond to that meaning. The match may be a single word or multiple words (not necessarily contiguous, but prefer the tightest/closest grouping when equally valid).
-6. Format each matched word as \`word:occurrenceNumber\`, using the word's exact form as it appears in the verse. If the match includes multiple words, join them with a single space, e.g. \`tu:1 vejez:1\`.
+6. Format each matched word as \`word:position\`, using the word's exact form as it appears in the verse, and position is the index of the word in the verse (the first word is 1). If the match includes multiple words, join them with a single space, e.g. \`tu:1 vejez:1\`.
 7. If more than one plausible matching set of words exists, output each candidate as its own row, ordered from highest to lowest confidence.
 8. "confidence level" is an integer 0-100 reflecting certainty that the match is correct in context.
 9. If no reasonable match exists, output a single row with an empty "matched words" field and confidence level 0.
@@ -356,7 +371,7 @@ ${phrase}
 
 "matched words","confidence level"
 
-- "matched words" is the space-joined list of \`word:occurrence\` tokens from the TARGET VERSE (e.g. \`"tu:1 vejez:1"\`). Do NOT output the gateway language phrase here.
+- "matched words" is the space-joined list of \`word:position\` tokens from the TARGET VERSE (e.g. \`"tu:5 vejez:6"\`). Do NOT output the gateway language phrase here.
 - "confidence level" must be a plain integer with no quotes.
 - Wrap "matched words" in double quotes.
 `
@@ -365,35 +380,58 @@ ${phrase}
 
 /**
  * Translates a gateway language phrase to target-language word(s) within a verse
- * using an AI model, returning the raw CSV response with confidence scores.
+ * using an AI model, returning an array of selection objects with confidence scores.
  *
- * @param {string} verseContent - the target-language verse text to search within
+ * @param {Array<string>} wordList - array of words from the target-language verse to search within
  * @param {string} targetLangCode - language code of the verse (e.g. 'es-419')
  * @param {string} phrase - gateway language phrase to match (e.g. 'your old age')
  * @param {string} phraseLangCode - language code of the phrase (e.g. 'en')
- * @returns {Promise<string>} - CSV-formatted response with matched words and confidence levels
+ * @returns {Promise<Array<{selections: Array<{text: string, position: number}>, confidence: number}>>} - array of selection objects, each containing:
+ *   - selections: array of {text, position} objects representing matched words, where text is the word and position is its occurrence index in the verse
+ *   - confidence: integer 0-100 indicating match certainty
  * @throws {Error} - if the AI query fails or returns invalid data
  * @example
+ * const wordList = ['Ahora', 'él', 'será', 'para', 'ti', 'un', 'restaurador', 'de', 'vida'];
  * const result = await translatePhraseWithConfidence(
- *   'Ahora, él será para ti un restaurador de vida...',
+ *   wordList,
  *   'es-419',
  *   'your old age',
  *   'en'
  * );
- * // Returns: '"tu:1 vejez:1",85\n"vejez:1",70'
+ * // Returns: [
+ * //   { selections: [{text: 'tu', position: 1}, {text: 'vejez', position: 1}], confidence: 85 },
+ * //   { selections: [{text: 'vejez', position: 1}], confidence: 70 }
+ * // ]
  */
-async function translatePhraseWithConfidence(verseContent, targetLangCode, phrase, phraseLangCode) {
-  const prompt = buildVerseMatchPrompt(verseContent, targetLangCode, phrase, phraseLangCode)
-  console.log('prompt', prompt)
+async function translatePhraseWithConfidence(wordList, targetLangCode, phrase, phraseLangCode) {
+  const selectionWords = []
+  const prompt = buildVerseMatchPrompt(wordList.join(' '), targetLangCode, phrase, phraseLangCode)
   const answer = await queryLmStudio(prompt)
   console.log('answer', answer)
   const responses = answer.split('\n')
   for (const response of responses) {
-    let [translation, confidence] = response.split(',')
-    console.log('translation', { translation, confidence })
+    let [phraseTranslation, confidence] = response.split(',')
+    confidence = confidence ? parseInt(confidence, 10) : 0
+    phraseTranslation = phraseTranslation?.trim().replace(/^"|"$/g, '') || ''
+    const selections = []
+    const words = phraseTranslation.split(' ')
+    for (const word of words) {
+      let [text, position] = word.split(':')
+      position = position ? parseInt(position, 10) : 1
+      let occurrence = 0
+      for (let i = 0; i < position; i++) {
+        if (wordList[i] === text) {
+          occurrence++
+        }
+      }
+      occurrence = occurrence || 1 // fallback if AI got mixed up
+      selections.push({ text, occurrence })
+    }
+    selectionWords.push({ selections, confidence })
+    console.log('translation', { translation: phraseTranslation, confidence })
   }
-  console.log('LM Studio response:', answer)
-  return responses
+  console.log('AI response:', selectionWords)
+  return selectionWords
 }
 
 function getCheckDataFilename(langId, bookId) {

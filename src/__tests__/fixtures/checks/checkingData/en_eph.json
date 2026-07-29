@@ -22,7 +22,14 @@
             "quoteString": "υἱοθεσίαν",
             "glQuote": "adoption",
             "occurrence": 1
-          }
+          },
+          "selection": [
+            {
+              "text": "adoptados",
+              "occurrence": 1
+            }
+          ],
+          "confidence": 98
         }
       ],
       "amen": [
@@ -46,7 +53,14 @@
             "quoteString": "ἀμήν",
             "glQuote": "Amen",
             "occurrence": 1
-          }
+          },
+          "selection": [
+            {
+              "text": "Amén",
+              "occurrence": 1
+            }
+          ],
+          "confidence": 100
         }
       ],
       "apostle": [
@@ -70,7 +84,14 @@
             "quoteString": "ἀπόστολος",
             "glQuote": "an apostle",
             "occurrence": 1
-          }
+          },
+          "selection": [
+            {
+              "text": "apóstol",
+              "occurrence": 1
+            }
+          ],
+          "confidence": 100
         },
         {
           "comments": false,
@@ -101,7 +122,14 @@
             "quoteString": "τῶν ἀποστόλων",
             "glQuote": "of the apostles",
             "occurrence": 1
-          }
+          },
+          "selection": [
+            {
+              "text": "apóstoles",
+              "occurrence": 1
+            }
+          ],
+          "confidence": 100
         },
         {
           "comments": false,
@@ -135,7 +163,14 @@
             "quoteString": "τοῖς & ἀποστόλοις",
             "glQuote": "to & apostles",
             "occurrence": 2
-          }
+          },
+          "selection": [
+            {
+              "text": "apóstoles",
+              "occurrence": 1
+            }
+          ],
+          "confidence": 98
         },
         {
           "comments": false,
