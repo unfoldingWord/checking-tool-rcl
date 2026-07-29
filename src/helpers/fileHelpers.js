@@ -17,7 +17,7 @@ function isDirectory(fullPath) {
   return fs.lstatSync(fullPath).isDirectory()
 }
 
-function readTextFile(filePath) {
+export function readTextFile(filePath) {
   const data = fs.readFileSync(filePath, 'UTF-8').toString();
   return data
 }

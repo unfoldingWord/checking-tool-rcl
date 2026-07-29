@@ -3,8 +3,10 @@ import {describe, expect, test} from '@jest/globals'
 import path from "path";
 import fs from 'fs-extra';
 import { getAlignedGLText, getPhraseFromTw, parseTwToIndex } from '../helpers/translationHelps/twArticleHelpers'
-import { readHelpsFolder } from '../helpers/fileHelpers'
-import { groupDataHelpers } from 'word-aligner-lib'
+import { readHelpsFolder, readTextFile } from '../helpers/fileHelpers'
+import { groupDataHelpers, usfmHelpers, verseHelpers } from 'word-aligner-lib'
+import { verseObjectsToString } from '../helpers/tsv-groupdata-parser/verseObjecsHelper'
+import { getVerseString } from '../helpers/tsv-groupdata-parser/verseHelpers'
 
 jest.unmock('fs-extra');
 
@@ -41,11 +43,71 @@ describe('LM Studio integration', () => {
     console.log('LM Studio response:', answer);
   });
 
-  test(`add quotes to gl checking data`, () => {
+  test.skip(`read gl checking data`, () => {
+    const filePath = "/Users/blm0/translationCore/resources/en/translationHelps/translationWordsLinks/v89_unfoldingWord"
+    const outputFolder = path.join(__dirname, 'fixtures', 'checks', 'checkingData')
+    const langId = 'en';
+
+    // const books = ['1co', 'heb', '1th']
+    // const books = ['est', 'jon', 'rut']
+    const books = ['eph', '1co', 'heb']
+    for (const bookId of books) {
+      const bookChecks = readHelpsFolder(filePath, bookId)
+      expect(bookChecks)
+      const savePath = path.join(outputFolder, getCheckDataFilename(langId, bookId))
+      fs.outputJsonSync(savePath, bookChecks, { spaces: 2 });
+    }
+  });
+
+  test(`generate AI tw selections`, async () => {
+    const checkingDataFolder = path.join(__dirname, 'fixtures', 'checks', 'checkingData')
+    const langId = 'en';
+    const bookId = 'eph'
+    const targetLangCode = `es-419`;
+    const targetBookName = 'es-419_tpl_eph_book.usfm'
+    const checkingDataPath = path.join(checkingDataFolder, getCheckDataFilename(langId, bookId))
+    const bibleData = fs.readJsonSync(checkingDataPath)
+    expect(bibleData).toBeTruthy()
+    const targetBookPath = path.join(__dirname, 'fixtures/bibles/es-419', targetBookName)
+    const targetBookUSfm = readTextFile(targetBookPath);
+    const targetBook = usfmHelpers.getParsedUSFM(targetBookUSfm);
+    expect(targetBook).toBeTruthy()
+    const targetBookChapters = targetBook?.chapters;
+    expect(targetBookChapters).toBeTruthy()
+
+    for (const category of ['kt', 'names', 'other']) {
+      const categoryData = bibleData[category]?.groups;
+      expect(categoryData).toBeTruthy()
+      if (categoryData) {
+        const groupIds = Object.keys(categoryData);
+        expect(groupIds.length).toBeGreaterThan(0)
+        for (const groupId of groupIds) {
+          const group = categoryData[groupId];
+          expect(group).toBeTruthy();
+          for (const check of group) {
+            expect(check).toBeTruthy();
+            const contextId = check?.contextId;
+            const reference = contextId?.reference;
+            const glQuote = contextId?.glQuote;
+            if (reference && (glQuote && !check.selection)) {
+              const ref = `${reference?.chapter}:${reference?.verse}`
+              const verseText = getVerseString(targetBookChapters, ref);
+              expect(verseText).toBeTruthy()
+              const answer = await translatePhraseWithConfidence(verseText, targetLangCode, glQuote, langId)
+              expect(answer).toBeTruthy();
+            }
+          }
+        }
+      }
+    }
+
+  }, 8000000);
+
+  test.skip(`add quotes to gl checking data`, () => {
     const langId = 'en';
     const bookId = 'heb'
     const folderPath = path.join(__dirname, 'fixtures', 'checks', 'checkingData')
-    const checkingDataPath = path.join(folderPath, langId + '_' + bookId + '.json')
+    const checkingDataPath = path.join(folderPath, getCheckDataFilename(langId, bookId))
     const bibleData = fs.readJsonSync(checkingDataPath)
     expect(bibleData).toBeTruthy()
 
@@ -78,39 +140,14 @@ describe('LM Studio integration', () => {
     }
   });
 
-  test.skip(`read gl checking data`, () => {
-    const filePath = "/Users/blm0/translationCore/resources/en/translationHelps/translationWordsLinks/v89_unfoldingWord"
-    const outputFolder = path.join(__dirname, 'fixtures', 'checks', 'checkingData')
-    const langId = 'en';
-
-    // const books = ['1co', 'heb', '1th']
-    // const books = ['est', 'jon', 'rut']
-    const books = ['eph', '1co', 'heb']
-    for (const bookId of books) {
-      const bookChecks = readHelpsFolder(filePath, bookId)
-      expect(bookChecks)
-      const savePath = path.join(outputFolder, langId + '_' + bookId + ".json")
-      fs.outputJsonSync(savePath, bookChecks, { spaces: 2 });
-    }
-  });
-
   test.skip(`test AI tw selection`, async () => {
     console.log('testing')
     const verseContent = `Ahora, él será para ti un restaurador de vida y un sustentador de tu vejez, porque tu nuera que te ama, ella que es mejor para ti que siete hijos, lo ha parido".`
     const targetLangCode = `es-419`;
     const phrase = `your old age`
     const phraseLangCode = `en`;
-    const prompt = buildVerseMatchPrompt(verseContent, targetLangCode, phrase, phraseLangCode)
-    console.log('prompt', prompt)
-    const answer = await queryLmStudio(prompt);
-    console.log('answer', answer)
+    const answer = await translatePhraseWithConfidence(verseContent, targetLangCode, phrase, phraseLangCode)
     expect(answer).toBeTruthy();
-    const responses = answer.split('\n')
-    for (const response of responses) {
-      const [translation, confidence] = response.split(',')
-      console.log('translation', {translation, confidence});
-    }
-    console.log('LM Studio response:', answer);
   }, 80000);
 });
 
@@ -325,3 +362,41 @@ ${phrase}
 `
   return prompt;
 }
+
+/**
+ * Translates a gateway language phrase to target-language word(s) within a verse
+ * using an AI model, returning the raw CSV response with confidence scores.
+ *
+ * @param {string} verseContent - the target-language verse text to search within
+ * @param {string} targetLangCode - language code of the verse (e.g. 'es-419')
+ * @param {string} phrase - gateway language phrase to match (e.g. 'your old age')
+ * @param {string} phraseLangCode - language code of the phrase (e.g. 'en')
+ * @returns {Promise<string>} - CSV-formatted response with matched words and confidence levels
+ * @throws {Error} - if the AI query fails or returns invalid data
+ * @example
+ * const result = await translatePhraseWithConfidence(
+ *   'Ahora, él será para ti un restaurador de vida...',
+ *   'es-419',
+ *   'your old age',
+ *   'en'
+ * );
+ * // Returns: '"tu:1 vejez:1",85\n"vejez:1",70'
+ */
+async function translatePhraseWithConfidence(verseContent, targetLangCode, phrase, phraseLangCode) {
+  const prompt = buildVerseMatchPrompt(verseContent, targetLangCode, phrase, phraseLangCode)
+  console.log('prompt', prompt)
+  const answer = await queryLmStudio(prompt)
+  console.log('answer', answer)
+  const responses = answer.split('\n')
+  for (const response of responses) {
+    const [translation, confidence] = response.split(',')
+    console.log('translation', { translation, confidence })
+  }
+  console.log('LM Studio response:', answer)
+  return answer
+}
+
+function getCheckDataFilename(langId, bookId) {
+  return langId + '_' + bookId + '.json'
+}
+
