@@ -389,11 +389,11 @@ async function translatePhraseWithConfidence(verseContent, targetLangCode, phras
   console.log('answer', answer)
   const responses = answer.split('\n')
   for (const response of responses) {
-    const [translation, confidence] = response.split(',')
+    let [translation, confidence] = response.split(',')
     console.log('translation', { translation, confidence })
   }
   console.log('LM Studio response:', answer)
-  return answer
+  return responses
 }
 
 function getCheckDataFilename(langId, bookId) {
