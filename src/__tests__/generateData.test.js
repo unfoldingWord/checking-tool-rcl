@@ -106,6 +106,7 @@ describe('LM Studio integration', () => {
               if (bestAnswer?.confidence) {
                 check.selection = bestAnswer.selections
                 check.confidence = bestAnswer.confidence
+                console.log('best match', bestAnswer)
                 fs.outputJsonSync(checkingDataPath, bibleData, { spaces: 2 });
               }
             }
@@ -378,6 +379,10 @@ ${phrase}
   return prompt;
 }
 
+function removeQuotes(value) {
+  return value?.trim().replace(/^"|"$/g, '') || ''
+}
+
 /**
  * Translates a gateway language phrase to target-language word(s) within a verse
  * using an AI model, returning an array of selection objects with confidence scores.
@@ -411,8 +416,8 @@ async function translatePhraseWithConfidence(wordList, targetLangCode, phrase, p
   const responses = answer.split('\n')
   for (const response of responses) {
     let [phraseTranslation, confidence] = response.split(',')
-    confidence = confidence ? parseInt(confidence, 10) : 0
-    phraseTranslation = phraseTranslation?.trim().replace(/^"|"$/g, '') || ''
+    confidence = confidence ? parseInt(removeQuotes(confidence), 10) : 0
+    phraseTranslation = removeQuotes(phraseTranslation)
     const selections = []
     const words = phraseTranslation.split(' ')
     for (const word of words) {
