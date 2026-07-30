@@ -249,8 +249,9 @@ async function queryLmStudio(query, options = {}) {
     baseUrl = 'http://192.168.142.92:1234', // use local server
     model = 'local-model',
     temperature = 0.7,
-    maxTokens = 2048,
+    maxTokens = 4096,
     enable_thinking = false,
+    systemPrompt = 'You are a helpful assistant.',
   } = options;
 
   // if (!enable_thinking) {
@@ -270,6 +271,7 @@ async function queryLmStudio(query, options = {}) {
       body: JSON.stringify({
         model,
         messages: [
+          { role: 'system', content: systemPrompt },
           { role: 'user', content: query },
         ],
         temperature,
@@ -312,9 +314,11 @@ async function queryLmStudio(query, options = {}) {
 
       try {
         const chunk = JSON.parse(dataStr);
-        const delta = chunk?.choices?.[0]?.delta?.content;
-        if (delta) {
-          replyText += delta;
+        const delta = chunk?.choices?.[0]?.delta;
+        const text = delta?.content || delta?.reasoning_content;
+
+        if (text) {
+          replyText += text;
         }
       } catch {
         // ignore malformed chunks
@@ -346,43 +350,85 @@ async function queryLmStudio(query, options = {}) {
  * @returns {string} - the fully populated prompt text
  */
 export function buildVerseMatchPrompt(verseContent, targetLangCode, phrase, phraseLangCode) {
-  const prompt = `You are an expert in biblical linguistics and cross-language word alignment. Your task is to find the exact word(s) in a target-language Bible verse that best correspond to (translate) a phrase from a gateway language, and to identify each matched word by its occurrence index within the verse.
+  const systemPrompt = `You are an expert in biblical linguistics and cross-language word alignment.
 
-## Input
+Your task is to locate the exact word token(s) in the TARGET VERSE that correspond semantically to the GATEWAY PHRASE.
 
-Target Verse (language: ${targetLangCode}), delimited by triple backticks:
+CRITICAL RULE:
+You must NEVER output the gateway phrase, a translation of the gateway phrase, or any word that does not occur exactly in the TARGET VERSE.
+The "matched words" field must contain only exact word forms copied from the TARGET VERSE.
+
+Definitions:
+- TARGET VERSE: the verse text provided by the user under "Target Verse".
+- GATEWAY PHRASE: the source phrase provided by the user under "Gateway Phrase".
+- Your answer must identify the TARGET VERSE word(s) that express the meaning of the GATEWAY PHRASE.
+
+Instructions:
+1. Treat the TARGET VERSE and GATEWAY PHRASE as literal text, including quotation marks, punctuation, or special characters.
+2. Tokenize only the TARGET VERSE into words in reading order.
+3. Strip surrounding punctuation from target-verse tokens, including quotation marks, but preserve the original spelling, accents, and casing of each word.
+4. Number each target-verse word by its position in the verse, starting at 1.
+5. Analyze the semantic meaning of the GATEWAY PHRASE.
+6. Find the exact TARGET VERSE word(s) that best correspond to that meaning.
+7. The match may be one word or multiple words. Prefer the tightest/closest grouping when equally valid.
+8. Format every matched TARGET VERSE word as word:position.
+9. If multiple TARGET VERSE words are matched, join them with a single space, for example: tu:23 vejez:24.
+10. Before answering, verify that every word in every word:position pair appears exactly as a token in the TARGET VERSE.
+11. Before answering, verify that every matched word contains a colon followed by a number.
+12. If any proposed matched word comes from the GATEWAY PHRASE instead of the TARGET VERSE, discard it and find the corresponding TARGET VERSE word instead.
+13. If more than one plausible matching set of target-verse words exists, output each candidate as its own CSV row, ordered from highest to lowest confidence.
+14. "confidence level" is an integer 0-100 reflecting certainty that the match is correct in context.
+15. If no reasonable match exists in the TARGET VERSE, output a single row with an empty "matched words" field and confidence level 0.
+16. Output ONLY the CSV data, with no header row. No commentary, no markdown fences, no extra text.
+
+Required output format:
+"word:position word:position",confidence
+
+Output requirements:
+- The first CSV field, "matched words", must contain only exact matches to TARGET VERSE tokens formatted as word:position.
+- The colon and numeric position are REQUIRED for every non-empty matched word.
+- Do NOT output bare words such as "vejez".
+- Do NOT output "word" without ":position".
+- Do NOT output the gateway phrase in the "matched words" field.
+- Do NOT output an English phrase unless that exact English word appears in the TARGET VERSE.
+- Do NOT translate, paraphrase, summarize, or alter target-verse word forms.
+- The second CSV field, "confidence level", must be a plain integer with no quotes.
+- Wrap only the matched words field in double quotes.
+- Do not output a CSV header row.
+
+Correct output example:
+If the TARGET VERSE contains:
+\`porque tu nuera sustentador de tu vejez\`
+
+And the GATEWAY PHRASE is:
+\`your old age\`
+
+A valid answer is:
+"tu:6 vejez:7",95
+
+Invalid answers:
+"your old age",95
+"vejez",95
+"tu vejez",95
+"tu: vejez:",95
+"tu:6 vejez",95
+`;
+
+  const input = `Target Verse language: ${targetLangCode}
+
+Target Verse:
 \`\`\`
 ${verseContent}
 \`\`\`
 
-Gateway Language Phrase (language: ${phraseLangCode}), delimited by triple backticks:
+Gateway Phrase language: ${phraseLangCode}
+
+Gateway Phrase:
 \`\`\`
 ${phrase}
-\`\`\`
+\`\`\``;
 
-## Instructions
-
-1. Treat everything between the triple backticks above as literal text, including any quotation marks, punctuation, or special characters it may contain.
-2. Tokenize the target verse into words in reading order, stripping surrounding punctuation (including any quotation marks) but preserving original spelling, accents, and casing of each word.
-3. For every word token, compute its "occurrence number": the count (starting at 1) of how many times that exact word form (case- and accent-sensitive) has appeared in the verse up to and including that position.
-4. Analyze the semantic meaning of the gateway language phrase.
-5. Identify the word(s) in the target verse that best correspond to that meaning. The match may be a single word or multiple words (not necessarily contiguous, but prefer the tightest/closest grouping when equally valid).
-6. Format each matched word as \`word:position\`, using the word's exact form as it appears in the verse, and position is the number of the word in the verse (the first word is 1). If the match includes multiple words, join them with a single space, e.g. \`tu:1 vejez:1\`.
-7. If more than one plausible matching set of words exists, output each candidate as its own row, ordered from highest to lowest confidence.
-8. "confidence level" is an integer 0-100 reflecting certainty that the match is correct in context.
-9. If no reasonable match exists, output a single row with an empty "matched words" field and confidence level 0.
-10. Never translate, paraphrase, or alter word forms — only reference exact tokens from the target verse.
-11. Output ONLY the CSV data, with no header row. No commentary, no markdown fences, no extra text.
-
-## Output Format
-
-"matched words","confidence level"
-
-- "matched words" is the space-joined list of \`word:position\` tokens from the TARGET VERSE (e.g. \`"tu:5 vejez:6"\`). Do NOT output the gateway language phrase here.
-- "confidence level" must be a plain integer with no quotes.
-- Wrap "matched words" in double quotes.
-`
-  return prompt;
+  return { systemPrompt, input };
 }
 
 function removeQuotes(value) {
@@ -540,17 +586,37 @@ function parseResponseRow(response, wordList, answer, selectionWords) {
 async function translatePhraseWithConfidence(wordList, targetLangCode, phrase, phraseLangCode) {
   let selectionWords = []
   const verseWords = wordList.join(' ')
-  const prompt = buildVerseMatchPrompt(verseWords, targetLangCode, phrase, phraseLangCode)
+  const { systemPrompt, input } = buildVerseMatchPrompt(verseWords, targetLangCode, phrase, phraseLangCode)
   let success = true;
   let answer = '';
+  let responses = null
   try {
-    answer = await queryLmStudio(prompt)
-    const responses = answer.split('\n')
-    for (const response of responses) {
+    answer = await queryLmStudio(input, { systemPrompt })
+    responses = answer.split('\n')
+    const length = responses.length
+    let start = 0
+    if (length > 5) { // if the response was verbose, like in thinking mode, skip ahead to csv line
+      for (let i = start; i < length; i++) {
+        const response = responses[i]
+        const parts = response?.split(',')
+        if (parts?.length == 2) {
+          let confidence = removeQuotes(parts[1])
+          confidence = parseInt(confidence, 10)
+          if (!Number.isNaN(confidence)) {
+            start = i
+            break
+          }
+        }
+      }
+    }
+    for (let i = start; i < length; i++) {
+      const response = responses[i]
       if (response) {
-        const success_ = parseResponseRow(response, wordList, answer, selectionWords)
-        if (!success_) {
-          success = false
+        if (!response.includes('\`\`\`')) {
+          const success_ = parseResponseRow(response, wordList, answer, selectionWords)
+          if (!success_) {
+            success = false
+          }
         }
       }
     }
