@@ -8,6 +8,7 @@ import { groupDataHelpers, usfmHelpers, verseHelpers } from 'word-aligner-lib'
 import { verseObjectsToString } from '../helpers/tsv-groupdata-parser/verseObjecsHelper'
 import { getVerseString } from '../helpers/tsv-groupdata-parser/verseHelpers'
 import Lexer from 'wordmap-lexer'
+import { normalizer } from 'string-punctuation-tokenizer'
 
 jest.unmock('fs-extra');
 
@@ -91,7 +92,7 @@ describe('LM Studio integration', () => {
             const contextId = check?.contextId;
             const reference = contextId?.reference;
             const glQuote = contextId?.glQuote;
-            if (reference && (glQuote && !check.selection)) {
+            if (reference && (glQuote && !check.selections)) {
               const ref = `${reference?.chapter}:${reference?.verse}`
               const verseText = getVerseString(targetBookChapters, ref);
               expect(verseText).toBeTruthy()
@@ -105,7 +106,7 @@ describe('LM Studio integration', () => {
                 }
               }
               if (bestAnswer?.confidence) {
-                check.selection = bestAnswer.selections
+                check.selections = bestAnswer.selections
                 check.confidence = bestAnswer.confidence
                 console.log(`count ${++count} best match`, bestAnswer)
                 fs.outputJsonSync(checkingDataPath, bibleData, { spaces: 2 });
@@ -251,6 +252,10 @@ async function queryLmStudio(query, options = {}) {
     maxTokens = 2048,
     enable_thinking = false,
   } = options;
+
+  // if (!enable_thinking) {
+  //   query = query + '\n/no_think'
+  // }
 
   const url = `${baseUrl}/v1/chat/completions`;
   const startTime = Date.now();
@@ -409,6 +414,7 @@ function parseResponseRow(response, wordList, answer, selectionWords) {
       let selectionFound = null
       const wordParts = word.split(':')
       let [text, position] = wordParts
+      text = normalizer(text)
       if (wordParts.length === 2) {
         position = parseInt(position, 10)
         selectionFound = { text, position }
@@ -430,7 +436,7 @@ function parseResponseRow(response, wordList, answer, selectionWords) {
     }
 
     if (selections.length) {
-      if (missingPos && !error) {
+      if (missingPos && !error) { // fill in missing positions
         missingPos = false // clear before second pass
         for (let i = 0; i < selections.length; i++) {
           const selection = selections[i]
@@ -439,16 +445,17 @@ function parseResponseRow(response, wordList, answer, selectionWords) {
             let startPos = 0
             let lastOfContig = 0
             for (let j = i + 1; j < selections.length; j++) {
-              if (selection.position >= 0) {
-                startPos = selection.position
+              const selection_ = selections[j]
+              if (selection_.position >= 0) {
+                startPos = selection_.position
                 lastOfContig = j
                 break;
               }
             }
             if (startPos) {
               for (let j = i; j <= lastOfContig; j++) {
-                const selection = selections[j]
-                selection.position = startPos++
+                const selection_ = selections[j]
+                selection_.position = startPos++
               }
             } else {
               error = true
@@ -461,10 +468,15 @@ function parseResponseRow(response, wordList, answer, selectionWords) {
       // convert positions to occurrences
       for (const selection of selections) {
         if (selection.position >= 0) {
-          const occurrence = findOccurrenceForPos(selection.position, wordList, selection.text)
-          if (occurrence > 0) {
-            delete selection.position
-            selection.occurrence = occurrence
+          const wordlistWord = wordList[selection.position - 1]
+          if (selection.text === normalizer(wordlistWord)) {
+            const occurrence = findOccurrenceForPos(selection.position, wordList, selection.text)
+            if (occurrence > 0) {
+              delete selection.position
+              selection.occurrence = occurrence
+            }
+          } else {
+            console.log(`word ${selection.text} not found at ${selection.position} in wordList`, wordList)
           }
         }
       }
@@ -510,20 +522,26 @@ async function translatePhraseWithConfidence(wordList, targetLangCode, phrase, p
   let selectionWords = []
   const verseWords = wordList.join(' ')
   const prompt = buildVerseMatchPrompt(verseWords, targetLangCode, phrase, phraseLangCode)
-  const answer = await queryLmStudio(prompt)
-  const responses = answer.split('\n')
   let success = true;
-  for (const response of responses) {
-    const success_ = parseResponseRow(response, wordList, answer, selectionWords)
-    if (!success_) {
-      success = false
+  let answer = '';
+  try {
+    answer = await queryLmStudio(prompt)
+    const responses = answer.split('\n')
+    for (const response of responses) {
+      const success_ = parseResponseRow(response, wordList, answer, selectionWords)
+      if (!success_) {
+        success = false
+      }
     }
+  } catch (e) {
+    console.log('query failed',e)
+    success = false;
   }
 
   if (!success) {
     if (!answer.includes(',')) {
       //handle case where AI did not use CSV format, by fields are separated by newlines
-      if (responses.length === 2) {
+      if (responses?.length === 2) {
         selectionWords = []
         const response = answer.replace('\n', ',')
         success = parseResponseRow(response, wordList, answer, selectionWords)
@@ -531,20 +549,30 @@ async function translatePhraseWithConfidence(wordList, targetLangCode, phrase, p
     }
   }
 
-  // remove duplicates from selectionWords
+  // remove duplicates from selections
   const seen = new Set()
-  const uniqueSelectionWords = []
-  for (const item of selectionWords) {
-    const key = JSON.stringify(item.selections) + ':' + item.confidence
-    if (!seen.has(key)) {
-      seen.add(key)
-      uniqueSelectionWords.push(item)
+  for (const option of selectionWords) {
+    const uniqueSelections = []
+    for (const word of option.selections) {
+      if (word.occurrence && word.text) {
+        const key = word.text + ':' + word.occurrence
+        if (!seen.has(key)) {
+          seen.add(key)
+          uniqueSelections.push(word)
+        }
+      } else {
+        console.log('invalid word or occurrence found', word);
+        success = false
+      }
+    }
+    if (option.selections.length != uniqueSelections.length) { // if changed then update
+      option.selections = uniqueSelections
     }
   }
 
   if (success) {
     console.log('AI response:', { verseWords, phrase, answer, matches: selectionWords.length })
-    return uniqueSelectionWords
+    return selectionWords
   } else {
     console.log('AI response ERROR:', { verseWords, phrase, answer, matches: selectionWords.length })
   }

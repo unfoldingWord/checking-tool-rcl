@@ -5,7 +5,12 @@
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "adoptados",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -23,20 +28,19 @@
             "glQuote": "adoption",
             "occurrence": 1
           },
-          "selection": [
-            {
-              "text": "adoptados",
-              "occurrence": 1
-            }
-          ],
-          "confidence": 98
+          "confidence": 95
         }
       ],
       "amen": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Amén",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -54,12 +58,6 @@
             "glQuote": "Amen",
             "occurrence": 1
           },
-          "selection": [
-            {
-              "text": "Amén",
-              "occurrence": 1
-            }
-          ],
           "confidence": 100
         }
       ],
@@ -67,7 +65,12 @@
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "apóstol",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -85,18 +88,17 @@
             "glQuote": "an apostle",
             "occurrence": 1
           },
-          "selection": [
-            {
-              "text": "apóstol",
-              "occurrence": 1
-            }
-          ],
           "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "apóstoles",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -123,18 +125,17 @@
             "glQuote": "of the apostles",
             "occurrence": 1
           },
-          "selection": [
-            {
-              "text": "apóstoles",
-              "occurrence": 1
-            }
-          ],
           "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "apóstoles",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -164,18 +165,17 @@
             "glQuote": "to & apostles",
             "occurrence": 2
           },
-          "selection": [
-            {
-              "text": "apóstoles",
-              "occurrence": 1
-            }
-          ],
-          "confidence": 98
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "apóstoles",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -192,14 +192,20 @@
             "quoteString": "ἀποστόλους",
             "glQuote": "apostles",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         }
       ],
       "authority": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "autoridad",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -216,12 +222,22 @@
             "quoteString": "ἐξουσίας",
             "glQuote": "authority",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "gobernante",
+              "occurrence": 1
+            },
+            {
+              "text": "potestades",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -247,12 +263,18 @@
             "quoteString": "τῆς ἐξουσίας",
             "glQuote": "of the authorities",
             "occurrence": 1
-          }
+          },
+          "confidence": 98
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "autoridades",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -278,12 +300,18 @@
             "quoteString": "ταῖς ἐξουσίαις",
             "glQuote": "to the authorities",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "autoridades",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -300,14 +328,20 @@
             "quoteString": "ἐξουσίας",
             "glQuote": "authorities",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         }
       ],
       "baptize": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "bautismo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -324,14 +358,20 @@
             "quoteString": "βάπτισμα",
             "glQuote": "baptism",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         }
       ],
       "believe": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "creyeron",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -348,12 +388,18 @@
             "quoteString": "πιστεύσαντες",
             "glQuote": "having believed",
             "occurrence": 1
-          }
+          },
+          "confidence": 98
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "creemos",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -370,14 +416,20 @@
             "quoteString": "πιστεύοντας",
             "glQuote": "believing",
             "occurrence": 1
-          }
+          },
+          "confidence": 98
         }
       ],
       "beloved": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "amados",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -394,12 +446,30 @@
             "quoteString": "ἀγαπητά",
             "glQuote": "beloved",
             "occurrence": 1
-          }
+          },
+          "confidence": 98
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "hermano",
+              "occurrence": 1
+            },
+            {
+              "text": "amado",
+              "occurrence": 1
+            },
+            {
+              "text": "hermano",
+              "position": 19
+            },
+            {
+              "text": "amado",
+              "position": 20
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -416,14 +486,20 @@
             "quoteString": "ἀγαπητὸς",
             "glQuote": "beloved",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "blameless": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "irreprensibles",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -440,12 +516,22 @@
             "quoteString": "ἀμώμους",
             "glQuote": "blameless",
             "occurrence": 1
-          }
+          },
+          "confidence": 98
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "sin",
+              "position": 28
+            },
+            {
+              "text": "culpa",
+              "position": 29
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -462,14 +548,20 @@
             "quoteString": "ἄμωμος",
             "glQuote": "blameless",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "blasphemy": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "injuria",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -486,14 +578,20 @@
             "quoteString": "βλασφημία",
             "glQuote": "insults",
             "occurrence": 1
-          }
+          },
+          "confidence": 98
         }
       ],
       "bless": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "bendecido",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -510,12 +608,18 @@
             "quoteString": "εὐλογητὸς",
             "glQuote": "Blessed {be",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "bendecido",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -532,12 +636,18 @@
             "quoteString": "εὐλογήσας",
             "glQuote": "having blessed",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "bendición",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -554,14 +664,20 @@
             "quoteString": "εὐλογίᾳ",
             "glQuote": "blessing",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "bond": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "vínculo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -578,14 +694,20 @@
             "quoteString": "συνδέσμῳ",
             "glQuote": "bond",
             "occurrence": 1
-          }
+          },
+          "confidence": 98
         }
       ],
       "call": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "llamado",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -611,12 +733,18 @@
             "quoteString": "τῆς κλήσεως",
             "glQuote": "of & calling",
             "occurrence": 1
-          }
+          },
+          "confidence": 90
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "vocación",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -642,12 +770,22 @@
             "quoteString": "τῆς κλήσεως",
             "glQuote": "of the calling",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "fueron",
+              "occurrence": 1
+            },
+            {
+              "text": "llamados",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -664,12 +802,22 @@
             "quoteString": "ἐκλήθητε",
             "glQuote": "you were called",
             "occurrence": 1
-          }
+          },
+          "confidence": 98
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "fueron",
+              "occurrence": 1
+            },
+            {
+              "text": "llamados",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -686,12 +834,18 @@
             "quoteString": "ἐκλήθητε",
             "glQuote": "you were called",
             "occurrence": 1
-          }
+          },
+          "confidence": 98
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "llamados",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -717,14 +871,24 @@
             "quoteString": "τῆς κλήσεως",
             "glQuote": "of & calling",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "christ": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 1
+            },
+            {
+              "text": "Jesucristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -741,12 +905,18 @@
             "quoteString": "Χριστοῦ",
             "glQuote": "of Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 98
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Jesucristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -763,12 +933,18 @@
             "quoteString": "Χριστῷ",
             "glQuote": "Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Jesucristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -785,12 +961,22 @@
             "quoteString": "Χριστοῦ",
             "glQuote": "Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Jesucristo",
+              "occurrence": 1
+            },
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -807,12 +993,18 @@
             "quoteString": "Χριστοῦ",
             "glQuote": "Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 98
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Jesucristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -829,12 +1021,18 @@
             "quoteString": "Χριστῷ",
             "glQuote": "Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Jesucristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -851,12 +1049,18 @@
             "quoteString": "Χριστοῦ",
             "glQuote": "Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -882,12 +1086,18 @@
             "quoteString": "τῷ Χριστῷ",
             "glQuote": "Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 99
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -913,12 +1123,18 @@
             "quoteString": "τῷ Χριστῷ",
             "glQuote": "Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Jesucristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -935,12 +1151,18 @@
             "quoteString": "Χριστοῦ",
             "glQuote": "Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -966,12 +1188,18 @@
             "quoteString": "τῷ Χριστῷ",
             "glQuote": "Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -988,12 +1216,18 @@
             "quoteString": "Χριστῷ",
             "glQuote": "Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1010,12 +1244,22 @@
             "quoteString": "Χριστῷ",
             "glQuote": "Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            },
+            {
+              "text": "Jesús",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1032,12 +1276,22 @@
             "quoteString": "Χριστῷ",
             "glQuote": "Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            },
+            {
+              "text": "Jesús",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1054,12 +1308,18 @@
             "quoteString": "Χριστῷ",
             "glQuote": "Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 98
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1076,12 +1336,22 @@
             "quoteString": "Χριστοῦ",
             "glQuote": "Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            },
+            {
+              "text": "Jesús",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1098,12 +1368,18 @@
             "quoteString": "Χριστῷ",
             "glQuote": "Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1129,12 +1405,22 @@
             "quoteString": "τοῦ Χριστοῦ",
             "glQuote": "of Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            },
+            {
+              "text": "Jesús",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1151,12 +1437,22 @@
             "quoteString": "Χριστοῦ",
             "glQuote": "Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 98
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 1
+            },
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1182,12 +1478,18 @@
             "quoteString": "τοῦ Χριστοῦ",
             "glQuote": "of Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1213,12 +1515,22 @@
             "quoteString": "τοῦ Χριστοῦ",
             "glQuote": "of Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 98
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            },
+            {
+              "text": "Jesús",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1235,12 +1547,18 @@
             "quoteString": "Χριστῷ",
             "glQuote": "Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 99
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1266,12 +1584,26 @@
             "quoteString": "τοῦ Χριστοῦ",
             "glQuote": "of Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 98
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            },
+            {
+              "text": "Jesús",
+              "occurrence": 1
+            },
+            {
+              "text": "Señor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1297,12 +1629,18 @@
             "quoteString": "τῷ Χριστῷ",
             "glQuote": "Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 98
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1328,12 +1666,18 @@
             "quoteString": "τὸν Χριστὸν",
             "glQuote": "Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1359,12 +1703,22 @@
             "quoteString": "τοῦ Χριστοῦ",
             "glQuote": "of Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 98
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            },
+            {
+              "text": "Jesús",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1381,12 +1735,18 @@
             "quoteString": "Χριστῷ",
             "glQuote": "Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 99
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1412,12 +1772,18 @@
             "quoteString": "τοῦ Χριστοῦ",
             "glQuote": "of Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 98
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1443,12 +1809,18 @@
             "quoteString": "τοῦ Χριστοῦ",
             "glQuote": "of Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1474,12 +1846,18 @@
             "quoteString": "τοῦ Χριστοῦ",
             "glQuote": "of Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1496,12 +1874,18 @@
             "quoteString": "Χριστός",
             "glQuote": "even} Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1527,12 +1911,18 @@
             "quoteString": "τὸν Χριστόν",
             "glQuote": "Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1549,12 +1939,18 @@
             "quoteString": "Χριστῷ",
             "glQuote": "Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1580,12 +1976,18 @@
             "quoteString": "ὁ Χριστὸς",
             "glQuote": "Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 98
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1611,12 +2013,18 @@
             "quoteString": "τοῦ Χριστοῦ",
             "glQuote": "of Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 98
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1642,12 +2050,18 @@
             "quoteString": "ὁ Χριστός",
             "glQuote": "Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 98
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Jesucristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1664,12 +2078,26 @@
             "quoteString": "Χριστοῦ",
             "glQuote": "Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "reverencia",
+              "occurrence": 1
+            },
+            {
+              "text": "por",
+              "occurrence": 1
+            },
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1686,12 +2114,18 @@
             "quoteString": "Χριστοῦ",
             "glQuote": "for Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 98
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1717,12 +2151,22 @@
             "quoteString": "ὁ Χριστὸς",
             "glQuote": "Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "a",
+              "occurrence": 1
+            },
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1748,12 +2192,18 @@
             "quoteString": "τῷ Χριστῷ",
             "glQuote": "to Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1779,12 +2229,18 @@
             "quoteString": "ὁ Χριστὸς",
             "glQuote": "Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1810,12 +2266,18 @@
             "quoteString": "ὁ Χριστὸς",
             "glQuote": "Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1832,12 +2294,22 @@
             "quoteString": "Χριστὸν",
             "glQuote": "Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "a",
+              "occurrence": 2
+            },
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1863,12 +2335,22 @@
             "quoteString": "τῷ Χριστῷ",
             "glQuote": "to Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 3
+            },
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1885,12 +2367,18 @@
             "quoteString": "Χριστοῦ",
             "glQuote": "of Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Jesucristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1907,12 +2395,18 @@
             "quoteString": "Χριστοῦ",
             "glQuote": "Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Jesucristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1929,14 +2423,28 @@
             "quoteString": "Χριστὸν",
             "glQuote": "Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "church": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "para",
+              "occurrence": 1
+            },
+            {
+              "text": "la",
+              "occurrence": 1
+            },
+            {
+              "text": "iglesia",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -1962,7 +2470,8 @@
             "quoteString": "τῇ ἐκκλησίᾳ",
             "glQuote": "to the church",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
