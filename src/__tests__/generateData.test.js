@@ -367,7 +367,7 @@ ${phrase}
 3. For every word token, compute its "occurrence number": the count (starting at 1) of how many times that exact word form (case- and accent-sensitive) has appeared in the verse up to and including that position.
 4. Analyze the semantic meaning of the gateway language phrase.
 5. Identify the word(s) in the target verse that best correspond to that meaning. The match may be a single word or multiple words (not necessarily contiguous, but prefer the tightest/closest grouping when equally valid).
-6. Format each matched word as \`word:position\`, using the word's exact form as it appears in the verse, and position is the index of the word in the verse (the first word is 1). If the match includes multiple words, join them with a single space, e.g. \`tu:1 vejez:1\`.
+6. Format each matched word as \`word:position\`, using the word's exact form as it appears in the verse, and position is the number of the word in the verse (the first word is 1). If the match includes multiple words, join them with a single space, e.g. \`tu:1 vejez:1\`.
 7. If more than one plausible matching set of words exists, output each candidate as its own row, ordered from highest to lowest confidence.
 8. "confidence level" is an integer 0-100 reflecting certainty that the match is correct in context.
 9. If no reasonable match exists, output a single row with an empty "matched words" field and confidence level 0.
@@ -467,16 +467,35 @@ function parseResponseRow(response, wordList, answer, selectionWords) {
 
       // convert positions to occurrences
       for (const selection of selections) {
-        if (selection.position >= 0) {
+        let found = false
+        if (selection.position > 0) {
           const wordlistWord = wordList[selection.position - 1]
           if (selection.text === normalizer(wordlistWord)) {
+            found = true
             const occurrence = findOccurrenceForPos(selection.position, wordList, selection.text)
             if (occurrence > 0) {
               delete selection.position
               selection.occurrence = occurrence
             }
-          } else {
-            console.log(`word ${selection.text} not found at ${selection.position} in wordList`, wordList)
+          } else if (selection.position > 0) {
+            // see if AI sent occurrence rather than position
+            const matchOccurrence = selection.position
+            let occurrence = 0
+            for (let i = 0; i < wordList.length; i++) {
+              const word = wordList[i]
+              if (selection.text === normalizer(word)) {
+                if (++occurrence >= matchOccurrence) {
+                  found = true
+                  delete selection.position
+                  selection.occurrence = i + 1
+                  break
+                }
+              }
+            }
+          }
+
+          if (!found) {
+              console.log(`word ${selection.text} not found at ${selection.position} in wordList`, wordList)
           }
         }
       }
@@ -528,9 +547,11 @@ async function translatePhraseWithConfidence(wordList, targetLangCode, phrase, p
     answer = await queryLmStudio(prompt)
     const responses = answer.split('\n')
     for (const response of responses) {
-      const success_ = parseResponseRow(response, wordList, answer, selectionWords)
-      if (!success_) {
-        success = false
+      if (response) {
+        const success_ = parseResponseRow(response, wordList, answer, selectionWords)
+        if (!success_) {
+          success = false
+        }
       }
     }
   } catch (e) {
