@@ -61,6 +61,7 @@ describe('LM Studio integration', () => {
   });
 
   test(`generate AI tw selections`, async () => {
+    let count = 0;
     const checkingDataFolder = path.join(__dirname, 'fixtures', 'checks', 'checkingData')
     const langId = 'en';
     const bookId = 'eph'
@@ -106,7 +107,7 @@ describe('LM Studio integration', () => {
               if (bestAnswer?.confidence) {
                 check.selection = bestAnswer.selections
                 check.confidence = bestAnswer.confidence
-                console.log('best match', bestAnswer)
+                console.log(`count ${++count} best match`, bestAnswer)
                 fs.outputJsonSync(checkingDataPath, bibleData, { spaces: 2 });
               }
             }
@@ -383,6 +384,103 @@ function removeQuotes(value) {
   return value?.trim().replace(/^"|"$/g, '') || ''
 }
 
+function findOccurrenceForPos(position, wordList, text) {
+  let occurrence = 0
+  for (let i = 0; i < position; i++) {
+    if (wordList[i] === text) {
+      occurrence++
+    }
+  }
+  occurrence = occurrence || 1 // fallback if AI got mixed up
+  return occurrence
+}
+
+function parseResponseRow(response, wordList, answer, selectionWords) {
+  let error = false;
+  let missingPos = false;
+  const rowParts = response.split(',')
+  if (rowParts.length === 2) {
+    let [phraseTranslation, confidence] = rowParts
+    confidence = confidence ? parseInt(removeQuotes(confidence), 10) : 0
+    phraseTranslation = removeQuotes(phraseTranslation)
+    const selections = []
+    const words = phraseTranslation.split(' ')
+    for (const word of words) {
+      let selectionFound = null
+      const wordParts = word.split(':')
+      let [text, position] = wordParts
+      if (wordParts.length === 2) {
+        position = parseInt(position, 10)
+        selectionFound = { text, position }
+      } else if (wordParts.length === 1) {
+        position = -1
+        selectionFound = { text, position }
+        missingPos = true
+      } else {
+        // invalid number of columns
+        error = true
+      }
+
+      if (selectionFound) {
+        selections.push(selectionFound)
+      } else {
+        console.log('invalid response', answer)
+        error = true
+      }
+    }
+
+    if (selections.length) {
+      if (missingPos && !error) {
+        missingPos = false // clear before second pass
+        for (let i = 0; i < selections.length; i++) {
+          const selection = selections[i]
+          if (selection.position < 0) {
+            // look ahead for last of contiguous words
+            let startPos = 0
+            let lastOfContig = 0
+            for (let j = i + 1; j < selections.length; j++) {
+              if (selection.position >= 0) {
+                startPos = selection.position
+                lastOfContig = j
+                break;
+              }
+            }
+            if (startPos) {
+              for (let j = i; j <= lastOfContig; j++) {
+                const selection = selections[j]
+                selection.position = startPos++
+              }
+            } else {
+              error = true
+              break;
+            }
+          }
+        }
+      }
+
+      // convert positions to occurrences
+      for (const selection of selections) {
+        if (selection.position >= 0) {
+          const occurrence = findOccurrenceForPos(selection.position, wordList, selection.text)
+          if (occurrence > 0) {
+            delete selection.position
+            selection.occurrence = occurrence
+          }
+        }
+      }
+
+      selectionWords.push({ selections, confidence })
+    } else {
+      error = true
+    }
+    console.log('translation', { translation: phraseTranslation, confidence })
+  } else {
+    console.log("row is not in csv format", response)
+    error = true
+  }
+  return !error
+}
+
 /**
  * Translates a gateway language phrase to target-language word(s) within a verse
  * using an AI model, returning an array of selection objects with confidence scores.
@@ -409,34 +507,48 @@ function removeQuotes(value) {
  * // ]
  */
 async function translatePhraseWithConfidence(wordList, targetLangCode, phrase, phraseLangCode) {
-  const selectionWords = []
-  const prompt = buildVerseMatchPrompt(wordList.join(' '), targetLangCode, phrase, phraseLangCode)
+  let selectionWords = []
+  const verseWords = wordList.join(' ')
+  const prompt = buildVerseMatchPrompt(verseWords, targetLangCode, phrase, phraseLangCode)
   const answer = await queryLmStudio(prompt)
-  console.log('answer', answer)
   const responses = answer.split('\n')
+  let success = true;
   for (const response of responses) {
-    let [phraseTranslation, confidence] = response.split(',')
-    confidence = confidence ? parseInt(removeQuotes(confidence), 10) : 0
-    phraseTranslation = removeQuotes(phraseTranslation)
-    const selections = []
-    const words = phraseTranslation.split(' ')
-    for (const word of words) {
-      let [text, position] = word.split(':')
-      position = position ? parseInt(position, 10) : 1
-      let occurrence = 0
-      for (let i = 0; i < position; i++) {
-        if (wordList[i] === text) {
-          occurrence++
-        }
-      }
-      occurrence = occurrence || 1 // fallback if AI got mixed up
-      selections.push({ text, occurrence })
+    const success_ = parseResponseRow(response, wordList, answer, selectionWords)
+    if (!success_) {
+      success = false
     }
-    selectionWords.push({ selections, confidence })
-    console.log('translation', { translation: phraseTranslation, confidence })
   }
-  console.log('AI response:', selectionWords)
-  return selectionWords
+
+  if (!success) {
+    if (!answer.includes(',')) {
+      //handle case where AI did not use CSV format, by fields are separated by newlines
+      if (responses.length === 2) {
+        selectionWords = []
+        const response = answer.replace('\n', ',')
+        success = parseResponseRow(response, wordList, answer, selectionWords)
+      }
+    }
+  }
+
+  // remove duplicates from selectionWords
+  const seen = new Set()
+  const uniqueSelectionWords = []
+  for (const item of selectionWords) {
+    const key = JSON.stringify(item.selections) + ':' + item.confidence
+    if (!seen.has(key)) {
+      seen.add(key)
+      uniqueSelectionWords.push(item)
+    }
+  }
+
+  if (success) {
+    console.log('AI response:', { verseWords, phrase, answer, matches: selectionWords.length })
+    return uniqueSelectionWords
+  } else {
+    console.log('AI response ERROR:', { verseWords, phrase, answer, matches: selectionWords.length })
+  }
+  return []
 }
 
 function getCheckDataFilename(langId, bookId) {
