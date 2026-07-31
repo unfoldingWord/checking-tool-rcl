@@ -165,7 +165,7 @@ describe('LM Studio integration', () => {
 
   }, 8000000);
 
-  test(`add quotes to gl checking data`, () => {
+  test.skip(`add quotes to gl checking data`, () => {
     const langId = 'en';
     const bookId = 'heb'
     const folderPath = path.join(__dirname, 'fixtures', 'checks', 'checkingData')
