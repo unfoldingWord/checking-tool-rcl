@@ -1,11 +1,10 @@
 /* eslint-env jest */
-import {describe, expect, test} from '@jest/globals'
-import path from "path";
-import fs from 'fs-extra';
+import { describe, expect, test } from '@jest/globals'
+import path from 'path'
+import fs from 'fs-extra'
 import { getAlignedGLText, getPhraseFromTw, parseTwToIndex } from '../helpers/translationHelps/twArticleHelpers'
 import { readHelpsFolder, readTextFile } from '../helpers/fileHelpers'
-import { groupDataHelpers, usfmHelpers, verseHelpers } from 'word-aligner-lib'
-import { verseObjectsToString } from '../helpers/tsv-groupdata-parser/verseObjecsHelper'
+import { groupDataHelpers, usfmHelpers } from 'word-aligner-lib'
 import { getVerseString } from '../helpers/tsv-groupdata-parser/verseHelpers'
 import Lexer from 'wordmap-lexer'
 import { normalizer } from 'string-punctuation-tokenizer'
@@ -37,6 +36,51 @@ describe('read enGlBible data', () => {
   });
 })
 
+function getWordList(verseText) {
+  const tokenList = Lexer.tokenize(verseText)
+  const wordList = tokenList.map(token => (token.text))
+  return wordList
+}
+
+function removePunctuation(glText) {
+  const wordList = getWordList(glText)
+  return wordList.join(' ')
+}
+
+function cleanQuote(glQuote) {
+  const replaceChars = ['{', '}', '.', ',', ';', ':', "\""];
+  let cleanedQuote = glQuote
+
+  // remove any characters in replaceChars
+  for (const char of replaceChars) {
+    cleanedQuote = cleanedQuote.split(char).join('')
+  }
+  return cleanedQuote
+}
+
+function cleanQuote2(glQuote) {
+  const AMPERSAND = ' & '
+  const ELLIPSIS = '\u2026'
+  let cleanedString = ''
+  const parts = glQuote.split(ELLIPSIS)
+  for (const part of parts) {
+    let cleanedString2 = ''
+    const parts2 = part.split(AMPERSAND)
+    for (const part2 of parts2) {
+      const cleanedPart2 = removePunctuation(part2)
+      if (cleanedString2) {
+        cleanedString2 += AMPERSAND
+      }
+      cleanedString2 += cleanedPart2
+    }
+    if (cleanedString) {
+      cleanedString += ELLIPSIS
+    }
+    cleanedString += cleanedString2
+  }
+  return cleanedString
+}
+
 describe('LM Studio integration', () => {
   test.skip(`query LM Studio with a text prompt`, async () => {
     console.log('testing')
@@ -63,6 +107,7 @@ describe('LM Studio integration', () => {
 
   test(`generate AI tw selections`, async () => {
     let count = 0;
+    let successes = 0;
     const checkingDataFolder = path.join(__dirname, 'fixtures', 'checks', 'checkingData')
     const langId = 'en';
     const bookId = 'eph'
@@ -96,8 +141,8 @@ describe('LM Studio integration', () => {
               const ref = `${reference?.chapter}:${reference?.verse}`
               const verseText = getVerseString(targetBookChapters, ref);
               expect(verseText).toBeTruthy()
-              const tokenList = Lexer.tokenize(verseText);
-              const wordList = tokenList.map(token => (token.text))
+              const wordList = getWordList(verseText)
+              console.log(`success/count ${successes}/${++count} translating '${glQuote}' from: ${wordList.join(' ')}`)
               const bestMatches = await translatePhraseWithConfidence(wordList, targetLangCode, glQuote, langId)
               let bestAnswer = bestMatches[0]
               for (let i = 1; i < bestMatches.length; i++) {
@@ -106,9 +151,10 @@ describe('LM Studio integration', () => {
                 }
               }
               if (bestAnswer?.confidence) {
+                successes++;
                 check.selections = bestAnswer.selections
                 check.confidence = bestAnswer.confidence
-                console.log(`count ${++count} best match`, bestAnswer)
+                console.log(`count ${count} best match`, bestAnswer)
                 fs.outputJsonSync(checkingDataPath, bibleData, { spaces: 2 });
               }
             }
@@ -119,7 +165,7 @@ describe('LM Studio integration', () => {
 
   }, 8000000);
 
-  test.skip(`add quotes to gl checking data`, () => {
+  test(`add quotes to gl checking data`, () => {
     const langId = 'en';
     const bookId = 'heb'
     const folderPath = path.join(__dirname, 'fixtures', 'checks', 'checkingData')
@@ -139,13 +185,27 @@ describe('LM Studio integration', () => {
           const glQuote = contextId1?.glQuote
           const reference = contextId1?.reference;
           const bookId = reference?.bookId;
-          if (!glQuote && contextId1.quoteString && bookId) {
-            const alignedGlBook = alignedGlBible[bookId]
-            // need quote
-            const glText = getAlignedGLText(alignedGlBook, contextId1)
-            console.log(glText);
-            if (glText) {
-              contextId1.glQuote = glText;
+          if (contextId1.quoteString && bookId) {
+            if (!glQuote) {
+              const alignedGlBook = alignedGlBible[bookId]
+              // need quote
+              let glText = getAlignedGLText(alignedGlBook, contextId1)
+              console.log(glText);
+              if (glText) {
+                glText = removePunctuation(glText)
+                contextId1.glQuote = glText;
+              }
+            } else {
+              console.log(`already have glQuote '${glQuote}'`)
+              const cleanedQuote = cleanQuote(glQuote)
+              const cleanedQuote2 = cleanQuote2(glQuote)
+              if ((cleanedQuote2 !== cleanedQuote)) {
+                console.log(`cleaning differs '${cleanedQuote}' with '${cleanedQuote2}'`)
+              }
+              if ((cleanedQuote !== glQuote)) {
+                console.log(`replacing '${glQuote}' with '${cleanedQuote}'`)
+                contextId1.glQuote = cleanedQuote
+              }
             }
           }
         }

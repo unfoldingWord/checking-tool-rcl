@@ -606,7 +606,7 @@
             "groupId": "bless",
             "quote": "εὐλογητὸς",
             "quoteString": "εὐλογητὸς",
-            "glQuote": "Blessed {be",
+            "glQuote": "Blessed be",
             "occurrence": 1
           },
           "confidence": 95
@@ -1872,7 +1872,7 @@
             "groupId": "christ",
             "quote": "Χριστός",
             "quoteString": "Χριστός",
-            "glQuote": "even} Christ",
+            "glQuote": "even Christ",
             "occurrence": 1
           },
           "confidence": 100
@@ -2476,7 +2476,12 @@
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "iglesia",
+              "occurrence": 7
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -2493,12 +2498,18 @@
             "quoteString": "ἐκκλησίας",
             "glQuote": "church",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "iglesia",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -2515,12 +2526,26 @@
             "quoteString": "ἐκκλησίᾳ",
             "glQuote": "church",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 2
+            },
+            {
+              "text": "la",
+              "occurrence": 4
+            },
+            {
+              "text": "iglesia",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -2546,12 +2571,18 @@
             "quoteString": "τῆς ἐκκλησίας",
             "glQuote": "of the church",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "iglesia",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -2568,12 +2599,18 @@
             "quoteString": "ἐκκλησία",
             "glQuote": "church",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "iglesia",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -2590,12 +2627,18 @@
             "quoteString": "ἐκκλησίαν",
             "glQuote": "church",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "iglesia",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -2612,12 +2655,18 @@
             "quoteString": "ἐκκλησίαν",
             "glQuote": "church",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "iglesia",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -2634,12 +2683,18 @@
             "quoteString": "ἐκκλησίαν",
             "glQuote": "church",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "iglesia",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -2656,14 +2711,20 @@
             "quoteString": "ἐκκλησίαν",
             "glQuote": "church",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         }
       ],
       "circumcise": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "incircuncisos",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -2680,12 +2741,18 @@
             "quoteString": "ἀκροβυστία",
             "glQuote": "uncircumcised",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "circuncisos",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -2702,14 +2769,24 @@
             "quoteString": "περιτομῆς",
             "glQuote": "circumcised",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         }
       ],
       "cornerstone": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "piedra",
+              "occurrence": 1
+            },
+            {
+              "text": "angular",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -2726,14 +2803,20 @@
             "quoteString": "ἀκρογωνιαίου",
             "glQuote": "the cornerstone",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         }
       ],
       "covenant": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "pactos",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -2759,14 +2842,20 @@
             "quoteString": "τῶν διαθηκῶν",
             "glQuote": "to the covenants",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "cross": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "cruz",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -2783,14 +2872,20 @@
             "quoteString": "σταυροῦ",
             "glQuote": "cross",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         }
       ],
       "dominion": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "dominio",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -2807,14 +2902,20 @@
             "quoteString": "κυριότητος",
             "glQuote": "dominion",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         }
       ],
       "elect": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "eligió",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -2831,14 +2932,20 @@
             "quoteString": "ἐξελέξατο",
             "glQuote": "he chose",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "evangelism": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "evangelistas",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -2855,14 +2962,20 @@
             "quoteString": "εὐαγγελιστάς",
             "glQuote": "evangelists",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         }
       ],
       "evil": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "malos",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -2879,12 +2992,22 @@
             "quoteString": "πονηραί",
             "glQuote": "evil",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "del",
+              "occurrence": 2
+            },
+            {
+              "text": "mal",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -2910,12 +3033,18 @@
             "quoteString": "τῆς πονηρίας",
             "glQuote": "of evil",
             "occurrence": 1
-          }
+          },
+          "confidence": 85
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "malvado",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -2941,14 +3070,20 @@
             "quoteString": "τῇ πονηρᾷ",
             "glQuote": "evil",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "exhort": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "insto",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -2965,14 +3100,20 @@
             "quoteString": "παρακαλῶ",
             "glQuote": "urge",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "faith": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "fe",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3001,12 +3142,18 @@
             "quoteString": "τὴν & πίστιν",
             "glQuote": "faith",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "fe",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3023,12 +3170,18 @@
             "quoteString": "πίστεως",
             "glQuote": "faith",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "fe",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3054,12 +3207,18 @@
             "quoteString": "τῆς πίστεως",
             "glQuote": "faith",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "fe",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3085,12 +3244,18 @@
             "quoteString": "τῆς πίστεως",
             "glQuote": "faith",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "fe",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3107,12 +3272,26 @@
             "quoteString": "πίστις",
             "glQuote": "faith",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 1
+            },
+            {
+              "text": "la",
+              "occurrence": 2
+            },
+            {
+              "text": "fe",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3138,12 +3317,26 @@
             "quoteString": "τῆς πίστεως",
             "glQuote": "of the faith",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 1
+            },
+            {
+              "text": "la",
+              "occurrence": 1
+            },
+            {
+              "text": "fe",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3169,12 +3362,18 @@
             "quoteString": "τῆς πίστεως",
             "glQuote": "of the faith",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "fe",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3191,14 +3390,20 @@
             "quoteString": "πίστεως",
             "glQuote": "faith",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         }
       ],
       "faithful": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "fieles",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3215,12 +3420,18 @@
             "quoteString": "πιστοῖς",
             "glQuote": "faithful",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "fiel",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3237,14 +3448,20 @@
             "quoteString": "πιστὸς",
             "glQuote": "faithful",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "falsegod": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "idólatras",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3261,14 +3478,20 @@
             "quoteString": "εἰδωλολάτρης",
             "glQuote": "an idolater",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "fear": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "respetar",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3285,12 +3508,18 @@
             "quoteString": "φοβῆται",
             "glQuote": "respect",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "temor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3307,14 +3536,24 @@
             "quoteString": "φόβου",
             "glQuote": "fear",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         }
       ],
       "foolish": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "charlas",
+              "occurrence": 1
+            },
+            {
+              "text": "necias",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3331,12 +3570,18 @@
             "quoteString": "μωρολογία",
             "glQuote": "foolish talk",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "necios",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3353,14 +3598,20 @@
             "quoteString": "ἄφρονες",
             "glQuote": "foolish",
             "occurrence": 1
-          }
+          },
+          "confidence": 85
         }
       ],
       "forgive": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "perdón",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3377,12 +3628,18 @@
             "quoteString": "ἄφεσιν",
             "glQuote": "forgiveness",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "perdonándose",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3399,12 +3656,18 @@
             "quoteString": "χαριζόμενοι",
             "glQuote": "forgiving",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "perdonó",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3421,14 +3684,20 @@
             "quoteString": "ἐχαρίσατο",
             "glQuote": "forgave",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "gentile": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "gentiles",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3452,14 +3721,20 @@
               }
             ],
             "quoteString": "τὰ ἔθνη",
-            "glQuote": "were} Gentiles",
+            "glQuote": "were Gentiles",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "gentiles",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3485,12 +3760,18 @@
             "quoteString": "τῶν ἐθνῶν",
             "glQuote": "Gentiles",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "gentiles",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3507,12 +3788,26 @@
             "quoteString": "ἔθνη",
             "glQuote": "Gentiles",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "a",
+              "occurrence": 1
+            },
+            {
+              "text": "los",
+              "occurrence": 2
+            },
+            {
+              "text": "gentiles",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3538,12 +3833,18 @@
             "quoteString": "τοῖς ἔθνεσιν",
             "glQuote": "to the Gentiles",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "gentiles",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3560,14 +3861,28 @@
             "quoteString": "ἔθνη",
             "glQuote": "Gentiles",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         }
       ],
       "glory": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 1
+            },
+            {
+              "text": "la",
+              "occurrence": 1
+            },
+            {
+              "text": "gloria",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3584,12 +3899,22 @@
             "quoteString": "δόξης",
             "glQuote": "of the glory",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 1
+            },
+            {
+              "text": "gloria",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3606,12 +3931,22 @@
             "quoteString": "δόξης",
             "glQuote": "of & glory",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 1
+            },
+            {
+              "text": "gloria",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3637,12 +3972,22 @@
             "quoteString": "τῆς δόξης",
             "glQuote": "of & glory",
             "occurrence": 1
-          }
+          },
+          "confidence": 85
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 2
+            },
+            {
+              "text": "gloria",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3668,12 +4013,18 @@
             "quoteString": "τῆς δόξης",
             "glQuote": "of glory",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "gloriosa",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3699,12 +4050,18 @@
             "quoteString": "τῆς δόξης",
             "glQuote": "of the glory",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "gloria",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3721,12 +4078,22 @@
             "quoteString": "δόξα",
             "glQuote": "glory",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 1
+            },
+            {
+              "text": "gloria",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3752,12 +4119,18 @@
             "quoteString": "τῆς δόξης",
             "glQuote": "of & glory",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "gloria",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3772,14 +4145,24 @@
             "groupId": "glory",
             "quote": "δόξα",
             "quoteString": "δόξα",
-            "glQuote": "be} & glory",
+            "glQuote": "be & glory",
             "occurrence": 1
-          }
+          },
+          "confidence": 90
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "como",
+              "occurrence": 1
+            },
+            {
+              "text": "gloriosa",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3796,14 +4179,24 @@
             "quoteString": "ἔνδοξον",
             "glQuote": "as glorious",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "god": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 2
+            },
+            {
+              "text": "Dios",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3820,12 +4213,18 @@
             "quoteString": "Θεοῦ",
             "glQuote": "of God",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Dios",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3842,12 +4241,18 @@
             "quoteString": "Θεὸς",
             "glQuote": "God",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Dios",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3876,12 +4281,22 @@
             "quoteString": "ὁ & Θεὸς",
             "glQuote": "God",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 3
+            },
+            {
+              "text": "Dios",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3898,12 +4313,18 @@
             "quoteString": "Θεοῦ",
             "glQuote": "of God",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Dios",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3929,12 +4350,22 @@
             "quoteString": "ὁ Θεὸς",
             "glQuote": "God",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "a",
+              "occurrence": 1
+            },
+            {
+              "text": "Dios",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3960,12 +4391,22 @@
             "quoteString": "τῷ Θεῷ",
             "glQuote": "to God",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 3
+            },
+            {
+              "text": "Dios",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -3991,12 +4432,22 @@
             "quoteString": "τοῦ Θεοῦ",
             "glQuote": "of God",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "para",
+              "occurrence": 1
+            },
+            {
+              "text": "Dios",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -4022,12 +4473,22 @@
             "quoteString": "τοῦ Θεοῦ",
             "glQuote": "for God",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 3
+            },
+            {
+              "text": "Dios",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -4053,12 +4514,22 @@
             "quoteString": "τοῦ Θεοῦ",
             "glQuote": "of God",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 1
+            },
+            {
+              "text": "Dios",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -4084,12 +4555,18 @@
             "quoteString": "τοῦ Θεοῦ",
             "glQuote": "of God",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Dios",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -4115,12 +4592,22 @@
             "quoteString": "τῷ Θεῷ",
             "glQuote": "God",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 1
+            },
+            {
+              "text": "Dios",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -4146,12 +4633,22 @@
             "quoteString": "τοῦ Θεοῦ",
             "glQuote": "of God",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 3
+            },
+            {
+              "text": "Dios",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -4177,12 +4674,22 @@
             "quoteString": "τοῦ Θεοῦ",
             "glQuote": "of God",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 2
+            },
+            {
+              "text": "Dios",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -4208,12 +4715,18 @@
             "quoteString": "τοῦ Θεοῦ",
             "glQuote": "of God",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Dios",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -4230,12 +4743,18 @@
             "quoteString": "Θεὸν",
             "glQuote": "God",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Dios",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -4261,12 +4780,22 @@
             "quoteString": "ὁ Θεὸς",
             "glQuote": "God",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 1
+            },
+            {
+              "text": "Dios",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -4292,12 +4821,22 @@
             "quoteString": "τοῦ Θεοῦ",
             "glQuote": "of God",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "a",
+              "occurrence": 2
+            },
+            {
+              "text": "Dios",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -4323,12 +4862,22 @@
             "quoteString": "τῷ Θεῷ",
             "glQuote": "to God",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 3
+            },
+            {
+              "text": "Dios",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -4345,12 +4894,18 @@
             "quoteString": "Θεοῦ",
             "glQuote": "of God",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Dios",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -4376,12 +4931,22 @@
             "quoteString": "τοῦ Θεοῦ",
             "glQuote": "of God",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 4
+            },
+            {
+              "text": "Dios",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -4407,12 +4972,22 @@
             "quoteString": "τοῦ Θεοῦ",
             "glQuote": "of God",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 1
+            },
+            {
+              "text": "Dios",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -4438,12 +5013,22 @@
             "quoteString": "τοῦ Θεοῦ",
             "glQuote": "of God",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 1
+            },
+            {
+              "text": "Dios",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -4469,14 +5054,24 @@
             "quoteString": "τοῦ Θεοῦ",
             "glQuote": "of God",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "godthefather": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Dios",
+              "occurrence": 1
+            },
+            {
+              "text": "Padre",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -4502,12 +5097,22 @@
             "quoteString": "Θεοῦ Πατρὸς",
             "glQuote": "God & Father",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Dios",
+              "occurrence": 1
+            },
+            {
+              "text": "Padre",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -4537,12 +5142,18 @@
             "quoteString": "Θεὸς καὶ Πατὴρ",
             "glQuote": "God and Father",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Padre",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -4568,12 +5179,18 @@
             "quoteString": "ὁ Πατὴρ",
             "glQuote": "the Father",
             "occurrence": 1
-          }
+          },
+          "confidence": 85
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Padre",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -4590,12 +5207,18 @@
             "quoteString": "Πατέρα",
             "glQuote": "Father",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Padre",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -4612,12 +5235,26 @@
             "quoteString": "Πατέρα",
             "glQuote": "Father",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Dios",
+              "occurrence": 1
+            },
+            {
+              "text": "y",
+              "occurrence": 1
+            },
+            {
+              "text": "Padre",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -4647,12 +5284,22 @@
             "quoteString": "Θεὸς καὶ Πατὴρ",
             "glQuote": "God and Father",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Dios",
+              "occurrence": 1
+            },
+            {
+              "text": "Padre",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -4684,14 +5331,24 @@
               }
             ],
             "quoteString": "τῷ Θεῷ καὶ Πατρί",
-            "glQuote": "to God, even the Father",
+            "glQuote": "to God even the Father",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Dios",
+              "occurrence": 1
+            },
+            {
+              "text": "Padre",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -4717,14 +5374,24 @@
             "quoteString": "Θεοῦ Πατρὸς",
             "glQuote": "God the Father",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "good": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "buen",
+              "occurrence": 1
+            },
+            {
+              "text": "deseo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -4741,12 +5408,18 @@
             "quoteString": "εὐδοκίαν",
             "glQuote": "good pleasure",
             "occurrence": 1
-          }
+          },
+          "confidence": 85
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "buenas",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -4763,7 +5436,8 @@
             "quoteString": "ἀγαθοῖς",
             "glQuote": "good",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
@@ -4814,14 +5488,19 @@
             "groupId": "good",
             "quote": "ἀγαθὸς",
             "quoteString": "ἀγαθὸς",
-            "glQuote": "is} good",
+            "glQuote": "is good",
             "occurrence": 1
           }
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "bondad",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -4838,12 +5517,18 @@
             "quoteString": "ἀγαθωσύνῃ",
             "glQuote": "goodness",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "bueno",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -4860,14 +5545,20 @@
             "quoteString": "ἀγαθόν",
             "glQuote": "good",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         }
       ],
       "goodnews": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Evangelio",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -4884,12 +5575,22 @@
             "quoteString": "εὐαγγέλιον",
             "glQuote": "gospel",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "y",
+              "occurrence": 1
+            },
+            {
+              "text": "anunció",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -4904,14 +5605,20 @@
             "groupId": "goodnews",
             "quote": "εὐηγγελίσατο",
             "quoteString": "εὐηγγελίσατο",
-            "glQuote": "and} proclaimed",
+            "glQuote": "and proclaimed",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "evangelio",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -4928,12 +5635,18 @@
             "quoteString": "εὐαγγελίου",
             "glQuote": "gospel",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "predicar",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -4950,12 +5663,22 @@
             "quoteString": "εὐαγγελίσασθαι",
             "glQuote": "to preach",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "del",
+              "occurrence": 1
+            },
+            {
+              "text": "Evangelio",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -4981,12 +5704,22 @@
             "quoteString": "τοῦ εὐαγγελίου",
             "glQuote": "of the gospel",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "del",
+              "occurrence": 1
+            },
+            {
+              "text": "Evangelio",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5012,14 +5745,20 @@
             "quoteString": "τοῦ εὐαγγελίου",
             "glQuote": "of the gospel",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "grace": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Gracia",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5036,12 +5775,22 @@
             "quoteString": "χάρις",
             "glQuote": "Grace",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 1
+            },
+            {
+              "text": "gracia",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5067,12 +5816,22 @@
             "quoteString": "τῆς χάριτος",
             "glQuote": "of & grace",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 1
+            },
+            {
+              "text": "gracia",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5098,12 +5857,22 @@
             "quoteString": "τῆς χάριτος",
             "glQuote": "of & grace",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "por",
+              "occurrence": 1
+            },
+            {
+              "text": "gracia",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5120,12 +5889,22 @@
             "quoteString": "χάριτί",
             "glQuote": "by grace",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 1
+            },
+            {
+              "text": "gracia",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5151,12 +5930,22 @@
             "quoteString": "τῆς χάριτος",
             "glQuote": "of & grace",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "por",
+              "occurrence": 1
+            },
+            {
+              "text": "gracia",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5185,12 +5974,26 @@
             "quoteString": "τῇ & χάριτί",
             "glQuote": "by grace",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 1
+            },
+            {
+              "text": "la",
+              "occurrence": 1
+            },
+            {
+              "text": "gracia",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5216,12 +6019,26 @@
             "quoteString": "τῆς χάριτος",
             "glQuote": "of the grace",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "la",
+              "occurrence": 1
+            },
+            {
+              "text": "gracia",
+              "occurrence": 1
+            },
+            {
+              "text": "de",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5247,7 +6064,8 @@
             "quoteString": "τῆς χάριτος",
             "glQuote": "of the grace",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
@@ -5283,7 +6101,12 @@
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "gracia",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5300,12 +6123,18 @@
             "quoteString": "χάρις",
             "glQuote": "grace",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "gracia",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5322,12 +6151,18 @@
             "quoteString": "χάριν",
             "glQuote": "grace",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "gracia",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5353,14 +6188,24 @@
             "quoteString": "ἡ χάρις",
             "glQuote": "Grace",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         }
       ],
       "heaven": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "lugares",
+              "occurrence": 1
+            },
+            {
+              "text": "celestiales",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5375,14 +6220,20 @@
             "groupId": "heaven",
             "quote": "ἐπουρανίοις",
             "quoteString": "ἐπουρανίοις",
-            "glQuote": "heavenly {places",
+            "glQuote": "heavenly places",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "cielos",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5399,12 +6250,22 @@
             "quoteString": "οὐρανοῖς",
             "glQuote": "heavens",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "lugares",
+              "occurrence": 1
+            },
+            {
+              "text": "celestiales",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5421,12 +6282,22 @@
             "quoteString": "ἐπουρανίοις",
             "glQuote": "heavenly places",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "lugares",
+              "occurrence": 1
+            },
+            {
+              "text": "celestiales",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5443,12 +6314,22 @@
             "quoteString": "ἐπουρανίοις",
             "glQuote": "heavenly places",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "lugar",
+              "occurrence": 1
+            },
+            {
+              "text": "celestial",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5465,12 +6346,18 @@
             "quoteString": "ἐπουρανίοις",
             "glQuote": "heavenly places",
             "occurrence": 1
-          }
+          },
+          "confidence": 85
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "cielo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5487,12 +6374,18 @@
             "quoteString": "οὐρανοῖς",
             "glQuote": "heaven",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "cielos",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5509,12 +6402,18 @@
             "quoteString": "οὐρανῶν",
             "glQuote": "heavens",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "cielo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5531,12 +6430,22 @@
             "quoteString": "οὐρανοῖς",
             "glQuote": "heaven",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "lugares",
+              "occurrence": 1
+            },
+            {
+              "text": "celestiales",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5551,16 +6460,22 @@
             "groupId": "heaven",
             "quote": "ἐπουρανίοις",
             "quoteString": "ἐπουρανίοις",
-            "glQuote": "heavenly {places",
+            "glQuote": "heavenly places",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "holy": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "santos",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5577,12 +6492,18 @@
             "quoteString": "ἁγίους",
             "glQuote": "holy",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "santo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5599,12 +6520,18 @@
             "quoteString": "ἅγιον",
             "glQuote": "holy",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "santos",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5621,12 +6548,18 @@
             "quoteString": "ἁγίοις",
             "glQuote": "holy",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "santidad",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5643,12 +6576,18 @@
             "quoteString": "ὁσιότητι",
             "glQuote": "holiness",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "santa",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5665,14 +6604,36 @@
             "quoteString": "ἁγία",
             "glQuote": "holy",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         }
       ],
       "holyspirit": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "con",
+              "occurrence": 1
+            },
+            {
+              "text": "el",
+              "occurrence": 2
+            },
+            {
+              "text": "Espíritu",
+              "occurrence": 1
+            },
+            {
+              "text": "Santo",
+              "occurrence": 1
+            },
+            {
+              "text": "prometido",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5718,12 +6679,18 @@
             "quoteString": "τῷ Πνεύματι τῆς ἐπαγγελίας, τῷ Ἁγίῳ",
             "glQuote": "with the promised Holy Spirit",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Espíritu",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5740,12 +6707,22 @@
             "quoteString": "Πνεύματι",
             "glQuote": "Spirit",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "el",
+              "occurrence": 1
+            },
+            {
+              "text": "Espíritu",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5762,7 +6739,8 @@
             "quoteString": "Πνεύματι",
             "glQuote": "the Spirit",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
@@ -5789,7 +6767,12 @@
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Espíritu",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5815,12 +6798,22 @@
             "quoteString": "τοῦ Πνεύματος",
             "glQuote": "Spirit",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "del",
+              "occurrence": 1
+            },
+            {
+              "text": "Espíritu",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5846,12 +6839,18 @@
             "quoteString": "τοῦ Πνεύματος",
             "glQuote": "of the Spirit",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Espíritu",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5868,12 +6867,30 @@
             "quoteString": "Πνεῦμα",
             "glQuote": "Spirit",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Espíritu",
+              "occurrence": 1
+            },
+            {
+              "text": "Santo",
+              "occurrence": 1
+            },
+            {
+              "text": "de",
+              "occurrence": 1
+            },
+            {
+              "text": "Dios",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5911,12 +6928,22 @@
             "quoteString": "Πνεῦμα τὸ Ἅγιον τοῦ Θεοῦ",
             "glQuote": "Holy Spirit of God",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "el",
+              "occurrence": 2
+            },
+            {
+              "text": "Espíritu",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5933,12 +6960,22 @@
             "quoteString": "Πνεύματι",
             "glQuote": "the Spirit",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "del",
+              "occurrence": 1
+            },
+            {
+              "text": "Espíritu",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5964,12 +7001,22 @@
             "quoteString": "τοῦ Πνεύματος",
             "glQuote": "of the Spirit",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "el",
+              "occurrence": 1
+            },
+            {
+              "text": "Espíritu",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -5986,7 +7033,8 @@
             "quoteString": "Πνεύματι",
             "glQuote": "the Spirit",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "honor": [
@@ -6017,7 +7065,16 @@
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "primeros",
+              "occurrence": 1
+            },
+            {
+              "text": "esperanza",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -6034,12 +7091,18 @@
             "quoteString": "προηλπικότας",
             "glQuote": "having first hoped",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "esperanza",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -6056,12 +7119,18 @@
             "quoteString": "ἐλπὶς",
             "glQuote": "hope",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "esperanza",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -6078,12 +7147,18 @@
             "quoteString": "ἐλπίδα",
             "glQuote": "hope",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "esperanza",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -6100,14 +7175,20 @@
             "quoteString": "ἐλπίδι",
             "glQuote": "hope",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "humble": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "humildad",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -6124,14 +7205,24 @@
             "quoteString": "ταπεινοφροσύνης",
             "glQuote": "humility",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "inchrist": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "en",
+              "occurrence": 2
+            },
+            {
+              "text": "Jesucristo",
+              "occurrence": 2
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -6161,12 +7252,22 @@
             "quoteString": "ἐν Χριστῷ Ἰησοῦ",
             "glQuote": "in Christ Jesus",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "en",
+              "occurrence": 2
+            },
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -6192,12 +7293,22 @@
             "quoteString": "ἐν Χριστῷ",
             "glQuote": "in Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "en",
+              "occurrence": 1
+            },
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -6227,12 +7338,22 @@
             "quoteString": "ἐν τῷ Χριστῷ",
             "glQuote": "in Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "en",
+              "occurrence": 2
+            },
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -6262,12 +7383,30 @@
             "quoteString": "ἐν τῷ Χριστῷ",
             "glQuote": "in Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "en",
+              "occurrence": 1
+            },
+            {
+              "text": "el",
+              "occurrence": 1
+            },
+            {
+              "text": "Señor",
+              "occurrence": 1
+            },
+            {
+              "text": "Jesús",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -6301,12 +7440,22 @@
             "quoteString": "ἐν τῷ Κυρίῳ Ἰησοῦ",
             "glQuote": "in the Lord Jesus",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "en",
+              "occurrence": 1
+            },
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -6336,12 +7485,22 @@
             "quoteString": "ἐν τῷ Χριστῷ",
             "glQuote": "in Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "en",
+              "occurrence": 1
+            },
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -6367,12 +7526,26 @@
             "quoteString": "ἐν Χριστῷ",
             "glQuote": "in Christ",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "en",
+              "occurrence": 2
+            },
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            },
+            {
+              "text": "Jesús",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -6402,12 +7575,26 @@
             "quoteString": "ἐν Χριστῷ Ἰησοῦ",
             "glQuote": "in Christ Jesus",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "en",
+              "occurrence": 3
+            },
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            },
+            {
+              "text": "Jesús",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -6437,12 +7624,22 @@
             "quoteString": "ἐν Χριστῷ Ἰησοῦ",
             "glQuote": "in Christ Jesus",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            },
+            {
+              "text": "Jesús",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -6472,12 +7669,26 @@
             "quoteString": "ἐν Χριστῷ Ἰησοῦ",
             "glQuote": "in Christ Jesus",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "en",
+              "occurrence": 1
+            },
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            },
+            {
+              "text": "Jesús",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -6507,12 +7718,26 @@
             "quoteString": "ἐν Χριστῷ Ἰησοῦ",
             "glQuote": "in Christ Jesus",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "en",
+              "occurrence": 2
+            },
+            {
+              "text": "el",
+              "occurrence": 2
+            },
+            {
+              "text": "Señor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -6538,12 +7763,26 @@
             "quoteString": "ἐν Κυρίῳ",
             "glQuote": "in the Lord",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "en",
+              "occurrence": 1
+            },
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            },
+            {
+              "text": "Jesús",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -6573,12 +7812,26 @@
             "quoteString": "ἐν Χριστῷ Ἰησοῦ",
             "glQuote": "in Christ Jesus",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "en",
+              "occurrence": 1
+            },
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            },
+            {
+              "text": "Jesús",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -6612,12 +7865,22 @@
             "quoteString": "ἐν τῷ Χριστῷ Ἰησοῦ",
             "glQuote": "in Christ Jesus",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Cristo",
+              "occurrence": 1
+            },
+            {
+              "text": "Jesús",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -6647,7 +7910,8 @@
             "quoteString": "ἐν Χριστῷ Ἰησοῦ",
             "glQuote": "in Christ Jesus",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
@@ -6683,7 +7947,20 @@
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "en",
+              "occurrence": 1
+            },
+            {
+              "text": "el",
+              "occurrence": 1
+            },
+            {
+              "text": "Señor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -6709,12 +7986,22 @@
             "quoteString": "ἐν Κυρίῳ",
             "glQuote": "in the Lord",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "en",
+              "occurrence": 3
+            },
+            {
+              "text": "Jesús",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -6744,7 +8031,8 @@
             "quoteString": "ἐν τῷ Ἰησοῦ",
             "glQuote": "in Jesus",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
@@ -6780,7 +8068,20 @@
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "en",
+              "occurrence": 1
+            },
+            {
+              "text": "el",
+              "occurrence": 1
+            },
+            {
+              "text": "Señor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -6806,12 +8107,26 @@
             "quoteString": "ἐν Κυρίῳ",
             "glQuote": "in the Lord",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "en",
+              "occurrence": 1
+            },
+            {
+              "text": "el",
+              "occurrence": 1
+            },
+            {
+              "text": "Señor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -6837,12 +8152,26 @@
             "quoteString": "ἐν Κυρίῳ",
             "glQuote": "in the Lord",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "en",
+              "occurrence": 1
+            },
+            {
+              "text": "el",
+              "occurrence": 1
+            },
+            {
+              "text": "Señor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -6868,7 +8197,8 @@
             "quoteString": "ἐν Κυρίῳ",
             "glQuote": "in the Lord",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
@@ -6906,7 +8236,16 @@
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 1
+            },
+            {
+              "text": "herencia",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -6932,12 +8271,22 @@
             "quoteString": "τῆς κληρονομίας",
             "glQuote": "of & inheritance",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 1
+            },
+            {
+              "text": "herencia",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -6963,12 +8312,18 @@
             "quoteString": "τῆς κληρονομίας",
             "glQuote": "of & inheritance",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "herencia",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -6985,14 +8340,24 @@
             "quoteString": "κληρονομίαν",
             "glQuote": "inheritance",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "israel": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 3
+            },
+            {
+              "text": "Israel",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -7018,7 +8383,8 @@
             "quoteString": "τοῦ Ἰσραὴλ",
             "glQuote": "of Israel",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         }
       ],
       "jesus": [
@@ -7047,7 +8413,16 @@
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Jesucristo",
+              "occurrence": 1
+            },
+            {
+              "text": "Jesucristo",
+              "occurrence": 2
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -7064,12 +8439,18 @@
             "quoteString": "Ἰησοῦ",
             "glQuote": "Jesus",
             "occurrence": 2
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Jesucristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -7086,12 +8467,18 @@
             "quoteString": "Ἰησοῦ",
             "glQuote": "Jesus",
             "occurrence": 1
-          }
+          },
+          "confidence": 90
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Jesucristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -7108,12 +8495,18 @@
             "quoteString": "Ἰησοῦ",
             "glQuote": "Jesus",
             "occurrence": 1
-          }
+          },
+          "confidence": 90
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Jesucristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -7130,12 +8523,18 @@
             "quoteString": "Ἰησοῦ",
             "glQuote": "Jesus",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Jesús",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -7152,7 +8551,8 @@
             "quoteString": "Ἰησοῦ",
             "glQuote": "Jesus",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
@@ -7179,7 +8579,12 @@
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Jesús",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -7196,12 +8601,18 @@
             "quoteString": "Ἰησοῦ",
             "glQuote": "Jesus",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Jesús",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -7218,12 +8629,18 @@
             "quoteString": "Ἰησοῦ",
             "glQuote": "Jesus",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Jesús",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -7240,7 +8657,8 @@
             "quoteString": "Ἰησοῦ",
             "glQuote": "Jesus",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
@@ -7267,7 +8685,12 @@
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Jesús",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -7284,12 +8707,18 @@
             "quoteString": "Ἰησοῦ",
             "glQuote": "Jesus",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Jesús",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -7306,12 +8735,18 @@
             "quoteString": "Ἰησοῦ",
             "glQuote": "Jesus",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Jesús",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -7328,12 +8763,18 @@
             "quoteString": "Ἰησοῦ",
             "glQuote": "Jesus",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Jesús",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -7350,12 +8791,18 @@
             "quoteString": "Ἰησοῦ",
             "glQuote": "Jesus",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Jesús",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -7372,12 +8819,18 @@
             "quoteString": "Ἰησοῦ",
             "glQuote": "Jesus",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Jesús",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -7403,7 +8856,8 @@
             "quoteString": "τῷ Ἰησοῦ",
             "glQuote": "Jesus",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
@@ -7430,7 +8884,12 @@
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Jesucristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -7447,12 +8906,18 @@
             "quoteString": "Ἰησοῦ",
             "glQuote": "Jesus",
             "occurrence": 1
-          }
+          },
+          "confidence": 85
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Jesucristo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -7469,7 +8934,8 @@
             "quoteString": "Ἰησοῦν",
             "glQuote": "Jesus",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "kingdomofgod": [
@@ -7521,7 +8987,12 @@
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "ley",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -7538,7 +9009,8 @@
             "quoteString": "νόμον",
             "glQuote": "law",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "lord": [
@@ -7567,7 +9039,16 @@
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 1
+            },
+            {
+              "text": "Señor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -7593,12 +9074,18 @@
             "quoteString": "τοῦ Κυρίου",
             "glQuote": "of & Lord",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Señor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -7615,12 +9102,26 @@
             "quoteString": "Κυρίῳ",
             "glQuote": "Lord",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 1
+            },
+            {
+              "text": "y",
+              "occurrence": 1
+            },
+            {
+              "text": "Señor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -7646,12 +9147,22 @@
             "quoteString": "τοῦ Κυρίου",
             "glQuote": "of & Lord",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "el",
+              "occurrence": 2
+            },
+            {
+              "text": "Señor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -7668,12 +9179,18 @@
             "quoteString": "Κυρίῳ",
             "glQuote": "the Lord",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Señor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -7699,12 +9216,18 @@
             "quoteString": "τῷ Κυρίῳ",
             "glQuote": "Lord",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Señor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -7721,12 +9244,18 @@
             "quoteString": "Κυρίῳ",
             "glQuote": "the Lord",
             "occurrence": 1
-          }
+          },
+          "confidence": 90
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Señor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -7743,12 +9272,18 @@
             "quoteString": "Κύριος",
             "glQuote": "Lord",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Señor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -7765,12 +9300,22 @@
             "quoteString": "Κυρίῳ",
             "glQuote": "the Lord",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "el",
+              "occurrence": 1
+            },
+            {
+              "text": "Señor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -7787,12 +9332,22 @@
             "quoteString": "Κυρίῳ",
             "glQuote": "the Lord",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "al",
+              "occurrence": 1
+            },
+            {
+              "text": "Señor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -7818,12 +9373,22 @@
             "quoteString": "τῷ Κυρίῳ",
             "glQuote": "to the Lord",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "del",
+              "occurrence": 1
+            },
+            {
+              "text": "Señor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -7847,14 +9412,28 @@
               }
             ],
             "quoteString": "τοῦ Κυρίου",
-            "glQuote": "of the Lord {is",
+            "glQuote": "of the Lord is",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "para",
+              "occurrence": 1
+            },
+            {
+              "text": "el",
+              "occurrence": 1
+            },
+            {
+              "text": "Señor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -7880,12 +9459,22 @@
             "quoteString": "τῷ Κυρίῳ",
             "glQuote": "to the Lord",
             "occurrence": 1
-          }
+          },
+          "confidence": 85
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 1
+            },
+            {
+              "text": "Señor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -7911,12 +9500,22 @@
             "quoteString": "τοῦ Κυρίου",
             "glQuote": "of & Lord",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "al",
+              "occurrence": 1
+            },
+            {
+              "text": "Señor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -7942,12 +9541,22 @@
             "quoteString": "τῷ Κυρίῳ",
             "glQuote": "to the Lord",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "el",
+              "occurrence": 1
+            },
+            {
+              "text": "Señor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -7964,12 +9573,22 @@
             "quoteString": "Κυρίῳ",
             "glQuote": "the Lord",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "del",
+              "occurrence": 1
+            },
+            {
+              "text": "Señor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -7986,7 +9605,8 @@
             "quoteString": "Κυρίου",
             "glQuote": "of the Lord",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
@@ -8013,7 +9633,16 @@
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "al",
+              "occurrence": 1
+            },
+            {
+              "text": "Señor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8039,12 +9668,18 @@
             "quoteString": "τῷ Κυρίῳ",
             "glQuote": "to the Lord",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Señor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8061,12 +9696,18 @@
             "quoteString": "Κυρίου",
             "glQuote": "the Lord",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Maestro",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8092,12 +9733,18 @@
             "quoteString": "οἱ κύριοι",
             "glQuote": "masters",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Maestro",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8114,12 +9761,22 @@
             "quoteString": "Κύριός",
             "glQuote": "Master",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "el",
+              "occurrence": 1
+            },
+            {
+              "text": "Señor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8136,12 +9793,18 @@
             "quoteString": "Κυρίῳ",
             "glQuote": "the Lord",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Señor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8158,12 +9821,18 @@
             "quoteString": "Κυρίῳ",
             "glQuote": "the Lord",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Señor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8180,12 +9849,18 @@
             "quoteString": "Κυρίου",
             "glQuote": "the Lord",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Señor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8211,14 +9886,20 @@
             "quoteString": "τὸν Κύριον",
             "glQuote": "Lord",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         }
       ],
       "love": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "amor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8235,12 +9916,18 @@
             "quoteString": "ἀγάπῃ",
             "glQuote": "love",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Amado",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8257,12 +9944,18 @@
             "quoteString": "ἠγαπημένῳ",
             "glQuote": "Beloved One",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "amor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8279,12 +9972,18 @@
             "quoteString": "ἀγάπην",
             "glQuote": "love",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "amor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8301,12 +10000,18 @@
             "quoteString": "ἀγάπην",
             "glQuote": "love",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "amó",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8323,12 +10028,18 @@
             "quoteString": "ἠγάπησεν",
             "glQuote": "he loved",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "amor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8345,12 +10056,18 @@
             "quoteString": "ἀγάπῃ",
             "glQuote": "love",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "amor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8367,12 +10084,18 @@
             "quoteString": "ἀγάπην",
             "glQuote": "love",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "amor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8389,12 +10112,18 @@
             "quoteString": "ἀγάπῃ",
             "glQuote": "love",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "amor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8411,12 +10140,18 @@
             "quoteString": "ἀγάπῃ",
             "glQuote": "love",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "amor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8433,12 +10168,18 @@
             "quoteString": "ἀγάπῃ",
             "glQuote": "love",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "amor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8455,12 +10196,18 @@
             "quoteString": "ἀγάπῃ",
             "glQuote": "love",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "amó",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8477,12 +10224,18 @@
             "quoteString": "ἠγάπησεν",
             "glQuote": "loved",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "amó",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8499,12 +10252,18 @@
             "quoteString": "ἀγαπᾶτε",
             "glQuote": "love",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "amó",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8521,12 +10280,18 @@
             "quoteString": "ἠγάπησεν",
             "glQuote": "loved",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "amar",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8543,7 +10308,8 @@
             "quoteString": "ἀγαπᾶν",
             "glQuote": "to love",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
@@ -8570,7 +10336,16 @@
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "ama",
+              "occurrence": 1
+            },
+            {
+              "text": "ama",
+              "occurrence": 2
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8587,12 +10362,18 @@
             "quoteString": "ἀγαπᾷ",
             "glQuote": "loves",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "amor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8609,7 +10390,8 @@
             "quoteString": "ἀγάπη",
             "glQuote": "love",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
@@ -8638,7 +10420,12 @@
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "misericordia",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8655,14 +10442,20 @@
             "quoteString": "ἐλέει",
             "glQuote": "mercy",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         }
       ],
       "pray": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "oraciones",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8688,12 +10481,18 @@
             "quoteString": "τῶν προσευχῶν",
             "glQuote": "prayers",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "oración",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8710,12 +10509,18 @@
             "quoteString": "προσευχῆς",
             "glQuote": "prayer",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "petición",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8732,12 +10537,18 @@
             "quoteString": "δεήσεως",
             "glQuote": "request",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "oren",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8754,12 +10565,18 @@
             "quoteString": "προσευχόμενοι",
             "glQuote": "pray",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "peticiones",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8776,14 +10593,28 @@
             "quoteString": "δεήσει",
             "glQuote": "requests",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "predestine": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "escogió",
+              "occurrence": 1
+            },
+            {
+              "text": "de",
+              "occurrence": 1
+            },
+            {
+              "text": "antemano",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8800,12 +10631,30 @@
             "quoteString": "προορίσας",
             "glQuote": "he predestined",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Fuimos",
+              "occurrence": 1
+            },
+            {
+              "text": "decididos",
+              "occurrence": 1
+            },
+            {
+              "text": "de",
+              "occurrence": 1
+            },
+            {
+              "text": "antemano",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8822,14 +10671,20 @@
             "quoteString": "προορισθέντες",
             "glQuote": "We were predestined",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "promise": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "prometido",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8855,12 +10710,26 @@
             "quoteString": "τῆς ἐπαγγελίας",
             "glQuote": "promised",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 4
+            },
+            {
+              "text": "la",
+              "occurrence": 2
+            },
+            {
+              "text": "promesa",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8886,12 +10755,26 @@
             "quoteString": "τῆς ἐπαγγελίας",
             "glQuote": "of the promise",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 1
+            },
+            {
+              "text": "la",
+              "occurrence": 1
+            },
+            {
+              "text": "promesa",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8917,12 +10800,18 @@
             "quoteString": "τῆς ἐπαγγελίας",
             "glQuote": "of the promise",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "promesa",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8939,14 +10828,20 @@
             "quoteString": "ἐπαγγελίᾳ",
             "glQuote": "a promise",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         }
       ],
       "prophet": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "profetas",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8963,12 +10858,18 @@
             "quoteString": "προφητῶν",
             "glQuote": "prophets",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "profetas",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -8985,12 +10886,18 @@
             "quoteString": "προφήταις",
             "glQuote": "prophets",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "profetas",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -9007,14 +10914,20 @@
             "quoteString": "προφήτας",
             "glQuote": "prophets",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         }
       ],
       "psalm": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "salmos",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -9031,7 +10944,8 @@
             "quoteString": "ψαλμοῖς",
             "glQuote": "psalms",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
@@ -9060,7 +10974,12 @@
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "reconciliar",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -9077,14 +10996,20 @@
             "quoteString": "ἀποκαταλλάξῃ",
             "glQuote": "so that he might reconcile",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "redeem": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "redención",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -9110,12 +11035,18 @@
             "quoteString": "τὴν ἀπολύτρωσιν",
             "glQuote": "redemption",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "liberación",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -9132,12 +11063,18 @@
             "quoteString": "ἀπολύτρωσιν",
             "glQuote": "the redemption",
             "occurrence": 1
-          }
+          },
+          "confidence": 90
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "redención",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -9154,12 +11091,18 @@
             "quoteString": "ἀπολυτρώσεως",
             "glQuote": "of redemption",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "redimiendo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -9176,14 +11119,20 @@
             "quoteString": "ἐξαγοραζόμενοι",
             "glQuote": "redeeming",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "righteous": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "justicia",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -9200,12 +11149,18 @@
             "quoteString": "δικαιοσύνῃ",
             "glQuote": "righteousness",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "justicia",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -9222,12 +11177,18 @@
             "quoteString": "δικαιοσύνῃ",
             "glQuote": "righteousness",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "justo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -9244,7 +11205,8 @@
             "quoteString": "δίκαιον",
             "glQuote": "righteous",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
@@ -9282,7 +11244,16 @@
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "a",
+              "occurrence": 1
+            },
+            {
+              "text": "santos",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -9299,12 +11270,18 @@
             "quoteString": "ἁγίοις",
             "glQuote": "to & saints",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "santos",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -9321,12 +11298,18 @@
             "quoteString": "ἁγίους",
             "glQuote": "saints",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "santos",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -9343,12 +11326,18 @@
             "quoteString": "ἁγίοις",
             "glQuote": "saints",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "santos",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -9365,12 +11354,26 @@
             "quoteString": "ἁγίων",
             "glQuote": "saints",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 1
+            },
+            {
+              "text": "los",
+              "occurrence": 1
+            },
+            {
+              "text": "santos",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -9387,12 +11390,18 @@
             "quoteString": "ἁγίων",
             "glQuote": "of & the saints",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "santos",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -9409,12 +11418,22 @@
             "quoteString": "ἁγίοις",
             "glQuote": "saints",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "los",
+              "occurrence": 1
+            },
+            {
+              "text": "santos",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -9440,12 +11459,18 @@
             "quoteString": "τῶν ἁγίων",
             "glQuote": "of the saints",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "santos",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -9462,12 +11487,18 @@
             "quoteString": "ἁγίοις",
             "glQuote": "for saints",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "santos",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -9484,14 +11515,28 @@
             "quoteString": "ἁγίων",
             "glQuote": "saints",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         }
       ],
       "sanctify": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Él",
+              "occurrence": 1
+            },
+            {
+              "text": "pudiese",
+              "occurrence": 1
+            },
+            {
+              "text": "santificar",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -9508,14 +11553,24 @@
             "quoteString": "ἁγιάσῃ",
             "glQuote": "he might sanctify",
             "occurrence": 1
-          }
+          },
+          "confidence": 90
         }
       ],
       "satan": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "al",
+              "occurrence": 1
+            },
+            {
+              "text": "diablo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -9541,12 +11596,22 @@
             "quoteString": "τῷ διαβόλῳ",
             "glQuote": "to the devil",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "del",
+              "occurrence": 1
+            },
+            {
+              "text": "diablo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -9572,12 +11637,22 @@
             "quoteString": "τοῦ διαβόλου",
             "glQuote": "of the devil",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "del",
+              "occurrence": 1
+            },
+            {
+              "text": "maligno",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -9603,14 +11678,24 @@
             "quoteString": "τοῦ πονηροῦ",
             "glQuote": "of the evil one",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "save": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 2
+            },
+            {
+              "text": "salvación",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -9636,12 +11721,18 @@
             "quoteString": "τῆς σωτηρίας",
             "glQuote": "of & salvation",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "salvados",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -9658,12 +11749,18 @@
             "quoteString": "σεσῳσμένοι",
             "glQuote": "saved",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "salvos",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -9680,12 +11777,22 @@
             "quoteString": "σεσῳσμένοι",
             "glQuote": "saved",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 1
+            },
+            {
+              "text": "salvación",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -9711,14 +11818,24 @@
             "quoteString": "τοῦ σωτηρίου",
             "glQuote": "of salvation",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "savior": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "es",
+              "occurrence": 1
+            },
+            {
+              "text": "salvador",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -9733,16 +11850,22 @@
             "groupId": "savior",
             "quote": "Σωτὴρ",
             "quoteString": "Σωτὴρ",
-            "glQuote": "is} the savior",
+            "glQuote": "is the savior",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "sin": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "pecados",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -9768,7 +11891,8 @@
             "quoteString": "ταῖς ἁμαρτίαις",
             "glQuote": "sins",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
@@ -9797,7 +11921,16 @@
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "Hijo",
+              "occurrence": 1
+            },
+            {
+              "text": "Dios",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -9831,14 +11964,20 @@
             "quoteString": "τοῦ Υἱοῦ τοῦ Θεοῦ",
             "glQuote": "of the Son of God",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "soul": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "alma",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -9855,7 +11994,8 @@
             "quoteString": "ψυχῆς",
             "glQuote": "the soul",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "spirit": [
@@ -9906,7 +12046,12 @@
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "espíritu",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -9923,12 +12068,26 @@
             "quoteString": "πνεύματος",
             "glQuote": "spirit",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "en",
+              "occurrence": 1
+            },
+            {
+              "text": "el",
+              "occurrence": 1
+            },
+            {
+              "text": "espíritu",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -9954,12 +12113,18 @@
             "quoteString": "τῷ πνεύματι",
             "glQuote": "in the spirit",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "espirituales",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -9976,12 +12141,22 @@
             "quoteString": "πνευματικαῖς",
             "glQuote": "spiritual",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "fuerzas",
+              "occurrence": 1
+            },
+            {
+              "text": "espirituales",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -9998,14 +12173,20 @@
             "quoteString": "πνευματικὰ",
             "glQuote": "spiritual forces",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "temple": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "templo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -10022,7 +12203,8 @@
             "quoteString": "ναὸν",
             "glQuote": "a & temple",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "test": [
@@ -10084,7 +12266,16 @@
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "en",
+              "occurrence": 1
+            },
+            {
+              "text": "faltas",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -10110,7 +12301,8 @@
             "quoteString": "τοῖς παραπτώμασιν",
             "glQuote": "in & trespasses",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
@@ -10148,7 +12340,16 @@
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "voluntad",
+              "occurrence": 1
+            },
+            {
+              "text": "Dios",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -10174,12 +12375,26 @@
             "quoteString": "θελήματος Θεοῦ",
             "glQuote": "the will of God",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 1
+            },
+            {
+              "text": "su",
+              "occurrence": 1
+            },
+            {
+              "text": "voluntad",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -10209,7 +12424,8 @@
             "quoteString": "τοῦ θελήματος αὐτοῦ",
             "glQuote": "of his will",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
@@ -10249,7 +12465,20 @@
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "voluntad",
+              "occurrence": 1
+            },
+            {
+              "text": "del",
+              "occurrence": 1
+            },
+            {
+              "text": "Señor",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -10277,14 +12506,24 @@
               }
             ],
             "quoteString": "θέλημα τοῦ Κυρίου",
-            "glQuote": "will of the Lord {is",
+            "glQuote": "will of the Lord is",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "voluntad",
+              "occurrence": 1
+            },
+            {
+              "text": "Dios",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -10314,14 +12553,20 @@
             "quoteString": "θέλημα τοῦ Θεοῦ",
             "glQuote": "will of God",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "wise": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "sabiduría",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -10338,12 +12583,22 @@
             "quoteString": "σοφίᾳ",
             "glQuote": "wisdom",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 3
+            },
+            {
+              "text": "sabiduría",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -10360,12 +12615,18 @@
             "quoteString": "σοφίας",
             "glQuote": "of wisdom",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "sabiduría",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -10382,12 +12643,18 @@
             "quoteString": "σοφία",
             "glQuote": "wisdom",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "sabios",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -10404,14 +12671,20 @@
             "quoteString": "σοφοί",
             "glQuote": "wise",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         }
       ],
       "wordofgod": [
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "palabra",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -10428,7 +12701,8 @@
             "quoteString": "ῥήματι",
             "glQuote": "the word",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
@@ -10466,7 +12740,16 @@
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "del",
+              "occurrence": 1
+            },
+            {
+              "text": "mundo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -10483,12 +12766,22 @@
             "quoteString": "κόσμου",
             "glQuote": "of the world",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "de",
+              "occurrence": 1
+            },
+            {
+              "text": "mundo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -10514,12 +12807,18 @@
             "quoteString": "τοῦ κόσμου",
             "glQuote": "of & world",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         },
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "mundo",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -10536,7 +12835,8 @@
             "quoteString": "κόσμῳ",
             "glQuote": "world",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ],
       "wrath": [
@@ -10587,7 +12887,12 @@
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "ira",
+              "occurrence": 1
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -10604,7 +12909,8 @@
             "quoteString": "ὀργὴ",
             "glQuote": "wrath",
             "occurrence": 1
-          }
+          },
+          "confidence": 95
         }
       ]
     }
