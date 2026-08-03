@@ -109,7 +109,44 @@ describe('LM Studio integration', () => {
     }
   });
 
-  test(`generate selection test data for tw`, () => {
+  test(`test selection prediction for tw`, async () => {
+    const outputFolder = path.join(__dirname, 'fixtures', 'checks', 'checkingData')
+    const langId = 'en';
+    const bookId = 'eph';
+    const tWord = 'church'
+    const category = 'kt'
+
+    const readPath = path.join(outputFolder, getCheckDataFilename(langId, bookId))
+    const bookChecks = fs.readJsonSync(readPath);
+    expect(bookChecks).toBeTruthy();
+    const tWordCategoryData = bookChecks[category]?.groups?.[tWord];
+    const selectedCheck = tWordCategoryData?.[0];
+    const contextId = selectedCheck?.contextId;
+    const reference = contextId?.reference;
+    const glQuote = contextId?.glQuote;
+
+    const selectionDataPath = path.join(outputFolder, tWord + '_' +getCheckDataFilename(langId, bookId))
+    const selectionsForTWords =  fs.readJsonSync(selectionDataPath)
+
+    const targetLangCode = `es-419`;
+    const targetBookName = 'es-419_tpl_eph_book.usfm'
+    const targetBookPath = path.join(__dirname, 'fixtures/bibles/es-419', targetBookName)
+    const targetBookUSfm = readTextFile(targetBookPath);
+    const targetBook = usfmHelpers.getParsedUSFM(targetBookUSfm);
+    expect(targetBook).toBeTruthy()
+    const targetBookChapters = targetBook?.chapters;
+    expect(targetBookChapters).toBeTruthy()
+
+    if (reference && (glQuote)) {
+      const ref = `${reference?.chapter}:${reference?.verse}`
+      const verseText = getVerseString(targetBookChapters, ref);
+      const wordList = getWordList(verseText)
+      const translationOptions = await getBestTWordSelectionWithConfidence(wordList, targetLangCode, glQuote, langId, selectionsForTWords)
+      console.log(translationOptions)
+    }
+  });
+
+  test.skip(`generate selection test data for tw`, () => {
     const outputFolder = path.join(__dirname, 'fixtures', 'checks', 'checkingData')
     const langId = 'en';
     const bookId = 'eph';
@@ -566,7 +603,7 @@ export function buildTranslationOptionsPrompt(
   glLangCode,
   previousTranslationData = {},
 ) {
-  const previousTranslations = previousTranslationData?.[glPhrase] || {}
+  const previousTranslations = previousTranslationData
 
   const systemPrompt = `You are an expert in biblical linguistics and cross-language translation consistency.
 
@@ -655,6 +692,93 @@ ${JSON.stringify(previousTranslations, null, 2)}
   return { systemPrompt, input };
 }
 
+async function getBestTWordSelectionWithConfidence(wordList, targetLangCode, glPhrase, glLangCode, previousTranslationData) {
+  let selectionWords = []
+  const { systemPrompt, input } = buildTranslationOptionsPrompt(
+    wordList,
+    targetLangCode,
+    glPhrase,
+    glLangCode,
+    previousTranslationData,
+  )
+  let success = true;
+  let answer = '';
+  let responses = null
+  try {
+    answer = await queryLmStudio(input, { systemPrompt })
+    responses = answer.split('\n')
+    const length = responses.length
+    let start = 0
+    if (length > 5) { // if the response was verbose, like in thinking mode, skip ahead to csv line
+      for (let i = start; i < length; i++) {
+        const response = responses[i]
+        const parts = response?.split(',')
+        if (parts?.length == 2) {
+          let confidence = removeQuotes(parts[1])
+          confidence = parseInt(confidence, 10)
+          if (!Number.isNaN(confidence)) {
+            start = i
+            break
+          }
+        }
+      }
+    }
+    for (let i = start; i < length; i++) {
+      const response = responses[i]
+      if (response) {
+        if (!response.includes('\`\`\`')) {
+          const success_ = parseResponseRow(response, wordList, answer, selectionWords)
+          if (!success_) {
+            success = false
+          }
+        }
+      }
+    }
+  } catch (e) {
+    console.log('query failed',e)
+    success = false;
+  }
+
+  if (!success) {
+    if (!answer.includes(',')) {
+      //handle case where AI did not use CSV format, by fields are separated by newlines
+      if (responses?.length === 2) {
+        selectionWords = []
+        const response = answer.replace('\n', ',')
+        success = parseResponseRow(response, wordList, answer, selectionWords)
+      }
+    }
+  }
+
+  // remove duplicates from selections
+  const seen = new Set()
+  for (const option of selectionWords) {
+    const uniqueSelections = []
+    for (const word of option.selections) {
+      if (word.occurrence && word.text) {
+        const key = word.text + ':' + word.occurrence
+        if (!seen.has(key)) {
+          seen.add(key)
+          uniqueSelections.push(word)
+        }
+      } else {
+        console.log('invalid word or occurrence found', word);
+        success = false
+      }
+    }
+    if (option.selections.length != uniqueSelections.length) { // if changed then update
+      option.selections = uniqueSelections
+    }
+  }
+
+  if (success) {
+    console.log('AI response:', { verseWords, phrase, answer, matches: selectionWords.length })
+    return selectionWords
+  } else {
+    console.log('AI response ERROR:', { verseWords, phrase, answer, matches: selectionWords.length })
+  }
+  return []
+}
 
 function removeQuotes(value) {
   return value?.trim().replace(/^"|"$/g, '') || ''
