@@ -11,7 +11,7 @@ import { normalizer } from 'string-punctuation-tokenizer'
 
 jest.unmock('fs-extra');
 
-describe('read enGlBible data', () => {
+describe.skip('read enGlBible data', () => {
   test(`read enGlBible.json`, () => {
     const filePath = path.join(__dirname, 'fixtures', 'bibles', '1jn', 'enGlBible.json')
     const bibleData = fs.readJsonSync(filePath)
@@ -81,6 +81,10 @@ function cleanQuote2(glQuote) {
   return cleanedString
 }
 
+////////////////////////////////
+// used for developing AI integration
+////////////////////////////////
+
 describe('LM Studio integration', () => {
   test.skip(`query LM Studio with a text prompt`, async () => {
     console.log('testing')
@@ -89,7 +93,7 @@ describe('LM Studio integration', () => {
     console.log('LM Studio response:', answer);
   });
 
-  test.skip(`read gl checking data`, () => {
+  test.skip(`generate gl checking data`, () => {
     const filePath = "/Users/blm0/translationCore/resources/en/translationHelps/translationWordsLinks/v89_unfoldingWord"
     const outputFolder = path.join(__dirname, 'fixtures', 'checks', 'checkingData')
     const langId = 'en';
@@ -103,6 +107,52 @@ describe('LM Studio integration', () => {
       const savePath = path.join(outputFolder, getCheckDataFilename(langId, bookId))
       fs.outputJsonSync(savePath, bookChecks, { spaces: 2 });
     }
+  });
+
+  test(`generate selection test data for tw`, () => {
+    const outputFolder = path.join(__dirname, 'fixtures', 'checks', 'checkingData')
+    const langId = 'en';
+    const bookId = 'eph';
+    const tWord = 'church'
+
+    const readPath = path.join(outputFolder, getCheckDataFilename(langId, bookId))
+    const bookChecks = fs.readJsonSync(readPath);
+    expect(bookChecks).toBeTruthy();
+
+    const targetBookName = 'es-419_tpl_eph_book.usfm'
+    const targetBookPath = path.join(__dirname, 'fixtures/bibles/es-419', targetBookName)
+    const targetBookUSfm = readTextFile(targetBookPath);
+    const targetBook = usfmHelpers.getParsedUSFM(targetBookUSfm);
+    expect(targetBook).toBeTruthy()
+    const targetBookChapters = targetBook?.chapters;
+    expect(targetBookChapters).toBeTruthy()
+
+    const selectionWord = bookChecks?.kt?.groups?.[tWord];
+    expect(selectionWord).toBeTruthy();
+    const selectionsForWord = {}
+    const selections = selectionWord
+    for (const item of selections) {
+      const glQuote = item?.contextId?.glQuote;
+      const selectionsForItem = item?.selections
+      if (glQuote && selectionsForItem) {
+        const selectedText = selectionsForItem?.map(word => word?.text)?.join(' ')
+
+        let glQuoteMatches = selectionsForWord[glQuote]
+        if (!glQuoteMatches) {
+          glQuoteMatches = {}
+          selectionsForWord[glQuote] = glQuoteMatches
+        }
+        let selectedTextCount = glQuoteMatches[selectedText]
+        if (!selectedTextCount) {
+          glQuoteMatches[selectedText] = 1
+        } else {
+          glQuoteMatches[selectedText]++
+        }
+      }
+    }
+    console.log('selectionsForWord', selectionsForWord)
+    const selectionDataPath = path.join(outputFolder, tWord + '_' +getCheckDataFilename(langId, bookId))
+    fs.outputJsonSync(selectionDataPath, selectionsForWord, { spaces: 2 })
   });
 
   test(`generate AI tw selections`, async () => {
@@ -490,6 +540,121 @@ ${phrase}
 
   return { systemPrompt, input };
 }
+
+/**
+ * Builds the AI prompt for selecting the best target-language translation option(s)
+ * for a gateway-language phrase, using only words from the supplied target word list.
+ *
+ * Previous translation data is expected to be structured as:
+ * {
+ *   glPhrase: {
+ *     targetPhrase: count
+ *   }
+ * }
+ *
+ * @param {Array<string>} wordList - target-language words allowed in the answer
+ * @param {string} targetLangCode - language code of the target words, e.g. 'es-419'
+ * @param {string} glPhrase - gateway-language phrase to translate, e.g. 'church'
+ * @param {string} glLangCode - language code of the gateway phrase, e.g. 'en'
+ * @param {object} previousTranslationData - prior translation-count object
+ * @returns {{systemPrompt: string, input: string}} - the fully populated prompt data
+ */
+export function buildTranslationOptionsPrompt(
+  wordList,
+  targetLangCode,
+  glPhrase,
+  glLangCode,
+  previousTranslationData = {},
+) {
+  const previousTranslations = previousTranslationData?.[glPhrase] || {}
+
+  const systemPrompt = `You are an expert in biblical linguistics and cross-language translation consistency.
+
+Your task is to identify the best possible TARGET LANGUAGE translation option(s) for the GATEWAY PHRASE.
+
+CRITICAL RULE:
+You must only return translation options made from exact words contained in the provided TARGET WORD LIST.
+Do not invent words.
+Do not use words from previous translations unless those exact words are also present in the TARGET WORD LIST.
+Do not output the gateway phrase unless those exact words appear in the TARGET WORD LIST.
+
+Definitions:
+- GATEWAY PHRASE: the source phrase that needs a target-language translation.
+- TARGET WORD LIST: the complete list of target-language words that are allowed in your answer.
+- PREVIOUS TRANSLATIONS: known historical translations of the gateway phrase and how often each was used.
+
+Instructions:
+1. Treat the GATEWAY PHRASE, TARGET WORD LIST, and PREVIOUS TRANSLATIONS as literal text.
+2. Analyze the meaning of the GATEWAY PHRASE.
+3. Use PREVIOUS TRANSLATIONS as evidence for likely translation choices, giving more weight to translations with higher counts.
+4. A previous translation is valid only if every word in it occurs exactly in the TARGET WORD LIST.
+5. If a previous translation contains words not found in the TARGET WORD LIST, discard it or adapt it using only words from the TARGET WORD LIST.
+6. Return every plausible translation option that can be formed only from words in the TARGET WORD LIST.
+7. Prefer the shortest accurate phrase when multiple options have the same meaning.
+8. Preserve the original spelling, accents, and casing of words copied from the TARGET WORD LIST.
+9. Keep target words in the most natural reading order for the target language.
+10. Each returned option must include a confidence value.
+11. "confidence" is an integer from 0-100 reflecting certainty that the translation is correct in context.
+12. Order rows from highest confidence to lowest confidence.
+13. If no reasonable translation can be made using only words from the TARGET WORD LIST, output a single row with an empty "translation" field and confidence 0.
+14. Output ONLY CSV data, with no header row. No commentary, no markdown fences, no extra text.
+
+Required output format:
+"translation",confidence
+
+Output requirements:
+- The first CSV field must contain only words copied exactly from the TARGET WORD LIST.
+- The second CSV field must be a plain integer from 0-100.
+- Wrap only the translation field in double quotes.
+- Do not output a CSV header row.
+- Do not include explanations.
+- Do not include words that are not in the TARGET WORD LIST.
+
+Correct output example:
+If the GATEWAY PHRASE is:
+\`church\`
+
+And the TARGET WORD LIST is:
+\`para la iglesia de Éfeso\`
+
+And PREVIOUS TRANSLATIONS include:
+\`{"iglesia":7,"de la iglesia":1}\`
+
+A valid answer is:
+"iglesia",98
+"la iglesia",75
+"de la iglesia",60
+
+Invalid answers:
+"church",95
+"congregación",90
+"iglesias",85
+iglesia,98
+"iglesia",high
+`;
+
+  const input = `Target language: ${targetLangCode}
+
+Target Word List:
+\`\`\`
+${wordList.join(' ')}
+\`\`\`
+
+Gateway Phrase language: ${glLangCode}
+
+Gateway Phrase:
+\`\`\`
+${glPhrase}
+\`\`\`
+
+Previous Translations for Gateway Phrase:
+\`\`\`json
+${JSON.stringify(previousTranslations, null, 2)}
+\`\`\``;
+
+  return { systemPrompt, input };
+}
+
 
 function removeQuotes(value) {
   return value?.trim().replace(/^"|"$/g, '') || ''
