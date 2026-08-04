@@ -36,51 +36,6 @@ describe.skip('read enGlBible data', () => {
   });
 })
 
-function getWordList(verseText) {
-  const tokenList = Lexer.tokenize(verseText)
-  const wordList = tokenList.map(token => (token.text))
-  return wordList
-}
-
-function removePunctuation(glText) {
-  const wordList = getWordList(glText)
-  return wordList.join(' ')
-}
-
-function cleanQuote(glQuote) {
-  const replaceChars = ['{', '}', '.', ',', ';', ':', "\""];
-  let cleanedQuote = glQuote
-
-  // remove any characters in replaceChars
-  for (const char of replaceChars) {
-    cleanedQuote = cleanedQuote.split(char).join('')
-  }
-  return cleanedQuote
-}
-
-function cleanQuote2(glQuote) {
-  const AMPERSAND = ' & '
-  const ELLIPSIS = '\u2026'
-  let cleanedString = ''
-  const parts = glQuote.split(ELLIPSIS)
-  for (const part of parts) {
-    let cleanedString2 = ''
-    const parts2 = part.split(AMPERSAND)
-    for (const part2 of parts2) {
-      const cleanedPart2 = removePunctuation(part2)
-      if (cleanedString2) {
-        cleanedString2 += AMPERSAND
-      }
-      cleanedString2 += cleanedPart2
-    }
-    if (cleanedString) {
-      cleanedString += ELLIPSIS
-    }
-    cleanedString += cleanedString2
-  }
-  return cleanedString
-}
-
 ////////////////////////////////
 // used for developing AI integration
 ////////////////////////////////
@@ -397,13 +352,13 @@ async function queryLmStudio(query, options = {}) {
     model = 'local-model',
     temperature = 0.7,
     maxTokens = 4096,
-    enable_thinking = false,
+    enable_thinking = true,
     systemPrompt = 'You are a helpful assistant.',
   } = options;
 
-  // if (!enable_thinking) {
-  //   query = query + '\n/no_think'
-  // }
+  if (!enable_thinking) {
+    query = query + '\n/no_think'
+  }
 
   const url = `${baseUrl}/v1/chat/completions`;
   const startTime = Date.now();
@@ -637,12 +592,14 @@ Instructions:
 14. Output ONLY CSV data, with no header row. No commentary, no markdown fences, no extra text.
 
 Required output format:
-"translation",confidence
+"word:position word:position",confidence
 
 Output requirements:
-- The first CSV field must contain only words copied exactly from the TARGET WORD LIST.
+- The first CSV field, must contain only words copied exactly from the TARGET WORD LIST and formatted as word:position.
+- The colon and numeric position are REQUIRED for every non-empty matched word.
+- Position is the index of the matched word in the TARGET WORD LIST.  The index of the first word is 1.
+- Wrap only the first CSV field in double quotes.
 - The second CSV field must be a plain integer from 0-100.
-- Wrap only the translation field in double quotes.
 - Do not output a CSV header row.
 - Do not include explanations.
 - Do not include words that are not in the TARGET WORD LIST.
@@ -658,16 +615,16 @@ And PREVIOUS TRANSLATIONS include:
 \`{"iglesia":7,"de la iglesia":1}\`
 
 A valid answer is:
-"iglesia",98
-"la iglesia",75
-"de la iglesia",60
+"iglesia:3",98
+"la:2 iglesia:3",75
+"de:1 la:2 iglesia:3",60
 
 Invalid answers:
 "church",95
 "congregación",90
 "iglesias",85
 iglesia,98
-"iglesia",high
+"la iglesia:3",75
 `;
 
   const input = `Target language: ${targetLangCode}
@@ -772,10 +729,10 @@ async function getBestTWordSelectionWithConfidence(wordList, targetLangCode, glP
   }
 
   if (success) {
-    console.log('AI response:', { verseWords, phrase, answer, matches: selectionWords.length })
+    console.log('AI response:', { wordList, glPhrase, answer, matches: selectionWords.length })
     return selectionWords
   } else {
-    console.log('AI response ERROR:', { verseWords, phrase, answer, matches: selectionWords.length })
+    console.log('AI response ERROR:', { wordList, glPhrase, answer, matches: selectionWords.length })
   }
   return []
 }
@@ -1019,3 +976,47 @@ function getCheckDataFilename(langId, bookId) {
   return langId + '_' + bookId + '.json'
 }
 
+function getWordList(verseText) {
+  const tokenList = Lexer.tokenize(verseText)
+  const wordList = tokenList.map(token => (token.text))
+  return wordList
+}
+
+function removePunctuation(glText) {
+  const wordList = getWordList(glText)
+  return wordList.join(' ')
+}
+
+function cleanQuote(glQuote) {
+  const replaceChars = ['{', '}', '.', ',', ';', ':', "\""];
+  let cleanedQuote = glQuote
+
+  // remove any characters in replaceChars
+  for (const char of replaceChars) {
+    cleanedQuote = cleanedQuote.split(char).join('')
+  }
+  return cleanedQuote
+}
+
+function cleanQuote2(glQuote) {
+  const AMPERSAND = ' & '
+  const ELLIPSIS = '\u2026'
+  let cleanedString = ''
+  const parts = glQuote.split(ELLIPSIS)
+  for (const part of parts) {
+    let cleanedString2 = ''
+    const parts2 = part.split(AMPERSAND)
+    for (const part2 of parts2) {
+      const cleanedPart2 = removePunctuation(part2)
+      if (cleanedString2) {
+        cleanedString2 += AMPERSAND
+      }
+      cleanedString2 += cleanedPart2
+    }
+    if (cleanedString) {
+      cleanedString += ELLIPSIS
+    }
+    cleanedString += cleanedString2
+  }
+  return cleanedString
+}
