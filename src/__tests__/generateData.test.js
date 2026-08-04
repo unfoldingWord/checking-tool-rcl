@@ -534,125 +534,172 @@ ${phrase}
 }
 
 /**
- * Builds the AI prompt for selecting the best target-language translation option(s)
- * for a gateway-language phrase, using only words from the supplied target word list.
+ * Reduces previous-translation data to a compact JSON string holding only the renderings
+ * of `glPhrase`, ordered highest count first.
  *
  * Previous translation data is expected to be structured as:
+ * ```
  * {
  *   glPhrase: {
  *     targetPhrase: count
  *   }
  * }
+ * ```
+ * An already-flat `{targetPhrase: count}` map is also accepted. Sending only the current
+ * phrase's history keeps the prompt small and stops unrelated phrases from biasing the answer.
  *
- * @param {Array<string>} wordList - target-language words allowed in the answer
+ * @param {object} previousTranslationData - prior translation-count object; may be nested
+ *   (phrase-keyed) or flat (already filtered to a single phrase's counts)
+ * @param {string} glPhrase - gateway-language phrase being translated
+ * @returns {string} - compact JSON string of `{targetPhrase: count}` ordered by count descending,
+ *   or empty string `''` when there is no history for this phrase
+ * @example
+ * // Nested structure
+ * formatPreviousTranslations(
+ *   { "church": { "iglesia": 7, "congregación": 2 } },
+ *   "church"
+ * )
+ * // Returns: '{"iglesia":7,"congregación":2}'
+ *
+ * // Flat structure (already filtered)
+ * formatPreviousTranslations(
+ *   { "iglesia": 7, "congregación": 2 },
+ *   "church"
+ * )
+ * // Returns: '{"iglesia":7,"congregación":2}'
+ *
+ * // No matching phrase
+ * formatPreviousTranslations(
+ *   { "church": { "iglesia": 7 } },
+ *   "temple"
+ * )
+ * // Returns: ''
+ */
+function formatPreviousTranslations(previousTranslationData, glPhrase) {
+  // Initialize data with empty object if null/undefined
+  const data = previousTranslationData || {}
+
+  // Check if data is phrase-keyed (nested structure) by examining if any value is an object
+  const isPhraseKeyed = Object.values(data).some(value => value && typeof value === 'object')
+
+  // Default to using data directly as counts map
+  let counts = data
+
+  // If data is phrase-keyed, extract the counts for the specific glPhrase
+  if (isPhraseKeyed) {
+    const keys = Object.keys(data)
+
+    // Find matching key either by exact match or case-insensitive normalized match
+    const matchedKey = keys.find(key_ => key_ === glPhrase)
+      || keys.find(key_ => normalizer(key_).toLowerCase() === normalizer(glPhrase).toLowerCase())
+
+    if (matchedKey) {
+      // Use the counts for the matched key, or empty object if no match found
+      counts = (matchedKey && data[matchedKey]) || {}
+    }
+  }
+
+  // Convert counts map to array of [phrase, count] entries,
+  // filter out empty phrases or zero counts,
+  // and sort by count descending (strongest evidence first)
+  const entries = Object.entries(counts)
+    .filter(([phrase, count]) => phrase && count > 0)
+    .sort((a, b) => b[1] - a[1])
+
+  // Return JSON string of filtered/sorted entries, or empty string if no entries
+  return entries.length ? JSON.stringify(Object.fromEntries(entries)) : ''
+}
+
+/**
+ * Renders the verse as `word:position` tokens, which is exactly the format the answer
+ * must use. Handing the AI the positions removes the need for it to count words - which
+ * small models do unreliably - so producing the answer becomes a copy operation.
+ *
+ * `verseContent` is `wordList.join(' ')`, so splitting on whitespace recovers the same
+ * tokens and the same 1-based indexes that `parseResponseRow` resolves against `wordList`.
+ *
+ * @param {string} verseContent - the target-language verse text without punctuation
+ * @returns {string} - e.g. `para:1 la:2 iglesia:3 de:4 Éfeso:5`
+ */
+function formatNumberedVerse(verseContent) {
+  return (verseContent || '')
+    .split(/\s+/)
+    .filter(Boolean)
+    .map((word, index) => `${word}:${index + 1}`)
+    .join(' ')
+}
+
+/**
+ * Builds the AI prompt for selecting the best target-language translation option(s)
+ * for a gateway-language phrase, using only words found in the target-language verse.
+ *
+ * The system prompt holds no per-call data, so its text is identical on every call and
+ * the LM Studio server can reuse its cached prompt prefix across the whole run.
+ *
+ * @param {string} verseContent - the target-language verse text without punctuation
  * @param {string} targetLangCode - language code of the target words, e.g. 'es-419'
  * @param {string} glPhrase - gateway-language phrase to translate, e.g. 'church'
  * @param {string} glLangCode - language code of the gateway phrase, e.g. 'en'
- * @param {object} previousTranslationData - prior translation-count object
+ * @param {object} previousTranslationData - prior translation-count object; only the
+ *   entries for `glPhrase` are sent to the AI
  * @returns {{systemPrompt: string, input: string}} - the fully populated prompt data
  */
 export function buildTranslationOptionsPrompt(
-  wordList,
+  verseContent,
   targetLangCode,
   glPhrase,
   glLangCode,
   previousTranslationData = {},
 ) {
-  const previousTranslations = previousTranslationData
-
   const systemPrompt = `You are an expert in biblical linguistics and cross-language translation consistency.
 
-Your task is to identify the best possible TARGET LANGUAGE translation option(s) for the GATEWAY PHRASE.
+Pick the word(s) of the TARGET VERSE that best translate the GATEWAY PHRASE.
 
-CRITICAL RULE:
-You must only return translation options made from exact words contained in the provided TARGET WORD LIST.
-Do not invent words.
-Do not use words from previous translations unless those exact words are also present in the TARGET WORD LIST.
-Do not output the gateway phrase unless those exact words appear in the TARGET WORD LIST.
+The TARGET VERSE is given as word:position tokens, in reading order, already numbered from 1.
 
-Definitions:
-- GATEWAY PHRASE: the source phrase that needs a target-language translation.
-- TARGET WORD LIST: the complete list of target-language words that are allowed in your answer.
-- PREVIOUS TRANSLATIONS: known historical translations of the gateway phrase and how often each was used.
-
-Instructions:
-1. Treat the GATEWAY PHRASE, TARGET WORD LIST, and PREVIOUS TRANSLATIONS as literal text.
-2. Analyze the meaning of the GATEWAY PHRASE.
-3. Use PREVIOUS TRANSLATIONS as evidence for likely translation choices, giving more weight to translations with higher counts.
-4. A previous translation is valid only if every word in it occurs exactly in the TARGET WORD LIST.
-5. If a previous translation contains words not found in the TARGET WORD LIST, discard it or adapt it using only words from the TARGET WORD LIST.
-6. Return every plausible translation option that can be formed only from words in the TARGET WORD LIST.
-7. Prefer the shortest accurate phrase when multiple options have the same meaning.
-8. Preserve the original spelling, accents, and casing of words copied from the TARGET WORD LIST.
-9. Keep target words in the most natural reading order for the target language.
-10. Each returned option must include a confidence value.
-11. "confidence" is an integer from 0-100 reflecting certainty that the translation is correct in context.
-12. Order rows from highest confidence to lowest confidence.
-13. If no reasonable translation can be made using only words from the TARGET WORD LIST, output a single row with an empty "translation" field and confidence 0.
-14. Output ONLY CSV data, with no header row. No commentary, no markdown fences, no extra text.
+Rules:
+1. Use only tokens of the TARGET VERSE. Never invent, translate, inflect, or re-spell a word, and never output the gateway phrase itself.
+2. Copy each token exactly as the TARGET VERSE gives it: the word with its accents and casing, then its number.
+3. The numbers are already correct, so never recount or renumber them. The colon and number are REQUIRED on every word you output.
+4. PREVIOUS TRANSLATIONS are earlier renderings of this GATEWAY PHRASE with usage counts. Prefer the highest-count rendering whose words all occur in the TARGET VERSE; discard any rendering that uses words the TARGET VERSE does not have.
+5. Keep the words in TARGET VERSE order, and prefer the shortest option that carries the meaning.
+6. Output at most 3 rows, one per plausible option, highest confidence first. "confidence" is an integer 0-100.
+7. If no words of the TARGET VERSE can express the phrase, output exactly: "",0
+8. Output only CSV rows: no header, no explanation, no markdown fences.
 
 Required output format:
 "word:position word:position",confidence
 
-Output requirements:
-- The first CSV field, must contain only words copied exactly from the TARGET WORD LIST and formatted as word:position.
-- The colon and numeric position are REQUIRED for every non-empty matched word.
-- Position is the index of the matched word in the TARGET WORD LIST.  The index of the first word is 1.
-- Wrap only the first CSV field in double quotes.
-- The second CSV field must be a plain integer from 0-100.
-- Do not output a CSV header row.
-- Do not include explanations.
-- Do not include words that are not in the TARGET WORD LIST.
-
-Correct output example:
-If the GATEWAY PHRASE is:
-\`church\`
-
-And the TARGET WORD LIST is:
-\`para la iglesia de Éfeso\`
-
-And PREVIOUS TRANSLATIONS include:
-\`{"iglesia":7,"de la iglesia":1}\`
-
-A valid answer is:
+Example
+GATEWAY PHRASE: church
+TARGET VERSE: para:1 la:2 iglesia:3 de:4 Éfeso:5
+PREVIOUS TRANSLATIONS: {"iglesia":7,"congregación":2}
+Valid:
 "iglesia:3",98
-"la:2 iglesia:3",75
-"de:1 la:2 iglesia:3",60
+"la:2 iglesia:3",70
 
-Invalid answers:
-"church",95
-"congregación",90
-"iglesias",85
-iglesia,98
-"la iglesia:3",75
+Invalid: "church",98 | "congregación",90 | "iglesias",85 | iglesia,98 | "iglesia",98 | "la iglesia:3",70 | "iglesia:1",98
 `;
 
-  const input = `Target language: ${targetLangCode}
+  const previousTranslations = formatPreviousTranslations(previousTranslationData, glPhrase)
 
-Target Word List:
-\`\`\`
-${wordList.join(' ')}
-\`\`\`
+  // one labeled field per line, in the same order as the example above
+  const lines = [
+    `GATEWAY PHRASE (${glLangCode}): ${glPhrase}`,
+    `TARGET VERSE (${targetLangCode}): ${formatNumberedVerse(verseContent)}`,
+  ]
 
-Gateway Phrase language: ${glLangCode}
+  if (previousTranslations) {
+    lines.push(`PREVIOUS TRANSLATIONS: ${previousTranslations}`)
+  }
 
-Gateway Phrase:
-\`\`\`
-${glPhrase}
-\`\`\`
-
-Previous Translations for Gateway Phrase:
-\`\`\`json
-${JSON.stringify(previousTranslations, null, 2)}
-\`\`\``;
-
-  return { systemPrompt, input };
+  return { systemPrompt, input: lines.join('\n') };
 }
 
-async function getBestTWordSelectionWithConfidence(wordList, targetLangCode, glPhrase, glLangCode, previousTranslationData) {
+async function getBestTWordSelectionWithConfidence(wordList, targetLangCode, glPhrase, glLangCode, previousTranslationData, enable_thinking = false) {
   let selectionWords = []
   const { systemPrompt, input } = buildTranslationOptionsPrompt(
-    wordList,
+    wordList.join(' '),
     targetLangCode,
     glPhrase,
     glLangCode,
@@ -662,7 +709,8 @@ async function getBestTWordSelectionWithConfidence(wordList, targetLangCode, glP
   let answer = '';
   let responses = null
   try {
-    answer = await queryLmStudio(input, { systemPrompt })
+    const options = { systemPrompt, enable_thinking }
+    answer = await queryLmStudio(input, options)
     responses = answer.split('\n')
     const length = responses.length
     let start = 0
@@ -729,10 +777,21 @@ async function getBestTWordSelectionWithConfidence(wordList, targetLangCode, glP
   }
 
   if (success) {
-    console.log('AI response:', { wordList, glPhrase, answer, matches: selectionWords.length })
+    console.log('AI response:', {
+      wordList: formatNumberedVerse(wordList.join(' ')),
+      glPhrase,
+      answer,
+      matches: selectionWords.length,
+      selectionWords
+    })
     return selectionWords
   } else {
-    console.log('AI response ERROR:', { wordList, glPhrase, answer, matches: selectionWords.length })
+    console.log('AI response ERROR:', {
+      wordList: formatNumberedVerse(wordList.join(' ')),
+      glPhrase,
+      answer,
+      matches: selectionWords.length
+    })
   }
   return []
 }
@@ -821,9 +880,17 @@ function parseResponseRow(response, wordList, answer, selectionWords) {
       for (const selection of selections) {
         let found = false
         if (selection.position > 0) {
-          const wordlistWord = wordList[selection.position - 1]
-          if (selection.text === normalizer(wordlistWord)) {
+          let wordlistWord = wordList[selection.position - 1]
+          if (selection.text !== normalizer(wordlistWord)) {
+            wordlistWord = wordList[selection.position - 2]
+            if (selection.text === normalizer(wordlistWord)) { // try offset index
+              selection.position--
+              found = true
+            }
+          } else {
             found = true
+          }
+          if (found) {
             const occurrence = findOccurrenceForPos(selection.position, wordList, selection.text)
             if (occurrence > 0) {
               delete selection.position
