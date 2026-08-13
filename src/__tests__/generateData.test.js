@@ -71,6 +71,21 @@ describe('LM Studio integration', () => {
     const tWord = 'church'
     const category = 'kt'
 
+    const expected = [
+      {
+        "text": "para",
+        "occurrence": 1
+      },
+      {
+        "text": "la",
+        "occurrence": 1
+      },
+      {
+        "text": "iglesia",
+        "occurrence": 1
+      }
+    ]
+
     const readPath = path.join(outputFolder, getCheckDataFilename(langId, bookId))
     const bookChecks = fs.readJsonSync(readPath);
     expect(bookChecks).toBeTruthy();
@@ -96,8 +111,55 @@ describe('LM Studio integration', () => {
       const ref = `${reference?.chapter}:${reference?.verse}`
       const verseText = getVerseString(targetBookChapters, ref);
       const wordList = getWordList(verseText)
+      const bestSelections = await getBestTWordSelectionWithConfidence(wordList, targetLangCode, glQuote, langId, selectionsForTWords)
+      console.log(bestSelections)
+      const selections = bestSelections[0]?.selections
+      expect(selections).toEqual(expected)
+    }
+  }, 50000);
+
+  test(`test selection prediction for tw missing word`, async () => {
+    const outputFolder = path.join(__dirname, 'fixtures', 'checks', 'checkingData')
+    const langId = 'en';
+    const bookId = 'eph';
+    const tWord = 'church'
+    const category = 'kt'
+
+    const expected = [
+      {
+        "text": "iglesia",
+        "occurrence": 1
+      }
+    ]
+
+    const readPath = path.join(outputFolder, getCheckDataFilename(langId, bookId))
+    const bookChecks = fs.readJsonSync(readPath);
+    expect(bookChecks).toBeTruthy();
+    const tWordCategoryData = bookChecks[category]?.groups?.[tWord];
+    const selectedCheck = tWordCategoryData?.[0];
+    const contextId = selectedCheck?.contextId;
+    const reference = contextId?.reference;
+    const glQuote = contextId?.glQuote;
+
+    const selectionDataPath = path.join(outputFolder, tWord + '_' +getCheckDataFilename(langId, bookId))
+    const selectionsForTWords =  fs.readJsonSync(selectionDataPath)
+
+    const targetLangCode = `es-419`;
+    const targetBookName = 'es-419_tpl_eph_book.usfm'
+    const targetBookPath = path.join(__dirname, 'fixtures/bibles/es-419', targetBookName)
+    const targetBookUSfm = readTextFile(targetBookPath);
+    const targetBook = usfmHelpers.getParsedUSFM(targetBookUSfm);
+    expect(targetBook).toBeTruthy()
+    const targetBookChapters = targetBook?.chapters;
+    expect(targetBookChapters).toBeTruthy()
+
+    if (reference && (glQuote)) {
+      const ref = `${reference?.chapter}:${reference?.verse}`
+      const verseText = getVerseString(targetBookChapters, ref);
+      const wordList = getWordList(verseText.replace('para ', ''))
       const translationOptions = await getBestTWordSelectionWithConfidence(wordList, targetLangCode, glQuote, langId, selectionsForTWords)
       console.log(translationOptions)
+      expect(translationOptions.selections).toBe(expected)
     }
   });
 
@@ -348,7 +410,7 @@ describe.skip('read resources', () => {
 async function queryLmStudio(query, options = {}) {
   const {
     // baseUrl = 'http://localhost:1234',
-    baseUrl = 'http://192.168.142.92:1234', // use local server
+    baseUrl = 'http://192.168.142.71:1234', // use local server
     model = 'local-model',
     temperature = 0.7,
     maxTokens = 4096,
@@ -534,8 +596,21 @@ ${phrase}
 }
 
 /**
+ * Normalizes a word for loose comparison. `normalizer` leaves case alone, and matching a
+ * rendering against a verse word has to survive that word being capitalized at the start
+ * of the verse, so lowercasing is added. Accents stay significant: a rendering differing by
+ * an accent is a different word form, and `normalizer` does not fold accents either.
+ *
+ * @param {string} word
+ * @returns {string}
+ */
+function normalizeForCompare(word) {
+  return normalizer(word || '').toLowerCase()
+}
+
+/**
  * Reduces previous-translation data to a compact JSON string holding only the renderings
- * of `glPhrase`, ordered highest count first.
+ * of `glPhrase` that can actually be selected from this verse, ordered highest count first.
  *
  * Previous translation data is expected to be structured as:
  * ```
@@ -551,63 +626,97 @@ ${phrase}
  * @param {object} previousTranslationData - prior translation-count object; may be nested
  *   (phrase-keyed) or flat (already filtered to a single phrase's counts)
  * @param {string} glPhrase - gateway-language phrase being translated
+ * @param {string} verseContent - the target-language verse text without punctuation
  * @returns {string} - compact JSON string of `{targetPhrase: count}` ordered by count descending,
- *   or empty string `''` when there is no history for this phrase
+ *   or empty string `''` when no usable history remains for this phrase
  * @example
- * // Nested structure
+ * // Nested structure; congregación is dropped because the verse does not contain it
  * formatPreviousTranslations(
  *   { "church": { "iglesia": 7, "congregación": 2 } },
- *   "church"
+ *   "church",
+ *   "para la iglesia de Éfeso"
  * )
- * // Returns: '{"iglesia":7,"congregación":2}'
+ * // Returns: '{"iglesia":7}'
  *
- * // Flat structure (already filtered)
+ * // Flat structure (already filtered to one phrase)
  * formatPreviousTranslations(
- *   { "iglesia": 7, "congregación": 2 },
- *   "church"
+ *   { "de la iglesia": 3, "iglesia": 7 },
+ *   "church",
+ *   "para la iglesia de Éfeso"
  * )
- * // Returns: '{"iglesia":7,"congregación":2}'
+ * // Returns: '{"iglesia":7,"de la iglesia":3}'
  *
- * // No matching phrase
+ * // A rendering the verse spells differently is re-spelled to the verse's form
+ * formatPreviousTranslations(
+ *   { "church": { "Iglesia": 4 } },
+ *   "church",
+ *   "para la iglesia de Éfeso"
+ * )
+ * // Returns: '{"iglesia":4}'
+ *
+ * // No matching phrase, or nothing usable in this verse
  * formatPreviousTranslations(
  *   { "church": { "iglesia": 7 } },
- *   "temple"
+ *   "temple",
+ *   "para la iglesia de Éfeso"
  * )
  * // Returns: ''
  */
-function formatPreviousTranslations(previousTranslationData, glPhrase) {
-  // Initialize data with empty object if null/undefined
+function formatPreviousTranslations(previousTranslationData, glPhrase, verseContent) {
   const data = previousTranslationData || {}
 
-  // Check if data is phrase-keyed (nested structure) by examining if any value is an object
+  // data is phrase-keyed when its values are count maps rather than counts
   const isPhraseKeyed = Object.values(data).some(value => value && typeof value === 'object')
 
   // Default to using data directly as counts map
-  let counts = data
+  let filteredMatches = data
 
   // If data is phrase-keyed, extract the counts for the specific glPhrase
   if (isPhraseKeyed) {
     const keys = Object.keys(data)
+    const counts = []
 
-    // Find matching key either by exact match or case-insensitive normalized match
-    const matchedKey = keys.find(key_ => key_ === glPhrase)
+    // match the gateway phrase exactly, else accent- and case-insensitively
+    let matchedGL = keys.find(key_ => key_ === glPhrase)
       || keys.find(key_ => normalizer(key_).toLowerCase() === normalizer(glPhrase).toLowerCase())
 
-    if (matchedKey) {
-      // Use the counts for the matched key, or empty object if no match found
-      counts = (matchedKey && data[matchedKey]) || {}
+    const wordList = verseContent.split(' ')
+    if (matchedGL) {
+      const translations = Object.keys(data[matchedGL])
+      const normalizedWordList = wordList.map(word => normalizeForCompare(word))
+      const filteredMatchesEntries = []
+
+      for (const translation of translations) {
+        const translationWords = translation.split(/\s+/).filter(Boolean)
+        const matchedWords = translationWords.map(word => {
+          const normalizedWord = normalizeForCompare(word)
+          const matchIndex = normalizedWordList.indexOf(normalizedWord)
+          return matchIndex >= 0 ? wordList[matchIndex] : null
+        })
+        const exactMatch = matchedWords.every(Boolean)
+
+        if (exactMatch) {
+          filteredMatchesEntries.push([matchedWords.join(' '), data[matchedGL][translation]])
+        }
+      }
+
+      if (filteredMatchesEntries.length) {
+        // Use only translations whose words are all present in this verse
+        filteredMatches = Object.fromEntries(filteredMatchesEntries)
+      }
     }
   }
 
   // Convert counts map to array of [phrase, count] entries,
   // filter out empty phrases or zero counts,
   // and sort by count descending (strongest evidence first)
-  const entries = Object.entries(counts)
+  const entries = Object.entries(filteredMatches)
     .filter(([phrase, count]) => phrase && count > 0)
-    .sort((a, b) => b[1] - a[1])
+    .sort((a, b) => b[1] - a[1]);
 
   // Return JSON string of filtered/sorted entries, or empty string if no entries
-  return entries.length ? JSON.stringify(Object.fromEntries(entries)) : ''
+  const resultsJson = entries.length ? JSON.stringify(Object.fromEntries(entries)) : ''
+  return resultsJson;
 }
 
 /**
@@ -681,7 +790,7 @@ Valid:
 Invalid: "church",98 | "congregación",90 | "iglesias",85 | iglesia,98 | "iglesia",98 | "la iglesia:3",70 | "iglesia:1",98
 `;
 
-  const previousTranslations = formatPreviousTranslations(previousTranslationData, glPhrase)
+  const previousTranslations = formatPreviousTranslations(previousTranslationData, glPhrase, verseContent)
 
   // one labeled field per line, in the same order as the example above
   const lines = [
@@ -746,11 +855,44 @@ async function getBestTWordSelectionWithConfidence(wordList, targetLangCode, glP
 
   if (!success) {
     if (!answer.includes(',')) {
-      //handle case where AI did not use CSV format, by fields are separated by newlines
+      //handle case where AI did not use CSV format, but fields are separated by newlines
       if (responses?.length === 2) {
         selectionWords = []
         const response = answer.replace('\n', ',')
         success = parseResponseRow(response, wordList, answer, selectionWords)
+      }
+    } else {
+      // Handle verbose responses by retrying with the last non-empty CSV-looking line.
+      const lastNonEmptyLine = responses
+        ?.map(response => response?.trim())
+        .filter(Boolean)
+        .pop()
+      if (lastNonEmptyLine) {
+        const quoteParts = lastNonEmptyLine.split('"').filter(part => part.trim() !== '')
+
+        if (quoteParts.length >= 3) {
+          const phraseTranslation = quoteParts[quoteParts.length - 2]
+          const confidencePart = quoteParts[quoteParts.length - 1]
+            .split(',')
+            .map(part => part.trim())
+            .find(part => part !== '')
+
+          const confidence = removeQuotes(confidencePart)
+          const confidenceNum = parseInt(confidence, 10)
+
+          if (Number.isNaN(confidenceNum) || confidenceNum < 0 || confidenceNum > 100) {
+            success = false
+          } else {
+            selectionWords = []
+            const response = `"${phraseTranslation}",${confidence}`
+            success = parseResponseRow(response, wordList, answer, selectionWords)
+          }
+          if (confidencePart) {
+            selectionWords = []
+            const response = `"${phraseTranslation}",${confidencePart}`
+            success = parseResponseRow(response, wordList, answer, selectionWords)
+          }
+        }
       }
     }
   }
