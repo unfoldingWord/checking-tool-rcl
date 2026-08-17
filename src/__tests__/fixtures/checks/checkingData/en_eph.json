@@ -7934,7 +7934,12 @@
         {
           "comments": false,
           "reminders": false,
-          "selections": false,
+          "selections": [
+            {
+              "text": "por",
+              "occurrence": 20
+            }
+          ],
           "verseEdits": false,
           "nothingToSelect": false,
           "contextId": {
@@ -7960,7 +7965,8 @@
             "quoteString": "ἐν Κυρίῳ",
             "glQuote": "for the Lord",
             "occurrence": 1
-          }
+          },
+          "confidence": 100
         },
         {
           "comments": false,

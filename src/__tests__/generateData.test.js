@@ -74,6 +74,7 @@ describe('LM Studio integration', () => {
     const tWord = 'church'
     const category = 'kt'
 
+    const expectedMinConfidence = 90
     const expected = [
       {
         "text": "para",
@@ -109,17 +110,19 @@ describe('LM Studio integration', () => {
     expect(targetBook).toBeTruthy()
     const targetBookChapters = targetBook?.chapters;
     expect(targetBookChapters).toBeTruthy()
+    expect(reference).toBeTruthy()
+    expect(glQuote).toBeTruthy()
 
-    if (reference && (glQuote)) {
-      const ref = `${reference?.chapter}:${reference?.verse}`
-      const verseText = getVerseString(targetBookChapters, ref);
-      const wordList = getWordList(verseText)
-      const enableThinking = false
-      const bestSelections = await getBestTWordSelectionWithConfidence(wordList, targetLangCode, glQuote, langId, selectionsForTWords, enableThinking)
-      console.log(bestSelections)
-      const selections = bestSelections[0]?.selections
-      expect(selections).toEqual(expected)
-    }
+    const ref = `${reference?.chapter}:${reference?.verse}`
+    const verseText = getVerseString(targetBookChapters, ref);
+    const wordList = getWordList(verseText)
+    const enableThinking = false
+    const bestSelections = await getBestTWordSelectionWithConfidence(wordList, targetLangCode, glQuote, langId, selectionsForTWords, enableThinking)
+    console.log(bestSelections)
+    const selections = bestSelections[0]?.selections
+    expect(selections).toEqual(expected)
+    const confidence = bestSelections[0]?.confidence
+    expect(confidence>=expectedMinConfidence).toBeTruthy()
   }, 50000);
 
   test(`test selection prediction for tw missing word`, async () => {
@@ -129,7 +132,12 @@ describe('LM Studio integration', () => {
     const tWord = 'church'
     const category = 'kt'
 
+    const expectedMinConfidence = 90
     const expected = [
+      {
+        "text": "la",
+        "occurrence": 1
+      },
       {
         "text": "iglesia",
         "occurrence": 1
@@ -156,17 +164,19 @@ describe('LM Studio integration', () => {
     expect(targetBook).toBeTruthy()
     const targetBookChapters = targetBook?.chapters;
     expect(targetBookChapters).toBeTruthy()
+    expect(reference).toBeTruthy()
+    expect(glQuote).toBeTruthy()
 
-    if (reference && (glQuote)) {
-      const ref = `${reference?.chapter}:${reference?.verse}`
-      const verseText = getVerseString(targetBookChapters, ref);
-      const wordList = getWordList(verseText.replace('para ', ''))
-      const enableThinking = false
-      const translationOptions = await getBestTWordSelectionWithConfidence(wordList, targetLangCode, glQuote, langId, selectionsForTWords, enableThinking)
-      console.log(translationOptions)
-      expect(translationOptions.selections).toBe(expected)
-    }
-  });
+    const ref = `${reference?.chapter}:${reference?.verse}`
+    const verseText = getVerseString(targetBookChapters, ref);
+    const wordList = getWordList(verseText.replace('para ', ''))
+    const enableThinking = false
+    const bestSelections = await getBestTWordSelectionWithConfidence(wordList, targetLangCode, glQuote, langId, selectionsForTWords, enableThinking)
+    console.log(bestSelections)
+    const selections = bestSelections[0]?.selections
+    expect(selections).toEqual(expected)
+    const confidence = bestSelections[0]?.confidence
+    expect(confidence>=expectedMinConfidence).toBeTruthy() });
 
   test.skip(`generate selection test data for tw`, () => {
     const outputFolder = path.join(__dirname, 'fixtures', 'checks', 'checkingData')
@@ -214,7 +224,7 @@ describe('LM Studio integration', () => {
     fs.outputJsonSync(selectionDataPath, selectionsForWord, { spaces: 2 })
   });
 
-  test(`generate AI tw selections`, async () => {
+  test.skip(`generate AI tw selections`, async () => {
     let count = 0;
     let successes = 0;
     const checkingDataFolder = path.join(__dirname, 'fixtures', 'checks', 'checkingData')

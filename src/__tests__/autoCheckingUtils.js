@@ -383,12 +383,12 @@ export function buildTranslationOptionsPrompt(
 
 Pick the word(s) of the TARGET VERSE that best translate the GATEWAY PHRASE.
 
-The TARGET VERSE is given as word:position tokens, in reading order, already numbered from 1.
+The TARGET VERSE is given as plain words in reading order.
 
 Rules:
-1. Use only tokens of the TARGET VERSE. Never invent, translate, inflect, or re-spell a word, and never output the gateway phrase itself.
-2. Copy each token exactly as the TARGET VERSE gives it: the word with its accents and casing, then its number.
-3. The numbers are already correct, so never recount or renumber them. The colon and number are REQUIRED on every word you output.
+1. Use only words of the TARGET VERSE. Never invent, translate, inflect, or re-spell a word, and never output the gateway phrase itself.
+2. Copy each word exactly as the TARGET VERSE spells it, keeping its accents and its casing.
+3. Output the words on their own, separated by single spaces. Never add a number, a colon, or any punctuation to a word.
 4. PREVIOUS TRANSLATIONS are earlier renderings of this GATEWAY PHRASE with usage counts. Prefer the highest-count rendering whose words all occur in the TARGET VERSE; discard any rendering that uses words the TARGET VERSE does not have.
 5. Keep the words in TARGET VERSE order, and prefer the shortest option that carries the meaning.
 6. Output at most 3 rows, one per plausible option, highest confidence first. "confidence" is an integer 0-100.
@@ -396,17 +396,17 @@ Rules:
 8. Output only CSV rows: no header, no explanation, no markdown fences.
 
 Required output format:
-"word:position word:position",confidence
+"word word",confidence
 
 Example
 GATEWAY PHRASE: church
-TARGET VERSE: para:1 la:2 iglesia:3 de:4 Éfeso:5
+TARGET VERSE: para la iglesia de Éfeso
 PREVIOUS TRANSLATIONS: {"iglesia":7,"congregación":2}
 Valid:
-"iglesia:3",98
-"la:2 iglesia:3",70
+"iglesia",98
+"la iglesia",70
 
-Invalid: "church",98 | "congregación",90 | "iglesias",85 | iglesia,98 | "iglesia",98 | "la iglesia:3",70 | "iglesia:1",98
+Invalid: "church",98 | "congregación",90 | "iglesias",85 | "Iglesia",98 | "iglesia:3",98 | iglesia,98
 `;
 
   const previousTranslations = formatPreviousTranslations(previousTranslationData, glPhrase, verseContent)
@@ -414,7 +414,7 @@ Invalid: "church",98 | "congregación",90 | "iglesias",85 | iglesia,98 | "iglesi
   // one labeled field per line, in the same order as the example above
   const lines = [
     `GATEWAY PHRASE (${glLangCode}): ${glPhrase}`,
-    `TARGET VERSE (${targetLangCode}): ${formatNumberedVerse(verseContent)}`,
+    `TARGET VERSE (${targetLangCode}): ${verseContent}`,
   ]
 
   if (previousTranslations) {
@@ -460,7 +460,7 @@ export async function getBestTWordSelectionWithConfidence(wordList, targetLangCo
       const response = responses[i]
       if (response) {
         if (!response.includes('\`\`\`')) {
-          const success_ = parseResponseRow(response, wordList, answer, selectionWords)
+          const success_ = parseResponseRowNoPositions(response, wordList, answer, selectionWords)
           if (!success_) {
             success = false
           }
@@ -478,7 +478,7 @@ export async function getBestTWordSelectionWithConfidence(wordList, targetLangCo
       if (responses?.length === 2) {
         selectionWords = []
         const response = answer.replace('\n', ',')
-        success = parseResponseRow(response, wordList, answer, selectionWords)
+        success = parseResponseRowNoPositions(response, wordList, answer, selectionWords)
       }
     } else {
       // Handle verbose responses by retrying with the last non-empty CSV-looking line.
@@ -504,12 +504,12 @@ export async function getBestTWordSelectionWithConfidence(wordList, targetLangCo
           } else {
             selectionWords = []
             const response = `"${phraseTranslation}",${confidence}`
-            success = parseResponseRow(response, wordList, answer, selectionWords)
+            success = parseResponseRowNoPositions(response, wordList, answer, selectionWords)
           }
           if (confidencePart) {
             selectionWords = []
             const response = `"${phraseTranslation}",${confidencePart}`
-            success = parseResponseRow(response, wordList, answer, selectionWords)
+            success = parseResponseRowNoPositions(response, wordList, answer, selectionWords)
           }
         }
       }
@@ -571,6 +571,105 @@ function findOccurrenceForPos(position, wordList, text) {
   occurrence = occurrence || 1 // fallback if AI got mixed up
   return occurrence
 }
+
+function parseResponseRowNoPositions(response, wordList, answer, selectionWords) {
+  let error = false;
+  const rowParts = response.split(',')
+  if (rowParts.length === 2) {
+    let [phraseTranslation, confidence] = rowParts
+    confidence = confidence ? parseInt(removeQuotes(confidence), 10) : 0
+    phraseTranslation = removeQuotes(phraseTranslation)
+    const selections = []
+    const words = phraseTranslation.split(' ')
+    for (const word of words) {
+      const text = normalizer(word.trim())
+
+      if (text) {
+        selections.push({ text })
+      }
+    }
+
+    if (selections.length) {
+      // Find the best positions for each word in selections within wordList
+      // such that the positions are grouped closest together
+
+      // Build a map of word -> array of positions in wordList
+      const wordPositionsMap = new Map()
+      for (const selection of selections) {
+        const normalizedWord = normalizeForCompare(selection.text)
+        const positions = []
+        for (let i = 0; i < wordList.length; i++) {
+          if (normalizeForCompare(wordList[i]) === normalizedWord) {
+            positions.push(i)
+          }
+        }
+        wordPositionsMap.set(selection.text, positions)
+      }
+
+      // Verify all words exist in wordList
+      let allWordsFound = true
+      for (const selection of selections) {
+        const positions = wordPositionsMap.get(selection.text)
+        if (!positions || positions.length === 0) {
+          allWordsFound = false
+          break
+        }
+      }
+
+      if (!allWordsFound) {
+        error = true
+      } else {
+        // Find the combination of positions that minimizes the span
+        // (distance between first and last selected position)
+        let bestCombination = null
+        let minSpan = Infinity
+
+        function findBestGrouping(selectionIndex, currentPositions) {
+          if (selectionIndex === selections.length) {
+            // Calculate span of current combination
+            const sorted = [...currentPositions].sort((a, b) => a - b)
+            const span = sorted[sorted.length - 1] - sorted[0]
+            if (span < minSpan) {
+              minSpan = span
+              bestCombination = [...currentPositions]
+            }
+            return
+          }
+
+          const word = selections[selectionIndex].text
+          const availablePositions = wordPositionsMap.get(word)
+          for (const pos of availablePositions) {
+            findBestGrouping(selectionIndex + 1, [...currentPositions, pos])
+          }
+        }
+
+        findBestGrouping(0, [])
+
+        // Assign the best positions and convert to occurrences
+        if (bestCombination) {
+          for (let i = 0; i < selections.length; i++) {
+            const position = bestCombination[i]
+            selections[i].text = normalizer(wordList[position])
+            selections[i].occurrence = findOccurrenceForPos(position + 1, wordList, selections[i].text)
+            // delete selections[i].position
+          }
+        } else {
+          error = true
+        }
+      }
+
+      selectionWords.push({ selections, confidence })
+    } else {
+      error = true
+    }
+    console.log('translation', { translation: phraseTranslation, confidence })
+  } else {
+    console.log("row is not in csv format", response)
+    error = true
+  }
+  return !error
+}
+
 
 function parseResponseRow(response, wordList, answer, selectionWords) {
   let error = false;
