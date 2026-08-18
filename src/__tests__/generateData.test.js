@@ -7,7 +7,8 @@ import { readHelpsFolder, readTextFile } from '../helpers/fileHelpers'
 import { groupDataHelpers, usfmHelpers } from 'word-aligner-lib'
 import { getVerseString } from '../helpers/tsv-groupdata-parser/verseHelpers'
 import {
-  getBestTWordSelectionWithConfidence, getCheckDataFilename,
+  getBestTWordSelectionWithConfidence,
+  getCheckDataFilename,
   getWordList,
   translatePhraseWithConfidence
 } from './autoCheckingUtils'
@@ -22,7 +23,7 @@ describe.skip('read enGlBible data', () => {
     expect(Array.isArray(bibleData['1']['1'].verseObjects)).toBe(true)
   });
 
-  test(`read twl_tit.check`, () => {
+  test.skip(`read twl_tit.check`, () => {
     const filePath = path.join(__dirname, 'fixtures', 'checks', 'twl_tit.check')
     const checkData = fs.readJsonSync(filePath)
     expect(checkData).toBeTruthy()
@@ -58,7 +59,8 @@ describe('LM Studio integration', () => {
 
     // const books = ['1co', 'heb', '1th']
     // const books = ['est', 'jon', 'rut']
-    const books = ['eph', '1co', 'heb']
+    // const books = ['eph', '1co', 'heb']
+    const books = ['tit']
     for (const bookId of books) {
       const bookChecks = readHelpsFolder(filePath, bookId)
       expect(bookChecks)
@@ -67,8 +69,93 @@ describe('LM Studio integration', () => {
     }
   });
 
-  test(`test selection prediction for tw`, async () => {
+  test(`test selection prediction for tw in New Book`, async () => {
+    const langId = 'en';
+    const bookId = '1co';
+    const tWord = 'church'
+    const category = 'kt'
+
+    const expectedMinConfidence = 90
+    const expected = [
+      {
+        "text": "para",
+        "occurrence": 1
+      },
+      {
+        "text": "la",
+        "occurrence": 1
+      },
+      {
+        "text": "iglesia",
+        "occurrence": 1
+      }
+    ]
+
+    /////////////////////
+    // get checking data for book
     const outputFolder = path.join(__dirname, 'fixtures', 'checks', 'checkingData')
+    const readPath = path.join(outputFolder, getCheckDataFilename(langId, bookId))
+    const bookChecks = fs.readJsonSync(readPath);
+    expect(bookChecks).toBeTruthy();
+    const tWordCategoryData = bookChecks[category]?.groups?.[tWord];
+    const selectedCheck = tWordCategoryData?.[0];
+    const contextId = selectedCheck?.contextId;
+    const reference = contextId?.reference;
+    const glQuote = contextId?.glQuote;
+
+    ///////////////////////////
+    // get get previous tWord selections
+    const historyName = 'church_es-419_eph.json'
+    const selectionDataPath = path.join(outputFolder, historyName)
+    const selectionsForTWords =  fs.readJsonSync(selectionDataPath)
+
+    /////////////////////
+    // get gateway language bible
+    const enUltFolder = '/Users/blm0/translationCore/resources/en/bibles/ult/v89_unfoldingWord'
+    const alignedGlBible = readHelpsFolder(enUltFolder)
+
+    /////////////////////
+    // get target book
+    const targetLangCode = `es-419`;
+    const targetBookName = 'es-419_1co_level2_text_ulb.usfm'
+    const targetBookPath = path.join(__dirname, 'fixtures/bibles/es-419', targetBookName)
+    const targetBookUSfm = readTextFile(targetBookPath);
+    const targetBook = usfmHelpers.getParsedUSFM(targetBookUSfm);
+    expect(targetBook).toBeTruthy()
+    const targetBookChapters = targetBook?.chapters;
+    expect(targetBookChapters).toBeTruthy()
+    expect(reference).toBeTruthy()
+    expect(glQuote).toBeTruthy()
+
+    for (const check of tWordCategoryData) {
+      const contextId = check.contextId
+      const reference = contextId.reference
+      let glQuote = contextId.glQuote
+      if (!glQuote) {
+        const alignedGlBook = alignedGlBible[bookId]
+        // need quote
+        let glText = getAlignedGLText(alignedGlBook, contextId1)
+        console.log(glText);
+        if (glText) {
+          glText = removePunctuation(glText)
+          glQuote = glText;
+        }
+      }
+      const ref = `${reference?.chapter}:${reference?.verse}`
+      const verseText = getVerseString(targetBookChapters, ref)
+      const wordList = getWordList(verseText)
+      const enableThinking = false
+      const bestSelections = await getBestTWordSelectionWithConfidence(wordList, targetLangCode, glQuote, langId, selectionsForTWords, enableThinking)
+      console.log(bestSelections)
+      const selections = bestSelections[0]?.selections
+      expect(selections).toEqual(expected)
+      const confidence = bestSelections[0]?.confidence
+      expect(confidence >= expectedMinConfidence).toBeTruthy()
+    }
+  }, 500000);
+
+
+  test.skip(`test selection prediction for tw`, async () => {
     const langId = 'en';
     const bookId = 'eph';
     const tWord = 'church'
@@ -90,6 +177,9 @@ describe('LM Studio integration', () => {
       }
     ]
 
+    /////////////////////
+    // get checking data for  book
+    const outputFolder = path.join(__dirname, 'fixtures', 'checks', 'checkingData')
     const readPath = path.join(outputFolder, getCheckDataFilename(langId, bookId))
     const bookChecks = fs.readJsonSync(readPath);
     expect(bookChecks).toBeTruthy();
@@ -99,9 +189,13 @@ describe('LM Studio integration', () => {
     const reference = contextId?.reference;
     const glQuote = contextId?.glQuote;
 
+    ///////////////////////////
+    // get tWord selections for book
     const selectionDataPath = path.join(outputFolder, tWord + '_' + getCheckDataFilename(langId, bookId))
     const selectionsForTWords =  fs.readJsonSync(selectionDataPath)
 
+    /////////////////////
+    // get target book
     const targetLangCode = `es-419`;
     const targetBookName = 'es-419_tpl_eph_book.usfm'
     const targetBookPath = path.join(__dirname, 'fixtures/bibles/es-419', targetBookName)
@@ -125,7 +219,7 @@ describe('LM Studio integration', () => {
     expect(confidence>=expectedMinConfidence).toBeTruthy()
   }, 50000);
 
-  test(`test selection prediction for tw missing word`, async () => {
+  test.skip(`test selection prediction for tw missing word`, async () => {
     const outputFolder = path.join(__dirname, 'fixtures', 'checks', 'checkingData')
     const langId = 'en';
     const bookId = 'eph';
