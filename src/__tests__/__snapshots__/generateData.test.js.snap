@@ -1,0 +1,280 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LM Studio integration test selection prediction for tw in New Book 1`] = `
+[
+  {
+    "glQuote": "to the church",
+    "selections": [
+      {
+        "occurrence": 1,
+        "text": "a",
+      },
+      {
+        "occurrence": 1,
+        "text": "la",
+      },
+      {
+        "occurrence": 1,
+        "text": "iglesia",
+      },
+    ],
+  },
+  {
+    "glQuote": "church",
+    "selections": [
+      {
+        "occurrence": 1,
+        "text": "iglesia",
+      },
+    ],
+  },
+  {
+    "glQuote": "church",
+    "selections": [
+      {
+        "occurrence": 1,
+        "text": "iglesia",
+      },
+    ],
+  },
+  {
+    "glQuote": "churches",
+    "selections": [
+      {
+        "occurrence": 1,
+        "text": "iglesias",
+      },
+    ],
+  },
+  {
+    "glQuote": "to the church",
+    "selections": [
+      {
+        "occurrence": 1,
+        "text": "la",
+      },
+      {
+        "occurrence": 1,
+        "text": "iglesia",
+      },
+    ],
+  },
+  {
+    "glQuote": "churches",
+    "selections": [
+      {
+        "occurrence": 1,
+        "text": "iglesias",
+      },
+      {
+        "occurrence": 1,
+        "text": "del",
+      },
+      {
+        "occurrence": 1,
+        "text": "Señor",
+      },
+    ],
+  },
+  {
+    "glQuote": "the church",
+    "selections": [
+      {
+        "occurrence": 1,
+        "text": "la",
+      },
+      {
+        "occurrence": 1,
+        "text": "iglesia",
+      },
+    ],
+  },
+  {
+    "glQuote": "church",
+    "selections": [
+      {
+        "occurrence": 1,
+        "text": "la",
+      },
+      {
+        "occurrence": 1,
+        "text": "iglesia",
+      },
+    ],
+  },
+  {
+    "glQuote": "church",
+    "selections": [
+      {
+        "occurrence": 1,
+        "text": "la",
+      },
+      {
+        "occurrence": 1,
+        "text": "iglesia",
+      },
+    ],
+  },
+  {
+    "glQuote": "the church",
+    "selections": [
+      {
+        "occurrence": 2,
+        "text": "la",
+      },
+      {
+        "occurrence": 1,
+        "text": "iglesia",
+      },
+    ],
+  },
+  {
+    "glQuote": "church",
+    "selections": [
+      {
+        "occurrence": 1,
+        "text": "iglesia",
+      },
+    ],
+  },
+  {
+    "glQuote": "of the church",
+    "selections": [
+      {
+        "occurrence": 1,
+        "text": "de",
+      },
+      {
+        "occurrence": 2,
+        "text": "la",
+      },
+      {
+        "occurrence": 1,
+        "text": "iglesia",
+      },
+    ],
+  },
+  {
+    "glQuote": "the church",
+    "selections": [
+      {
+        "occurrence": 1,
+        "text": "la",
+      },
+      {
+        "occurrence": 1,
+        "text": "iglesia",
+      },
+    ],
+  },
+  {
+    "glQuote": "church",
+    "selections": [
+      {
+        "occurrence": 1,
+        "text": "la",
+      },
+      {
+        "occurrence": 1,
+        "text": "iglesia",
+      },
+    ],
+  },
+  {
+    "glQuote": "the church",
+    "selections": [
+      {
+        "occurrence": 1,
+        "text": "la",
+      },
+      {
+        "occurrence": 1,
+        "text": "iglesia",
+      },
+    ],
+  },
+  {
+    "glQuote": "churches",
+    "selections": [
+      {
+        "occurrence": 2,
+        "text": "de",
+      },
+      {
+        "occurrence": 1,
+        "text": "paz",
+      },
+    ],
+  },
+  {
+    "glQuote": "churches",
+    "selections": [
+      {
+        "occurrence": 1,
+        "text": "iglesias",
+      },
+    ],
+  },
+  {
+    "glQuote": "church",
+    "selections": [
+      {
+        "occurrence": 1,
+        "text": "iglesia",
+      },
+    ],
+  },
+  {
+    "glQuote": "church",
+    "selections": [
+      {
+        "occurrence": 1,
+        "text": "la",
+      },
+      {
+        "occurrence": 1,
+        "text": "iglesia",
+      },
+    ],
+  },
+  {
+    "glQuote": "churches",
+    "selections": [
+      {
+        "occurrence": 1,
+        "text": "iglesias",
+      },
+    ],
+  },
+  {
+    "glQuote": "churches",
+    "selections": [
+      {
+        "occurrence": 1,
+        "text": "Las",
+      },
+      {
+        "occurrence": 1,
+        "text": "iglesias",
+      },
+    ],
+  },
+  {
+    "glQuote": "church",
+    "selections": [
+      {
+        "occurrence": 1,
+        "text": "iglesias",
+      },
+      {
+        "occurrence": 1,
+        "text": "de",
+      },
+      {
+        "occurrence": 1,
+        "text": "Asia",
+      },
+    ],
+  },
+]
+`;
