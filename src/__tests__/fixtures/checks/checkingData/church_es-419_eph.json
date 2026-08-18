@@ -1,14 +1,22 @@
 {
   "to the church": {
-    "para la iglesia": 1
+    "para la iglesia": 1,
+    "todas las iglesias": 1
   },
   "church": {
     "iglesia": 7
+  },
+  "churches": {
+    "iglesias": 1
   },
   "of the church": {
     "de la iglesia": 1
   },
   "the church": {
-    "la iglesia": 1
+    "la iglesia": 1,
+    "las iglesias": 1
+  },
+  "the churches": {
+    "las iglesias": 1
   }
 }

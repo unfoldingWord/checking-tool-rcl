@@ -424,6 +424,357 @@ Invalid: "church",98 | "congregación",90 | "iglesias",85 | "Iglesia",98 | "igle
   return { systemPrompt, input: lines.join('\n') };
 }
 
+/**
+ * Extracts the `{targetPhrase: count}` map belonging to `glPhrase`.
+ *
+ * Accepts the nested, phrase-keyed shape `{glPhrase: {targetPhrase: count}}` as well as an
+ * already-flat `{targetPhrase: count}` map, matching what `formatPreviousTranslations` accepts,
+ * so both the AI and the algorithmic path can be handed the same object.
+ *
+ * @param {object} previousTranslationData - prior translation counts, nested or flat
+ * @param {string} glPhrase - gateway-language phrase being translated
+ * @returns {object} - `{targetPhrase: count}` for this phrase, or `{}` when it has no history
+ */
+function getPreviousTranslationCounts(previousTranslationData, glPhrase) {
+  const data = previousTranslationData || {}
+
+  // data is phrase-keyed when its values are count maps rather than counts
+  const isPhraseKeyed = Object.values(data).some(value => value && typeof value === 'object')
+
+  if (!isPhraseKeyed) {
+    return data
+  }
+
+  const keys = Object.keys(data)
+
+  // match the gateway phrase exactly, else accent- and case-insensitively
+  const matchedGL = keys.find(key_ => key_ === glPhrase)
+    || keys.find(key_ => normalizer(key_).toLowerCase() === normalizer(glPhrase).toLowerCase())
+
+  return matchedGL ? (data[matchedGL] || {}) : {}
+}
+
+/**
+ * Turns verse positions into the selection shape the checking tool stores, resolving each
+ * word's text and occurrence exactly the way the AI path does in `parseResponseRowNoPositions`
+ * so selections coming from either path are indistinguishable downstream.
+ *
+ * @param {Array<string>} wordList - target-language verse words in reading order
+ * @param {Array<number>} positions - ascending 0-based indexes into `wordList`
+ * @returns {Array<{text: string, occurrence: number}>}
+ */
+function buildSelectionsFromPositions(wordList, positions) {
+  return positions.map(position => {
+    const text = normalizer(wordList[position])
+    return {
+      text,
+      occurrence: findOccurrenceForPos(position + 1, wordList, text),
+    }
+  })
+}
+
+/**
+ * Finds the first run of verse words that spells `phraseWords` adjacently and in order.
+ * This is the exact match: the rendering appears in the verse verbatim.
+ *
+ * @param {Array<string>} normalizedWordList - verse words already through `normalizeForCompare`
+ * @param {Array<string>} phraseWords - normalized words of the rendering being looked for
+ * @returns {Array<number>|null} - ascending 0-based positions, or `null` when no run matches
+ */
+function findContiguousMatchPositions(normalizedWordList, phraseWords) {
+  if (!phraseWords.length || phraseWords.length > normalizedWordList.length) {
+    return null
+  }
+
+  for (let start = 0; start <= normalizedWordList.length - phraseWords.length; start++) {
+    const matches = phraseWords.every((word, offset) => normalizedWordList[start + offset] === word)
+
+    if (matches) {
+      return phraseWords.map((_, offset) => start + offset)
+    }
+  }
+
+  return null
+}
+
+/**
+ * Finds every word of `phraseWords` in the verse in reading order but not necessarily adjacent,
+ * which is what happens when the target language slots another word into the middle of a known
+ * rendering. Of all such placements it keeps the tightest one, so the selection stays as close
+ * together as the verse allows.
+ *
+ * @param {Array<string>} normalizedWordList - verse words already through `normalizeForCompare`
+ * @param {Array<string>} phraseWords - normalized words of the rendering being looked for
+ * @returns {Array<number>|null} - ascending 0-based positions, or `null` when some word is absent
+ */
+function findBestOrderedMatchPositions(normalizedWordList, phraseWords) {
+  if (!phraseWords.length) {
+    return null
+  }
+
+  const positionsPerWord = phraseWords.map(word => {
+    const positions = []
+    for (let i = 0; i < normalizedWordList.length; i++) {
+      if (normalizedWordList[i] === word) {
+        positions.push(i)
+      }
+    }
+    return positions
+  })
+
+  if (positionsPerWord.some(positions => !positions.length)) {
+    return null // a word of the rendering is not in this verse at all
+  }
+
+  let bestPositions = null
+  let bestSpan = Infinity
+
+  function search(wordIndex, lastPosition, currentPositions) {
+    if (wordIndex === positionsPerWord.length) {
+      const span = currentPositions[currentPositions.length - 1] - currentPositions[0]
+
+      if (span < bestSpan) {
+        bestSpan = span
+        bestPositions = [...currentPositions]
+      }
+      return
+    }
+
+    for (const position of positionsPerWord[wordIndex]) {
+      if (position > lastPosition) { // keeps the placement in reading order
+        currentPositions.push(position)
+        search(wordIndex + 1, position, currentPositions)
+        currentPositions.pop()
+      }
+    }
+  }
+
+  search(0, -1, [])
+  return bestPositions
+}
+
+/**
+ * Finds the best ordered subset of a previous rendering whose words are present in the verse.
+ * The subset is scored later against the full rendering length, so confidence is reduced when
+ * some words from the previous translation are missing from `wordList`.
+ *
+ * @param {Array<string>} normalizedWordList - verse words already through `normalizeForCompare`
+ * @param {Array<string>} phraseWords - normalized words of the full previous rendering
+ * @returns {Array<number>|null} - ascending 0-based positions, or `null` when no word is present
+ */
+function findBestAvailableOrderedMatchPositions(normalizedWordList, phraseWords) {
+  let bestPositions = null
+  let bestMatchedCount = 0
+  let bestSpan = Infinity
+
+  function considerSubset(start, length) {
+    const positions = findBestOrderedMatchPositions(
+      normalizedWordList,
+      phraseWords.slice(start, start + length),
+    )
+
+    if (!positions) {
+      return
+    }
+
+    const span = positions[positions.length - 1] - positions[0]
+
+    if (length > bestMatchedCount || (length === bestMatchedCount && span < bestSpan)) {
+      bestPositions = positions
+      bestMatchedCount = length
+      bestSpan = span
+    }
+  }
+
+  for (let subLength = phraseWords.length - 1; subLength >= 1; subLength--) {
+    for (let start = 0; start + subLength <= phraseWords.length; start++) {
+      considerSubset(start, subLength)
+    }
+
+    if (bestPositions) {
+      break
+    }
+  }
+
+  return bestPositions
+}
+
+/**
+ * Scores how good a match is, 0-100, standing in for the AI's confidence.
+ *
+ * Only a complete rendering found adjacently and in order scores 100 - that is the exact match.
+ * Every weaker match is capped at 99 so a caller applying a confidence threshold can tell an
+ * exact hit from a fallback, built from:
+ * - coverage: how much of the rendering was found, worth up to 60
+ * - completeness: 20 more when every word of the rendering was found
+ * - adjacency: 15 more when the matched words are adjacent in the verse
+ * - compactness: up to 10 for a gapped match, shrinking as the words spread further apart
+ * - usage: up to 5 for how often this rendering was chosen before, relative to the most-used one
+ *
+ * @param {number} matchedWordCount - words of the rendering located in the verse
+ * @param {number} phraseWordCount - words in the full rendering
+ * @param {boolean} isContiguous - whether the matched words are adjacent in the verse
+ * @param {number} span - distance between the first and last matched position
+ * @param {number} count - times this rendering was used before
+ * @param {number} maxCount - times the most-used rendering of this phrase was used
+ * @returns {number} - 100 for an exact match, otherwise 1-99
+ */
+function scoreAlgorithmicMatch(matchedWordCount, phraseWordCount, isContiguous, span, count, maxCount) {
+  const isFullMatch = matchedWordCount === phraseWordCount
+
+  if (isFullMatch && isContiguous) {
+    return 100
+  }
+
+  const coverageScore = Math.round((matchedWordCount / phraseWordCount) * 60)
+  const fullMatchBonus = isFullMatch ? 20 : 0
+  const contiguousBonus = isContiguous ? 15 : 0
+  const gap = span - (matchedWordCount - 1)
+  const compactnessBonus = isContiguous ? 0 : Math.max(0, 10 - gap)
+  const usageBonus = maxCount > 0 ? Math.round((count / maxCount) * 5) : 0
+  const score = coverageScore + fullMatchBonus + contiguousBonus + compactnessBonus + usageBonus
+
+  return Math.max(1, Math.min(99, score))
+}
+
+/**
+ * Algorithmic stand-in for `getBestTWordSelectionWithConfidence`: same parameters, same return
+ * shape, no AI call.
+ *
+ * Without a model there is no way to translate the gateway phrase from scratch, so how this
+ * phrase was rendered before is the only evidence available. Each previous rendering of
+ * `glPhrase` is looked for in the verse, strongest usage count first:
+ * - found adjacently and in order - the exact match - scores 100
+ * - found in order but with other words in between scores below 100
+ * - when the whole rendering is not there, its sub-phrases are tried and score lower still,
+ *   by how much of the rendering they cover and how tightly they sit together
+ *
+ * The same verse words can be reached from more than one rendering (`iglesia` is both its own
+ * rendering and part of `de la iglesia`), so a candidate keeps the best score any rendering
+ * earns for it rather than whichever was examined first.
+ *
+ * @param {Array<string>} wordList - target-language verse words in reading order
+ * @param {string} targetLangCode - language code of the verse, e.g. 'es-419'; unused, kept so this
+ *   function is interchangeable with the AI version
+ * @param {string} glPhrase - gateway-language phrase to translate, e.g. 'church'
+ * @param {string} glLangCode - language code of the gateway phrase; unused, see `targetLangCode`
+ * @param {object} previousTranslationData - prior translation counts, nested `{glPhrase: {target: count}}`
+ *   or flat `{target: count}`
+ * @param {boolean} [enable_thinking] - unused, accepted so callers can swap the two functions freely
+ * @returns {Promise<Array<{selections: Array<{text: string, occurrence: number}>, confidence: number}>>} -
+ *   up to 3 options, best first; empty when this phrase has no history or nothing in it fits the verse
+ * @example
+ * await getBestTWordSelectionWithConfidenceAlgorithm(
+ *   ['para', 'la', 'iglesia', 'de', 'Éfeso'],
+ *   'es-419',
+ *   'church',
+ *   'en',
+ *   { church: { 'la iglesia': 7, 'congregación': 2 } },
+ * )
+ * // 'la iglesia' is in the verse verbatim, so it is the exact match; 'congregación' is not
+ * // in the verse at all, so it yields nothing:
+ * // [ { selections: [ { text: 'la', occurrence: 1 }, { text: 'iglesia', occurrence: 1 } ],
+ * //     confidence: 100 } ]
+ */
+export async function getBestTWordSelectionWithConfidenceAlgorithm(
+  wordList,
+  targetLangCode,
+  glPhrase,
+  glLangCode,
+  previousTranslationData,
+  enable_thinking = false, // eslint-disable-line no-unused-vars
+) {
+  const words = wordList || []
+  const counts = getPreviousTranslationCounts(previousTranslationData, glPhrase)
+
+  // strongest evidence first, so the most-used rendering claims its words before weaker ones
+  const countEntries = Object.entries(counts)
+    .filter(([phrase, count]) => phrase && count > 0)
+    .sort((a, b) => b[1] - a[1])
+
+  if (!countEntries.length || !words.length) {
+    console.log('algorithm response: no usable previous translations', { glPhrase })
+    return []
+  }
+
+  const maxCount = countEntries[0][1]
+  const normalizedWordList = words.map(word => normalizeForCompare(word))
+  const candidates = new Map() // keyed by matched positions, so the same words appear once
+
+  function considerCandidate(positions, phraseWordCount, count) {
+    if (!positions?.length) {
+      return
+    }
+
+    const span = positions[positions.length - 1] - positions[0]
+    const isContiguous = span === positions.length - 1
+    const confidence = scoreAlgorithmicMatch(positions.length, phraseWordCount, isContiguous, span, count, maxCount)
+    const key = positions.join(':')
+    const existing = candidates.get(key)
+
+    // these words may already have been matched by another rendering - keep the stronger reading
+    if (existing && (existing.confidence > confidence
+      || (existing.confidence === confidence && existing.count >= count))) {
+      return
+    }
+
+    candidates.set(key, {
+      selections: buildSelectionsFromPositions(words, positions),
+      confidence,
+      count,
+      span,
+      matchedWordCount: positions.length,
+    })
+  }
+
+  for (const [phrase, count] of countEntries) {
+    const phraseWords = phrase.split(/\s+/).filter(Boolean).map(word => normalizeForCompare(word))
+
+    if (!phraseWords.length) {
+      continue
+    }
+
+    const exactPositions = findContiguousMatchPositions(normalizedWordList, phraseWords)
+
+    if (exactPositions) { // verbatim match, nothing weaker from this rendering can beat it
+      considerCandidate(exactPositions, phraseWords.length, count)
+      continue
+    }
+
+    const orderedPositions = findBestOrderedMatchPositions(normalizedWordList, phraseWords)
+
+    if (orderedPositions) { // all the words, but the verse spreads them out
+      considerCandidate(orderedPositions, phraseWords.length, count)
+      continue
+    }
+
+    // Fall back to the best ordered subset of the rendering that the verse actually contains.
+    // It is still scored against the full previous translation length, so confidence is reduced
+    // when one or more words from the previous translation are missing from wordList.
+    const availablePositions = findBestAvailableOrderedMatchPositions(normalizedWordList, phraseWords)
+    considerCandidate(availablePositions, phraseWords.length, count)
+  }
+
+  const bestSelections = [...candidates.values()]
+    .sort((a, b) => (
+      b.confidence - a.confidence
+      || b.count - a.count
+      || b.matchedWordCount - a.matchedWordCount
+      || a.span - b.span
+    ))
+    .slice(0, 3)
+    .map(({ selections, confidence }) => ({ selections, confidence }))
+
+  console.log('algorithm response:', {
+    wordList: formatNumberedVerse(words.join(' ')),
+    glPhrase,
+    matches: bestSelections.length,
+    bestSelections,
+  })
+
+  return bestSelections
+}
+
 export async function getBestTWordSelectionWithConfidence(wordList, targetLangCode, glPhrase, glLangCode, previousTranslationData, enable_thinking = false) {
   let selectionWords = []
   const { systemPrompt, input } = buildTranslationOptionsPrompt(

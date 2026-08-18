@@ -1,15 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`LM Studio integration test selection prediction for tw in New Book 1`] = `
+exports[`LM Studio integration test selection prediction for tw in New Book - Algorithm 1`] = `
 [
   {
+    "confidence": 60,
     "glQuote": "to the church",
     "ref": "1:2",
     "selections": [
-      {
-        "occurrence": 1,
-        "text": "a",
-      },
       {
         "occurrence": 1,
         "text": "la",
@@ -22,6 +19,7 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
     "verseText": "a la iglesia de Dios en Corinto, aquellos que Cristo Jesús han sido santificados, quienes son llamados a ser santos. Nosotros también estamos escribiendo a todos los que llaman el nombre de nuestro Señor Jesucristo en todo lugar, su Señor y el nuestro. ",
   },
   {
+    "confidence": 100,
     "glQuote": "church",
     "ref": "4:17",
     "selections": [
@@ -33,13 +31,10 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
     "verseText": "Es por eso que les envié a Timoteo, mi amado y fiel hijo en el Señor. Él les va a recordar de mis caminos en Cristo, así como yo los enseño en todas partes y en cada iglesia. ",
   },
   {
+    "confidence": 100,
     "glQuote": "church",
     "ref": "6:4",
     "selections": [
-      {
-        "occurrence": 2,
-        "text": "la",
-      },
       {
         "occurrence": 1,
         "text": "iglesia",
@@ -48,6 +43,7 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
     "verseText": "Entonces, si ustedes tienen que hacer juicios que pertenecen a la vida diaria, ¿por qué llevan casos como estos ante aquellos que nada son en la iglesia? ",
   },
   {
+    "confidence": 100,
     "glQuote": "churches",
     "ref": "7:17",
     "selections": [
@@ -59,6 +55,7 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
     "verseText": "Sólo dejen a cada uno vivir la vida que el Señor les ha asignado, cada cual como Dios lo llamó. Esta es mi regla en todas las iglesias. ",
   },
   {
+    "confidence": 60,
     "glQuote": "to the church",
     "ref": "10:32",
     "selections": [
@@ -74,6 +71,7 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
     "verseText": "No ofendas a los Judíos o a los Griegos, o a la iglesia de Dios, ",
   },
   {
+    "confidence": 100,
     "glQuote": "churches",
     "ref": "11:16",
     "selections": [
@@ -81,18 +79,11 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
         "occurrence": 1,
         "text": "iglesias",
       },
-      {
-        "occurrence": 1,
-        "text": "del",
-      },
-      {
-        "occurrence": 1,
-        "text": "Señor",
-      },
     ],
     "verseText": "Pero si alguien quiere discutir por esto, nosotros no tenemos ninguna otra práctica, ni las iglesias del Señor. ",
   },
   {
+    "confidence": 100,
     "glQuote": "the church",
     "ref": "11:18",
     "selections": [
@@ -108,13 +99,10 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
     "verseText": "Pero en primer lugar, yo escucho cuando ustedes vienen juntos a la iglesia, hay divisiones entre ustedes, y en parte lo creo. ",
   },
   {
+    "confidence": 100,
     "glQuote": "church",
     "ref": "11:22",
     "selections": [
-      {
-        "occurrence": 1,
-        "text": "la",
-      },
       {
         "occurrence": 1,
         "text": "iglesia",
@@ -123,13 +111,10 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
     "verseText": "¿Ustedes no tienen casa para comer y beber? ¿Ustedes desprecian la iglesia de Dios y humillan a aquellos que no tienen nada? ¿Qué debería decirles? ¿Los debería alabar? ¡Yo no los alabaré por esto! ",
   },
   {
+    "confidence": 100,
     "glQuote": "church",
     "ref": "12:28",
     "selections": [
-      {
-        "occurrence": 1,
-        "text": "la",
-      },
       {
         "occurrence": 1,
         "text": "iglesia",
@@ -138,6 +123,7 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
     "verseText": "Y Dios ha señalado en la iglesia primero a los apóstoles, segundo profetas, tercero maestros, después aquellos que tienen obras poderosas, después dones de sanidades, aquellos que proporcionan ayudas, aquellos que hacen el trabajo de administración, y aquellos que tienen diversidad de tipos de lenguas. ",
   },
   {
+    "confidence": 100,
     "glQuote": "the church",
     "ref": "14:4",
     "selections": [
@@ -153,13 +139,10 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
     "verseText": "La persona que habla en una lengua se edifica a sí misma, pero la persona que profetiza edifica a la iglesia. ",
   },
   {
+    "confidence": 100,
     "glQuote": "church",
     "ref": "14:5",
     "selections": [
-      {
-        "occurrence": 2,
-        "text": "la",
-      },
       {
         "occurrence": 1,
         "text": "iglesia",
@@ -168,6 +151,7 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
     "verseText": "Ahora desearía que todos ustedes hablaran en lenguas, pero aún más que eso, desearía que profetizaran. La persona que profetiza es mayor que la que habla en lenguas (a menos que alguien interprete), para que la iglesia sea edificada. ",
   },
   {
+    "confidence": 100,
     "glQuote": "of the church",
     "ref": "14:12",
     "selections": [
@@ -187,6 +171,7 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
     "verseText": "Igualmente será con ustedes: ya que están deseosos por ver las manifestaciones o dones del Espiritu, deséenlo sobre todo para la edificación de la iglesia. ",
   },
   {
+    "confidence": 100,
     "glQuote": "the church",
     "ref": "14:19",
     "selections": [
@@ -202,13 +187,10 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
     "verseText": "pero en la iglesia prefiero hablar cinco palabras con mi entendimiento para poder instruir a otros, que diez mil palabras en una lengua. ",
   },
   {
+    "confidence": 100,
     "glQuote": "church",
     "ref": "14:23",
     "selections": [
-      {
-        "occurrence": 1,
-        "text": "la",
-      },
       {
         "occurrence": 1,
         "text": "iglesia",
@@ -217,6 +199,7 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
     "verseText": "Si, por lo tanto, toda la iglesia se reúne y todos hablan en lenguas, y entran los de afuera e incrédulos, ¿no dirían que todos ustedes están locos? ",
   },
   {
+    "confidence": 100,
     "glQuote": "the church",
     "ref": "14:28",
     "selections": [
@@ -232,6 +215,7 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
     "verseText": "Pero si no hay quien interpete, que cada uno guarde silencio en la iglesia y que hable a sí mismo y a Dios. ",
   },
   {
+    "confidence": 100,
     "glQuote": "churches",
     "ref": "14:33",
     "selections": [
@@ -239,29 +223,14 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
         "occurrence": 1,
         "text": "iglesias",
       },
-      {
-        "occurrence": 3,
-        "text": "de",
-      },
-      {
-        "occurrence": 1,
-        "text": "los",
-      },
-      {
-        "occurrence": 1,
-        "text": "santos",
-      },
     ],
     "verseText": "Pues Dios no es un Dios de confusión, sino de paz. Como en todas las iglesias de los santos ",
   },
   {
+    "confidence": 100,
     "glQuote": "churches",
     "ref": "14:34",
     "selections": [
-      {
-        "occurrence": 2,
-        "text": "las",
-      },
       {
         "occurrence": 1,
         "text": "iglesias",
@@ -270,6 +239,7 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
     "verseText": "las mujeres deben guardar silencio en las iglesias. Pues no se les es permitido hablar, sino que deben estar en sumisión, así como dice la Ley. ",
   },
   {
+    "confidence": 100,
     "glQuote": "church",
     "ref": "14:35",
     "selections": [
@@ -281,13 +251,10 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
     "verseText": "Si hay algo que desean aprender, que le pregunten a sus esposos en su casa. Porque es indecoroso que la mujer hable en la iglesia. ",
   },
   {
+    "confidence": 100,
     "glQuote": "church",
     "ref": "15:9",
     "selections": [
-      {
-        "occurrence": 1,
-        "text": "la",
-      },
       {
         "occurrence": 1,
         "text": "iglesia",
@@ -296,6 +263,7 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
     "verseText": "Porque yo soy el último de los apóstoles, indigno de ser llamado un apóstol, porque yo perseguía la iglesia de Dios. ",
   },
   {
+    "confidence": 100,
     "glQuote": "churches",
     "ref": "16:1",
     "selections": [
@@ -307,13 +275,10 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
     "verseText": "Ahora, concerniente a la colecta para los santos, como Yo guié a las iglesias de Galacia, así ustedes deben hacer. ",
   },
   {
+    "confidence": 100,
     "glQuote": "churches",
     "ref": "16:19",
     "selections": [
-      {
-        "occurrence": 1,
-        "text": "Las",
-      },
       {
         "occurrence": 1,
         "text": "iglesias",
@@ -322,20 +287,13 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
     "verseText": "Las iglesias de Asia le envían saludos a ustedes. Aquila y Priscila le saludan en el Señor, con la iglesia que está en su casa. ",
   },
   {
+    "confidence": 100,
     "glQuote": "church",
     "ref": "16:19",
     "selections": [
       {
         "occurrence": 1,
-        "text": "iglesias",
-      },
-      {
-        "occurrence": 1,
-        "text": "de",
-      },
-      {
-        "occurrence": 1,
-        "text": "Asia",
+        "text": "iglesia",
       },
     ],
     "verseText": "Las iglesias de Asia le envían saludos a ustedes. Aquila y Priscila le saludan en el Señor, con la iglesia que está en su casa. ",

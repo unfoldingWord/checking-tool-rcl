@@ -12,9 +12,11 @@ import { groupDataHelpers, usfmHelpers } from 'word-aligner-lib'
 import { getVerseString } from '../helpers/tsv-groupdata-parser/verseHelpers'
 import {
   getBestTWordSelectionWithConfidence,
+  getBestTWordSelectionWithConfidenceAlgorithm,
   getCheckDataFilename,
   getWordList,
-  translatePhraseWithConfidence,
+  removePunctuation,
+  translatePhraseWithConfidence
 } from './autoCheckingUtils'
 
 jest.unmock('fs-extra')
@@ -73,7 +75,7 @@ describe('LM Studio integration', () => {
     }
   });
 
-  test(`test selection prediction for tw in New Book`, async () => {
+  test(`test selection prediction for tw in New Book - AI`, async () => {
     const langId = 'en';
     const bookId = '1co';
     const tWord = 'church'
@@ -161,6 +163,107 @@ describe('LM Studio integration', () => {
 
       const confidence = bestSelections[0]?.confidence
       expect(confidence >= expectedMinConfidence).toBeTruthy()
+    }
+    console.log("generatedSelections", generatedSelections)
+    expect(results).toMatchSnapshot()
+  }, 5000000)
+
+  test(`test selection prediction for tw in New Book - Algorithm`, async () => {
+    const langId = 'en';
+    const bookId = '1co';
+    const tWord = 'church'
+    const category = 'kt'
+
+    const expectedMinConfidence = 90
+    const results = []
+    const generatedSelections = {}
+
+    /////////////////////
+    // get checking data for book
+    const outputFolder = path.join(__dirname, 'fixtures', 'checks', 'checkingData')
+    const readPath = path.join(outputFolder, getCheckDataFilename(langId, bookId))
+    const bookChecks = fs.readJsonSync(readPath);
+    expect(bookChecks).toBeTruthy();
+    const tWordCategoryData = bookChecks[category]?.groups?.[tWord];
+    const selectedCheck = tWordCategoryData?.[0];
+    const contextId = selectedCheck?.contextId;
+    const reference = contextId?.reference;
+    const glQuote = contextId?.glQuote;
+
+    ///////////////////////////
+    // get get previous tWord selections
+    const historyName = 'church_es-419_eph.json'
+    const selectionDataPath = path.join(outputFolder, historyName)
+    const selectionsForTWords = fs.readJsonSync(selectionDataPath)
+
+    /////////////////////
+    // get gateway language bible
+    const enUltFolder = '/Users/blm0/translationCore/resources/en/bibles/ult/v89_unfoldingWord'
+    const alignedGlBible = readHelpsFolder(enUltFolder)
+
+    /////////////////////
+    // get target book
+    const targetLangCode = `es-419`
+    const targetBookName = 'es-419_1co_level2_text_ulb.usfm'
+    const targetBookPath = path.join(__dirname, 'fixtures/bibles/es-419', targetBookName)
+    const targetBookUSfm = readTextFile(targetBookPath);
+    const targetBook = usfmHelpers.getParsedUSFM(targetBookUSfm);
+    expect(targetBook).toBeTruthy()
+    const targetBookChapters = targetBook?.chapters;
+    expect(targetBookChapters).toBeTruthy()
+    expect(reference).toBeTruthy()
+    expect(glQuote).toBeTruthy()
+
+    for (const check of tWordCategoryData) {
+      const contextId = check.contextId
+      const reference = contextId.reference
+      let glQuote = null
+      if (!glQuote) {
+        const alignedGlBook = alignedGlBible[bookId]
+        // need quote
+        let glText = getAlignedGLText(alignedGlBook, contextId)
+        console.log(glText);
+        if (glText) {
+          glText = removePunctuation(glText)
+          glQuote = glText;
+        }
+      }
+      expect(glQuote).toBeTruthy()
+      const ref = `${reference?.chapter}:${reference?.verse}`
+      const verseText = getVerseString(targetBookChapters, ref)
+      const wordList = getWordList(verseText)
+      const enableThinking = false
+      const bestSelections = await getBestTWordSelectionWithConfidenceAlgorithm(wordList, targetLangCode, glQuote, langId, selectionsForTWords, enableThinking)
+      console.log(bestSelections)
+      const selections = bestSelections[0]?.selections
+      if (!selections) {
+        console.log(`missing selections for ${ref} and ${verseText}`)
+      } else {
+        for (const selection of selections) {
+          const { text, occurrence } = selection
+          const occurrenceCount = wordList.filter(word => word === text).length
+          expect(occurrenceCount).toBeGreaterThanOrEqual(occurrence)
+          // expect(wordList).toContain(text)
+        }
+      }
+      // expect(selections).toEqual(expected)
+      const confidence = bestSelections[0]?.confidence
+      results.push({ ref, verseText, glQuote, selections, confidence })
+      const selectedText = selections?.map(word => word?.text)?.join(' ')
+      if (selectedText) {
+        let previousGeneratedQuote = generatedSelections[glQuote]
+        if (!previousGeneratedQuote) {
+          previousGeneratedQuote = {}
+          generatedSelections[glQuote] = previousGeneratedQuote
+        }
+        if (previousGeneratedQuote[selectedText]) {
+          previousGeneratedQuote[selectedText]++
+        } else {
+          previousGeneratedQuote[selectedText] = 1
+        }
+      }
+
+      // expect(confidence >= expectedMinConfidence).toBeTruthy()
     }
     console.log("generatedSelections", generatedSelections)
     expect(results).toMatchSnapshot()
