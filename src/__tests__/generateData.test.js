@@ -15,6 +15,7 @@ import {
   getBestTWordSelectionWithConfidenceAlgorithm,
   getCheckDataFilename,
   getWordList,
+  normalizeHistory,
   removePunctuation,
   translatePhraseWithConfidence
 } from './autoCheckingUtils'
@@ -101,7 +102,9 @@ describe('LM Studio integration', () => {
     // get get previous tWord selections
     const historyName = 'church_es-419_eph.json'
     const selectionDataPath = path.join(outputFolder, historyName)
-    const selectionsForTWords = fs.readJsonSync(selectionDataPath)
+    const selectionsForTWordsRaw = fs.readJsonSync(selectionDataPath)
+    const selectionsForTWords = normalizeHistory(selectionsForTWordsRaw)
+
 
     /////////////////////
     // get gateway language bible
@@ -149,6 +152,9 @@ describe('LM Studio integration', () => {
         for (const selection of selections) {
           const { text, occurrence } = selection
           const occurrenceCount = wordList.filter(word => word === text).length
+          if (!occurrence || occurrence > occurrenceCount) {
+            console.log(`invalid occurrence ${occurrence} for ${text}`)
+          }
           expect(occurrenceCount).toBeGreaterThanOrEqual(occurrence)
           // expect(wordList).toContain(text)
         }
@@ -202,7 +208,8 @@ describe('LM Studio integration', () => {
     // get get previous tWord selections
     const historyName = 'church_es-419_eph.json'
     const selectionDataPath = path.join(outputFolder, historyName)
-    const selectionsForTWords = fs.readJsonSync(selectionDataPath)
+    const selectionsForTWordsRaw = fs.readJsonSync(selectionDataPath)
+    const selectionsForTWords = normalizeHistory(selectionsForTWordsRaw)
 
     /////////////////////
     // get gateway language bible

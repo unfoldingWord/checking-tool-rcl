@@ -79,6 +79,7 @@ export async function queryLmStudio(query, options = {}) {
   const reader = response.body.pipeThrough(new TextDecoderStream()).getReader();
   let replyText = '';
   let buffer = '';
+  let actualModel = '';
 
   while (true) {
     const { value, done } = await reader.read();
@@ -97,6 +98,7 @@ export async function queryLmStudio(query, options = {}) {
 
       try {
         const chunk = JSON.parse(dataStr);
+        actualModel = actualModel || chunk?.model || '';
         const delta = chunk?.choices?.[0]?.delta;
         const text = delta?.content || delta?.reasoning_content;
 
@@ -110,7 +112,7 @@ export async function queryLmStudio(query, options = {}) {
   }
 
   const elapsed = ((Date.now() - startTime) / 1000).toFixed(2);
-  console.log(`Query took ${elapsed}s`);
+  console.log(`Query using model "${actualModel || model}" took ${elapsed}s`);
 
   if (!replyText) {
     const message = `Unexpected LM Studio response shape: received empty content`
@@ -925,7 +927,7 @@ function findOccurrenceForPos(position, wordList, text) {
 
 function parseResponseRowNoPositions(response, wordList, answer, selectionWords) {
   let error = false;
-  const rowParts = response.split(',')
+  const rowParts = normalizer(response).split(',')
   if (rowParts.length === 2) {
     let [phraseTranslation, confidence] = rowParts
     confidence = confidence ? parseInt(removeQuotes(confidence), 10) : 0
@@ -1297,4 +1299,20 @@ export function cleanQuote2(glQuote) {
     cleanedString += cleanedString2
   }
   return cleanedString
+}
+
+export function normalizeHistory(selectionsForTWordsRaw) {
+  const selectionsForTWords = { }
+  for (const glQuote of Object.keys(selectionsForTWordsRaw)) {
+    const glQuote_ = normalizer(glQuote)
+    const translations_ = {}
+
+    const translations = selectionsForTWordsRaw[glQuote]
+    for (const translation of Object.keys(translations)) {
+      const translation_ = normalizer(translation)
+      translations_[translation_] = translations[translation]
+    }
+    selectionsForTWords[glQuote_] = translations_
+  }
+  return selectionsForTWords
 }

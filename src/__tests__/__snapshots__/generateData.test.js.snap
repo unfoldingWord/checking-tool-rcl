@@ -35,7 +35,7 @@ exports[`LM Studio integration test selection prediction for tw in New Book - AI
     "verseText": "Es por eso que les envié a Timoteo, mi amado y fiel hijo en el Señor. Él les va a recordar de mis caminos en Cristo, así como yo los enseño en todas partes y en cada iglesia. ",
   },
   {
-    "confidence": 100,
+    "confidence": 98,
     "glQuote": "church",
     "ref": "6:4",
     "selections": [
@@ -119,10 +119,14 @@ exports[`LM Studio integration test selection prediction for tw in New Book - AI
     "verseText": "¿Ustedes no tienen casa para comer y beber? ¿Ustedes desprecian la iglesia de Dios y humillan a aquellos que no tienen nada? ¿Qué debería decirles? ¿Los debería alabar? ¡Yo no los alabaré por esto! ",
   },
   {
-    "confidence": 100,
+    "confidence": 98,
     "glQuote": "church",
     "ref": "12:28",
     "selections": [
+      {
+        "occurrence": 1,
+        "text": "la",
+      },
       {
         "occurrence": 1,
         "text": "iglesia",
@@ -131,7 +135,7 @@ exports[`LM Studio integration test selection prediction for tw in New Book - AI
     "verseText": "Y Dios ha señalado en la iglesia primero a los apóstoles, segundo profetas, tercero maestros, después aquellos que tienen obras poderosas, después dones de sanidades, aquellos que proporcionan ayudas, aquellos que hacen el trabajo de administración, y aquellos que tienen diversidad de tipos de lenguas. ",
   },
   {
-    "confidence": 99,
+    "confidence": 98,
     "glQuote": "the church",
     "ref": "14:4",
     "selections": [
@@ -199,10 +203,14 @@ exports[`LM Studio integration test selection prediction for tw in New Book - AI
     "verseText": "pero en la iglesia prefiero hablar cinco palabras con mi entendimiento para poder instruir a otros, que diez mil palabras en una lengua. ",
   },
   {
-    "confidence": 98,
+    "confidence": 95,
     "glQuote": "church",
     "ref": "14:23",
     "selections": [
+      {
+        "occurrence": 1,
+        "text": "la",
+      },
       {
         "occurrence": 1,
         "text": "iglesia",
@@ -267,17 +275,21 @@ exports[`LM Studio integration test selection prediction for tw in New Book - AI
     "verseText": "Si hay algo que desean aprender, que le pregunten a sus esposos en su casa. Porque es indecoroso que la mujer hable en la iglesia. ",
   },
   {
-    "confidence": 98,
+    "confidence": 95,
     "glQuote": "church",
     "ref": "15:9",
     "selections": [
       {
         "occurrence": 1,
-        "text": "la",
+        "text": "iglesia",
+      },
+      {
+        "occurrence": 3,
+        "text": "de",
       },
       {
         "occurrence": 1,
-        "text": "iglesia",
+        "text": "Dios",
       },
     ],
     "verseText": "Porque yo soy el último de los apóstoles, indigno de ser llamado un apóstol, porque yo perseguía la iglesia de Dios. ",
@@ -317,11 +329,15 @@ exports[`LM Studio integration test selection prediction for tw in New Book - AI
     "selections": [
       {
         "occurrence": 1,
-        "text": "Las",
+        "text": "iglesias",
       },
       {
         "occurrence": 1,
-        "text": "iglesias",
+        "text": "de",
+      },
+      {
+        "occurrence": 1,
+        "text": "Asia",
       },
     ],
     "verseText": "Las iglesias de Asia le envían saludos a ustedes. Aquila y Priscila le saludan en el Señor, con la iglesia que está en su casa. ",
