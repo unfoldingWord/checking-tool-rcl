@@ -124,17 +124,18 @@ describe('LM Studio integration', () => {
     for (const check of tWordCategoryData) {
       const contextId = check.contextId
       const reference = contextId.reference
-      let glQuote = contextId.glQuote
+      let glQuote = null
       if (!glQuote) {
         const alignedGlBook = alignedGlBible[bookId]
         // need quote
-        let glText = getAlignedGLText(alignedGlBook, contextId1)
+        let glText = getAlignedGLText(alignedGlBook, contextId)
         console.log(glText);
         if (glText) {
           glText = removePunctuation(glText)
           glQuote = glText;
         }
       }
+      expect(glQuote).toBeTruthy()
       const ref = `${reference?.chapter}:${reference?.verse}`
       const verseText = getVerseString(targetBookChapters, ref)
       const wordList = getWordList(verseText)
@@ -144,9 +145,17 @@ describe('LM Studio integration', () => {
       const selections = bestSelections[0]?.selections
       if (!selections) {
         console.log(`missing selections for ${ref} and ${verseText}`)
+      } else {
+        for (const selection of selections) {
+          const { text, occurrence } = selection
+          const occurrenceCount = wordList.filter(word => word === text).length
+          expect(occurrenceCount).toBeGreaterThanOrEqual(occurrence)
+          // expect(wordList).toContain(text)
+        }
       }
       // expect(selections).toEqual(expected)
-      results.push({ ref, verseText, glQuote, selections })
+      const confidence = bestSelections[0]?.confidence
+      results.push({ ref, verseText, glQuote, selections, confidence })
       const selectedText = selections?.map(word => word?.text)?.join(' ')
       if (selectedText) {
         let previousGeneratedQuote = generatedSelections[glQuote]
@@ -161,7 +170,6 @@ describe('LM Studio integration', () => {
         }
       }
 
-      const confidence = bestSelections[0]?.confidence
       expect(confidence >= expectedMinConfidence).toBeTruthy()
     }
     console.log("generatedSelections", generatedSelections)
