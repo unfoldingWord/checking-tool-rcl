@@ -7918,15 +7918,15 @@
 \w sino|x-occurrence="1" x-occurrences="1"\w*
 \w de|x-occurrence="2" x-occurrences="2"\w*
 \w paz|x-occurrence="1" x-occurrences="1"\w*. 
-\v 34 \w Como|x-occurrence="1" x-occurrences="1"\w*
+\w Como|x-occurrence="1" x-occurrences="1"\w*
 \w en|x-occurrence="1" x-occurrences="3"\w*
 \w todas|x-occurrence="1" x-occurrences="1"\w*
 \w las|x-occurrence="1" x-occurrences="3"\w*
 \w iglesias|x-occurrence="1" x-occurrences="2"\w*
 \w de|x-occurrence="1" x-occurrences="1"\w*
 \w los|x-occurrence="1" x-occurrences="1"\w*
-\w santos|x-occurrence="1" x-occurrences="1"\w*,
-\w las|x-occurrence="2" x-occurrences="3"\w*
+\w santos|x-occurrence="1" x-occurrences="1"\w*
+\v 34 \w las|x-occurrence="2" x-occurrences="3"\w*
 \w mujeres|x-occurrence="1" x-occurrences="1"\w*
 \w deben|x-occurrence="1" x-occurrences="2"\w*
 \w guardar|x-occurrence="1" x-occurrences="1"\w*

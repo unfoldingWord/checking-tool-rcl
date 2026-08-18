@@ -4,6 +4,7 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
 [
   {
     "glQuote": "to the church",
+    "ref": "1:2",
     "selections": [
       {
         "occurrence": 1,
@@ -18,36 +19,48 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
         "text": "iglesia",
       },
     ],
+    "verseText": "a la iglesia de Dios en Corinto, aquellos que Cristo Jesús han sido santificados, quienes son llamados a ser santos. Nosotros también estamos escribiendo a todos los que llaman el nombre de nuestro Señor Jesucristo en todo lugar, su Señor y el nuestro. ",
   },
   {
     "glQuote": "church",
+    "ref": "4:17",
     "selections": [
       {
         "occurrence": 1,
         "text": "iglesia",
       },
     ],
+    "verseText": "Es por eso que les envié a Timoteo, mi amado y fiel hijo en el Señor. Él les va a recordar de mis caminos en Cristo, así como yo los enseño en todas partes y en cada iglesia. ",
   },
   {
     "glQuote": "church",
+    "ref": "6:4",
     "selections": [
+      {
+        "occurrence": 2,
+        "text": "la",
+      },
       {
         "occurrence": 1,
         "text": "iglesia",
       },
     ],
+    "verseText": "Entonces, si ustedes tienen que hacer juicios que pertenecen a la vida diaria, ¿por qué llevan casos como estos ante aquellos que nada son en la iglesia? ",
   },
   {
     "glQuote": "churches",
+    "ref": "7:17",
     "selections": [
       {
         "occurrence": 1,
         "text": "iglesias",
       },
     ],
+    "verseText": "Sólo dejen a cada uno vivir la vida que el Señor les ha asignado, cada cual como Dios lo llamó. Esta es mi regla en todas las iglesias. ",
   },
   {
     "glQuote": "to the church",
+    "ref": "10:32",
     "selections": [
       {
         "occurrence": 1,
@@ -58,9 +71,11 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
         "text": "iglesia",
       },
     ],
+    "verseText": "No ofendas a los Judíos o a los Griegos, o a la iglesia de Dios, ",
   },
   {
     "glQuote": "churches",
+    "ref": "11:16",
     "selections": [
       {
         "occurrence": 1,
@@ -75,9 +90,11 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
         "text": "Señor",
       },
     ],
+    "verseText": "Pero si alguien quiere discutir por esto, nosotros no tenemos ninguna otra práctica, ni las iglesias del Señor. ",
   },
   {
     "glQuote": "the church",
+    "ref": "11:18",
     "selections": [
       {
         "occurrence": 1,
@@ -88,9 +105,11 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
         "text": "iglesia",
       },
     ],
+    "verseText": "Pero en primer lugar, yo escucho cuando ustedes vienen juntos a la iglesia, hay divisiones entre ustedes, y en parte lo creo. ",
   },
   {
     "glQuote": "church",
+    "ref": "11:22",
     "selections": [
       {
         "occurrence": 1,
@@ -101,9 +120,11 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
         "text": "iglesia",
       },
     ],
+    "verseText": "¿Ustedes no tienen casa para comer y beber? ¿Ustedes desprecian la iglesia de Dios y humillan a aquellos que no tienen nada? ¿Qué debería decirles? ¿Los debería alabar? ¡Yo no los alabaré por esto! ",
   },
   {
     "glQuote": "church",
+    "ref": "12:28",
     "selections": [
       {
         "occurrence": 1,
@@ -114,9 +135,11 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
         "text": "iglesia",
       },
     ],
+    "verseText": "Y Dios ha señalado en la iglesia primero a los apóstoles, segundo profetas, tercero maestros, después aquellos que tienen obras poderosas, después dones de sanidades, aquellos que proporcionan ayudas, aquellos que hacen el trabajo de administración, y aquellos que tienen diversidad de tipos de lenguas. ",
   },
   {
     "glQuote": "the church",
+    "ref": "14:4",
     "selections": [
       {
         "occurrence": 2,
@@ -127,18 +150,26 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
         "text": "iglesia",
       },
     ],
+    "verseText": "La persona que habla en una lengua se edifica a sí misma, pero la persona que profetiza edifica a la iglesia. ",
   },
   {
     "glQuote": "church",
+    "ref": "14:5",
     "selections": [
+      {
+        "occurrence": 2,
+        "text": "la",
+      },
       {
         "occurrence": 1,
         "text": "iglesia",
       },
     ],
+    "verseText": "Ahora desearía que todos ustedes hablaran en lenguas, pero aún más que eso, desearía que profetizaran. La persona que profetiza es mayor que la que habla en lenguas (a menos que alguien interprete), para que la iglesia sea edificada. ",
   },
   {
     "glQuote": "of the church",
+    "ref": "14:12",
     "selections": [
       {
         "occurrence": 1,
@@ -153,9 +184,11 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
         "text": "iglesia",
       },
     ],
+    "verseText": "Igualmente será con ustedes: ya que están deseosos por ver las manifestaciones o dones del Espiritu, deséenlo sobre todo para la edificación de la iglesia. ",
   },
   {
     "glQuote": "the church",
+    "ref": "14:19",
     "selections": [
       {
         "occurrence": 1,
@@ -166,9 +199,11 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
         "text": "iglesia",
       },
     ],
+    "verseText": "pero en la iglesia prefiero hablar cinco palabras con mi entendimiento para poder instruir a otros, que diez mil palabras en una lengua. ",
   },
   {
     "glQuote": "church",
+    "ref": "14:23",
     "selections": [
       {
         "occurrence": 1,
@@ -179,9 +214,11 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
         "text": "iglesia",
       },
     ],
+    "verseText": "Si, por lo tanto, toda la iglesia se reúne y todos hablan en lenguas, y entran los de afuera e incrédulos, ¿no dirían que todos ustedes están locos? ",
   },
   {
     "glQuote": "the church",
+    "ref": "14:28",
     "selections": [
       {
         "occurrence": 1,
@@ -192,40 +229,60 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
         "text": "iglesia",
       },
     ],
+    "verseText": "Pero si no hay quien interpete, que cada uno guarde silencio en la iglesia y que hable a sí mismo y a Dios. ",
   },
   {
     "glQuote": "churches",
+    "ref": "14:33",
     "selections": [
       {
-        "occurrence": 2,
+        "occurrence": 1,
+        "text": "iglesias",
+      },
+      {
+        "occurrence": 3,
         "text": "de",
       },
       {
         "occurrence": 1,
-        "text": "paz",
+        "text": "los",
+      },
+      {
+        "occurrence": 1,
+        "text": "santos",
       },
     ],
+    "verseText": "Pues Dios no es un Dios de confusión, sino de paz. Como en todas las iglesias de los santos ",
   },
   {
     "glQuote": "churches",
+    "ref": "14:34",
     "selections": [
+      {
+        "occurrence": 2,
+        "text": "las",
+      },
       {
         "occurrence": 1,
         "text": "iglesias",
       },
     ],
+    "verseText": "las mujeres deben guardar silencio en las iglesias. Pues no se les es permitido hablar, sino que deben estar en sumisión, así como dice la Ley. ",
   },
   {
     "glQuote": "church",
+    "ref": "14:35",
     "selections": [
       {
         "occurrence": 1,
         "text": "iglesia",
       },
     ],
+    "verseText": "Si hay algo que desean aprender, que le pregunten a sus esposos en su casa. Porque es indecoroso que la mujer hable en la iglesia. ",
   },
   {
     "glQuote": "church",
+    "ref": "15:9",
     "selections": [
       {
         "occurrence": 1,
@@ -236,18 +293,22 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
         "text": "iglesia",
       },
     ],
+    "verseText": "Porque yo soy el último de los apóstoles, indigno de ser llamado un apóstol, porque yo perseguía la iglesia de Dios. ",
   },
   {
     "glQuote": "churches",
+    "ref": "16:1",
     "selections": [
       {
         "occurrence": 1,
         "text": "iglesias",
       },
     ],
+    "verseText": "Ahora, concerniente a la colecta para los santos, como Yo guié a las iglesias de Galacia, así ustedes deben hacer. ",
   },
   {
     "glQuote": "churches",
+    "ref": "16:19",
     "selections": [
       {
         "occurrence": 1,
@@ -258,9 +319,11 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
         "text": "iglesias",
       },
     ],
+    "verseText": "Las iglesias de Asia le envían saludos a ustedes. Aquila y Priscila le saludan en el Señor, con la iglesia que está en su casa. ",
   },
   {
     "glQuote": "church",
+    "ref": "16:19",
     "selections": [
       {
         "occurrence": 1,
@@ -275,6 +338,7 @@ exports[`LM Studio integration test selection prediction for tw in New Book 1`] 
         "text": "Asia",
       },
     ],
+    "verseText": "Las iglesias de Asia le envían saludos a ustedes. Aquila y Priscila le saludan en el Señor, con la iglesia que está en su casa. ",
   },
 ]
 `;

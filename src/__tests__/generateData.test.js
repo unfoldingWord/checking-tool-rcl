@@ -81,6 +81,7 @@ describe('LM Studio integration', () => {
 
     const expectedMinConfidence = 90
     const results = []
+    const generatedSelections = {}
 
     /////////////////////
     // get checking data for book
@@ -139,11 +140,29 @@ describe('LM Studio integration', () => {
       const bestSelections = await getBestTWordSelectionWithConfidence(wordList, targetLangCode, glQuote, langId, selectionsForTWords, enableThinking)
       console.log(bestSelections)
       const selections = bestSelections[0]?.selections
+      if (!selections) {
+        console.log(`missing selections for ${ref} and ${verseText}`)
+      }
       // expect(selections).toEqual(expected)
-      results.push({ glQuote, selections })
+      results.push({ ref, verseText, glQuote, selections })
+      const selectedText = selections?.map(word => word?.text)?.join(' ')
+      if (selectedText) {
+        let previousGeneratedQuote = generatedSelections[glQuote]
+        if (!previousGeneratedQuote) {
+          previousGeneratedQuote = {}
+          generatedSelections[glQuote] = previousGeneratedQuote
+        }
+        if (previousGeneratedQuote[selectedText]) {
+          previousGeneratedQuote[selectedText]++
+        } else {
+          previousGeneratedQuote[selectedText] = 1
+        }
+      }
+
       const confidence = bestSelections[0]?.confidence
       expect(confidence >= expectedMinConfidence).toBeTruthy()
     }
+    console.log("generatedSelections", generatedSelections)
     expect(results).toMatchSnapshot()
   }, 5000000)
 
@@ -239,7 +258,7 @@ describe('LM Studio integration', () => {
     const reference = contextId?.reference;
     const glQuote = contextId?.glQuote;
 
-    const selectionDataPath = path.join(outputFolder, tWord + '_' +getCheckDataFilename(langId, bookId))
+    const selectionDataPath = path.join(outputFolder, tWord + '_' + getCheckDataFilename(langId, bookId))
     const selectionsForTWords =  fs.readJsonSync(selectionDataPath)
 
     const targetLangCode = `es-419`;
