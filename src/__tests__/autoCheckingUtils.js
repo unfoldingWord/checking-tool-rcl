@@ -328,15 +328,29 @@ function formatPreviousTranslations(previousTranslationData, glPhrase, verseCont
     }
   }
 
-  // Convert counts map to array of [phrase, count] entries,
+  // Convert counts object to array of {phrase, rendering, usageCount} entries,
   // filter out empty phrases or zero counts,
   // and sort by count descending (strongest evidence first)
-  const entries = Object.entries(filteredMatches)
-    .filter(([phrase, count]) => phrase && count > 0)
-    .sort((a, b) => b[1] - a[1]);
+
+  // const glEntries = Object.entries(filteredMatches)
+  let entries = []
+  for (const glPhrase of Object.keys(filteredMatches)) {
+    const translations = filteredMatches[glPhrase]
+    for (const translation of Object.keys(translations)) {
+      entries.push({
+        phrase: glPhrase,
+        rendering: translation,
+        usageCount: translations[translation]
+      })
+    }
+  }
+
+  entries = entries.sort((a, b) => b.usageCount - a.usageCount);
 
   // Return JSON string of filtered/sorted entries, or empty string if no entries
-  const resultsJson = entries.length ? JSON.stringify(Object.fromEntries(entries)) : ''
+  const resultsJson = entries.length
+    ? JSON.stringify(entries)
+    : ''
   return resultsJson;
 }
 
@@ -391,9 +405,9 @@ Rules:
 1. Use only words of the TARGET VERSE. Never invent, translate, inflect, or re-spell a word, and never output the gateway phrase itself.
 2. Copy each word exactly as the TARGET VERSE spells it, keeping its accents and its casing.
 3. Output the words on their own, separated by single spaces. Never add a number, a colon, or any punctuation to a word.
-4. PREVIOUS TRANSLATIONS are earlier translations of this GATEWAY PHRASE with number of times this translation has been used. Prefer the highest-count translations whose words all occur in the TARGET VERSE; discard any translations that uses words the TARGET VERSE does not have. Translations with higher usage counts should have greater confidence.
+4. PREVIOUS TRANSLATIONS is an array of objects. Each object has a "phrase" field (a previous GATEWAY PHRASE) a "rendering" field (a previous TARGET VERSE translation for the current GATEWAY PHRASE) and a "usageCount" field (how many times that rendering was chosen). Prefer renderings with a higher usageCount whose words all occur in the TARGET VERSE; discard any that use words the TARGET VERSE does not have. Use usageCount only to inform your confidence score — do not copy it into your output.
 5. Keep the words in TARGET VERSE order, and prefer the shortest option that carries the meaning.
-6. Output at most 3 rows, one per plausible option, highest confidence first. "confidence" is an integer 0-100.
+6. Output at most 3 rows, one per plausible option, highest confidence first. "confidence" is an integer 0-100 that YOU assign based on how well the option fits this verse; it is unrelated to the usage counts in PREVIOUS TRANSLATIONS.
 7. If no words of the TARGET VERSE can express the phrase, output exactly: "",0
 8. Output only CSV rows: no header, no explanation, no markdown fences.
 
@@ -403,12 +417,15 @@ Required output format:
 Example
 GATEWAY PHRASE: church
 TARGET VERSE: para la iglesia de Éfeso
-PREVIOUS TRANSLATIONS: {"iglesia":7,"congregación":2}
-Valid:
+PREVIOUS TRANSLATIONS:
+    [{"phrase":"church","rendering":"iglesia","usageCount":7},{"phrase":"the church","rendering":"la iglesia","usageCount":3},{"phrase":"the churches","rendering":"las iglesias","usageCount":1}]
+
+
+Valid Response:
 "iglesia",98
 "la iglesia",70
 
-Invalid: "church",98 | "congregación",90 | "iglesias",85 | "Iglesia",98 | "iglesia:3",98 | iglesia,98
+Invalid Response: "church",98 | "congregación",90 | "iglesias",85 | "Iglesia",98 | "iglesia:3",98 | iglesia,98
 `;
 
   const previousTranslations = formatPreviousTranslations(previousTranslationData, glPhrase, verseContent)
