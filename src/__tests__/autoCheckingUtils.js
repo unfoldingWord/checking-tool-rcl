@@ -391,7 +391,7 @@ Rules:
 1. Use only words of the TARGET VERSE. Never invent, translate, inflect, or re-spell a word, and never output the gateway phrase itself.
 2. Copy each word exactly as the TARGET VERSE spells it, keeping its accents and its casing.
 3. Output the words on their own, separated by single spaces. Never add a number, a colon, or any punctuation to a word.
-4. PREVIOUS TRANSLATIONS are earlier renderings of this GATEWAY PHRASE with usage counts. Prefer the highest-count rendering whose words all occur in the TARGET VERSE; discard any rendering that uses words the TARGET VERSE does not have.
+4. PREVIOUS TRANSLATIONS are earlier translations of this GATEWAY PHRASE with number of times this translation has been used. Prefer the highest-count translations whose words all occur in the TARGET VERSE; discard any translations that uses words the TARGET VERSE does not have. Translations with higher usage counts should have greater confidence.
 5. Keep the words in TARGET VERSE order, and prefer the shortest option that carries the meaning.
 6. Output at most 3 rows, one per plausible option, highest confidence first. "confidence" is an integer 0-100.
 7. If no words of the TARGET VERSE can express the phrase, output exactly: "",0
@@ -777,7 +777,65 @@ export async function getBestTWordSelectionWithConfidenceAlgorithm(
   return bestSelections
 }
 
-export async function getBestTWordSelectionWithConfidence(wordList, targetLangCode, glPhrase, glLangCode, previousTranslationData, enable_thinking = false) {
+/**
+ * Translates a gateway language phrase to target-language word(s) within a verse
+ * using an AI model, returning an array of selection objects with confidence scores.
+ *
+ * This function queries an LM Studio AI model to find the best target-language translation
+ * option(s) for a gateway-language phrase, using only words found in the target verse.
+ * The AI is guided by previous translation history to maintain consistency across the project.
+ *
+ * Response parsing handles multiple formats:
+ * - Standard CSV: "word word",confidence
+ * - Verbose responses (thinking mode): skips to the last valid CSV line
+ * - Newline-separated fields: converted to CSV format
+ * - Malformed responses: attempts recovery by extracting the last valid line
+ *
+ * The function validates all returned selections to ensure:
+ * - Each word has both text and occurrence fields
+ * - No duplicate word:occurrence pairs exist
+ * - All words are present in the target verse
+ *
+ * @param {Array<string>} wordList - target-language verse words in reading order
+ * @param {string} targetLangCode - language code of the verse (e.g. 'es-419')
+ * @param {string} glPhrase - gateway language phrase to translate (e.g. 'church')
+ * @param {string} glLangCode - language code of the gateway phrase (e.g. 'en')
+ * @param {object} previousTranslationData - prior translation counts; can be nested
+ *   `{glPhrase: {targetPhrase: count}}` or flat `{targetPhrase: count}`
+ * @param {object} [lmOptions={enable_thinking: false}] - options passed to queryLmStudio
+ * @param {boolean} [lmOptions.enable_thinking=false] - whether to enable AI thinking mode
+ * @param {string} [lmOptions.baseUrl] - LM Studio server URL override
+ * @param {string} [lmOptions.model] - AI model identifier override
+ * @param {number} [lmOptions.temperature] - sampling temperature override
+ * @param {number} [lmOptions.maxTokens] - max response tokens override
+ * @returns {Promise<Array<{selections: Array<{text: string, occurrence: number}>, confidence: number}>>} -
+ *   array of translation options (up to 3), each containing:
+ *   - selections: array of {text, occurrence} objects representing matched words
+ *     - text: the normalized word form from the verse
+ *     - occurrence: 1-based occurrence index of this word in the verse
+ *   - confidence: integer 0-100 indicating match certainty
+ *   Returns empty array [] on failure or when no valid translations are found
+ * @throws Does not throw; logs errors and returns empty array on failure
+ * @example
+ * const wordList = ['para', 'la', 'iglesia', 'de', 'Éfeso'];
+ * const result = await getBestTWordSelectionWithConfidence(
+ *   wordList,
+ *   'es-419',
+ *   'church',
+ *   'en',
+ *   { church: { 'iglesia': 7, 'la iglesia': 3 } },
+ *   { enable_thinking: false }
+ * );
+ * // Returns: [
+ * //   { selections: [{text: 'iglesia', occurrence: 1}], confidence: 98 },
+ * //   { selections: [{text: 'la', occurrence: 1}, {text: 'iglesia', occurrence: 1}], confidence: 70 }
+ * // ]
+ *
+ * @see {@link buildTranslationOptionsPrompt} for the prompt construction
+ * @see {@link parseResponseRowNoPositions} for response parsing logic
+ * @see {@link getBestTWordSelectionWithConfidenceAlgorithm} for non-AI alternative
+ */
+export async function getBestTWordSelectionWithConfidence(wordList, targetLangCode, glPhrase, glLangCode, previousTranslationData, lmOptions = { enable_thinking: false }) {
   let selectionWords = []
   const { systemPrompt, input } = buildTranslationOptionsPrompt(
     wordList.join(' '),
@@ -790,7 +848,10 @@ export async function getBestTWordSelectionWithConfidence(wordList, targetLangCo
   let answer = '';
   let responses = null
   try {
-    const options = { systemPrompt, enable_thinking }
+    const options = {
+      ...lmOptions,
+      systemPrompt,
+    }
     answer = await queryLmStudio(input, options)
     responses = answer.split('\n')
     const length = responses.length
@@ -1315,4 +1376,9 @@ export function normalizeHistory(selectionsForTWordsRaw) {
     selectionsForTWords[glQuote_] = translations_
   }
   return selectionsForTWords
+}
+
+export function selectionsToString(selections) {
+  const selectionWords = selections.map( selection => (selection.text))
+  return selectionWords.join(' ')
 }

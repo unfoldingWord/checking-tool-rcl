@@ -16,7 +16,7 @@ import {
   getCheckDataFilename,
   getWordList,
   normalizeHistory,
-  removePunctuation,
+  removePunctuation, selectionsToString,
   translatePhraseWithConfidence
 } from './autoCheckingUtils'
 
@@ -77,6 +77,10 @@ describe('LM Studio integration', () => {
   });
 
   test(`test selection prediction for tw in New Book - AI`, async () => {
+    const lmOptions = {
+      enable_thinking: true,
+      model: 'qwen/qwen3-8b' // 'google/gemma-3n-e4b'
+    }
     const langId = 'en';
     const bookId = '1co';
     const tWord = 'church'
@@ -127,6 +131,8 @@ describe('LM Studio integration', () => {
     for (const check of tWordCategoryData) {
       const contextId = check.contextId
       const reference = contextId.reference
+      const glQuoteInitial = contextId.glQuote
+      const initialSelections = check.selections
       let glQuote = null
       if (!glQuote) {
         const alignedGlBook = alignedGlBible[bookId]
@@ -142,8 +148,7 @@ describe('LM Studio integration', () => {
       const ref = `${reference?.chapter}:${reference?.verse}`
       const verseText = getVerseString(targetBookChapters, ref)
       const wordList = getWordList(verseText)
-      const enableThinking = false
-      const bestSelections = await getBestTWordSelectionWithConfidence(wordList, targetLangCode, glQuote, langId, selectionsForTWords, enableThinking)
+      const bestSelections = await getBestTWordSelectionWithConfidence(wordList, targetLangCode, glQuote, langId, selectionsForTWords, lmOptions)
       console.log(bestSelections)
       const selections = bestSelections[0]?.selections
       if (!selections) {
@@ -157,6 +162,11 @@ describe('LM Studio integration', () => {
           }
           expect(occurrenceCount).toBeGreaterThanOrEqual(occurrence)
           // expect(wordList).toContain(text)
+        }
+        if (initialSelections) {
+          if (!isEqual(initialSelections, selections)) {
+            console.log('mismatch', {initialSelections, selections})
+          }
         }
       }
       // expect(selections).toEqual(expected)
@@ -176,6 +186,9 @@ describe('LM Studio integration', () => {
         }
       }
 
+      if (confidence < expectedMinConfidence) {
+        console.log(`confidence ${confidence} is less than ${expectedMinConfidence}`)
+      }
       expect(confidence >= expectedMinConfidence).toBeTruthy()
     }
     console.log("generatedSelections", generatedSelections)
@@ -232,6 +245,8 @@ describe('LM Studio integration', () => {
     for (const check of tWordCategoryData) {
       const contextId = check.contextId
       const reference = contextId.reference
+      const glQuoteInitial = contextId.glQuote
+      const prevSelection = check.selections
       let glQuote = null
       if (!glQuote) {
         const alignedGlBook = alignedGlBible[bookId]
@@ -247,8 +262,7 @@ describe('LM Studio integration', () => {
       const ref = `${reference?.chapter}:${reference?.verse}`
       const verseText = getVerseString(targetBookChapters, ref)
       const wordList = getWordList(verseText)
-      const enableThinking = false
-      const bestSelections = await getBestTWordSelectionWithConfidenceAlgorithm(wordList, targetLangCode, glQuote, langId, selectionsForTWords, enableThinking)
+      const bestSelections = await getBestTWordSelectionWithConfidenceAlgorithm(wordList, targetLangCode, glQuote, langId, selectionsForTWords)
       console.log(bestSelections)
       const selections = bestSelections[0]?.selections
       if (!selections) {
@@ -260,6 +274,10 @@ describe('LM Studio integration', () => {
           expect(occurrenceCount).toBeGreaterThanOrEqual(occurrence)
           // expect(wordList).toContain(text)
         }
+        // const selectionStr = selectionsToString(selections)
+        // if (selectionStr !== glQuoteInitial) {
+        //   console.log('mismatch', {glQuoteInitial, selectionStr})
+        // }
       }
       // expect(selections).toEqual(expected)
       const confidence = bestSelections[0]?.confidence
@@ -339,8 +357,8 @@ describe('LM Studio integration', () => {
     const ref = `${reference?.chapter}:${reference?.verse}`
     const verseText = getVerseString(targetBookChapters, ref);
     const wordList = getWordList(verseText)
-    const enableThinking = false
-    const bestSelections = await getBestTWordSelectionWithConfidence(wordList, targetLangCode, glQuote, langId, selectionsForTWords, enableThinking)
+    const lmOptions = { enable_thinking: false }
+    const bestSelections = await getBestTWordSelectionWithConfidence(wordList, targetLangCode, glQuote, langId, selectionsForTWords, lmOptions)
     console.log(bestSelections)
     const selections = bestSelections[0]?.selections
     expect(selections).toEqual(expected)
@@ -393,8 +411,8 @@ describe('LM Studio integration', () => {
     const ref = `${reference?.chapter}:${reference?.verse}`
     const verseText = getVerseString(targetBookChapters, ref);
     const wordList = getWordList(verseText.replace('para ', ''))
-    const enableThinking = false
-    const bestSelections = await getBestTWordSelectionWithConfidence(wordList, targetLangCode, glQuote, langId, selectionsForTWords, enableThinking)
+    const lmOptions = { enable_thinking: false }
+    const bestSelections = await getBestTWordSelectionWithConfidence(wordList, targetLangCode, glQuote, langId, selectionsForTWords, lmOptions)
     console.log(bestSelections)
     const selections = bestSelections[0]?.selections
     expect(selections).toEqual(expected)
