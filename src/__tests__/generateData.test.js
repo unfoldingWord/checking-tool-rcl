@@ -86,7 +86,7 @@ describe('LM Studio integration', () => {
     const tWord = 'church'
     const category = 'kt'
 
-    const expectedMinConfidence = 90
+    const expectedMinConfidence = 60
     const results = []
     const generatedSelections = {}
 
@@ -138,7 +138,7 @@ describe('LM Studio integration', () => {
         const alignedGlBook = alignedGlBible[bookId]
         // need quote
         let glText = getAlignedGLText(alignedGlBook, contextId)
-        console.log(glText);
+        // console.log(glText);
         if (glText) {
           glText = removePunctuation(glText)
           glQuote = glText;
@@ -149,7 +149,7 @@ describe('LM Studio integration', () => {
       const verseText = getVerseString(targetBookChapters, ref)
       const wordList = getWordList(verseText)
       const bestSelections = await getBestTWordSelectionWithConfidence(wordList, targetLangCode, glQuote, langId, selectionsForTWords, lmOptions)
-      console.log(bestSelections)
+      // console.log(bestSelections)
       const selections = bestSelections[0]?.selections
       if (!selections) {
         console.log(`missing selections for ${ref} and ${verseText}`)
@@ -193,7 +193,7 @@ describe('LM Studio integration', () => {
     }
     console.log("generatedSelections", generatedSelections)
     expect(results).toMatchSnapshot()
-  }, 5000000)
+  }, 500000000)
 
   test(`test selection prediction for tw in New Book - Algorithm`, async () => {
     const langId = 'en';

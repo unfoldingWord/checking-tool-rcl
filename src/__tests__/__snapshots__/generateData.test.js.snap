@@ -3,7 +3,7 @@
 exports[`LM Studio integration test selection prediction for tw in New Book - AI 1`] = `
 [
   {
-    "confidence": 95,
+    "confidence": 98,
     "glQuote": "to the church",
     "ref": "1:2",
     "selections": [
@@ -59,10 +59,14 @@ exports[`LM Studio integration test selection prediction for tw in New Book - AI
     "verseText": "Sólo dejen a cada uno vivir la vida que el Señor les ha asignado, cada cual como Dios lo llamó. Esta es mi regla en todas las iglesias. ",
   },
   {
-    "confidence": 95,
+    "confidence": 100,
     "glQuote": "to the church",
     "ref": "10:32",
     "selections": [
+      {
+        "occurrence": 3,
+        "text": "a",
+      },
       {
         "occurrence": 1,
         "text": "la",
@@ -75,7 +79,7 @@ exports[`LM Studio integration test selection prediction for tw in New Book - AI
     "verseText": "No ofendas a los Judíos o a los Griegos, o a la iglesia de Dios, ",
   },
   {
-    "confidence": 95,
+    "confidence": 98,
     "glQuote": "churches",
     "ref": "11:16",
     "selections": [
@@ -109,10 +113,6 @@ exports[`LM Studio integration test selection prediction for tw in New Book - AI
     "selections": [
       {
         "occurrence": 1,
-        "text": "la",
-      },
-      {
-        "occurrence": 1,
         "text": "iglesia",
       },
     ],
@@ -123,10 +123,6 @@ exports[`LM Studio integration test selection prediction for tw in New Book - AI
     "glQuote": "church",
     "ref": "12:28",
     "selections": [
-      {
-        "occurrence": 1,
-        "text": "la",
-      },
       {
         "occurrence": 1,
         "text": "iglesia",
@@ -156,10 +152,6 @@ exports[`LM Studio integration test selection prediction for tw in New Book - AI
     "ref": "14:5",
     "selections": [
       {
-        "occurrence": 2,
-        "text": "la",
-      },
-      {
         "occurrence": 1,
         "text": "iglesia",
       },
@@ -167,7 +159,7 @@ exports[`LM Studio integration test selection prediction for tw in New Book - AI
     "verseText": "Ahora desearía que todos ustedes hablaran en lenguas, pero aún más que eso, desearía que profetizaran. La persona que profetiza es mayor que la que habla en lenguas (a menos que alguien interprete), para que la iglesia sea edificada. ",
   },
   {
-    "confidence": 95,
+    "confidence": 98,
     "glQuote": "of the church",
     "ref": "14:12",
     "selections": [
@@ -187,7 +179,7 @@ exports[`LM Studio integration test selection prediction for tw in New Book - AI
     "verseText": "Igualmente será con ustedes: ya que están deseosos por ver las manifestaciones o dones del Espiritu, deséenlo sobre todo para la edificación de la iglesia. ",
   },
   {
-    "confidence": 98,
+    "confidence": 95,
     "glQuote": "the church",
     "ref": "14:19",
     "selections": [
@@ -203,14 +195,10 @@ exports[`LM Studio integration test selection prediction for tw in New Book - AI
     "verseText": "pero en la iglesia prefiero hablar cinco palabras con mi entendimiento para poder instruir a otros, que diez mil palabras en una lengua. ",
   },
   {
-    "confidence": 95,
+    "confidence": 98,
     "glQuote": "church",
     "ref": "14:23",
     "selections": [
-      {
-        "occurrence": 1,
-        "text": "la",
-      },
       {
         "occurrence": 1,
         "text": "iglesia",
@@ -219,7 +207,7 @@ exports[`LM Studio integration test selection prediction for tw in New Book - AI
     "verseText": "Si, por lo tanto, toda la iglesia se reúne y todos hablan en lenguas, y entran los de afuera e incrédulos, ¿no dirían que todos ustedes están locos? ",
   },
   {
-    "confidence": 98,
+    "confidence": 100,
     "glQuote": "the church",
     "ref": "14:28",
     "selections": [
@@ -235,7 +223,7 @@ exports[`LM Studio integration test selection prediction for tw in New Book - AI
     "verseText": "Pero si no hay quien interpete, que cada uno guarde silencio en la iglesia y que hable a sí mismo y a Dios. ",
   },
   {
-    "confidence": 95,
+    "confidence": 100,
     "glQuote": "churches",
     "ref": "14:33",
     "selections": [
@@ -247,14 +235,10 @@ exports[`LM Studio integration test selection prediction for tw in New Book - AI
     "verseText": "Pues Dios no es un Dios de confusión, sino de paz. Como en todas las iglesias de los santos ",
   },
   {
-    "confidence": 95,
+    "confidence": 100,
     "glQuote": "churches",
     "ref": "14:34",
     "selections": [
-      {
-        "occurrence": 2,
-        "text": "las",
-      },
       {
         "occurrence": 1,
         "text": "iglesias",
@@ -275,7 +259,7 @@ exports[`LM Studio integration test selection prediction for tw in New Book - AI
     "verseText": "Si hay algo que desean aprender, que le pregunten a sus esposos en su casa. Porque es indecoroso que la mujer hable en la iglesia. ",
   },
   {
-    "confidence": 95,
+    "confidence": 98,
     "glQuote": "church",
     "ref": "15:9",
     "selections": [
@@ -283,19 +267,11 @@ exports[`LM Studio integration test selection prediction for tw in New Book - AI
         "occurrence": 1,
         "text": "iglesia",
       },
-      {
-        "occurrence": 3,
-        "text": "de",
-      },
-      {
-        "occurrence": 1,
-        "text": "Dios",
-      },
     ],
     "verseText": "Porque yo soy el último de los apóstoles, indigno de ser llamado un apóstol, porque yo perseguía la iglesia de Dios. ",
   },
   {
-    "confidence": 95,
+    "confidence": 100,
     "glQuote": "churches",
     "ref": "16:1",
     "selections": [
@@ -313,31 +289,19 @@ exports[`LM Studio integration test selection prediction for tw in New Book - AI
     "selections": [
       {
         "occurrence": 1,
-        "text": "Las",
-      },
-      {
-        "occurrence": 1,
         "text": "iglesias",
       },
     ],
     "verseText": "Las iglesias de Asia le envían saludos a ustedes. Aquila y Priscila le saludan en el Señor, con la iglesia que está en su casa. ",
   },
   {
-    "confidence": 95,
+    "confidence": 98,
     "glQuote": "church",
     "ref": "16:19",
     "selections": [
       {
         "occurrence": 1,
-        "text": "iglesias",
-      },
-      {
-        "occurrence": 1,
-        "text": "de",
-      },
-      {
-        "occurrence": 1,
-        "text": "Asia",
+        "text": "iglesia",
       },
     ],
     "verseText": "Las iglesias de Asia le envían saludos a ustedes. Aquila y Priscila le saludan en el Señor, con la iglesia que está en su casa. ",

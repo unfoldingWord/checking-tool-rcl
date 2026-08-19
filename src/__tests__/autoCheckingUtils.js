@@ -229,110 +229,49 @@ function normalizeForCompare(word) {
   return normalizer(word || '').toLowerCase()
 }
 
-/**
- * Reduces previous-translation data to a compact JSON string holding only the renderings
- * of `glPhrase` that can actually be selected from this verse, ordered highest count first.
- *
- * Previous translation data is expected to be structured as:
- * ```
- * {
- *   glPhrase: {
- *     targetPhrase: count
- *   }
- * }
- * ```
- * An already-flat `{targetPhrase: count}` map is also accepted. Sending only the current
- * phrase's history keeps the prompt small and stops unrelated phrases from biasing the answer.
- *
- * @param {object} previousTranslationData - prior translation-count object; may be nested
- *   (phrase-keyed) or flat (already filtered to a single phrase's counts)
- * @param {string} glPhrase - gateway-language phrase being translated
- * @param {string} verseContent - the target-language verse text without punctuation
- * @returns {string} - compact JSON string of `{targetPhrase: count}` ordered by count descending,
- *   or empty string `''` when no usable history remains for this phrase
- * @example
- * // Nested structure; congregación is dropped because the verse does not contain it
- * formatPreviousTranslations(
- *   { "church": { "iglesia": 7, "congregación": 2 } },
- *   "church",
- *   "para la iglesia de Éfeso"
- * )
- * // Returns: '{"iglesia":7}'
- *
- * // Flat structure (already filtered to one phrase)
- * formatPreviousTranslations(
- *   { "de la iglesia": 3, "iglesia": 7 },
- *   "church",
- *   "para la iglesia de Éfeso"
- * )
- * // Returns: '{"iglesia":7,"de la iglesia":3}'
- *
- * // A rendering the verse spells differently is re-spelled to the verse's form
- * formatPreviousTranslations(
- *   { "church": { "Iglesia": 4 } },
- *   "church",
- *   "para la iglesia de Éfeso"
- * )
- * // Returns: '{"iglesia":4}'
- *
- * // No matching phrase, or nothing usable in this verse
- * formatPreviousTranslations(
- *   { "church": { "iglesia": 7 } },
- *   "temple",
- *   "para la iglesia de Éfeso"
- * )
- * // Returns: ''
- */
-function formatPreviousTranslations(previousTranslationData, glPhrase, verseContent) {
+function formatPreviousTranslations(previousTranslationData, glPhrase, verseContent, filter = false) {
   const data = previousTranslationData || {}
 
-  // data is phrase-keyed when its values are count maps rather than counts
-  const isPhraseKeyed = Object.values(data).some(value => value && typeof value === 'object')
-
   // Default to using data directly as counts map
-  let filteredMatches = data
+  let filteredMatches = { }
+  const keys = Object.keys(data)
+  const wordList = verseContent.split(' ')
+  const normalizedWordList = wordList.map(word => normalizeForCompare(word))
 
-  // If data is phrase-keyed, extract the counts for the specific glPhrase
-  if (isPhraseKeyed) {
-    const keys = Object.keys(data)
-    const counts = []
+  for (const glPhrase of keys) {
+    const translations = data[glPhrase]
+    const translationKeys = Object.keys(translations)
+    const filteredMatchesEntries = { }
 
-    // match the gateway phrase exactly, else accent- and case-insensitively
-    let matchedGL = keys.find(key_ => key_ === glPhrase)
-      || keys.find(key_ => normalizer(key_).toLowerCase() === normalizer(glPhrase).toLowerCase())
+    for (const translation of translationKeys) {
+      const translationWords = translation.split(/\s+/).filter(Boolean)
+      const matchedWords = translationWords.map(word => {
+        const normalizedWord = normalizeForCompare(word)
+        const matchIndex = normalizedWordList.indexOf(normalizedWord)
+        return matchIndex >= 0 ? wordList[matchIndex] : null
+      })
+      const exactMatch = matchedWords.every(Boolean)
 
-    const wordList = verseContent.split(' ')
-    if (matchedGL) {
-      const translations = Object.keys(data[matchedGL])
-      const normalizedWordList = wordList.map(word => normalizeForCompare(word))
-      const filteredMatchesEntries = []
-
-      for (const translation of translations) {
-        const translationWords = translation.split(/\s+/).filter(Boolean)
-        const matchedWords = translationWords.map(word => {
-          const normalizedWord = normalizeForCompare(word)
-          const matchIndex = normalizedWordList.indexOf(normalizedWord)
-          return matchIndex >= 0 ? wordList[matchIndex] : null
-        })
-        const exactMatch = matchedWords.every(Boolean)
-
-        if (exactMatch) {
-          filteredMatchesEntries.push([matchedWords.join(' '), data[matchedGL][translation]])
-        }
-      }
-
-      if (filteredMatchesEntries.length) {
-        // Use only translations whose words are all present in this verse
-        filteredMatches = Object.fromEntries(filteredMatchesEntries)
+      if (exactMatch) {
+        filteredMatchesEntries[translation] = data[glPhrase][translation]
       }
     }
+
+    if (Object.keys(filteredMatchesEntries).length) {
+      // Use only translations whose words are all present in this verse
+      filteredMatches[glPhrase] = filteredMatchesEntries
+    }
   }
+
+  if (!Object.keys(filteredMatches).length) {
+    filteredMatches = data;
+  }
+
 
   // Convert counts object to array of {phrase, rendering, usageCount} entries,
   // filter out empty phrases or zero counts,
   // and sort by count descending (strongest evidence first)
 
-  // const glEntries = Object.entries(filteredMatches)
   let entries = []
   for (const glPhrase of Object.keys(filteredMatches)) {
     const translations = filteredMatches[glPhrase]
@@ -346,6 +285,21 @@ function formatPreviousTranslations(previousTranslationData, glPhrase, verseCont
   }
 
   entries = entries.sort((a, b) => b.usageCount - a.usageCount);
+
+  if (entries.length && filter) {
+    // Filter entries removing any lines where the phrase contains words not in glPhrase
+    const glPhraseWords = glPhrase.split(/\s+/).filter(Boolean).map(word => normalizeForCompare(word))
+    const glPhraseWordSet = new Set(glPhraseWords)
+
+    const filteredEntries = entries.filter(entry => {
+      const phraseWords = entry.phrase.split(/\s+/).filter(Boolean).map(word => normalizeForCompare(word))
+      return phraseWords.every(word => glPhraseWordSet.has(word))
+    })
+
+    if (filteredEntries.length) {
+      entries = filteredEntries
+    }
+  }
 
   // Return JSON string of filtered/sorted entries, or empty string if no entries
   const resultsJson = entries.length
@@ -428,7 +382,8 @@ Valid Response:
 Invalid Response: "church",98 | "congregación",90 | "iglesias",85 | "Iglesia",98 | "iglesia:3",98 | iglesia,98
 `;
 
-  const previousTranslations = formatPreviousTranslations(previousTranslationData, glPhrase, verseContent)
+  const previousTranslations = formatPreviousTranslations(previousTranslationData, glPhrase, verseContent, true)
+  console.log(previousTranslations)
 
   // one labeled field per line, in the same order as the example above
   const lines = [
