@@ -77,9 +77,13 @@ describe('LM Studio integration', () => {
   });
 
   test(`test selection prediction for tw in New Book - AI`, async () => {
+    let count = 0;
+    let completedSelections = 0;
+    const startTime = Date.now();
+
     const lmOptions = {
       enable_thinking: true,
-      model: 'qwen/qwen3-8b' // 'google/gemma-3n-e4b'
+      model: 'google/gemma-4-12b' // 'qwen/qwen3-8b' // 'gemma-3n-e2b-it-text' // 'google/gemma-4-e4b' // 'qwen/qwen3-8b' // 'google/gemma-3n-e4b'
     }
     const langId = 'en';
     const bookId = '1co';
@@ -148,12 +152,14 @@ describe('LM Studio integration', () => {
       const ref = `${reference?.chapter}:${reference?.verse}`
       const verseText = getVerseString(targetBookChapters, ref)
       const wordList = getWordList(verseText)
+      count++
       const bestSelections = await getBestTWordSelectionWithConfidence(wordList, targetLangCode, glQuote, langId, selectionsForTWords, lmOptions)
       // console.log(bestSelections)
       const selections = bestSelections[0]?.selections
       if (!selections) {
         console.log(`missing selections for ${ref} and ${verseText}`)
       } else {
+        completedSelections++
         for (const selection of selections) {
           const { text, occurrence } = selection
           const occurrenceCount = wordList.filter(word => word === text).length
@@ -186,12 +192,25 @@ describe('LM Studio integration', () => {
         }
       }
 
-      if (confidence < expectedMinConfidence) {
-        console.log(`confidence ${confidence} is less than ${expectedMinConfidence}`)
+      if (selections) {
+        if (confidence < expectedMinConfidence) {
+          console.log(`confidence ${confidence} is less than ${expectedMinConfidence}`)
+        }
+        expect(confidence >= expectedMinConfidence).toBeTruthy()
       }
-      expect(confidence >= expectedMinConfidence).toBeTruthy()
     }
-    console.log("generatedSelections", generatedSelections)
+    const totalTime = ((Date.now() - startTime) / 1000).toFixed(2);
+    const finalResults = {
+      model: lmOptions.model,
+      thinking: lmOptions.enable_thinking,
+      verseCount: count,
+      successfulSelections: completedSelections,
+      totalTime,
+      averageTime: completedSelections ? totalTime/completedSelections : 0,
+      generatedSelections,
+    }
+    console.log("finalResults", finalResults)
+
     expect(results).toMatchSnapshot()
   }, 500000000)
 

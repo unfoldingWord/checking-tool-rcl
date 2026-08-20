@@ -4,6 +4,8 @@ import { normalizer } from 'string-punctuation-tokenizer'
 
 jest.unmock('fs-extra');
 
+const LM_STUDIO_URL = 'http://192.168.142.70:1234'
+
 //////////////////////////////
 // Testing Support functions
 //////////////////////////////
@@ -29,7 +31,7 @@ jest.unmock('fs-extra');
 export async function queryLmStudio(query, options = {}) {
   const {
     // baseUrl = 'http://localhost:1234',
-    baseUrl = 'http://192.168.142.81:1234', // use local server
+    baseUrl = LM_STUDIO_URL, // use local server
     model = 'local-model',
     temperature = 0.7,
     maxTokens = 4096,
@@ -808,7 +810,7 @@ export async function getBestTWordSelectionWithConfidenceAlgorithm(
  * @see {@link getBestTWordSelectionWithConfidenceAlgorithm} for non-AI alternative
  */
 export async function getBestTWordSelectionWithConfidence(wordList, targetLangCode, glPhrase, glLangCode, previousTranslationData, lmOptions = { enable_thinking: false }) {
-  let selectionWords = []
+  let translationOptions = []
   const { systemPrompt, input } = buildTranslationOptionsPrompt(
     wordList.join(' '),
     targetLangCode,
@@ -846,7 +848,7 @@ export async function getBestTWordSelectionWithConfidence(wordList, targetLangCo
       const response = responses[i]
       if (response) {
         if (!response.includes('\`\`\`')) {
-          const success_ = parseResponseRowNoPositions(response, wordList, answer, selectionWords)
+          const success_ = parseResponseRowNoPositions(response, wordList, answer, translationOptions)
           if (!success_) {
             success = false
           }
@@ -862,9 +864,9 @@ export async function getBestTWordSelectionWithConfidence(wordList, targetLangCo
     if (!answer.includes(',')) {
       //handle case where AI did not use CSV format, but fields are separated by newlines
       if (responses?.length === 2) {
-        selectionWords = []
+        translationOptions = []
         const response = answer.replace('\n', ',')
-        success = parseResponseRowNoPositions(response, wordList, answer, selectionWords)
+        success = parseResponseRowNoPositions(response, wordList, answer, translationOptions)
       }
     } else {
       // Handle verbose responses by retrying with the last non-empty CSV-looking line.
@@ -888,23 +890,18 @@ export async function getBestTWordSelectionWithConfidence(wordList, targetLangCo
           if (Number.isNaN(confidenceNum) || confidenceNum < 0 || confidenceNum > 100) {
             success = false
           } else {
-            selectionWords = []
+            translationOptions = []
             const response = `"${phraseTranslation}",${confidence}`
-            success = parseResponseRowNoPositions(response, wordList, answer, selectionWords)
-          }
-          if (confidencePart) {
-            selectionWords = []
-            const response = `"${phraseTranslation}",${confidencePart}`
-            success = parseResponseRowNoPositions(response, wordList, answer, selectionWords)
+            success = parseResponseRowNoPositions(response, wordList, answer, translationOptions)
           }
         }
       }
     }
   }
 
-  // remove duplicates from selections
-  const seen = new Set()
-  for (const option of selectionWords) {
+  for (const option of translationOptions) {
+    // remove duplicates from selections
+    const seen = new Set()
     const uniqueSelections = []
     for (const word of option.selections) {
       if (word.occurrence && word.text) {
@@ -912,15 +909,27 @@ export async function getBestTWordSelectionWithConfidence(wordList, targetLangCo
         if (!seen.has(key)) {
           seen.add(key)
           uniqueSelections.push(word)
+        } else {
+          console.log('duplicate word found', word);
         }
       } else {
         console.log('invalid word or occurrence found', word);
-        success = false
       }
     }
-    if (option.selections.length != uniqueSelections.length) { // if changed then update
-      option.selections = uniqueSelections
+    if (!uniqueSelections.length) {
+      option.selections = false;
+    } else {
+      if (option.selections.length != uniqueSelections.length) { // if changed then update
+        option.selections = uniqueSelections
+      }
     }
+  }
+
+  translationOptions = translationOptions.filter(item => (item.selections))
+
+  if (!translationOptions.length) {
+    console.log('no selections found', translationOptions);
+    success = false
   }
 
   if (success) {
@@ -928,16 +937,16 @@ export async function getBestTWordSelectionWithConfidence(wordList, targetLangCo
       wordList: formatNumberedVerse(wordList.join(' ')),
       glPhrase,
       answer,
-      matches: selectionWords.length,
-      selectionWords
+      matches: translationOptions.length,
+      selectionWords: translationOptions
     })
-    return selectionWords
+    return translationOptions
   } else {
     console.log('AI response ERROR:', {
       wordList: formatNumberedVerse(wordList.join(' ')),
       glPhrase,
       answer,
-      matches: selectionWords.length
+      matches: translationOptions.length
     })
   }
   return []
