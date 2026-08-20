@@ -154,28 +154,25 @@ Instructions:
 1. Treat the TARGET VERSE and GATEWAY PHRASE as literal text, including quotation marks, punctuation, or special characters.
 2. Tokenize only the TARGET VERSE into words in reading order.
 3. Strip surrounding punctuation from target-verse tokens, including quotation marks, but preserve the original spelling, accents, and casing of each word.
-4. Number each target-verse word by its position in the verse, starting at 1.
-5. Analyze the semantic meaning of the GATEWAY PHRASE.
-6. Find the exact TARGET VERSE word(s) that best correspond to that meaning.
-7. The match may be one word or multiple words. Prefer the tightest/closest grouping when equally valid.
-8. Format every matched TARGET VERSE word as word:position.
-9. If multiple TARGET VERSE words are matched, join them with a single space, for example: tu:23 vejez:24.
-10. Before answering, verify that every word in every word:position pair appears exactly as a token in the TARGET VERSE.
-11. Before answering, verify that every matched word contains a colon followed by a number.
-12. If any proposed matched word comes from the GATEWAY PHRASE instead of the TARGET VERSE, discard it and find the corresponding TARGET VERSE word instead.
-13. If more than one plausible matching set of target-verse words exists, output each candidate as its own CSV row, ordered from highest to lowest confidence.
-14. "confidence level" is an integer 0-100 reflecting certainty that the match is correct in context.
-15. If no reasonable match exists in the TARGET VERSE, output a single row with an empty "matched words" field and confidence level 0.
-16. Output ONLY the CSV data, with no header row. No commentary, no markdown fences, no extra text.
+4. Analyze the semantic meaning of the GATEWAY PHRASE.
+5. Find the exact TARGET VERSE word(s) that best correspond to that meaning.
+6. The match may be one word or multiple words. Prefer the tightest/closest grouping when equally valid.
+7. Copy each matched word exactly as it appears in the TARGET VERSE, keeping its accents and casing.
+8. If multiple TARGET VERSE words are matched, join them with a single space, for example: tu vejez.
+9. Before answering, verify that every matched word appears exactly as a token in the TARGET VERSE.
+10. If any proposed matched word comes from the GATEWAY PHRASE instead of the TARGET VERSE, discard it and find the corresponding TARGET VERSE word instead.
+11. If more than one plausible matching set of target-verse words exists, output each candidate as its own CSV row, ordered from highest to lowest confidence.
+12. "confidence level" is an integer 0-100 reflecting certainty that the match is correct in context.
+13. If no reasonable match exists in the TARGET VERSE, output a single row with an empty "matched words" field and confidence level 0.
+14. Output ONLY the CSV data, with no header row. No commentary, no markdown fences, no extra text.
 
 Required output format:
-"word:position word:position",confidence
+"word word",confidence
 
 Output requirements:
-- The first CSV field, "matched words", must contain only exact matches to TARGET VERSE tokens formatted as word:position.
-- The colon and numeric position are REQUIRED for every non-empty matched word.
-- Do NOT output bare words such as "vejez".
-- Do NOT output "word" without ":position".
+- The first CSV field, "matched words", must contain only exact word forms copied from the TARGET VERSE, separated by spaces.
+- Do NOT add a colon or number to any word.
+- Do NOT output bare words without quotes.
 - Do NOT output the gateway phrase in the "matched words" field.
 - Do NOT output an English phrase unless that exact English word appears in the TARGET VERSE.
 - Do NOT translate, paraphrase, summarize, or alter target-verse word forms.
@@ -191,14 +188,12 @@ And the GATEWAY PHRASE is:
 \`your old age\`
 
 A valid answer is:
-"tu:6 vejez:7",95
+"tu vejez",95
 
 Invalid answers:
-"your old age",95
-"vejez",95
-"tu vejez",95
-"tu: vejez:",95
-"tu:6 vejez",95
+vejez,95
+"tu vejez","95"
+"tu:6 vejez:7",95
 `;
 
   const input = `Target Verse language: ${targetLangCode}
@@ -658,42 +653,56 @@ export async function getBestTWordSelectionWithConfidenceAlgorithm(
   glPhrase,
   glLangCode,
   previousTranslationData,
-  enable_thinking = false, // eslint-disable-line no-unused-vars
 ) {
+  // Initialize wordList, defaulting to empty array if null/undefined
   const words = wordList || []
+  // Extract the translation count map for this specific gateway language phrase
   const counts = getPreviousTranslationCounts(previousTranslationData, glPhrase)
 
-  // strongest evidence first, so the most-used rendering claims its words before weaker ones
+  // Sort previous translations by usage count (descending), filtering out empty or zero-count entries
+  // Process strongest evidence first so the most-used rendering claims its words before weaker ones
   const countEntries = Object.entries(counts)
     .filter(([phrase, count]) => phrase && count > 0)
     .sort((a, b) => b[1] - a[1])
 
+  // Early exit if no previous translations exist or verse has no words
   if (!countEntries.length || !words.length) {
     console.log('algorithm response: no usable previous translations', { glPhrase })
     return []
   }
 
+  // Store the highest usage count for relative scoring later
   const maxCount = countEntries[0][1]
+  // Normalize all verse words for case-insensitive, punctuation-free comparison
   const normalizedWordList = words.map(word => normalizeForCompare(word))
+  // Map to store candidates, keyed by position string (e.g. "2:3:5") to deduplicate same words
   const candidates = new Map() // keyed by matched positions, so the same words appear once
 
+  // Helper function to evaluate and store a candidate match
   function considerCandidate(positions, phraseWordCount, count) {
+    // Skip if no positions found
     if (!positions?.length) {
       return
     }
 
+    // Calculate span (distance between first and last matched word)
     const span = positions[positions.length - 1] - positions[0]
+    // Check if words are adjacent (contiguous) in the verse
     const isContiguous = span === positions.length - 1
+    // Calculate confidence score (0-100) based on match quality
     const confidence = scoreAlgorithmicMatch(positions.length, phraseWordCount, isContiguous, span, count, maxCount)
+    // Create unique key from positions for deduplication
     const key = positions.join(':')
     const existing = candidates.get(key)
 
-    // these words may already have been matched by another rendering - keep the stronger reading
+    // Keep only the best match for these positions (highest confidence, then highest count)
+    // These words may already have been matched by another rendering - keep the stronger reading
     if (existing && (existing.confidence > confidence
       || (existing.confidence === confidence && existing.count >= count))) {
       return
     }
 
+    // Store or update the candidate with its metadata
     candidates.set(key, {
       selections: buildSelectionsFromPositions(words, positions),
       confidence,
@@ -703,13 +712,17 @@ export async function getBestTWordSelectionWithConfidenceAlgorithm(
     })
   }
 
+  // Try to match each previous translation against the verse, from most-used to least-used
   for (const [phrase, count] of countEntries) {
+    // Normalize the previous translation into individual words
     const phraseWords = phrase.split(/\s+/).filter(Boolean).map(word => normalizeForCompare(word))
 
+    // Skip empty translations
     if (!phraseWords.length) {
       continue
     }
 
+    // First attempt: find exact verbatim match (all words adjacent and in order)
     const exactPositions = findContiguousMatchPositions(normalizedWordList, phraseWords)
 
     if (exactPositions) { // verbatim match, nothing weaker from this rendering can beat it
@@ -717,6 +730,7 @@ export async function getBestTWordSelectionWithConfidenceAlgorithm(
       continue
     }
 
+    // Second attempt: find all words in order but possibly with gaps between them
     const orderedPositions = findBestOrderedMatchPositions(normalizedWordList, phraseWords)
 
     if (orderedPositions) { // all the words, but the verse spreads them out
@@ -724,6 +738,7 @@ export async function getBestTWordSelectionWithConfidenceAlgorithm(
       continue
     }
 
+    // Fallback: find the best subset of the translation that exists in the verse
     // Fall back to the best ordered subset of the rendering that the verse actually contains.
     // It is still scored against the full previous translation length, so confidence is reduced
     // when one or more words from the previous translation are missing from wordList.
@@ -731,6 +746,8 @@ export async function getBestTWordSelectionWithConfidenceAlgorithm(
     considerCandidate(availablePositions, phraseWords.length, count)
   }
 
+  // Sort all candidates by quality (confidence, count, matched word count, compactness)
+  // and take the top 3 results
   const bestSelections = [...candidates.values()]
     .sort((a, b) => (
       b.confidence - a.confidence
@@ -741,6 +758,7 @@ export async function getBestTWordSelectionWithConfidenceAlgorithm(
     .slice(0, 3)
     .map(({ selections, confidence }) => ({ selections, confidence }))
 
+  // Log the results for debugging
   console.log('algorithm response:', {
     wordList: formatNumberedVerse(words.join(' ')),
     glPhrase,
@@ -1065,7 +1083,6 @@ function parseResponseRowNoPositions(response, wordList, answer, selectionWords)
   return !error
 }
 
-
 function parseResponseRow(response, wordList, answer, selectionWords) {
   let error = false;
   let missingPos = false;
@@ -1073,30 +1090,75 @@ function parseResponseRow(response, wordList, answer, selectionWords) {
   if (rowParts.length === 2) {
     let [phraseTranslation, confidence] = rowParts
     confidence = confidence ? parseInt(removeQuotes(confidence), 10) : 0
-    phraseTranslation = removeQuotes(phraseTranslation)
+    phraseTranslation = normalizer(removeQuotes(phraseTranslation))
+
+    const words_ = phraseTranslation.split(' ')
     const selections = []
-    const words = phraseTranslation.split(' ')
-    for (const word of words) {
-      let selectionFound = null
-      const wordParts = word.split(':')
-      let [text, position] = wordParts
-      text = normalizer(text)
-      if (wordParts.length === 2) {
-        position = parseInt(position, 10)
-        selectionFound = { text, position }
-      } else if (wordParts.length === 1) {
-        position = -1
-        selectionFound = { text, position }
-        missingPos = true
-      } else {
-        // invalid number of columns
-        error = true
+
+    ////////////////////////////////
+    // find positions for words_ in wordlist that use instances that are grouped closest together
+    // and then push them to selections formated as { text, position}
+
+    // Build a map of word -> array of positions in wordList
+    const wordPositionsMap = new Map()
+    for (const word_ of words_) {
+      const normalizedWord = normalizeForCompare(word_)
+      const positions = []
+      for (let i = 0; i < wordList.length; i++) {
+        if (normalizeForCompare(wordList[i]) === normalizedWord) {
+          positions.push(i)
+        }
+      }
+      wordPositionsMap.set(word_, positions)
+    }
+
+    // Verify all words exist in wordList
+    let allWordsFound = true
+    for (const word_ of words_) {
+      const positions = wordPositionsMap.get(word_)
+      if (!positions || positions.length === 0) {
+        allWordsFound = false
+        break
+      }
+    }
+
+    if (!allWordsFound) {
+      error = true
+    } else {
+      // Find the combination of positions that minimizes the span
+      // (distance between first and last selected position)
+      let bestCombination = null
+      let minSpan = Infinity
+
+      function findBestGrouping(wordIndex, currentPositions) {
+        if (wordIndex === words_.length) {
+          // Calculate span of current combination
+          const sorted = [...currentPositions].sort((a, b) => a - b)
+          const span = sorted[sorted.length - 1] - sorted[0]
+          if (span < minSpan) {
+            minSpan = span
+            bestCombination = [...currentPositions]
+          }
+          return
+        }
+
+        const word = words_[wordIndex]
+        const availablePositions = wordPositionsMap.get(word)
+        for (const pos of availablePositions) {
+          findBestGrouping(wordIndex + 1, [...currentPositions, pos])
+        }
       }
 
-      if (selectionFound) {
-        selections.push(selectionFound)
+      findBestGrouping(0, [])
+
+      // Assign the best positions to selections
+      if (bestCombination) {
+        for (let i = 0; i < words_.length; i++) {
+          const position = bestCombination[i]
+          const text = normalizer(wordList[position])
+          selections.push({ text, position: position + 1 })
+        }
       } else {
-        console.log('invalid response', answer)
         error = true
       }
     }
