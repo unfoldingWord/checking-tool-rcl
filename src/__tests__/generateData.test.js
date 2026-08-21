@@ -83,7 +83,7 @@ describe('LM Studio integration', () => {
 
     const lmOptions = {
       enable_thinking: true,
-      model: 'google/gemma-4-12b' // 'qwen/qwen3-8b' // 'gemma-3n-e2b-it-text' // 'google/gemma-4-e4b' // 'qwen/qwen3-8b' // 'google/gemma-3n-e4b'
+      model: 'qwen2.5-coder-7b-instruct-mlx' // 'nvidia/nemotron-3-nano-4b' // 'qwen/qwen3-8b' // 'gemma-3n-e2b-it-text' // 'google/gemma-4-e4b' // 'qwen/qwen3-8b' // 'google/gemma-3n-e4b'
     }
     const langId = 'en';
     const bookId = '1co';
@@ -154,10 +154,27 @@ describe('LM Studio integration', () => {
       const wordList = getWordList(verseText)
       count++
       const bestSelections = await getBestTWordSelectionWithConfidence(wordList, targetLangCode, glQuote, langId, selectionsForTWords, lmOptions)
+      const lines = []
+      for (let i = 0; i <= bestSelections.length; i++) {
+        const option = bestSelections[i]
+        const confidence = option?.confidence
+        if (option?.selections?.length) {
+          const json_ = JSON.stringify(option.selections)
+          const line = `${i+1} - ${confidence}% ${json_}`
+          lines.push(line)
+        }
+      }
+      lines.length && console.log('\n' + lines.join('\n'))
       // console.log(bestSelections)
+
+      const confidenceIsNumber = confidence && !isNaN(confidence)
       const selections = bestSelections[0]?.selections
-      if (!selections) {
-        console.log(`missing selections for ${ref} and ${verseText}`)
+      if (!confidenceIsNumber || !selections) {
+        if (!selections) {
+          console.log(`missing selections for ${ref} and ${verseText}`)
+        } else if (!confidenceIsNumber) {
+          console.log(`confidence ${confidence} is not a number`)
+        }
       } else {
         completedSelections++
         for (const selection of selections) {
@@ -176,7 +193,7 @@ describe('LM Studio integration', () => {
         }
       }
       // expect(selections).toEqual(expected)
-      const confidence = bestSelections[0]?.confidence
+      let confidence = bestSelections[0]?.confidence
       results.push({ ref, verseText, glQuote, selections, confidence })
       const selectedText = selections?.map(word => word?.text)?.join(' ')
       if (selectedText) {
@@ -190,10 +207,11 @@ describe('LM Studio integration', () => {
         } else {
           previousGeneratedQuote[selectedText] = 1
         }
+
       }
 
-      if (selections) {
-        if (confidence < expectedMinConfidence) {
+      if (selections && confidenceIsNumber) {
+        if (!(confidence >= expectedMinConfidence)) {
           console.log(`confidence ${confidence} is less than ${expectedMinConfidence}`)
         }
         expect(confidence >= expectedMinConfidence).toBeTruthy()

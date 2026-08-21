@@ -945,12 +945,13 @@ export async function getBestTWordSelectionWithConfidence(wordList, targetLangCo
 
   translationOptions = translationOptions.filter(item => (item.selections))
 
-  if (!translationOptions.length) {
+  success = !!translationOptions.length
+  if (!success) {
     console.log('no selections found', translationOptions);
-    success = false
   }
 
   if (success) {
+    translationOptions.sort((a, b) => b.confidence - a.confidence)
     console.log('AI response:', {
       wordList: formatNumberedVerse(wordList.join(' ')),
       glPhrase,
@@ -991,11 +992,11 @@ function parseResponseRowNoPositions(response, wordList, answer, selectionWords)
   if (rowParts.length === 2) {
     let [phraseTranslation, confidence] = rowParts
     confidence = confidence ? parseInt(removeQuotes(confidence), 10) : 0
-    phraseTranslation = removeQuotes(phraseTranslation)
+    phraseTranslation = normalizer(removeQuotes(phraseTranslation))
     const selections = []
     const words = phraseTranslation.split(' ')
     for (const word of words) {
-      const text = normalizer(word.trim())
+      const text = word.trim()
 
       if (text) {
         selections.push({ text })
@@ -1090,75 +1091,30 @@ function parseResponseRow(response, wordList, answer, selectionWords) {
   if (rowParts.length === 2) {
     let [phraseTranslation, confidence] = rowParts
     confidence = confidence ? parseInt(removeQuotes(confidence), 10) : 0
-    phraseTranslation = normalizer(removeQuotes(phraseTranslation))
-
-    const words_ = phraseTranslation.split(' ')
+    phraseTranslation = removeQuotes(phraseTranslation)
     const selections = []
-
-    ////////////////////////////////
-    // find positions for words_ in wordlist that use instances that are grouped closest together
-    // and then push them to selections formated as { text, position}
-
-    // Build a map of word -> array of positions in wordList
-    const wordPositionsMap = new Map()
-    for (const word_ of words_) {
-      const normalizedWord = normalizeForCompare(word_)
-      const positions = []
-      for (let i = 0; i < wordList.length; i++) {
-        if (normalizeForCompare(wordList[i]) === normalizedWord) {
-          positions.push(i)
-        }
-      }
-      wordPositionsMap.set(word_, positions)
-    }
-
-    // Verify all words exist in wordList
-    let allWordsFound = true
-    for (const word_ of words_) {
-      const positions = wordPositionsMap.get(word_)
-      if (!positions || positions.length === 0) {
-        allWordsFound = false
-        break
-      }
-    }
-
-    if (!allWordsFound) {
-      error = true
-    } else {
-      // Find the combination of positions that minimizes the span
-      // (distance between first and last selected position)
-      let bestCombination = null
-      let minSpan = Infinity
-
-      function findBestGrouping(wordIndex, currentPositions) {
-        if (wordIndex === words_.length) {
-          // Calculate span of current combination
-          const sorted = [...currentPositions].sort((a, b) => a - b)
-          const span = sorted[sorted.length - 1] - sorted[0]
-          if (span < minSpan) {
-            minSpan = span
-            bestCombination = [...currentPositions]
-          }
-          return
-        }
-
-        const word = words_[wordIndex]
-        const availablePositions = wordPositionsMap.get(word)
-        for (const pos of availablePositions) {
-          findBestGrouping(wordIndex + 1, [...currentPositions, pos])
-        }
-      }
-
-      findBestGrouping(0, [])
-
-      // Assign the best positions to selections
-      if (bestCombination) {
-        for (let i = 0; i < words_.length; i++) {
-          const position = bestCombination[i]
-          const text = normalizer(wordList[position])
-          selections.push({ text, position: position + 1 })
-        }
+    const words = phraseTranslation.split(' ')
+    for (const word of words) {
+      let selectionFound = null
+      const wordParts = word.split(':')
+      let [text, position] = wordParts
+      text = normalizer(text)
+      if (wordParts.length === 2) {
+        position = parseInt(position, 10)
+        selectionFound = { text, position }
+      } else if (wordParts.length === 1) {
+        position = -1
+        selectionFound = { text, position }
+        missingPos = true
       } else {
+        // invalid number of columns
+        error = true
+      }
+
+      if (selectionFound) {
+        selections.push(selectionFound)
+      } else {
+        console.log('invalid response', answer)
         error = true
       }
     }
