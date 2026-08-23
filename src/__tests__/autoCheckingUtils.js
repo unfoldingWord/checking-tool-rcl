@@ -609,6 +609,64 @@ function scoreAlgorithmicMatch(matchedWordCount, phraseWordCount, isContiguous, 
 }
 
 /**
+ * Computes a similarity score between two strings in the range [0, 1] using the
+ * Levenshtein edit distance. A score of 1 means the strings are identical; 0 means
+ * they share nothing in common relative to their lengths.
+ *
+ * @param {string} a - first string (already normalized)
+ * @param {string} b - second string (already normalized)
+ * @returns {number} - similarity in [0, 1]
+ */
+function fuzzyStringSimilarity(a, b) {
+  if (a === b) return 1
+  if (!a.length || !b.length) return 0
+
+  const maxLen = Math.max(a.length, b.length)
+  const dist = levenshteinDistance(a, b)
+  return 1 - dist / maxLen
+}
+
+/**
+ * Computes the Levenshtein edit distance between two strings. The distance is the
+ * minimum number of single-character edits (insertions, deletions, substitutions)
+ * needed to transform `a` into `b`. [[1]](https://medium.com/@art3330/levenshtein-distance-fundamentals-817b6f7f1718)
+ *
+ * Uses a space-optimised two-row approach, so memory usage is O(min(|a|,|b|)).
+ *
+ * @param {string} a - first string
+ * @param {string} b - second string
+ * @returns {number} - non-negative integer edit distance
+ */
+function levenshteinDistance(a, b) {
+  // Ensure `a` is the shorter string to minimise memory
+  if (a.length > b.length) {
+    [a, b] = [b, a]
+  }
+
+  const aLen = a.length
+  const bLen = b.length
+
+  // prev[j] = edit distance between a[0..i-1] and b[0..j-1] from the previous row
+  let prev = Array.from({ length: aLen + 1 }, (_, i) => i)
+  let curr = new Array(aLen + 1)
+
+  for (let j = 1; j <= bLen; j++) {
+    curr[0] = j
+    for (let i = 1; i <= aLen; i++) {
+      const cost = a[i - 1] === b[j - 1] ? 0 : 1
+      curr[i] = Math.min(
+        curr[i - 1] + 1,    // insertion
+        prev[i] + 1,        // deletion
+        prev[i - 1] + cost, // substitution
+      )
+    }
+    ;[prev, curr] = [curr, prev]
+  }
+
+  return prev[aLen]
+}
+
+/**
  * Algorithmic stand-in for `getBestTWordSelectionWithConfidence`: same parameters, same return
  * shape, no AI call.
  *
@@ -744,6 +802,66 @@ export async function getBestTWordSelectionWithConfidenceAlgorithm(
     // when one or more words from the previous translation are missing from wordList.
     const availablePositions = findBestAvailableOrderedMatchPositions(normalizedWordList, phraseWords)
     considerCandidate(availablePositions, phraseWords.length, count)
+  }
+
+  if (!candidates.size) {
+    // Use fuzzy compares to do closest matches for translated target words in word list and calculate confidence
+    // For each previous translation, try fuzzy matching each phrase word against verse words
+    for (const [phrase, count] of countEntries) {
+      const phraseWords = phrase.split(/\s+/).filter(Boolean).map(word => normalizeForCompare(word))
+      if (!phraseWords.length) continue
+
+      const matchedPositions = []
+      let totalSimilarity = 0
+
+      for (const phraseWord of phraseWords) {
+        let bestPos = -1
+        let bestSim = -1
+
+        for (let i = 0; i < normalizedWordList.length; i++) {
+          const sim = fuzzyStringSimilarity(phraseWord, normalizedWordList[i])
+          if (sim > bestSim) {
+            bestSim = sim
+            bestPos = i
+          }
+        }
+
+        if (bestPos >= 0 && bestSim > 0.5) { // only accept reasonably similar words
+          matchedPositions.push(bestPos)
+          totalSimilarity += bestSim
+        }
+      }
+
+      if (matchedPositions.length) {
+        // Deduplicate positions, keeping order
+        const uniquePositions = [...new Set(matchedPositions)].sort((a, b) => a - b)
+        const avgSimilarity = totalSimilarity / phraseWords.length
+        // Scale confidence: fuzzy matches are always weaker than exact ones (capped below 50)
+        const fuzzyConfidence = Math.round(avgSimilarity * 45)
+        const key = uniquePositions.join(':')
+        const existing = candidates.get(key)
+
+        if (!existing || existing.confidence < fuzzyConfidence) {
+          candidates.set(key, {
+            selections: buildSelectionsFromPositions(words, uniquePositions),
+            confidence: fuzzyConfidence,
+            count,
+            span: uniquePositions[uniquePositions.length - 1] - uniquePositions[0],
+            matchedWordCount: uniquePositions.length,
+          })
+        }
+      }
+    }
+
+    if (candidates.size) {
+      console.log('fuzzy match response:', {
+        wordList: formatNumberedVerse(words.join(' ')),
+        glPhrase,
+        candidates: [...candidates.values()],
+      })
+    } else {
+      console.log('algorithm response: no usable previous translations', { glPhrase })
+    }
   }
 
   // Sort all candidates by quality (confidence, count, matched word count, compactness)
