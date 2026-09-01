@@ -7,18 +7,25 @@ import {
   getPhraseFromTw,
   parseTwToIndex,
 } from '../helpers/translationHelps/twArticleHelpers'
-import { readHelpsFolder, readTextFile } from '../helpers/fileHelpers'
+import {
+  getDetailsFromProjectNameMini,
+  readHelpsFolder,
+  readJsonFile,
+  readTextFile
+} from '../helpers/fileHelpers'
 import { groupDataHelpers, usfmHelpers } from 'word-aligner-lib'
 import { getVerseString } from '../helpers/tsv-groupdata-parser/verseHelpers'
 import {
   getBestTWordSelectionWithConfidence,
   getBestTWordSelectionWithConfidenceAlgorithm,
   getCheckDataFilename,
+  getSelectionsForBook,
   getWordList,
   normalizeHistory,
   removePunctuation, selectionsToString,
   translatePhraseWithConfidence
 } from './autoCheckingUtils'
+import { isBibleBookId, isNT } from '../common/BooksOfTheBible'
 
 jest.unmock('fs-extra')
 
@@ -474,15 +481,15 @@ describe('LM Studio integration', () => {
     const targetBookChapters = targetBook?.chapters;
     expect(targetBookChapters).toBeTruthy()
 
-    const selectionWord = bookChecks?.kt?.groups?.[tWord];
-    expect(selectionWord).toBeTruthy();
+    const wordChecks = bookChecks?.kt?.groups?.[tWord];
+    expect(wordChecks).toBeTruthy();
     const selectionsForWord = {}
-    const selections = selectionWord
-    for (const item of selections) {
-      const glQuote = item?.contextId?.glQuote;
-      const selectionsForItem = item?.selections
-      if (glQuote && selectionsForItem) {
-        const selectedText = selectionsForItem?.map(word => word?.text)?.join(' ')
+    const checks = wordChecks
+    for (const check of checks) {
+      const glQuote = check?.contextId?.glQuote;
+      const selectionsForCheck = check?.selections
+      if (glQuote && selectionsForCheck) {
+        const selectedText = selectionsForCheck?.map(word => word?.text)?.join(' ')
 
         let glQuoteMatches = selectionsForWord[glQuote]
         if (!glQuoteMatches) {
@@ -633,8 +640,98 @@ const enTwlFolder = '/Users/blm0/translationCore/resources/en/translationHelps/t
 const enTwFolder = '/Users/blm0/translationCore/resources/en/translationHelps/translationWords/v89_unfoldingWord'
 const enUltFolder = '/Users/blm0/translationCore/resources/en/bibles/ult/v89_unfoldingWord'
 const enTnFolder = '/Users/blm0/translationCore/resources/en/translationHelps/translationNotes/v89_unfoldingWord'
+const projectFolder = '/Users/blm0/translationCore/projects/en_ult_gal_book'
 
-describe.skip('read resources', () => {
+describe('read resources', () => {
+  test(`read tWl from projects`, () => {
+
+    /////////////////////
+    // get gateway language bible
+    const enUltFolder = '/Users/blm0/translationCore/resources/en/bibles/ult/v89_unfoldingWord'
+    const alignedGlBible = readHelpsFolder(enUltFolder)
+
+    const projectSaveLocation = projectFolder;
+    const toolName = 'translationWords';
+    const toolTerm = 'faith';
+
+    const parsed = path.parse(projectSaveLocation);
+    const projectName = parsed.base;
+    const projectsFolder = parsed.dir;
+    const usingNT = true;
+    const glLanguage = 'en'
+    const resourceType = 'ult'
+    const selectionsForWord = {}
+
+    const projects = fs.readdirSync(projectsFolder);
+    for (const projectName_ of projects) {
+      const {
+        bookId,
+        languageId,
+        resourceId
+      } = getDetailsFromProjectNameMini(projectName_)
+
+      const isBible = isBibleBookId(bookId)
+      const isNt = isNT(bookId)
+
+      const matchingResource = (isBible &&
+        (isNt === usingNT)
+        && (languageId === glLanguage)
+        && (resourceType === resourceId));
+      if (!matchingResource) {
+        continue; // skip
+      }
+
+      const projectPath = path.join(projectsFolder, projectName_)
+
+      //    '.apps/translationCore/index/translationWords/gal/faith.json'
+      const selectionsPath = path.join(projectPath, `.apps/translationCore/index/${toolName}/${bookId}/${toolTerm}.json`)
+
+      const checks = readJsonFile(selectionsPath)
+      expect(checks?.length)
+
+      const alignedGlBook = alignedGlBible[bookId]
+      getSelectionsForBook(checks, alignedGlBook, selectionsForWord)
+    }
+    const keys = Object.keys(selectionsForWord)
+    expect(keys.length)
+  });
+
+  test(`read tWl from projectFolder`, () => {
+
+    /////////////////////
+    // get gateway language bible
+    const enUltFolder = '/Users/blm0/translationCore/resources/en/bibles/ult/v89_unfoldingWord'
+    const alignedGlBible = readHelpsFolder(enUltFolder)
+
+    const projectSaveLocation = projectFolder;
+    const toolName = 'translationWords';
+    const toolTerm = 'faith';
+
+    const parsed = path.parse(projectSaveLocation);
+    const projectName = parsed.base;
+    const projectsFolder = parsed.dir;
+
+    const {
+      bookId,
+      languageId,
+      resourceId,
+    } = getDetailsFromProjectNameMini(projectName)
+
+    const projectPath = projectSaveLocation;
+
+    //    '.apps/translationCore/index/translationWords/gal/faith.json'
+    const selectionsPath = path.join(projectPath, `.apps/translationCore/index/${toolName}/${bookId}/${toolTerm}.json`)
+
+    const checks = readJsonFile(selectionsPath)
+    expect(checks?.length)
+
+    const alignedGlBook = alignedGlBible[bookId]
+    const selectionsForWord = {}
+    getSelectionsForBook(checks, alignedGlBook, selectionsForWord)
+    const keys = Object.keys(selectionsForWord)
+    expect(keys.length)
+  });
+
   test(`read tA`, () => {
     const filePath = enTaFolder
     const data = readHelpsFolder(filePath)

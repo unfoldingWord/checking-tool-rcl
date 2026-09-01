@@ -1,19 +1,20 @@
 import fs from 'fs-extra'
 import path from 'path'
+import { isBibleBookId } from '../common/BooksOfTheBible'
 
-function readJsonFile(jsonPath) {
+export function readJsonFile(jsonPath) {
   if (fs.existsSync(jsonPath)) {
     try {
       const resourceManifest = fs.readJsonSync(jsonPath);
       return resourceManifest;
     } catch (e) {
-      console.error(`getLocalResourceList(): could not read ${jsonPath}`, e);
+      console.error(`readJsonFile(): could not read ${jsonPath}`, e);
     }
   }
   return null;
 }
 
-function isDirectory(fullPath) {
+export function isDirectory(fullPath) {
   return fs.lstatSync(fullPath).isDirectory()
 }
 
@@ -52,4 +53,31 @@ export function readHelpsFolder(folderPath, filterBook = '') {
     }
   }
   return contents
+}
+
+export function getDetailsFromProjectNameMini(projectName) {
+  let bookId = '';
+  let languageId = '';
+  let resourceId = '';
+
+  if (projectName) {
+    const parts = projectName.split('_');
+    languageId = parts[0];
+    resourceId = (parts?.length >= 4) ? parts[1] : '';
+
+    // we can have a bunch of old formats (e.g. en_act, aaw_php_text_reg) and new format (en_ult_tit_book)
+    for (let i = 1; i < parts.length; i++) { // iteratively try the fields to see if valid book ids
+      const possibleBookId = parts[i].toLowerCase();
+
+      if (isBibleBookId(possibleBookId)) {
+        bookId = possibleBookId;
+        break;
+      }
+    }
+  }
+  return {
+    bookId,
+    languageId,
+    resourceId,
+  };
 }

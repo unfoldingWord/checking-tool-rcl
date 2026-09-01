@@ -1,6 +1,7 @@
 /* eslint-env jest */
 import Lexer from 'wordmap-lexer'
 import { normalizer } from 'string-punctuation-tokenizer'
+import { getAlignedGLText } from '../helpers/translationHelps/twArticleHelpers'
 
 jest.unmock('fs-extra');
 
@@ -1499,3 +1500,40 @@ export function selectionsToString(selections) {
   const selectionWords = selections.map( selection => (selection.text))
   return selectionWords.join(' ')
 }
+
+export function getSelectionsForBook(checks, alignedGlBook, selectionsForWord) {
+  for (const check of checks) {
+    const contextId = check?.contextId
+    const selectionsForCheck = check?.selections
+    if (selectionsForCheck && contextId) {
+      let glQuote = null
+      if (!glQuote) {
+        // need quote
+        let glText = getAlignedGLText(alignedGlBook, contextId)
+        // console.log(glText);
+        if (glText) {
+          glText = removePunctuation(glText)
+          glQuote = glText
+        }
+      }
+
+      if (glQuote && selectionsForCheck) {
+        const selectedText = selectionsForCheck?.map(word => word?.text)?.join(' ')
+
+        let glQuoteMatches = selectionsForWord[glQuote]
+        if (!glQuoteMatches) {
+          glQuoteMatches = {}
+          selectionsForWord[glQuote] = glQuoteMatches
+        }
+        let selectedTextCount = glQuoteMatches[selectedText]
+        if (!selectedTextCount) {
+          glQuoteMatches[selectedText] = 1
+        } else {
+          glQuoteMatches[selectedText]++
+        }
+      }
+    }
+  }
+  return selectionsForWord
+}
+
